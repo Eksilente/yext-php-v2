@@ -96,17 +96,17 @@ class InlineResponse2001ResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "count"
+     * Test attribute "standard_max_date"
      */
-    public function testPropertyCount()
+    public function testPropertyStandardMaxDate()
     {
 
     }
 
     /**
-     * Test attribute "folders"
+     * Test attribute "bing_max_date"
      */
-    public function testPropertyFolders()
+    public function testPropertyBingMaxDate()
     {
 
     }

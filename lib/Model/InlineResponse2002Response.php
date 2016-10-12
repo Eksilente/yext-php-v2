@@ -66,8 +66,8 @@ class InlineResponse2002Response implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'count' => 'int',
-        'locations' => '\Yext\Client\Model\Location[]'
+        'data' => 'map[string,string][]',
+        'id' => 'int'
     );
 
     public static function swaggerTypes()
@@ -80,8 +80,8 @@ class InlineResponse2002Response implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'count' => 'count',
-        'locations' => 'locations'
+        'data' => 'data',
+        'id' => 'id'
     );
 
     public static function attributeMap()
@@ -94,8 +94,8 @@ class InlineResponse2002Response implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'count' => 'setCount',
-        'locations' => 'setLocations'
+        'data' => 'setData',
+        'id' => 'setId'
     );
 
     public static function setters()
@@ -108,8 +108,8 @@ class InlineResponse2002Response implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'count' => 'getCount',
-        'locations' => 'getLocations'
+        'data' => 'getData',
+        'id' => 'getId'
     );
 
     public static function getters()
@@ -133,8 +133,8 @@ class InlineResponse2002Response implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['count'] = isset($data['count']) ? $data['count'] : null;
-        $this->container['locations'] = isset($data['locations']) ? $data['locations'] : null;
+        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
     }
 
     /**
@@ -161,43 +161,43 @@ class InlineResponse2002Response implements ArrayAccess
 
 
     /**
-     * Gets count
-     * @return int
+     * Gets data
+     * @return map[string,string][]
      */
-    public function getCount()
+    public function getData()
     {
-        return $this->container['count'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets count
-     * @param int $count Total number of Locations that meet filter criteria (ignores limit / offset)
+     * Sets data
+     * @param map[string,string][] $data Array with the contents of the report, as specified in the request. This is returned for a synchronous request
      * @return $this
      */
-    public function setCount($count)
+    public function setData($data)
     {
-        $this->container['count'] = $count;
+        $this->container['data'] = $data;
 
         return $this;
     }
 
     /**
-     * Gets locations
-     * @return \Yext\Client\Model\Location[]
+     * Gets id
+     * @return int
      */
-    public function getLocations()
+    public function getId()
     {
-        return $this->container['locations'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets locations
-     * @param \Yext\Client\Model\Location[] $locations
+     * Sets id
+     * @param int $id the ID of the report. This is returned for an asynchronous request
      * @return $this
      */
-    public function setLocations($locations)
+    public function setId($id)
     {
-        $this->container['locations'] = $locations;
+        $this->container['id'] = $id;
 
         return $this;
     }

@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **getPublisherSuggestion**
-> \Yext\Client\Model\InlineResponse2006 getPublisherSuggestion($account_id, $v, $suggestion_id)
+> \Yext\Client\Model\InlineResponse20010 getPublisherSuggestion($account_id, $v, $suggestion_id)
 
 Publisher Suggestions: Get
 
@@ -54,7 +54,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse2006**](../Model/InlineResponse2006.md)
+[**\Yext\Client\Model\InlineResponse20010**](../Model/InlineResponse20010.md)
 
 ### Authorization
 
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listListings**
-> \Yext\Client\Model\InlineResponse2003 listListings($account_id, $v, $limit, $offset, $location_ids, $publisher_ids)
+> \Yext\Client\Model\InlineResponse2007 listListings($account_id, $v, $limit, $offset, $location_ids, $publisher_ids)
 
 Listings: List
 
@@ -88,7 +88,7 @@ $api_instance = new Yext\Client\Api\ListingsApi();
 $account_id = "account_id_example"; // string | 
 $v = "v_example"; // string | A date in `YYYYMMDD` format
 $limit = 20; // int | Number of results to return
-$offset = "0"; // string | Number of results to skip. Used to page through results
+$offset = 0; // int | Number of results to skip. Used to page through results
 $location_ids = array("location_ids_example"); // string[] | Defaults to all account locations with a PowerListings subscription  **Example:** loc123,loc456,loc789
 $publisher_ids = array("publisher_ids_example"); // string[] | Defaults to all publishers subscribed by account  **Example:** MAPQUEST,YELP
 
@@ -108,13 +108,13 @@ Name | Type | Description  | Notes
  **account_id** | **string**|  |
  **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format |
  **limit** | **int**| Number of results to return | [optional] [default to 20]
- **offset** | **string**| Number of results to skip. Used to page through results | [optional] [default to 0]
+ **offset** | **int**| Number of results to skip. Used to page through results | [optional] [default to 0]
  **location_ids** | [**string[]**](../Model/string.md)| Defaults to all account locations with a PowerListings subscription  **Example:** loc123,loc456,loc789 | [optional]
  **publisher_ids** | [**string[]**](../Model/string.md)| Defaults to all publishers subscribed by account  **Example:** MAPQUEST,YELP | [optional]
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse2003**](../Model/InlineResponse2003.md)
+[**\Yext\Client\Model\InlineResponse2007**](../Model/InlineResponse2007.md)
 
 ### Authorization
 
@@ -128,7 +128,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listPublisherSuggestions**
-> \Yext\Client\Model\InlineResponse2005 listPublisherSuggestions($account_id, $v, $limit, $offset, $location_ids, $publisher_ids, $statuses)
+> \Yext\Client\Model\InlineResponse2009 listPublisherSuggestions($account_id, $v, $limit, $offset, $location_ids, $publisher_ids, $statuses)
 
 Publisher Suggestions: List
 
@@ -148,7 +148,7 @@ $api_instance = new Yext\Client\Api\ListingsApi();
 $account_id = "account_id_example"; // string | 
 $v = "v_example"; // string | A date in `YYYYMMDD` format
 $limit = 10; // int | Number of results to return
-$offset = "0"; // string | Number of results to skip. Used to page through results
+$offset = 0; // int | Number of results to skip. Used to page through results
 $location_ids = array("location_ids_example"); // string[] | Defaults to all account locations with a PowerListings subscription  **Example:** loc123,loc456,loc789
 $publisher_ids = array("publisher_ids_example"); // string[] | Defaults to all publishers subscribed by account  **Example:** MAPQUEST,YELP
 $statuses = array("statuses_example"); // string[] | When specified, only Publisher Suggestions with the provided statuses will be returned  **Example:** PENDING,EXPIRED
@@ -169,14 +169,14 @@ Name | Type | Description  | Notes
  **account_id** | **string**|  |
  **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format |
  **limit** | **int**| Number of results to return | [optional] [default to 10]
- **offset** | **string**| Number of results to skip. Used to page through results | [optional] [default to 0]
+ **offset** | **int**| Number of results to skip. Used to page through results | [optional] [default to 0]
  **location_ids** | [**string[]**](../Model/string.md)| Defaults to all account locations with a PowerListings subscription  **Example:** loc123,loc456,loc789 | [optional]
  **publisher_ids** | [**string[]**](../Model/string.md)| Defaults to all publishers subscribed by account  **Example:** MAPQUEST,YELP | [optional]
  **statuses** | [**string[]**](../Model/string.md)| When specified, only Publisher Suggestions with the provided statuses will be returned  **Example:** PENDING,EXPIRED | [optional]
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse2005**](../Model/InlineResponse2005.md)
+[**\Yext\Client\Model\InlineResponse2009**](../Model/InlineResponse2009.md)
 
 ### Authorization
 
@@ -190,7 +190,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listPublishers**
-> \Yext\Client\Model\InlineResponse2004 listPublishers($account_id, $v, $subset)
+> \Yext\Client\Model\InlineResponse2008 listPublishers($account_id, $v, $subset)
 
 Publishers: List
 
@@ -230,7 +230,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse2004**](../Model/InlineResponse2004.md)
+[**\Yext\Client\Model\InlineResponse2008**](../Model/InlineResponse2008.md)
 
 ### Authorization
 

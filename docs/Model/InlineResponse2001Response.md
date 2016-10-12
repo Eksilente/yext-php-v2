@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **int** | Total number of Location Folders in the Account | [optional] 
-**folders** | [**\Yext\Client\Model\Folder[]**](Folder.md) |  | [optional] 
+**standard_max_date** | [**\DateTime**](Date.md) | The date through which reporting data is available from PowerListings publishers other than Bing. | [optional] 
+**bing_max_date** | [**\DateTime**](Date.md) | The date through which Bing data is available. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

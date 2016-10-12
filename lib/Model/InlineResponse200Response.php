@@ -67,7 +67,7 @@ class InlineResponse200Response implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'count' => 'int',
-        'custom_fields' => '\Yext\Client\Model\CustomField[]'
+        'activities' => '\Yext\Client\Model\Activity[]'
     );
 
     public static function swaggerTypes()
@@ -81,7 +81,7 @@ class InlineResponse200Response implements ArrayAccess
      */
     protected static $attributeMap = array(
         'count' => 'count',
-        'custom_fields' => 'customFields'
+        'activities' => 'activities'
     );
 
     public static function attributeMap()
@@ -95,7 +95,7 @@ class InlineResponse200Response implements ArrayAccess
      */
     protected static $setters = array(
         'count' => 'setCount',
-        'custom_fields' => 'setCustomFields'
+        'activities' => 'setActivities'
     );
 
     public static function setters()
@@ -109,7 +109,7 @@ class InlineResponse200Response implements ArrayAccess
      */
     protected static $getters = array(
         'count' => 'getCount',
-        'custom_fields' => 'getCustomFields'
+        'activities' => 'getActivities'
     );
 
     public static function getters()
@@ -134,7 +134,7 @@ class InlineResponse200Response implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['count'] = isset($data['count']) ? $data['count'] : null;
-        $this->container['custom_fields'] = isset($data['custom_fields']) ? $data['custom_fields'] : null;
+        $this->container['activities'] = isset($data['activities']) ? $data['activities'] : null;
     }
 
     /**
@@ -171,7 +171,7 @@ class InlineResponse200Response implements ArrayAccess
 
     /**
      * Sets count
-     * @param int $count Total number of Custom Fields in the account
+     * @param int $count Total number of activities that meet the filter criteria (ignores limit / offset)
      * @return $this
      */
     public function setCount($count)
@@ -182,22 +182,22 @@ class InlineResponse200Response implements ArrayAccess
     }
 
     /**
-     * Gets custom_fields
-     * @return \Yext\Client\Model\CustomField[]
+     * Gets activities
+     * @return \Yext\Client\Model\Activity[]
      */
-    public function getCustomFields()
+    public function getActivities()
     {
-        return $this->container['custom_fields'];
+        return $this->container['activities'];
     }
 
     /**
-     * Sets custom_fields
-     * @param \Yext\Client\Model\CustomField[] $custom_fields
+     * Sets activities
+     * @param \Yext\Client\Model\Activity[] $activities
      * @return $this
      */
-    public function setCustomFields($custom_fields)
+    public function setActivities($activities)
     {
-        $this->container['custom_fields'] = $custom_fields;
+        $this->container['activities'] = $activities;
 
         return $this;
     }

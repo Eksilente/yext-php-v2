@@ -67,7 +67,7 @@ class InlineResponse2005Response implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'count' => 'int',
-        'suggestions' => '\Yext\Client\Model\PublisherSuggestion[]'
+        'folders' => '\Yext\Client\Model\Folder[]'
     );
 
     public static function swaggerTypes()
@@ -81,7 +81,7 @@ class InlineResponse2005Response implements ArrayAccess
      */
     protected static $attributeMap = array(
         'count' => 'count',
-        'suggestions' => 'suggestions'
+        'folders' => 'folders'
     );
 
     public static function attributeMap()
@@ -95,7 +95,7 @@ class InlineResponse2005Response implements ArrayAccess
      */
     protected static $setters = array(
         'count' => 'setCount',
-        'suggestions' => 'setSuggestions'
+        'folders' => 'setFolders'
     );
 
     public static function setters()
@@ -109,7 +109,7 @@ class InlineResponse2005Response implements ArrayAccess
      */
     protected static $getters = array(
         'count' => 'getCount',
-        'suggestions' => 'getSuggestions'
+        'folders' => 'getFolders'
     );
 
     public static function getters()
@@ -134,7 +134,7 @@ class InlineResponse2005Response implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['count'] = isset($data['count']) ? $data['count'] : null;
-        $this->container['suggestions'] = isset($data['suggestions']) ? $data['suggestions'] : null;
+        $this->container['folders'] = isset($data['folders']) ? $data['folders'] : null;
     }
 
     /**
@@ -171,7 +171,7 @@ class InlineResponse2005Response implements ArrayAccess
 
     /**
      * Sets count
-     * @param int $count Total number of Publisher Suggestions that meet filter criteria (ignores limit/offset)
+     * @param int $count Total number of Location Folders in the Account
      * @return $this
      */
     public function setCount($count)
@@ -182,22 +182,22 @@ class InlineResponse2005Response implements ArrayAccess
     }
 
     /**
-     * Gets suggestions
-     * @return \Yext\Client\Model\PublisherSuggestion[]
+     * Gets folders
+     * @return \Yext\Client\Model\Folder[]
      */
-    public function getSuggestions()
+    public function getFolders()
     {
-        return $this->container['suggestions'];
+        return $this->container['folders'];
     }
 
     /**
-     * Sets suggestions
-     * @param \Yext\Client\Model\PublisherSuggestion[] $suggestions
+     * Sets folders
+     * @param \Yext\Client\Model\Folder[] $folders
      * @return $this
      */
-    public function setSuggestions($suggestions)
+    public function setFolders($folders)
     {
-        $this->container['suggestions'] = $suggestions;
+        $this->container['folders'] = $folders;
 
         return $this;
     }

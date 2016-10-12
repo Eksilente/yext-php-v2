@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getBusinessCategories**
-> \Yext\Client\Model\InlineResponse2007 getBusinessCategories($v, $language, $country)
+> \Yext\Client\Model\InlineResponse20013 getBusinessCategories($v, $language, $country)
 
 Categories: List
 
@@ -87,8 +87,8 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 
 $api_instance = new Yext\Client\Api\LocationsApi();
 $v = "v_example"; // string | A date in `YYYYMMDD` format
-$language = "en"; // string | Only categories that apply to this language will be returned.
-$country = "us"; // string | Only categories that apply in this country will be returned.
+$language = "en"; // string | Only categories that apply to this language will be returned.  **Example:** en
+$country = "US"; // string | Only categories that apply in this country will be returned.  **Example:** US
 
 try {
     $result = $api_instance->getBusinessCategories($v, $language, $country);
@@ -104,12 +104,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format |
- **language** | **string**| Only categories that apply to this language will be returned. | [optional] [default to en]
- **country** | **string**| Only categories that apply in this country will be returned. | [optional] [default to us]
+ **language** | **string**| Only categories that apply to this language will be returned.  **Example:** en | [optional] [default to en]
+ **country** | **string**| Only categories that apply in this country will be returned.  **Example:** US | [optional] [default to US]
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse2007**](../Model/InlineResponse2007.md)
+[**\Yext\Client\Model\InlineResponse20013**](../Model/InlineResponse20013.md)
 
 ### Authorization
 
@@ -123,7 +123,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getCustomFields**
-> \Yext\Client\Model\InlineResponse200 getCustomFields($v, $account_id, $offset, $limit)
+> \Yext\Client\Model\InlineResponse2004 getCustomFields($v, $account_id, $offset, $limit)
 
 Custom Fields: List
 
@@ -142,7 +142,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 $api_instance = new Yext\Client\Api\LocationsApi();
 $v = "v_example"; // string | A date in `YYYYMMDD` format
 $account_id = "account_id_example"; // string | 
-$offset = "0"; // string | Number of results to skip. Used to page through results
+$offset = 0; // int | Number of results to skip. Used to page through results
 $limit = 100; // int | Number of results to return
 
 try {
@@ -160,12 +160,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format |
  **account_id** | **string**|  |
- **offset** | **string**| Number of results to skip. Used to page through results | [optional] [default to 0]
+ **offset** | **int**| Number of results to skip. Used to page through results | [optional] [default to 0]
  **limit** | **int**| Number of results to return | [optional] [default to 100]
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse200**](../Model/InlineResponse200.md)
+[**\Yext\Client\Model\InlineResponse2004**](../Model/InlineResponse2004.md)
 
 ### Authorization
 
@@ -179,7 +179,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getGoogleKeywords**
-> \Yext\Client\Model\InlineResponse2008 getGoogleKeywords($v)
+> \Yext\Client\Model\InlineResponse20014 getGoogleKeywords($v)
 
 Google Fields: List
 
@@ -215,7 +215,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse2008**](../Model/InlineResponse2008.md)
+[**\Yext\Client\Model\InlineResponse20014**](../Model/InlineResponse20014.md)
 
 ### Authorization
 
@@ -283,7 +283,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getLocationFolders**
-> \Yext\Client\Model\InlineResponse2001 getLocationFolders($account_id, $v, $offset, $limit)
+> \Yext\Client\Model\InlineResponse2005 getLocationFolders($account_id, $v, $offset, $limit)
 
 Folders: List
 
@@ -302,7 +302,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 $api_instance = new Yext\Client\Api\LocationsApi();
 $account_id = "account_id_example"; // string | 
 $v = "v_example"; // string | A date in `YYYYMMDD` format
-$offset = "0"; // string | Number of results to skip. Used to page through results
+$offset = 0; // int | Number of results to skip. Used to page through results
 $limit = 100; // int | Number of results to return
 
 try {
@@ -320,12 +320,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
  **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format |
- **offset** | **string**| Number of results to skip. Used to page through results | [optional] [default to 0]
+ **offset** | **int**| Number of results to skip. Used to page through results | [optional] [default to 0]
  **limit** | **int**| Number of results to return | [optional] [default to 100]
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\Yext\Client\Model\InlineResponse2005**](../Model/InlineResponse2005.md)
 
 ### Authorization
 
@@ -339,7 +339,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getLocations**
-> \Yext\Client\Model\InlineResponse2002 getLocations($account_id, $v, $limit, $offset)
+> \Yext\Client\Model\InlineResponse2006 getLocations($account_id, $v, $limit, $offset)
 
 Locations: List
 
@@ -359,7 +359,7 @@ $api_instance = new Yext\Client\Api\LocationsApi();
 $account_id = "account_id_example"; // string | 
 $v = "v_example"; // string | A date in `YYYYMMDD` format
 $limit = 10; // int | Number of results to return
-$offset = "0"; // string | Number of results to skip. Used to page through results
+$offset = 0; // int | Number of results to skip. Used to page through results
 
 try {
     $result = $api_instance->getLocations($account_id, $v, $limit, $offset);
@@ -377,11 +377,11 @@ Name | Type | Description  | Notes
  **account_id** | **string**|  |
  **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format |
  **limit** | **int**| Number of results to return | [optional] [default to 10]
- **offset** | **string**| Number of results to skip. Used to page through results | [optional] [default to 0]
+ **offset** | **int**| Number of results to skip. Used to page through results | [optional] [default to 0]
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse2002**](../Model/InlineResponse2002.md)
+[**\Yext\Client\Model\InlineResponse2006**](../Model/InlineResponse2006.md)
 
 ### Authorization
 

@@ -110,7 +110,7 @@ class ListingsApi
      * @param string $account_id  (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
      * @param string $suggestion_id  (required)
-     * @return \Yext\Client\Model\InlineResponse2006
+     * @return \Yext\Client\Model\InlineResponse20010
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function getPublisherSuggestion($account_id, $v, $suggestion_id)
@@ -127,7 +127,7 @@ class ListingsApi
      * @param string $account_id  (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
      * @param string $suggestion_id  (required)
-     * @return Array of \Yext\Client\Model\InlineResponse2006, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \Yext\Client\Model\InlineResponse20010, HTTP status code, HTTP response headers (array of strings)
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function getPublisherSuggestionWithHttpInfo($account_id, $v, $suggestion_id)
@@ -199,15 +199,15 @@ class ListingsApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\InlineResponse2006',
+                '\Yext\Client\Model\InlineResponse20010',
                 '/accounts/{accountId}/powerlistings/publishersuggestions/{suggestionId}'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse2006', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse20010', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse2006', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse20010', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -228,10 +228,10 @@ class ListingsApi
      * @param string $account_id  (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
      * @param int $limit Number of results to return (optional, default to 20)
-     * @param string $offset Number of results to skip. Used to page through results (optional, default to 0)
+     * @param int $offset Number of results to skip. Used to page through results (optional, default to 0)
      * @param string[] $location_ids Defaults to all account locations with a PowerListings subscription  **Example:** loc123,loc456,loc789 (optional)
      * @param string[] $publisher_ids Defaults to all publishers subscribed by account  **Example:** MAPQUEST,YELP (optional)
-     * @return \Yext\Client\Model\InlineResponse2003
+     * @return \Yext\Client\Model\InlineResponse2007
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function listListings($account_id, $v, $limit = null, $offset = null, $location_ids = null, $publisher_ids = null)
@@ -248,10 +248,10 @@ class ListingsApi
      * @param string $account_id  (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
      * @param int $limit Number of results to return (optional, default to 20)
-     * @param string $offset Number of results to skip. Used to page through results (optional, default to 0)
+     * @param int $offset Number of results to skip. Used to page through results (optional, default to 0)
      * @param string[] $location_ids Defaults to all account locations with a PowerListings subscription  **Example:** loc123,loc456,loc789 (optional)
      * @param string[] $publisher_ids Defaults to all publishers subscribed by account  **Example:** MAPQUEST,YELP (optional)
-     * @return Array of \Yext\Client\Model\InlineResponse2003, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \Yext\Client\Model\InlineResponse2007, HTTP status code, HTTP response headers (array of strings)
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function listListingsWithHttpInfo($account_id, $v, $limit = null, $offset = null, $location_ids = null, $publisher_ids = null)
@@ -337,15 +337,15 @@ class ListingsApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\InlineResponse2003',
+                '\Yext\Client\Model\InlineResponse2007',
                 '/accounts/{accountId}/powerlistings/listings'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse2003', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse2007', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse2003', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse2007', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -366,11 +366,11 @@ class ListingsApi
      * @param string $account_id  (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
      * @param int $limit Number of results to return (optional, default to 10)
-     * @param string $offset Number of results to skip. Used to page through results (optional, default to 0)
+     * @param int $offset Number of results to skip. Used to page through results (optional, default to 0)
      * @param string[] $location_ids Defaults to all account locations with a PowerListings subscription  **Example:** loc123,loc456,loc789 (optional)
      * @param string[] $publisher_ids Defaults to all publishers subscribed by account  **Example:** MAPQUEST,YELP (optional)
      * @param string[] $statuses When specified, only Publisher Suggestions with the provided statuses will be returned  **Example:** PENDING,EXPIRED (optional)
-     * @return \Yext\Client\Model\InlineResponse2005
+     * @return \Yext\Client\Model\InlineResponse2009
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function listPublisherSuggestions($account_id, $v, $limit = null, $offset = null, $location_ids = null, $publisher_ids = null, $statuses = null)
@@ -387,11 +387,11 @@ class ListingsApi
      * @param string $account_id  (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
      * @param int $limit Number of results to return (optional, default to 10)
-     * @param string $offset Number of results to skip. Used to page through results (optional, default to 0)
+     * @param int $offset Number of results to skip. Used to page through results (optional, default to 0)
      * @param string[] $location_ids Defaults to all account locations with a PowerListings subscription  **Example:** loc123,loc456,loc789 (optional)
      * @param string[] $publisher_ids Defaults to all publishers subscribed by account  **Example:** MAPQUEST,YELP (optional)
      * @param string[] $statuses When specified, only Publisher Suggestions with the provided statuses will be returned  **Example:** PENDING,EXPIRED (optional)
-     * @return Array of \Yext\Client\Model\InlineResponse2005, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \Yext\Client\Model\InlineResponse2009, HTTP status code, HTTP response headers (array of strings)
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function listPublisherSuggestionsWithHttpInfo($account_id, $v, $limit = null, $offset = null, $location_ids = null, $publisher_ids = null, $statuses = null)
@@ -484,15 +484,15 @@ class ListingsApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\InlineResponse2005',
+                '\Yext\Client\Model\InlineResponse2009',
                 '/accounts/{accountId}/powerlistings/publishersuggestions'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse2005', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse2009', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse2005', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse2009', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -513,7 +513,7 @@ class ListingsApi
      * @param string $account_id  (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
      * @param string $subset **ALL** - return all publishers  **RELEVANT_ONLY** - only return publishers relevant to the account based on supported countries and location types (optional, default to RELEVANT_ONLY)
-     * @return \Yext\Client\Model\InlineResponse2004
+     * @return \Yext\Client\Model\InlineResponse2008
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function listPublishers($account_id, $v, $subset = null)
@@ -530,7 +530,7 @@ class ListingsApi
      * @param string $account_id  (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
      * @param string $subset **ALL** - return all publishers  **RELEVANT_ONLY** - only return publishers relevant to the account based on supported countries and location types (optional, default to RELEVANT_ONLY)
-     * @return Array of \Yext\Client\Model\InlineResponse2004, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \Yext\Client\Model\InlineResponse2008, HTTP status code, HTTP response headers (array of strings)
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function listPublishersWithHttpInfo($account_id, $v, $subset = null)
@@ -594,15 +594,15 @@ class ListingsApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\InlineResponse2004',
+                '\Yext\Client\Model\InlineResponse2008',
                 '/accounts/{accountId}/powerlistings/publishers'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse2004', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse2008', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse2004', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse2008', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:

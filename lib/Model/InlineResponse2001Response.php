@@ -66,8 +66,8 @@ class InlineResponse2001Response implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'count' => 'int',
-        'folders' => '\Yext\Client\Model\Folder[]'
+        'standard_max_date' => '\DateTime',
+        'bing_max_date' => '\DateTime'
     );
 
     public static function swaggerTypes()
@@ -80,8 +80,8 @@ class InlineResponse2001Response implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'count' => 'count',
-        'folders' => 'folders'
+        'standard_max_date' => 'standardMaxDate',
+        'bing_max_date' => 'bingMaxDate'
     );
 
     public static function attributeMap()
@@ -94,8 +94,8 @@ class InlineResponse2001Response implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'count' => 'setCount',
-        'folders' => 'setFolders'
+        'standard_max_date' => 'setStandardMaxDate',
+        'bing_max_date' => 'setBingMaxDate'
     );
 
     public static function setters()
@@ -108,8 +108,8 @@ class InlineResponse2001Response implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'count' => 'getCount',
-        'folders' => 'getFolders'
+        'standard_max_date' => 'getStandardMaxDate',
+        'bing_max_date' => 'getBingMaxDate'
     );
 
     public static function getters()
@@ -133,8 +133,8 @@ class InlineResponse2001Response implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['count'] = isset($data['count']) ? $data['count'] : null;
-        $this->container['folders'] = isset($data['folders']) ? $data['folders'] : null;
+        $this->container['standard_max_date'] = isset($data['standard_max_date']) ? $data['standard_max_date'] : null;
+        $this->container['bing_max_date'] = isset($data['bing_max_date']) ? $data['bing_max_date'] : null;
     }
 
     /**
@@ -161,43 +161,43 @@ class InlineResponse2001Response implements ArrayAccess
 
 
     /**
-     * Gets count
-     * @return int
+     * Gets standard_max_date
+     * @return \DateTime
      */
-    public function getCount()
+    public function getStandardMaxDate()
     {
-        return $this->container['count'];
+        return $this->container['standard_max_date'];
     }
 
     /**
-     * Sets count
-     * @param int $count Total number of Location Folders in the Account
+     * Sets standard_max_date
+     * @param \DateTime $standard_max_date The date through which reporting data is available from PowerListings publishers other than Bing.
      * @return $this
      */
-    public function setCount($count)
+    public function setStandardMaxDate($standard_max_date)
     {
-        $this->container['count'] = $count;
+        $this->container['standard_max_date'] = $standard_max_date;
 
         return $this;
     }
 
     /**
-     * Gets folders
-     * @return \Yext\Client\Model\Folder[]
+     * Gets bing_max_date
+     * @return \DateTime
      */
-    public function getFolders()
+    public function getBingMaxDate()
     {
-        return $this->container['folders'];
+        return $this->container['bing_max_date'];
     }
 
     /**
-     * Sets folders
-     * @param \Yext\Client\Model\Folder[] $folders
+     * Sets bing_max_date
+     * @param \DateTime $bing_max_date The date through which Bing data is available.
      * @return $this
      */
-    public function setFolders($folders)
+    public function setBingMaxDate($bing_max_date)
     {
-        $this->container['folders'] = $folders;
+        $this->container['bing_max_date'] = $bing_max_date;
 
         return $this;
     }

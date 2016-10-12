@@ -66,8 +66,8 @@ class InlineResponse2003Response implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'count' => 'int',
-        'listings' => '\Yext\Client\Model\Listing[]'
+        'status' => 'string',
+        'url' => 'string'
     );
 
     public static function swaggerTypes()
@@ -80,8 +80,8 @@ class InlineResponse2003Response implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'count' => 'count',
-        'listings' => 'listings'
+        'status' => 'status',
+        'url' => 'url'
     );
 
     public static function attributeMap()
@@ -94,8 +94,8 @@ class InlineResponse2003Response implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'count' => 'setCount',
-        'listings' => 'setListings'
+        'status' => 'setStatus',
+        'url' => 'setUrl'
     );
 
     public static function setters()
@@ -108,8 +108,8 @@ class InlineResponse2003Response implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'count' => 'getCount',
-        'listings' => 'getListings'
+        'status' => 'getStatus',
+        'url' => 'getUrl'
     );
 
     public static function getters()
@@ -117,8 +117,24 @@ class InlineResponse2003Response implements ArrayAccess
         return self::$getters;
     }
 
+    const STATUS_PROCESSING = 'PROCESSING';
+    const STATUS_DONE = 'DONE';
+    const STATUS_FAILED = 'FAILED';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getStatusAllowableValues()
+    {
+        return [
+            self::STATUS_PROCESSING,
+            self::STATUS_DONE,
+            self::STATUS_FAILED,
+        ];
+    }
     
 
     /**
@@ -133,8 +149,8 @@ class InlineResponse2003Response implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['count'] = isset($data['count']) ? $data['count'] : null;
-        $this->container['listings'] = isset($data['listings']) ? $data['listings'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
     }
 
     /**
@@ -145,6 +161,10 @@ class InlineResponse2003Response implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        $allowed_values = array("PROCESSING", "DONE", "FAILED");
+        if (!in_array($this->container['status'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'status', must be one of #{allowed_values}.";
+        }
         return $invalid_properties;
     }
 
@@ -156,48 +176,56 @@ class InlineResponse2003Response implements ArrayAccess
      */
     public function valid()
     {
+        $allowed_values = array("PROCESSING", "DONE", "FAILED");
+        if (!in_array($this->container['status'], $allowed_values)) {
+            return false;
+        }
         return true;
     }
 
 
     /**
-     * Gets count
-     * @return int
+     * Gets status
+     * @return string
      */
-    public function getCount()
+    public function getStatus()
     {
-        return $this->container['count'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets count
-     * @param int $count Total number of Listings that meet filter criteria (ignores limit/offset)
+     * Sets status
+     * @param string $status
      * @return $this
      */
-    public function setCount($count)
+    public function setStatus($status)
     {
-        $this->container['count'] = $count;
+        $allowed_values = array('PROCESSING', 'DONE', 'FAILED');
+        if (!in_array($status, $allowed_values)) {
+            throw new \InvalidArgumentException("Invalid value for 'status', must be one of 'PROCESSING', 'DONE', 'FAILED'");
+        }
+        $this->container['status'] = $status;
 
         return $this;
     }
 
     /**
-     * Gets listings
-     * @return \Yext\Client\Model\Listing[]
+     * Gets url
+     * @return string
      */
-    public function getListings()
+    public function getUrl()
     {
-        return $this->container['listings'];
+        return $this->container['url'];
     }
 
     /**
-     * Sets listings
-     * @param \Yext\Client\Model\Listing[] $listings
+     * Sets url
+     * @param string $url When status=DONE, contains the URL to download the report data as a text file.
      * @return $this
      */
-    public function setListings($listings)
+    public function setUrl($url)
     {
-        $this->container['listings'] = $listings;
+        $this->container['url'] = $url;
 
         return $this;
     }

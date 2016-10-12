@@ -96,9 +96,17 @@ class InlineResponse2007ResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "categories"
+     * Test attribute "count"
      */
-    public function testPropertyCategories()
+    public function testPropertyCount()
+    {
+
+    }
+
+    /**
+     * Test attribute "listings"
+     */
+    public function testPropertyListings()
     {
 
     }

@@ -304,7 +304,7 @@ class Publisher implements ArrayAccess
 
     /**
      * Sets supported_countries
-     * @param string[] $supported_countries List of countries where this Publisher publishes listings. Countries are donated by ISO 3166 2-letter country codes
+     * @param string[] $supported_countries List of countries where this Publisher publishes listings. Countries are denoted by ISO 3166 2-letter country codes
      * @return $this
      */
     public function setSupportedCountries($supported_countries)

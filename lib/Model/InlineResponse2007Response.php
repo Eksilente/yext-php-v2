@@ -66,7 +66,8 @@ class InlineResponse2007Response implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'categories' => '\Yext\Client\Model\Category[]'
+        'count' => 'int',
+        'listings' => '\Yext\Client\Model\Listing[]'
     );
 
     public static function swaggerTypes()
@@ -79,7 +80,8 @@ class InlineResponse2007Response implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'categories' => 'categories'
+        'count' => 'count',
+        'listings' => 'listings'
     );
 
     public static function attributeMap()
@@ -92,7 +94,8 @@ class InlineResponse2007Response implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'categories' => 'setCategories'
+        'count' => 'setCount',
+        'listings' => 'setListings'
     );
 
     public static function setters()
@@ -105,7 +108,8 @@ class InlineResponse2007Response implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'categories' => 'getCategories'
+        'count' => 'getCount',
+        'listings' => 'getListings'
     );
 
     public static function getters()
@@ -129,7 +133,8 @@ class InlineResponse2007Response implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['categories'] = isset($data['categories']) ? $data['categories'] : null;
+        $this->container['count'] = isset($data['count']) ? $data['count'] : null;
+        $this->container['listings'] = isset($data['listings']) ? $data['listings'] : null;
     }
 
     /**
@@ -156,22 +161,43 @@ class InlineResponse2007Response implements ArrayAccess
 
 
     /**
-     * Gets categories
-     * @return \Yext\Client\Model\Category[]
+     * Gets count
+     * @return int
      */
-    public function getCategories()
+    public function getCount()
     {
-        return $this->container['categories'];
+        return $this->container['count'];
     }
 
     /**
-     * Sets categories
-     * @param \Yext\Client\Model\Category[] $categories List of Categories
+     * Sets count
+     * @param int $count Total number of Listings that meet filter criteria (ignores limit/offset)
      * @return $this
      */
-    public function setCategories($categories)
+    public function setCount($count)
     {
-        $this->container['categories'] = $categories;
+        $this->container['count'] = $count;
+
+        return $this;
+    }
+
+    /**
+     * Gets listings
+     * @return \Yext\Client\Model\Listing[]
+     */
+    public function getListings()
+    {
+        return $this->container['listings'];
+    }
+
+    /**
+     * Sets listings
+     * @param \Yext\Client\Model\Listing[] $listings
+     * @return $this
+     */
+    public function setListings($listings)
+    {
+        $this->container['listings'] = $listings;
 
         return $this;
     }

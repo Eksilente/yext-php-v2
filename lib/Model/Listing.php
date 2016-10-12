@@ -279,7 +279,7 @@ class Listing implements ArrayAccess
 
     /**
      * Sets location_id
-     * @param string $location_id ID of location associated with this listing
+     * @param string $location_id ID of the location associated with this listing
      * @return $this
      */
     public function setLocationId($location_id)

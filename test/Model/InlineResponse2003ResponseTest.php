@@ -96,17 +96,17 @@ class InlineResponse2003ResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "count"
+     * Test attribute "status"
      */
-    public function testPropertyCount()
+    public function testPropertyStatus()
     {
 
     }
 
     /**
-     * Test attribute "listings"
+     * Test attribute "url"
      */
-    public function testPropertyListings()
+    public function testPropertyUrl()
     {
 
     }

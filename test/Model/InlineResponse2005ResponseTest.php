@@ -104,9 +104,9 @@ class InlineResponse2005ResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "suggestions"
+     * Test attribute "folders"
      */
-    public function testPropertySuggestions()
+    public function testPropertyFolders()
     {
 
     }

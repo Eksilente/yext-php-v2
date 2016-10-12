@@ -104,9 +104,9 @@ class InlineResponse200ResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "custom_fields"
+     * Test attribute "activities"
      */
-    public function testPropertyCustomFields()
+    public function testPropertyActivities()
     {
 
     }
