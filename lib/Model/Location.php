@@ -14,7 +14,7 @@
 /**
  * Yext API
  *
- * # Policies and Conventions  This section gives you the basic information you need to use our APIs.  ## Authentication All requests must be authenticated using an app’s API key.  <pre>GET https://api.yext.com/v2/accounts/[accountId]/locations?<b>api_key=API_KEY</b>&v=YYYYMMDD</pre>  The API key should be kept secret, as each app has exactly one API key.  ## Versioning All requests must be versioned using the v parameter.   <pre>GET https://api.yext.com/v2/accounts/[accountId]/locations?api_key=API_KEY&<b>v=YYYYMMDD</b></pre>  The **`v`** parameter (a date in `YYYYMMDD` format) is designed to give you the freedom to adapt to Yext API changes on your own schedule. When you pass this parameter, any changes we made to the API after the specified date will not affect the behavior of the request or the content of the response.  **NOTE:** Yext has the ability to make changes that affect previous versions of the API, if necessary.  ## Errors and Warnings There are three kinds of issues that can be reported for a given request:  * **`FATAL_ERROR`**     * An issue caused the entire request to be rejected. * **`NON_FATAL_ERROR`**     * An item is rejected, but other items present in the request are accepted (e.g., one invalid Product List item).      * A field is rejected, but the item otherwise is accepted (e.g., invalid website URL in a Location). * **`WARNING`**     * The request did not adhere to our best practices or recommendations, but the data was accepted anyway (e.g., data was sent that may cause some listings to become unavailable, a deprecated API was used, or we changed the format of a field's content to meet our requirements).  ## Validation Modes API v2 will support two request validation modes: *Strict Mode* and *Lenient Mode*.  In Strict Mode, both `FATAL_ERROR`s and `NON_FATAL_ERROR`s are reported simply as `FATAL_ERROR`s, and any error will cause the entire request to fail.  In Lenient Mode, `FATAL_ERROR`s and `NON_FATAL_ERROR`s are reported as such, and only `FATAL_ERROR`s will cause a request to fail.  All requests will be processed in Strict Mode by default.  To activate Lenient Mode, append the parameter `validation=lenient` to your request URLs.  ## Serialization API v2 only accepts data in JSON format.  ### Dates and times * We always use milliseconds since epoch (a.k.a. Unix time) for timestamps (e.g., review creation times, webhook update times). * We always use ISO 8601 without timezone for local date times (e.g., Event start time, Event end time). * Dates are transmitted as strings: `“YYYY-MM-DD”`.  ## Account ID In keeping with RESTful design principles, every URL in API v2 has an account ID prefix. This prefix helps to ensure that you have unique URLs for all resources.  In addition to specifying resources by explicit account ID, the following two macros are defined: * **`me`** - refers to the account that owns the API key sent with the request * **`all`** - refers to the account that owns the API key sent with the request, as well as all sub-accounts (recursively)  **IMPORTANT:** The **`me`** macro is supported in all API methods.  The **`all`** macro will only be supported in certain URLs, as noted in the reference documentation.  ### Examples This URL refers to all locations in account 123. <pre>https://api.yext.com/v2/accounts/<b>123</b>/locations?api_key=456&v=20160822</pre>  This URL refers to all locations in the account that owns API key 456. <pre>https://api.yext.com/v2/accounts/<b>me</b>/locations?<b>api_key=456</b>&v=20160822</pre>  This URL refers to all locations in the account that owns API key 456, as well as all locations from any of its child accounts. <pre>https://api.yext.com/v2/accounts/<b>all</b>/locations?<b>api_key=456</b>&v=20160822</pre>  ## Actor Headers To attribute changes to a particular user or employee, all requests may be passed with the following headers.  **NOTE:** If you choose to provide actor headers, and we are unable to authenticate the request using the values you provide, the request will result in an error and fail.  * Attribute activity to Admin user via admin login cookie *(for Yext’s use only)*     * Header: `YextEmployee`     * Value: Admin user’s AlphaLogin cookie * Attribute activity to Admin user via email address and password     * Headers: `YextEmployeeEmail`, `YextEmployeePassword`     * Values: Admin user’s email address, Admin user’s Admin password * Attribute activity to customer user via login cookie     * Header: `YextUser`     * Value: Customer user’s YextAppsLogin cookie * Attribute activity to customer user via email address and password     * Headers: `YextUserEmail`, `YextUserPassword`     * Values: Customer user’s email address, Customer user’s password  Changes will be logged as follows:  * App with no designated actor     * History Entry \"Updated By\" Value: `App [App ID] - ‘[App Name]’`     * Example: `App 432 - ‘Hello World App’` * App with customer user actor     * History Entry \"Updated By\" Value: `[user name] ([user email]) (App [App ID] - ‘[App Name]’)`     * Example: `Jordan Smith (jsmith@example.com) (App 432 - ‘Hello World App’)` * App with Yext employee actor## Response Format   * History Entry \"Updated By\" Value: `[employee username] (App [App ID] - ‘[App Name]’)`   * Example: `hlerman (App 432 - ‘Hello World App’)`  ## Response Format * **`meta`**     * Response metadata  * **`meta.uuid`**     * Unique ID for this request / response * **`meta.errors[]`**     * List of errors and warnings  * **`meta.errors[].code`**     * Code that uniquely identifies the error or warning  * **`meta.errors[].type`**     * One of:         * `FATAL_ERROR`         * `NON_FATAL_ERROR`         * `WARNING`     * See \"Errors and Warnings\" above for details. * **`meta.errors[].message`**     *  An explanation of the issue * **`response`**     * An explanation of the issue   Example: <pre><code> {     \"meta\": {         \"uuid\": \"bb0c7e19-4dc3-4891-bfa5-8593b1f124ad\",         \"errors\": [             {                 \"code\": ...error code...,                 \"type\": ...error, fatal error, non fatal error, or warning...,                 \"message\": ...explanation of the issue...             }         ]     },     \"response\": {         ...results...     } } </code></pre>  ## Status Codes * `200 OK`    * Either there are no errors or warnings, or the only issues are of type `WARNING`. * `207 Multi-Status`     * There are errors of type `itemError` or `fieldError` (but none of type `requestError`). * `400 Bad Request`     * A parameter is invalid, or a required parameter is missing. This includes the case where no API key is provided and the case where a resource ID is specified incorrectly in a path.     * This status is if any of the response errors are of type `requestError`. * `401 Unauthorized`     * The API key provided is invalid.     * `403 Forbidden`     * The requested information cannot be viewed by the acting user.  * `404 Not Found`     * The endpoint does not exist. * `405 Method Not Allowed`     * The request is using a method that is not allowed (e.g., POST with a GET-only endpoint). * `409 Conflict`     * The request could not be completed in its current state.     * Use the information included in the response to modify the request and retry. * `429 Too Many Requests`     * You have exceeded your rate limit / quota. * `500 Internal Server Error`     * Yext’s servers are not operating as expected. The request is likely valid but should be resent later. * `504 Timeout`     * Yext’s servers took too long to handle this request, and it timed out.  ## Quotas and Rate Limits Default quotas and rate limits are as follows.  * **Location Cloud API** *(includes Analytics, PowerListings, Location Manager, Reviews, Social, and User endpoints)*: 5,000 requests per hour * **Administrative API**: 1 qps * **Live API**: 100,000 requests per hour  **NOTE:** Webhook requests do not count towards an account’s quota.  For the most current and accurate rate-limit usage information for a particular request type, check the **`RateLimit-Remaining`** and **`RateLimit-Limit`** HTTP headers of your API responses.  If you are currently over your limit, our API will return a `429` error, and the response object returned by our API will be empty. We will also include a **`RateLimit-Reset`** header in the response, which indicates when you will have additional quota.  ## Client- vs. Yext-assigned IDs You can set the ID for the following objects when you create them. If you do not provide an ID, Yext will generate one for you.  * Account * User * Location * Bio List * Menu List * Product List * Event List * Bio List Item * Menu List Item * Product List Item * Event List Item  ## Logging All API requests are logged, and can be found in your Developer Console.  API logs are stored for 90 days.
+ * # Policies and Conventions  This section gives you the basic information you need to use our APIs.  ## Authentication All requests must be authenticated using an app’s API key.  <pre>GET https://api.yext.com/v2/accounts/[accountId]/locations?<b>api_key=API_KEY</b>&v=YYYYMMDD</pre>  The API key should be kept secret, as each app has exactly one API key.  ## Versioning All requests must be versioned using the **`v`** parameter.   <pre>GET https://api.yext.com/v2/accounts/[accountId]/locations?api_key=API_KEY&<b>v=YYYYMMDD</b></pre>  The **`v`** parameter (a date in `YYYYMMDD` format) is designed to give you the freedom to adapt to Yext API changes on your own schedule. When you pass this parameter, any changes we made to the API after the specified date will not affect the behavior of the request or the content of the response.  **NOTE:** Yext has the ability to make changes that affect previous versions of the API, if necessary.  ## Serialization API v2 only accepts data in JSON format.  ## Content-Type Headers For all requests that include a request body, the Content-Type header must be included and set to `application/json`.  ## Errors and Warnings There are three kinds of issues that can be reported for a given request:  * **`FATAL_ERROR`**     * An issue caused the entire request to be rejected. * **`NON_FATAL_ERROR`**     * An item is rejected, but other items present in the request are accepted (e.g., one invalid Product List item).      * A field is rejected, but the item otherwise is accepted (e.g., invalid website URL in a Location). * **`WARNING`**     * The request did not adhere to our best practices or recommendations, but the data was accepted anyway (e.g., data was sent that may cause some listings to become unavailable, a deprecated API was used, or we changed the format of a field's content to meet our requirements).  ## Validation Modes *(Available December 2016)*  API v2 will support two request validation modes: *Strict Mode* and *Lenient Mode*.  In Strict Mode, both `FATAL_ERROR`s and `NON_FATAL_ERROR`s are reported simply as `FATAL_ERROR`s, and any error will cause the entire request to fail.  In Lenient Mode, `FATAL_ERROR`s and `NON_FATAL_ERROR`s are reported as such, and only `FATAL_ERROR`s will cause a request to fail.  All requests will be processed in Strict Mode by default.  To activate Lenient Mode, append the parameter `validation=lenient` to your request URLs.  ### Dates and times * We always use milliseconds since epoch (a.k.a. Unix time) for timestamps (e.g., review creation times, webhook update times). * We always use ISO 8601 without timezone for local date times (e.g., Event start time, Event end time). * Dates are transmitted as strings: `“YYYY-MM-DD”`.  ## Account ID In keeping with RESTful design principles, every URL in API v2 has an account ID prefix. This prefix helps to ensure that you have unique URLs for all resources.  In addition to specifying resources by explicit account ID, the following two macros are defined: * **`me`** - refers to the account that owns the API key sent with the request * **`all`** - refers to the account that owns the API key sent with the request, as well as all sub-accounts (recursively)  **IMPORTANT:** The **`me`** macro is supported in all API methods.  The **`all`** macro will only be supported in certain URLs, as noted in the reference documentation.  ### Examples This URL refers to all locations in account 123. <pre>https://api.yext.com/v2/accounts/<b>123</b>/locations?api_key=456&v=20160822</pre>  This URL refers to all locations in the account that owns API key 456. <pre>https://api.yext.com/v2/accounts/<b>me</b>/locations?<b>api_key=456</b>&v=20160822</pre>  This URL refers to all locations in the account that owns API key 456, as well as all locations from any of its child accounts. <pre>https://api.yext.com/v2/accounts/<b>all</b>/locations?<b>api_key=456</b>&v=20160822</pre>  ## Actor Headers *(Available December 2016)*  To attribute changes to a particular user or employee, all requests may be passed with the following headers.  **NOTE:** If you choose to provide actor headers, and we are unable to authenticate the request using the values you provide, the request will result in an error and fail.  * Attribute activity to Admin user via admin login cookie *(for Yext’s use only)*     * Header: `YextEmployee`     * Value: Admin user’s AlphaLogin cookie * Attribute activity to Admin user via email address and password     * Headers: `YextEmployeeEmail`, `YextEmployeePassword`     * Values: Admin user’s email address, Admin user’s Admin password * Attribute activity to customer user via login cookie     * Header: `YextUser`     * Value: Customer user’s YextAppsLogin cookie * Attribute activity to customer user via email address and password     * Headers: `YextUserEmail`, `YextUserPassword`     * Values: Customer user’s email address, Customer user’s password  Changes will be logged as follows:  * App with no designated actor     * History Entry \"Updated By\" Value: `App [App ID] - ‘[App Name]’`     * Example: `App 432 - ‘Hello World App’` * App with customer user actor     * History Entry \"Updated By\" Value: `[user name] ([user email]) (App [App ID] - ‘[App Name]’)`     * Example: `Jordan Smith (jsmith@example.com) (App 432 - ‘Hello World App’)` * App with Yext employee actor   * History Entry \"Updated By\" Value: `[employee username] (App [App ID] - ‘[App Name]’)`   * Example: `hlerman (App 432 - ‘Hello World App’)`  ## Response Format * **`meta`**     * Response metadata  * **`meta.uuid`**     * Unique ID for this request / response * **`meta.errors[]`**     * List of errors and warnings  * **`meta.errors[].code`**     * Code that uniquely identifies the error or warning  * **`meta.errors[].type`**     * One of:         * `FATAL_ERROR`         * `NON_FATAL_ERROR`         * `WARNING`     * See \"Errors and Warnings\" above for details. * **`meta.errors[].message`**     * An explanation of the issue * **`response`**     * The main content (body) of the response  Example: <pre><code> {     \"meta\": {         \"uuid\": \"bb0c7e19-4dc3-4891-bfa5-8593b1f124ad\",         \"errors\": [             {                 \"code\": ...error code...,                 \"type\": ...error, fatal error, non fatal error, or warning...,                 \"message\": ...explanation of the issue...             }         ]     },     \"response\": {         ...results...     } } </code></pre>  ## Status Codes * `200 OK`    * Either there are no errors or warnings, or the only issues are of type `WARNING`. * `207 Multi-Status`     * There are errors of type `itemError` or `fieldError` (but none of type `requestError`). * `400 Bad Request`     * A parameter is invalid, or a required parameter is missing. This includes the case where no API key is provided and the case where a resource ID is specified incorrectly in a path.     * This status is if any of the response errors are of type `requestError`. * `401 Unauthorized`     * The API key provided is invalid.     * `403 Forbidden`     * The requested information cannot be viewed by the acting user.  * `404 Not Found`     * The endpoint does not exist. * `405 Method Not Allowed`     * The request is using a method that is not allowed (e.g., POST with a GET-only endpoint). * `409 Conflict`     * The request could not be completed in its current state.     * Use the information included in the response to modify the request and retry. * `429 Too Many Requests`     * You have exceeded your rate limit / quota. * `500 Internal Server Error`     * Yext’s servers are not operating as expected. The request is likely valid but should be resent later. * `504 Timeout`     * Yext’s servers took too long to handle this request, and it timed out.  ## Quotas and Rate Limits Default quotas and rate limits are as follows.  * **Location Cloud API** *(includes Analytics, PowerListings®, Location Manager, Reviews, Social, and User endpoints)*: 5,000 requests per hour * **Administrative API**: 1 qps * **Live API**: 100,000 requests per hour  **NOTE:** Webhook requests do not count towards an account’s quota.  For the most current and accurate rate-limit usage information for a particular request type, check the **`RateLimit-Remaining`** and **`RateLimit-Limit`** HTTP headers of your API responses.  If you are currently over your limit, our API will return a `429` error, and the response object returned by our API will be empty. We will also include a **`RateLimit-Reset`** header in the response, which indicates when you will have additional quota.  ## Client- vs. Yext-assigned IDs You can set the ID for the following objects when you create them. If you do not provide an ID, Yext will generate one for you.  * Account * User * Location * Bio List * Menu List * Product List * Event List * Bio List Item * Menu List Item * Product List Item * Event List Item  ## Logging All API requests are logged. API logs can be found in your Developer Console and are stored for 90 days.
  *
  * OpenAPI spec version: 0.0.2
  * 
@@ -135,13 +135,9 @@ class Location implements ArrayAccess
         'uber_link' => 'string',
         'year_established' => 'string',
         'display_lat' => 'double',
-        'display_lng' => 'double',
         'routable_lat' => 'double',
-        'routable_lng' => 'double',
         'yext_display_lat' => 'double',
-        'yext_display_lng' => 'double',
         'yext_routable_lat' => 'double',
-        'yext_routable_lng' => 'double',
         'emails' => 'string[]',
         'specialties' => 'string[]',
         'associations' => 'string[]',
@@ -242,13 +238,9 @@ class Location implements ArrayAccess
         'uber_link' => 'uberLink',
         'year_established' => 'yearEstablished',
         'display_lat' => 'displayLat',
-        'display_lng' => 'displayLng',
         'routable_lat' => 'routableLat',
-        'routable_lng' => 'routableLng',
         'yext_display_lat' => 'yextDisplayLat',
-        'yext_display_lng' => 'yextDisplayLng',
         'yext_routable_lat' => 'yextRoutableLat',
-        'yext_routable_lng' => 'yextRoutableLng',
         'emails' => 'emails',
         'specialties' => 'specialties',
         'associations' => 'associations',
@@ -349,13 +341,9 @@ class Location implements ArrayAccess
         'uber_link' => 'setUberLink',
         'year_established' => 'setYearEstablished',
         'display_lat' => 'setDisplayLat',
-        'display_lng' => 'setDisplayLng',
         'routable_lat' => 'setRoutableLat',
-        'routable_lng' => 'setRoutableLng',
         'yext_display_lat' => 'setYextDisplayLat',
-        'yext_display_lng' => 'setYextDisplayLng',
         'yext_routable_lat' => 'setYextRoutableLat',
-        'yext_routable_lng' => 'setYextRoutableLng',
         'emails' => 'setEmails',
         'specialties' => 'setSpecialties',
         'associations' => 'setAssociations',
@@ -456,13 +444,9 @@ class Location implements ArrayAccess
         'uber_link' => 'getUberLink',
         'year_established' => 'getYearEstablished',
         'display_lat' => 'getDisplayLat',
-        'display_lng' => 'getDisplayLng',
         'routable_lat' => 'getRoutableLat',
-        'routable_lng' => 'getRoutableLng',
         'yext_display_lat' => 'getYextDisplayLat',
-        'yext_display_lng' => 'getYextDisplayLng',
         'yext_routable_lat' => 'getYextRoutableLat',
-        'yext_routable_lng' => 'getYextRoutableLng',
         'emails' => 'getEmails',
         'specialties' => 'getSpecialties',
         'associations' => 'getAssociations',
@@ -489,8 +473,42 @@ class Location implements ArrayAccess
         return self::$getters;
     }
 
+    const GENDER_FEMALE = 'FEMALE';
+    const GENDER_F = 'F';
+    const GENDER_MALE = 'MALE';
+    const GENDER_M = 'M';
+    const GENDER_UNSPECIFIED = 'UNSPECIFIED';
+    const UBER_LINK_TYPE_TEXT = 'TEXT';
+    const UBER_LINK_TYPE_BUTTON = 'BUTTON';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getGenderAllowableValues()
+    {
+        return [
+            self::GENDER_FEMALE,
+            self::GENDER_F,
+            self::GENDER_MALE,
+            self::GENDER_M,
+            self::GENDER_UNSPECIFIED,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getUberLinkTypeAllowableValues()
+    {
+        return [
+            self::UBER_LINK_TYPE_TEXT,
+            self::UBER_LINK_TYPE_BUTTON,
+        ];
+    }
     
 
     /**
@@ -574,13 +592,9 @@ class Location implements ArrayAccess
         $this->container['uber_link'] = isset($data['uber_link']) ? $data['uber_link'] : null;
         $this->container['year_established'] = isset($data['year_established']) ? $data['year_established'] : null;
         $this->container['display_lat'] = isset($data['display_lat']) ? $data['display_lat'] : null;
-        $this->container['display_lng'] = isset($data['display_lng']) ? $data['display_lng'] : null;
         $this->container['routable_lat'] = isset($data['routable_lat']) ? $data['routable_lat'] : null;
-        $this->container['routable_lng'] = isset($data['routable_lng']) ? $data['routable_lng'] : null;
         $this->container['yext_display_lat'] = isset($data['yext_display_lat']) ? $data['yext_display_lat'] : null;
-        $this->container['yext_display_lng'] = isset($data['yext_display_lng']) ? $data['yext_display_lng'] : null;
         $this->container['yext_routable_lat'] = isset($data['yext_routable_lat']) ? $data['yext_routable_lat'] : null;
-        $this->container['yext_routable_lng'] = isset($data['yext_routable_lng']) ? $data['yext_routable_lng'] : null;
         $this->container['emails'] = isset($data['emails']) ? $data['emails'] : null;
         $this->container['specialties'] = isset($data['specialties']) ? $data['specialties'] : null;
         $this->container['associations'] = isset($data['associations']) ? $data['associations'] : null;
@@ -618,6 +632,10 @@ class Location implements ArrayAccess
         }
         if (strlen($this->container['location_name']) > 100) {
             $invalid_properties[] = "invalid value for 'location_name', the character length must be smaller than or equal to 100.";
+        }
+        $allowed_values = array("FEMALE", "F", "MALE", "M", "UNSPECIFIED");
+        if (!in_array($this->container['gender'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'gender', must be one of #{allowed_values}.";
         }
         if (strlen($this->container['address']) > 255) {
             $invalid_properties[] = "invalid value for 'address', the character length must be smaller than or equal to 255.";
@@ -673,6 +691,10 @@ class Location implements ArrayAccess
         if (strlen($this->container['facebook_page_url']) > 255) {
             $invalid_properties[] = "invalid value for 'facebook_page_url', the character length must be smaller than or equal to 255.";
         }
+        $allowed_values = array("TEXT", "BUTTON");
+        if (!in_array($this->container['uber_link_type'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'uber_link_type', must be one of #{allowed_values}.";
+        }
         if (strlen($this->container['uber_link_text']) > 100) {
             $invalid_properties[] = "invalid value for 'uber_link_text', the character length must be smaller than or equal to 100.";
         }
@@ -700,6 +722,10 @@ class Location implements ArrayAccess
             return false;
         }
         if (strlen($this->container['location_name']) > 100) {
+            return false;
+        }
+        $allowed_values = array("FEMALE", "F", "MALE", "M", "UNSPECIFIED");
+        if (!in_array($this->container['gender'], $allowed_values)) {
             return false;
         }
         if (strlen($this->container['address']) > 255) {
@@ -756,6 +782,10 @@ class Location implements ArrayAccess
         if (strlen($this->container['facebook_page_url']) > 255) {
             return false;
         }
+        $allowed_values = array("TEXT", "BUTTON");
+        if (!in_array($this->container['uber_link_type'], $allowed_values)) {
+            return false;
+        }
         if (strlen($this->container['uber_link_text']) > 100) {
             return false;
         }
@@ -780,7 +810,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets id
-     * @param string $id Primary key.  Unique alphanumeric (Latin-1) ID assigned by the Customer.
+     * @param string $id <msg desc=\"Describes an identifier field\">Primary key. Unique alphanumeric (Latin-1) ID assigned by the Customer.</msg>
      * @return $this
      */
     public function setId($id)
@@ -804,7 +834,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets account_id
-     * @param string $account_id Must refer to an **account.id** that already exists
+     * @param string $account_id <msg desc=\"Describes an accountId field. account.id should not be translated\">Must refer to an **account.id** that already exists.</msg>
      * @return $this
      */
     public function setAccountId($account_id)
@@ -828,7 +858,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets timestamp
-     * @param int $timestamp The date & time of the most recent change to this location record.  Will be ignored when the client is saving location data to Yext.  **NOTE:** The timestamp may change even if observable fields stay the same.
+     * @param int $timestamp <msg desc=\"Describes a timestamp field\">The timestamp of the most recent change to this location record.  Will be ignored when the client is saving location data to Yext.</msg>  <msg>**NOTE:** The timestamp may change even if observable fields stay the same.</msg>
      * @return $this
      */
     public function setTimestamp($timestamp)
@@ -870,7 +900,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets location_name
-     * @param string $location_name Cannot include: * inappropriate language * HTML markup or entities * a URL or domain name * a phone number * control characters ([\\x00-\\x1F\\x7F])  Should be in appropriate letter case (e.g., not in all capital letters)
+     * @param string $location_name <msg desc=\"Control character examples in parentheses do not get translated\">Cannot include: * inappropriate language * HTML markup or entities * a URL or domain name * a phone number * control characters ([\\x00-\\x1F\\x7F])</msg>  <msg>Should be in appropriate letter case (e.g., not in all capital letters)</msg>
      * @return $this
      */
     public function setLocationName($location_name)
@@ -894,7 +924,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets first_name
-     * @param string $first_name The first name of the healthcare professional  **NOTE:** This field is only available to locations whose **locationType** is HEALTHCARE_PROFESSIONAL.
+     * @param string $first_name <msg>The first name of the healthcare professional</msg>  <msg desc=\"locationType and HEALTHCARE_PROFESSIONAL should not be translated\">**NOTE:** This field is only available to locations whose **locationType** is HEALTHCARE_PROFESSIONAL.</msg>
      * @return $this
      */
     public function setFirstName($first_name)
@@ -915,7 +945,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets middle_name
-     * @param string $middle_name The middle name of the healthcare professional  **NOTE:** This field is only available to locations whose **locationType** is HEALTHCARE_PROFESSIONAL.
+     * @param string $middle_name <msg>The middle name of the healthcare professional</msg>  <msg desc=\"locationType and HEALTHCARE_PROFESSIONAL should not be translated\">**NOTE:** This field is only available to locations whose **locationType** is HEALTHCARE_PROFESSIONAL.</msg>
      * @return $this
      */
     public function setMiddleName($middle_name)
@@ -936,7 +966,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets last_name
-     * @param string $last_name The last name of the healthcare professional  **NOTE:** This field is only available to locations whose **locationType** is HEALTHCARE_PROFESSIONAL.
+     * @param string $last_name <msg>The last name of the healthcare professional</msg>  <msg desc=\"locationType and HEALTHCARE_PROFESSIONAL should not be translated\">**NOTE:** This field is only available to locations whose **locationType** is HEALTHCARE_PROFESSIONAL.</msg>
      * @return $this
      */
     public function setLastName($last_name)
@@ -957,7 +987,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets office_name
-     * @param string $office_name The name of the office where the healthcare professional works, if different from **locationName**  **NOTE:** This field is only available to locations whose **locationType** is HEALTHCARE_PROFESSIONAL.
+     * @param string $office_name <msg desc=\"locationName should not be translated\">The name of the office where the healthcare professional works, if different from **locationName**</msg>  <msg desc=\"locationType and HEALTHCARE_PROFESSIONAL should not be translated\">**NOTE:** This field is only available to locations whose **locationType** is HEALTHCARE_PROFESSIONAL.</msg>
      * @return $this
      */
     public function setOfficeName($office_name)
@@ -978,11 +1008,15 @@ class Location implements ArrayAccess
 
     /**
      * Sets gender
-     * @param string $gender The gender of the healthcare professional One of: * FEMALE * F * MALE * M * UNSPECIFIED  **NOTE:** This field is only available to locations whose **locationType** is HEALTHCARE_PROFESSIONAL.
+     * @param string $gender <msg>The gender of the healthcare professional</msg>  <msg desc=\"locationType and HEALTHCARE_PROFESSIONAL should not be translated\">**NOTE:** This field is only available to locations whose **locationType** is HEALTHCARE_PROFESSIONAL.</msg>
      * @return $this
      */
     public function setGender($gender)
     {
+        $allowed_values = array('FEMALE', 'F', 'MALE', 'M', 'UNSPECIFIED');
+        if (!in_array($gender, $allowed_values)) {
+            throw new \InvalidArgumentException("Invalid value for 'gender', must be one of 'FEMALE', 'F', 'MALE', 'M', 'UNSPECIFIED'");
+        }
         $this->container['gender'] = $gender;
 
         return $this;
@@ -999,7 +1033,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets npi
-     * @param string $npi The National Provider Identifier (NPI) of the healthcare provider  **NOTE:** This field is only available to locations whose **locationType** is HEALTHCARE_PROFESSIONAL or HEALTHCARE_FACILITY.
+     * @param string $npi <msg>The National Provider Identifier (NPI) of the healthcare provider</msg>  <msg desc=\"locationType, HEALTHCARE_PROFESSIONAL, and HEALTHCARE_FACILITY should not be translated\">**NOTE:** This field is only available to locations whose **locationType** is HEALTHCARE_PROFESSIONAL or HEALTHCARE_FACILITY.</msg>
      * @return $this
      */
     public function setNpi($npi)
@@ -1020,7 +1054,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets address
-     * @param string $address Must be a valid address  Cannot be a P.O. Box
+     * @param string $address <msg desc=\"Describes an address field\">Must be a valid address</msg>  <msg>Cannot be a P.O. Box</msg>
      * @return $this
      */
     public function setAddress($address)
@@ -1044,7 +1078,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets address2
-     * @param string $address2 Cannot be a P.O. Box
+     * @param string $address2 <msg>Cannot be a P.O. Box</msg>
      * @return $this
      */
     public function setAddress2($address2)
@@ -1068,7 +1102,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets suppress_address
-     * @param bool $suppress_address If true, do not show street address on listings. Defaults to false.
+     * @param bool $suppress_address <msg desc=\"true and false are constants and should not be translated\">If true, do not show street address on listings. Defaults to false.</msg>
      * @return $this
      */
     public function setSuppressAddress($suppress_address)
@@ -1089,7 +1123,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets display_address
-     * @param string $display_address Provides additional information to help consumers get to the location. This string appears along with the location's address (e.g. In Menlo Mall, 3rd Floor).  It may also be used in conjunction with a hidden address (i.e., when **suppressAddress** is true) to give consumers information about where the location is found (e.g., Servicing the New York area).  Cannot be a P.O. Box
+     * @param string $display_address <msg desc=\"Describes a location field\">Provides additional information to help consumers get to the location. This string appears along with the location's address (e.g. In Menlo Mall, 3rd Floor).</msg>  <msg desc=\"Describes a location field. supportAddress and true are constants and should not be translated\">It may also be used in conjunction with a hidden address (i.e., when **suppressAddress** is true) to give consumers information about where the location is found (e.g., Servicing the New York area).</msg>  <msg>Cannot be a P.O. Box</msg>
      * @return $this
      */
     public function setDisplayAddress($display_address)
@@ -1137,7 +1171,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets state
-     * @param string $state The two-character state code, or DC for the District of Columbia
+     * @param string $state <msg desc=\"Describes a location state field. DC is a constant and should not be translated\">The two-character state code, or DC for the District of Columbia</msg>
      * @return $this
      */
     public function setState($state)
@@ -1161,7 +1195,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets zip
-     * @param string $zip The five- or nine-digit ZIP code (the hyphen is optional)
+     * @param string $zip <msg desc=\"Describes a location postal code field\">The five- or nine-digit ZIP code (the hyphen is optional)</msg>
      * @return $this
      */
     public function setZip($zip)
@@ -1185,7 +1219,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets country_code
-     * @param string $country_code The country code (two-character ISO 3166-1) of the location's country . US is the only valid value.
+     * @param string $country_code <msg desc=\"Describes a location country field. US is a constant and should not be translated\">The country code (two-character ISO 3166-1) of the location's country . US is the only valid value.</msg>
      * @return $this
      */
     public function setCountryCode($country_code)
@@ -1230,7 +1264,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets phone
-     * @param string $phone Must be a valid 10-digit phone number.
+     * @param string $phone <msg>Must be a valid 10-digit phone number.</msg>
      * @return $this
      */
     public function setPhone($phone)
@@ -1251,7 +1285,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets is_phone_tracked
-     * @param bool $is_phone_tracked Set to true if the number listed in **phone** is a tracked phone number.  **NOTE:** When updating **isPhoneTracked**, you must provide a value for **phone** in the same request.
+     * @param bool $is_phone_tracked <msg desc=\"true and **phone** should not be translated\">Set to true if the number listed in **phone** is a tracked phone number.</msg>  <msg desc=\"isPhoneTracked and phone are constants and should not be translated. Request is a HTTP request\">**NOTE:** When updating **isPhoneTracked**, you must provide a value for **phone** in the same request.</msg>
      * @return $this
      */
     public function setIsPhoneTracked($is_phone_tracked)
@@ -1272,7 +1306,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets local_phone
-     * @param string $local_phone Must be a valid, non-toll-free 10-digit phone number.  Required if: * **isPhoneTracked** is true and the non-tracked number is a toll-free number, **OR** * **isPhoneTracked** is false and **phone** is a toll-free number
+     * @param string $local_phone <msg>Must be a valid, non-toll-free 10-digit phone number.</msg>  <msg desc=\"isPhoneTracked and phone are constants and should not be translated\">Required if: * **isPhoneTracked** is true and the non-tracked number is a toll-free number, **OR** * **isPhoneTracked** is false and **phone** is a toll-free number</msg>
      * @return $this
      */
     public function setLocalPhone($local_phone)
@@ -1293,7 +1327,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets alternate_phone
-     * @param string $alternate_phone Must be a valid 10-digit phone number. Phone numbers for US locations must contain 10 digits.
+     * @param string $alternate_phone <msg>Must be a valid 10-digit phone number. Phone numbers for US locations must contain 10 digits.</msg>
      * @return $this
      */
     public function setAlternatePhone($alternate_phone)
@@ -1314,7 +1348,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets fax_phone
-     * @param string $fax_phone Must be a valid 10-digit phone number. Phone numbers for US locations must contain 10 digits.
+     * @param string $fax_phone <msg>Must be a valid 10-digit phone number. Phone numbers for US locations must contain 10 digits.</msg>
      * @return $this
      */
     public function setFaxPhone($fax_phone)
@@ -1335,7 +1369,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets mobile_phone
-     * @param string $mobile_phone Must be a valid 10-digit phone number. Phone numbers for US locations must contain 10 digits.
+     * @param string $mobile_phone <msg>Must be a valid 10-digit phone number. Phone numbers for US locations must contain 10 digits.</msg>
      * @return $this
      */
     public function setMobilePhone($mobile_phone)
@@ -1356,7 +1390,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets toll_free_phone
-     * @param string $toll_free_phone Must be a valid 10-digit phone number. Phone numbers for US locations must contain 10 digits.
+     * @param string $toll_free_phone <msg>Must be a valid 10-digit phone number. Phone numbers for US locations must contain 10 digits.</msg>
      * @return $this
      */
     public function setTollFreePhone($toll_free_phone)
@@ -1377,7 +1411,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets tty_phone
-     * @param string $tty_phone Must be a valid 10-digit phone number. Phone numbers for US locations must contain 10 digits.
+     * @param string $tty_phone <msg>Must be a valid 10-digit phone number. Phone numbers for US locations must contain 10 digits.</msg>
      * @return $this
      */
     public function setTtyPhone($tty_phone)
@@ -1398,7 +1432,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets category_ids
-     * @param string[] $category_ids Yext Category IDs. A Location must have at least one and at most 10 Categories.  IDs must be valid and selectable (i.e., cannot be parent categories).  **NOTE:** The list of category IDs that you send us must be comprehensive. For example, if you send us a list of IDs that does not include IDs that you sent in your last update, Yext considers the missing categories to be deleted, and we remove them from your listings.
+     * @param string[] $category_ids <msg>Yext Category IDs. A Location must have at least one and at most 10 Categories.</msg>  <msg>IDs must be valid and selectable (i.e., cannot be parent categories).</msg>  <msg>**NOTE:** The list of category IDs that you send us must be comprehensive. For example, if you send us a list of IDs that does not include IDs that you sent in your last update, Yext considers the missing categories to be deleted, and we remove them from your listings.</msg>
      * @return $this
      */
     public function setCategoryIds($category_ids)
@@ -1419,7 +1453,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets featured_message
-     * @param string $featured_message The Featured Message. Default: Call today!  Cannot include: * inappropriate language * HTML markup * a URL or domain name * a phone number * control characters ([\\x00-\\x1F\\x7F]) * insufficient spacing  If you submit a Featured Messages that contains profanity or more than 50 characters, it will be ignored. The success response will contain a warning message explaining why your Featured Message wasn't stored in the system.
+     * @param string $featured_message <msg desc=\"Call today! should not be translated\">The Featured Message. Default: Call today!</msg>  <msg>Cannot include: * inappropriate language * HTML markup * a URL or domain name * a phone number * control characters ([\\x00-\\x1F\\x7F]) * insufficient spacing</msg>  <msg>If you submit a Featured Message that contains profanity or more than 50 characters, it will be ignored. The success response will contain a warning message explaining why your Featured Message wasn't stored in the system.</msg>
      * @return $this
      */
     public function setFeaturedMessage($featured_message)
@@ -1443,7 +1477,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets featured_message_url
-     * @param string $featured_message_url Valid URL to which the Featured Message is linked
+     * @param string $featured_message_url <msg>Valid URL to which the Featured Message is linked</msg>
      * @return $this
      */
     public function setFeaturedMessageUrl($featured_message_url)
@@ -1467,7 +1501,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets website_url
-     * @param string $website_url The URL of the location's website. This URL will be shown on your listings unless you specify a value for displayWebsiteUrl.  Must be a valid URL and is required whenever **displayWebsiteUrl** is specified
+     * @param string $website_url <msg desc=\"displayWebsiteUrl should not be translated\">The URL of the location's website. This URL will be shown on your listings unless you specify a value for **displayWebsiteUrl**.</msg>  <msg desc=\"displayWebsiteUrl should not be translated\">Must be a valid URL and is required whenever **displayWebsiteUrl** is specified</msg>
      * @return $this
      */
     public function setWebsiteUrl($website_url)
@@ -1491,7 +1525,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets display_website_url
-     * @param string $display_website_url The URL that is shown on your listings in place of **websiteUrl**. You can use **displayWebsiteUrl** to display a short, memorable web address that redirects consumers to the URL given in **websiteUrl**.  Must be a valid URL and be specified along with **websiteUrl**
+     * @param string $display_website_url <msg desc=\"displayWebsiteUrl and websiteUrl should not be translated\">The URL that is shown on your listings in place of **websiteUrl**. You can use **displayWebsiteUrl** to display a short, memorable web address that redirects consumers to the URL given in **websiteUrl**.</msg>  <msg desc=\"websiteUrl should not be translated\">Must be a valid URL and be specified along with **websiteUrl**</msg>
      * @return $this
      */
     public function setDisplayWebsiteUrl($display_website_url)
@@ -1515,7 +1549,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets reservation_url
-     * @param string $reservation_url A valid URL used for reservations at this location
+     * @param string $reservation_url <msg>A valid URL used for reservations at this location</msg>
      * @return $this
      */
     public function setReservationUrl($reservation_url)
@@ -1539,7 +1573,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets hours
-     * @param string $hours Hours should be submitted as a comma-separated list of days, where each day's hours are specified as follows:  d:oh:om:ch:cm * d = day of the week –   * 1 – Sunday   * 2 – Monday   * 3 – Tuesday   * 4 – Wednesday   * 5 – Thursday   * 6 – Friday   * 7 – Saturday * oh:om = opening time in 24-hour format * ch:cm = closing time in 24-hour format  Times with single-digit hours (e.g., 9 AM) can be submitted with or without a leading zero (9:00 or 09:00).  **Example:** open 9 AM to 5 PM Monday and Tuesday, open 10 AM to 4 PM on Saturday – 2:9:00:17:00,3:9:00:17:00,7:10:00:16:00  SPECIAL CASES: * To indicate that a location is open 24 hours on a specific day, set 00:00 as both the opening and closing time for that day.   * **Example:** open all day on Saturdays – 7:00:00:00:00 * To indicate that a location is closed on a specific day, omit that day from the list or set it as closed (\"closed\" is not case sensitive).   * **Example:** closed on Sundays – 1:closed   * **NOTE:** If a location is closed seven days a week, set at least one day to closed. Otherwise, **hours** is an empty string, and we assume you are not submitting hours information for that location. * To indicate that a location has split hours on a specific day, submit a set of hours for each block of time the location is open.   * **Example:** open from 9:00 AM to 12:00 PM and again from 1:00 PM to 5:00 PM on Mondays – 2:9:00:12:00,2:13:00:17:00  **NOTE:** To set hours for specific days of the year rather than days of the week, use **holidayHours**.
+     * @param string $hours <msg desc=\"Describes the format of a field containing a location's hours of operation. **holidayHours** and **hours** are constants and should not be translated. closed is a constant when used as a value and should not be translated.\">Hours should be submitted as a comma-separated list of days, where each day's hours are specified as follows:  d:oh:om:ch:cm * d = day of the week –   * 1 – Sunday   * 2 – Monday   * 3 – Tuesday   * 4 – Wednesday   * 5 – Thursday   * 6 – Friday   * 7 – Saturday * oh:om = opening time in 24-hour format * ch:cm = closing time in 24-hour format  Times with single-digit hours (e.g., 9 AM) can be submitted with or without a leading zero (9:00 or 09:00).  **Example:** open 9 AM to 5 PM Monday and Tuesday, open 10 AM to 4 PM on Saturday – 2:9:00:17:00,3:9:00:17:00,7:10:00:16:00  SPECIAL CASES: * To indicate that a location is open 24 hours on a specific day, set 00:00 as both the opening and closing time for that day.   * **Example:** open all day on Saturdays – 7:00:00:00:00 * To indicate that a location is closed on a specific day, omit that day from the list or set it as closed (\"closed\" is not case sensitive).   * **Example:** closed on Sundays – 1:closed   * **NOTE:** If a location is closed seven days a week, set at least one day to closed. Otherwise, **hours** is an empty string, and we assume you are not submitting hours information for that location. * To indicate that a location has split hours on a specific day, submit a set of hours for each block of time the location is open.   * **Example:** open from 9:00 AM to 12:00 PM and again from 1:00 PM to 5:00 PM on Mondays – 2:9:00:12:00,2:13:00:17:00  **NOTE:** To set hours for specific days of the year rather than days of the week, use **holidayHours**.</msg>
      * @return $this
      */
     public function setHours($hours)
@@ -1563,7 +1597,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets additional_hours_text
-     * @param string $additional_hours_text Additional information about business hours that does not fit in **hours** (e.g., Closed during the winter)
+     * @param string $additional_hours_text <msg desc=\"**hours** should not be translated\">Additional information about business hours that does not fit in **hours** (e.g., Closed during the winter)</msg>
      * @return $this
      */
     public function setAdditionalHoursText($additional_hours_text)
@@ -1587,7 +1621,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets holiday_hours
-     * @param \Yext\Client\Model\LocationHolidayHours[] $holiday_hours Holiday hours for this location.  **NOTE:** hours must be set in order for holidayHours to appear on your listings)
+     * @param \Yext\Client\Model\LocationHolidayHours[] $holiday_hours <msg>Holiday hours for this location.</msg>  <msg desc=\"hours and holidayHours are constants and should not be translated\">**NOTE:** hours must be set in order for holidayHours to appear on your listings)</msg>
      * @return $this
      */
     public function setHolidayHours($holiday_hours)
@@ -1632,7 +1666,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets conditions_treated
-     * @param string[] $conditions_treated A list of the conditions treated by the healthcare provider  **NOTE:** This field is only available to locations whose **locationType** is HEALTHCARE_PROFESSIONAL or HEALTHCARE_FACILITY.
+     * @param string[] $conditions_treated <msg>A list of the conditions treated by the healthcare provider</msg>  <msg desc=\"locationType, HEALTHCARE_PROFESSIONAL, and HEALTHCARE_FACILITY should not be translated\">**NOTE:** This field is only available to locations whose **locationType** is HEALTHCARE_PROFESSIONAL or HEALTHCARE_FACILITY.</msg>
      * @return $this
      */
     public function setConditionsTreated($conditions_treated)
@@ -1653,7 +1687,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets certifications
-     * @param string[] $certifications A list of the certifications held by the healthcare professional  **NOTE:** This field is only available to locations whose **locationType** is HEALTHCARE_PROFESSIONAL.
+     * @param string[] $certifications <msg>A list of the certifications held by the healthcare professional</msg>  <msg desc=\"locationType and HEALTHCARE_PROFESSIONAL should not be translated\">**NOTE:** This field is only available to locations whose **locationType** is HEALTHCARE_PROFESSIONAL.</msg>
      * @return $this
      */
     public function setCertifications($certifications)
@@ -1674,7 +1708,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets education_list
-     * @param \Yext\Client\Model\LocationEducationList[] $education_list A list of the types of education and training completed by the healthcare professional (see Education)  **NOTE:** This field is only available to locations whose **locationType** is HEALTHCARE_PROFESSIONAL.
+     * @param \Yext\Client\Model\LocationEducationList[] $education_list <msg>A list of the types of education and training completed by the healthcare professional</msg>  <msg desc=\"locationType and HEALTHCARE_PROFESSIONAL should not be translated\">**NOTE:** This field is only available to locations whose **locationType** is HEALTHCARE_PROFESSIONAL.</msg>
      * @return $this
      */
     public function setEducationList($education_list)
@@ -1695,7 +1729,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets admitting_hospitals
-     * @param string[] $admitting_hospitals A list of hospitals where the healthcare professional admits patients  **NOTE:** This field is only available to locations whose **locationType** is HEALTHCARE_PROFESSIONAL.
+     * @param string[] $admitting_hospitals <msg>A list of hospitals where the healthcare professional admits patients</msg>  <msg desc=\"locationType and HEALTHCARE_PROFESSIONAL should not be translated\">**NOTE:** This field is only available to locations whose **locationType** is HEALTHCARE_PROFESSIONAL.</msg>
      * @return $this
      */
     public function setAdmittingHospitals($admitting_hospitals)
@@ -1716,7 +1750,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets accepting_new_patients
-     * @param bool $accepting_new_patients Indicates whether the healthcare provider is accepting new patients  Default is true.patients  **NOTE:** This field is only available to locations whose **locationType** is HEALTHCARE_PROFESSIONAL or HEALTHCARE_FACILITY.
+     * @param bool $accepting_new_patients <msg>Indicates whether the healthcare provider is accepting new patients</msg>  <msg desc=\"true is a constant and should not be translated\">Default is true</msg>  <msg desc=\"locationType, HEALTHCARE_PROFESSIONAL, and HEALTHCARE_FACILITY should not be translated\">**NOTE:** This field is only available to locations whose **locationType** is HEALTHCARE_PROFESSIONAL or HEALTHCARE_FACILITY.</msg>
      * @return $this
      */
     public function setAcceptingNewPatients($accepting_new_patients)
@@ -1758,7 +1792,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets payment_options
-     * @param string[] $payment_options The payment methods accepted at this location  Valid elements depend on the location's country. For US locations, valid elements are: * AMERICANEXPRESS * CASH * CHECK * DINERSCLUB * DISCOVER * FINANCING * INVOICE * MASTERCARD * TRAVELERSCHECK * VISA
+     * @param string[] $payment_options <msg>The payment methods accepted at this location</msg>  <msg>Valid elements depend on the location's country. For US locations, valid elements are:</msg> * AMERICANEXPRESS * CASH * CHECK * DINERSCLUB * DISCOVER * FINANCING * INVOICE * MASTERCARD * TRAVELERSCHECK * VISA
      * @return $this
      */
     public function setPaymentOptions($payment_options)
@@ -1779,7 +1813,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets insurance_accepted
-     * @param string[] $insurance_accepted A list of insurance policies accepted by the healthcare provider  **NOTE:** This field is only available to locations whose **locationType** is HEALTHCARE_PROFESSIONAL.
+     * @param string[] $insurance_accepted <msg>A list of insurance policies accepted by the healthcare provider</msg>  <msg desc=\"locationType and HEALTHCARE_PROFESSIONAL should not be translated\">**NOTE:** This field is only available to locations whose **locationType** is HEALTHCARE_PROFESSIONAL.</msg>
      * @return $this
      */
     public function setInsuranceAccepted($insurance_accepted)
@@ -1821,7 +1855,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets photos
-     * @param \Yext\Client\Model\LocationPhoto[] $photos Up to 50 Photos.  **NOTE:** The list of photos that you send us must be comprehensive. For example, if you send us a list of photos that does not include photos that you sent in your last update, Yext considers the missing photos to be deleted, and we remove them from your listings.
+     * @param \Yext\Client\Model\LocationPhoto[] $photos <msg>Up to 50 Photos.</msg>  <msg>**NOTE:** The list of photos that you send us must be comprehensive. For example, if you send us a list of photos that does not include photos that you sent in your last update, Yext considers the missing photos to be deleted, and we remove them from your listings.</msg>
      * @return $this
      */
     public function setPhotos($photos)
@@ -1842,7 +1876,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets headshot
-     * @param object $headshot A portrait of the healthcare professional  **NOTE:** This field is only available to locations whose **locationType** is HEALTHCARE_PROFESSIONAL.
+     * @param object $headshot <msg>A portrait of the healthcare professional</msg>  <msg desc=\"locationType and HEALTHCARE_PROFESSIONAL should not be translated\">**NOTE:** This field is only available to locations whose **locationType** is HEALTHCARE_PROFESSIONAL.</msg>
      * @return $this
      */
     public function setHeadshot($headshot)
@@ -1863,7 +1897,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets video_urls
-     * @param string[] $video_urls Valid YouTube URLs for embedding a video on some publisher sites.  **NOTE:** Currently, only the first URL in the Array appears in your listings.
+     * @param string[] $video_urls <msg>Valid YouTube URLs for embedding a video on some publisher sites.</msg>  <msg>**NOTE:** Currently, only the first URL in the Array appears in your listings.</msg>
      * @return $this
      */
     public function setVideoUrls($video_urls)
@@ -1884,7 +1918,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets instagram_handle
-     * @param string $instagram_handle Valid Instagram username for the location (e.g., NewCityFiat (without the leading \"@\"))
+     * @param string $instagram_handle <msg>Valid Instagram username for the location (e.g., NewCityFiat (without the leading \"@\"))</msg>
      * @return $this
      */
     public function setInstagramHandle($instagram_handle)
@@ -1905,7 +1939,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets twitter_handle
-     * @param string $twitter_handle Valid Twitter handle for the location (e.g., JohnSmith (without the leading '@')). If you submit an invalid Twitter handle, it will be ignored. The success response will contain a warning message explaining why your Twitter handle wasn't stored in the system.
+     * @param string $twitter_handle <msg>Valid Twitter handle for the location (e.g., JohnSmith (without the leading '@')).</msg> <msg>If you submit an invalid Twitter handle, it will be ignored. The success response will contain a warning message explaining why your Twitter handle wasn't stored in the system.</msg>
      * @return $this
      */
     public function setTwitterHandle($twitter_handle)
@@ -1929,7 +1963,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets google_website_override
-     * @param string $google_website_override The URL you would like to submit to Google My Business in place of the one given in **websiteUrl** (if applicable).  For example, if you want to analyze the traffic driven by your Google listings separately from other traffic, enter the alternate URL that you will use for tracking in this field.
+     * @param string $google_website_override <msg desc=\"Google My Business and websiteUrl should not be translated\">The URL you would like to submit to Google My Business in place of the one given in **websiteUrl** (if applicable).</msg>  <msg>For example, if you want to analyze the traffic driven by your Google listings separately from other traffic, enter the alternate URL that you will use for tracking in this field.</msg>
      * @return $this
      */
     public function setGoogleWebsiteOverride($google_website_override)
@@ -1953,7 +1987,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets google_cover_photo
-     * @param object $google_cover_photo The cover photo for your business's Google profile  NOTE: Your cover photo must meet all of the following requirements: * have a 16:9 aspect ratio * be at least 480 x 270 pixels * be no more than 2120 x 1192 pixels
+     * @param object $google_cover_photo <msg>The cover photo for your business's Google profile</msg>  <msg>NOTE: Your cover photo must meet all of the following requirements: * have a 16:9 aspect ratio * be at least 480 x 270 pixels * be no more than 2120 x 1192 pixels</msg>
      * @return $this
      */
     public function setGoogleCoverPhoto($google_cover_photo)
@@ -1974,7 +2008,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets google_profile_photo
-     * @param object $google_profile_photo The profile photo for your business's Google profile  **NOTE:** Your profile picture must meet all of the following requirements: * be a square * be at least 200 x 200 pixels * be no more than 500 x 500 pixels
+     * @param object $google_profile_photo <msg>The profile photo for your business's Google profile</msg>  <msg>**NOTE:** Your profile picture must meet all of the following requirements: * be a square * be at least 200 x 200 pixels * be no more than 500 x 500 pixels</msg>
      * @return $this
      */
     public function setGoogleProfilePhoto($google_profile_photo)
@@ -1995,7 +2029,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets google_preferred_photo
-     * @param string $google_preferred_photo The photo Google will consider first when deciding which photo display with the location's business information on Google Maps or Search  One of: * UNSPECIFIED (default) * COVER - the photo in **googleCoverPhoto** * PROFILE - the photo in **googleProfilePhoto**  **NOTE:** If the value of a location's **googlePreferredPhoto** is UNSPECIFIED, **googlePreferredPhoto** will be omitted from the location's data in responses.
+     * @param string $google_preferred_photo <msg>The photo Google will consider first when deciding which photo display with the location's business information on Google Maps or Search</msg>  <msg desc=\"UNSPECIFIED, COVER, PROFILE, googleCoverPhoto, and googleProfilePhoto are constants and should not be translated\">One of: * UNSPECIFIED (default) * COVER - the photo in **googleCoverPhoto** * PROFILE - the photo in **googleProfilePhoto**</msg>  <msg desc=\"googlePreferredPhoto and UNSPECIFIED should not be translated\">**NOTE:** If the value of a location's **googlePreferredPhoto** is UNSPECIFIED, **googlePreferredPhoto** will be omitted from the location's data in responses.</msg>
      * @return $this
      */
     public function setGooglePreferredPhoto($google_preferred_photo)
@@ -2016,7 +2050,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets google_attributes
-     * @param \Yext\Client\Model\LocationGoogleAttributes[] $google_attributes The Google My Business attributes for this location.
+     * @param \Yext\Client\Model\LocationGoogleAttributes[] $google_attributes <msg desc=\"Google My Business should not be translated\">The Google My Business attributes for this location.</msg>
      * @return $this
      */
     public function setGoogleAttributes($google_attributes)
@@ -2037,7 +2071,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets facebook_page_url
-     * @param string $facebook_page_url URL for the location's Facebook Page.  Valid formats: * facebook.com/profile.php?id=[numId] * facebook.com/group.php?gid=[numId] * facebook.com/groups/[numId] * facebook.com/[Name] * facebook.com/pages/[Name]/[numId]  where [Name] is a String and [numId] is an Integer  If you submit a URL that is not in one of the valid formats, it will be ignored. The success response will contain a warning message explaining why the URL wasn't stored in the system.  **NOTE:** This value is automatically set to the location's Facebook Page URL. You can only manually set **facebookPageUrl** if the location meets one of the following criteria: * It is not subscribed to a Listings package that contains Facebook. * It is opted out of Facebook.
+     * @param string $facebook_page_url <msg>URL for the location's Facebook Page.</msg>  <msg desc=\"Describes valid URL formats. URLs should not be translated. facebookPageUrl should not be translated\">Valid formats: * facebook.com/profile.php?id=[numId] * facebook.com/group.php?gid=[numId] * facebook.com/groups/[numId] * facebook.com/[Name] * facebook.com/pages/[Name]/[numId]  where [Name] is a String and [numId] is an Integer  If you submit a URL that is not in one of the valid formats, it will be ignored. The success response will contain a warning message explaining why the URL wasn't stored in the system.  **NOTE:** This value is automatically set to the location's Facebook Page URL. You can only manually set **facebookPageUrl** if the location meets one of the following criteria: * It is not subscribed to a Listings package that contains Facebook. * It is opted out of Facebook.</msg>
      * @return $this
      */
     public function setFacebookPageUrl($facebook_page_url)
@@ -2061,7 +2095,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets facebook_cover_photo
-     * @param object $facebook_cover_photo The cover photo for your business's Facebook profile  Displayed as a 851 x 315 pixel image  You must have a cover photo in order for your listing to appear on Facebook.  **NOTE:** Your cover photo must be at least 400 pixels wide.
+     * @param object $facebook_cover_photo <msg>The cover photo for your business's Facebook profile  Displayed as a 851 x 315 pixel image  You must have a cover photo in order for your listing to appear on Facebook.  **NOTE:** Your cover photo must be at least 400 pixels wide.</msg>
      * @return $this
      */
     public function setFacebookCoverPhoto($facebook_cover_photo)
@@ -2082,7 +2116,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets facebook_profile_picture
-     * @param object $facebook_profile_picture The profile picture for your business's Facebook profile  You must have a profile picture in order for your listing to appear on Facebook.  **NOTE:** Your profile picture must be larger than 180 x 180 pixels.
+     * @param object $facebook_profile_picture <msg>The profile picture for your business's Facebook profile  You must have a profile picture in order for your listing to appear on Facebook.  **NOTE:** Your profile picture must be larger than 180 x 180 pixels.</msg>
      * @return $this
      */
     public function setFacebookProfilePicture($facebook_profile_picture)
@@ -2103,11 +2137,15 @@ class Location implements ArrayAccess
 
     /**
      * Sets uber_link_type
-     * @param string $uber_link_type Indicates whether the embedded Uber link for this location appears as text or a button  When consumers click on this link on a mobile device, the Uber app (if installed) will open with your location set as the trip destination. If the Uber app is not installed, the consumer will be prompted to download it.  Valid values: * TEXT * BUTTON
+     * @param string $uber_link_type <msg desc=\"Uber is a company name and should not be translated\">Indicates whether the embedded Uber link for this location appears as text or a button</msg>  <msg desc=\"Uber is a company name and should not be translated\">When consumers click on this link on a mobile device, the Uber app (if installed) will open with your location set as the trip destination. If the Uber app is not installed, the consumer will be prompted to download it.</msg>
      * @return $this
      */
     public function setUberLinkType($uber_link_type)
     {
+        $allowed_values = array('TEXT', 'BUTTON');
+        if (!in_array($uber_link_type, $allowed_values)) {
+            throw new \InvalidArgumentException("Invalid value for 'uber_link_type', must be one of 'TEXT', 'BUTTON'");
+        }
         $this->container['uber_link_type'] = $uber_link_type;
 
         return $this;
@@ -2124,7 +2162,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets uber_link_text
-     * @param string $uber_link_text The text of the embedded Uber link  Default is Ride there with Uber.  **NOTE:** This field is only available if **uberLinkType** is TEXT.
+     * @param string $uber_link_text <msg desc=\"Uber is a company name and should not be translated\">The text of the embedded Uber link</msg>  <msg desc=\"'Ride there with Uber' is a constant and should not be translated\">Default is Ride there with Uber.</msg>  <msg desc=\"uberLinkType and TEXT are constants and should not be translated\">**NOTE:** This field is only available if **uberLinkType** is TEXT.</msg>
      * @return $this
      */
     public function setUberLinkText($uber_link_text)
@@ -2148,7 +2186,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets uber_trip_branding_text
-     * @param string $uber_trip_branding_text The text of the call-to-action that will appear in the Uber app during a trip to your location (e.g., Check out our menu!)  **NOTE:** If a value for **uberTripBrandingText** is provided, a value must also be provided for **uberTripBrandingUrl**.
+     * @param string $uber_trip_branding_text <msg desc=\"Uber is a company name and should not be translated\">The text of the call-to-action that will appear in the Uber app during a trip to your location (e.g., Check out our menu!)</msg>  <msg desc=\"uberTripBrandingText and uberTripBrandingUrl are constants and should not be translated\">**NOTE:** If a value for **uberTripBrandingText** is provided, a value must also be provided for **uberTripBrandingUrl**.</msg>
      * @return $this
      */
     public function setUberTripBrandingText($uber_trip_branding_text)
@@ -2172,7 +2210,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets uber_trip_branding_url
-     * @param string $uber_trip_branding_url The URL that the consumer will be redirected to when tapping on the call-to-action in the Uber app during a trip to your location.  **NOTE:** If a value for **uberTripBrandingUrl** is provided, a value must also be provided for **uberTripBrandingText**.
+     * @param string $uber_trip_branding_url <msg desc=\"Uber is a company name and should not be translated\">The URL that the consumer will be redirected to when tapping on the call-to-action in the Uber app during a trip to your location.</msg>  <msg desc=\"uberTripBrandingUrl and uberTripBrandingText are constants and should not be translated\">**NOTE:** If a value for **uberTripBrandingUrl** is provided, a value must also be provided for **uberTripBrandingText**.</msg>
      * @return $this
      */
     public function setUberTripBrandingUrl($uber_trip_branding_url)
@@ -2193,7 +2231,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets uber_client_id
-     * @param string $uber_client_id The ID that enables **uberTripBrandingText** and **uberTripBrandingUrl**. For more information, contact your Account Manager.
+     * @param string $uber_client_id <msg desc=\"uberTripBrandingText and uberTripBrandingUrl are constants and should not be translated\">The ID that enables **uberTripBrandingText** and **uberTripBrandingUrl**.</msg> <msg>For more information, contact your Account Manager.</msg>
      * @return $this
      */
     public function setUberClientId($uber_client_id)
@@ -2214,7 +2252,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets uber_embed_code
-     * @param string $uber_embed_code The Yext-powered code that can be copied and pasted into the markup of emails or web pages where the embedded Uber link should appear
+     * @param string $uber_embed_code <msg desc=\"Uber is a company name and should not be translated\">The Yext-powered code that can be copied and pasted into the markup of emails or web pages where the embedded Uber link should appear</msg>
      * @return $this
      */
     public function setUberEmbedCode($uber_embed_code)
@@ -2235,7 +2273,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets uber_link
-     * @param string $uber_link The Yext-powered link that can be copied and pasted into the markup of Yext Pages where the embedded Uber link should appear
+     * @param string $uber_link <msg desc=\"Uber is a company name and should not be translated\">The Yext-powered link that can be copied and pasted into the markup of Yext Pages where the embedded Uber link should appear</msg>
      * @return $this
      */
     public function setUberLink($uber_link)
@@ -2256,7 +2294,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets year_established
-     * @param string $year_established The year that this location was opened, not the number of years it was open  Minimum of 1000, maximum of current year + 10.
+     * @param string $year_established <msg desc=\"Clarifies what a yearEstablished field means\">The year that this location was opened, not the number of years it was open</msg>  <msg desc=\"Constraints on the values of a field containing a year\">Minimum of 1000, maximum of current year + 10.</msg>
      * @return $this
      */
     public function setYearEstablished($year_established)
@@ -2280,33 +2318,12 @@ class Location implements ArrayAccess
 
     /**
      * Sets display_lat
-     * @param double $display_lat Latitude where the map pin should be displayed, as provided by you  Between -180.0 and 180.0, inclusive
+     * @param double $display_lat <msg>Longitude where the map pin should be displayed, as provided by you</msg>  <msg desc=\"Constraints on the values of a field containing a longitude\">Between -180.0 and 180.0, inclusive</msg>
      * @return $this
      */
     public function setDisplayLat($display_lat)
     {
         $this->container['display_lat'] = $display_lat;
-
-        return $this;
-    }
-
-    /**
-     * Gets display_lng
-     * @return double
-     */
-    public function getDisplayLng()
-    {
-        return $this->container['display_lng'];
-    }
-
-    /**
-     * Sets display_lng
-     * @param double $display_lng Longitude where the map pin should be displayed, as provided by you  Between -180.0 and 180.0, inclusive
-     * @return $this
-     */
-    public function setDisplayLng($display_lng)
-    {
-        $this->container['display_lng'] = $display_lng;
 
         return $this;
     }
@@ -2322,33 +2339,12 @@ class Location implements ArrayAccess
 
     /**
      * Sets routable_lat
-     * @param double $routable_lat Latitude to use for driving directions to the location, as provided by you  Between -180.0 and 180.0, inclusive
+     * @param double $routable_lat <msg>Longitude to use for driving directions to the location, as provided by you</msg>  <msg desc=\"Constraints on the values of a field containing a longitude\">Between -180.0 and 180.0, inclusive</msg>
      * @return $this
      */
     public function setRoutableLat($routable_lat)
     {
         $this->container['routable_lat'] = $routable_lat;
-
-        return $this;
-    }
-
-    /**
-     * Gets routable_lng
-     * @return double
-     */
-    public function getRoutableLng()
-    {
-        return $this->container['routable_lng'];
-    }
-
-    /**
-     * Sets routable_lng
-     * @param double $routable_lng Longitude to use for driving directions to the location, as provided by you  Between -180.0 and 180.0, inclusive
-     * @return $this
-     */
-    public function setRoutableLng($routable_lng)
-    {
-        $this->container['routable_lng'] = $routable_lng;
 
         return $this;
     }
@@ -2364,33 +2360,12 @@ class Location implements ArrayAccess
 
     /**
      * Sets yext_display_lat
-     * @param double $yext_display_lat Latitude where the map pin should be displayed, as calculated by Yext  Between -180.0 and 180.0, inclusive
+     * @param double $yext_display_lat <msg>Longitude where the map pin should be displayed, as calculated by Yext</msg>  <msg desc=\"Constraints on the values of a field containing a longitude\">Between -180.0 and 180.0, inclusive</msg>
      * @return $this
      */
     public function setYextDisplayLat($yext_display_lat)
     {
         $this->container['yext_display_lat'] = $yext_display_lat;
-
-        return $this;
-    }
-
-    /**
-     * Gets yext_display_lng
-     * @return double
-     */
-    public function getYextDisplayLng()
-    {
-        return $this->container['yext_display_lng'];
-    }
-
-    /**
-     * Sets yext_display_lng
-     * @param double $yext_display_lng Longitude where the map pin should be displayed, as calculated by Yext  Between -180.0 and 180.0, inclusive
-     * @return $this
-     */
-    public function setYextDisplayLng($yext_display_lng)
-    {
-        $this->container['yext_display_lng'] = $yext_display_lng;
 
         return $this;
     }
@@ -2406,33 +2381,12 @@ class Location implements ArrayAccess
 
     /**
      * Sets yext_routable_lat
-     * @param double $yext_routable_lat Latitude to use for driving directions to the location, as calculated by Yext  Between -180.0 and 180.0, inclusive
+     * @param double $yext_routable_lat <msg>Longitude to use for driving directions to the location, as calculated by Yext</msg>  <msg desc=\"Constraints on the values of a field containing a longitude\">Between -180.0 and 180.0, inclusive</msg>
      * @return $this
      */
     public function setYextRoutableLat($yext_routable_lat)
     {
         $this->container['yext_routable_lat'] = $yext_routable_lat;
-
-        return $this;
-    }
-
-    /**
-     * Gets yext_routable_lng
-     * @return double
-     */
-    public function getYextRoutableLng()
-    {
-        return $this->container['yext_routable_lng'];
-    }
-
-    /**
-     * Sets yext_routable_lng
-     * @param double $yext_routable_lng Longitude to use for driving directions to the location, as calculated by Yext  Between -180.0 and 180.0, inclusive
-     * @return $this
-     */
-    public function setYextRoutableLng($yext_routable_lng)
-    {
-        $this->container['yext_routable_lng'] = $yext_routable_lng;
 
         return $this;
     }
@@ -2448,7 +2402,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets emails
-     * @param string[] $emails Up to five emails addresses for reaching this location  Must be valid email addresses
+     * @param string[] $emails <msg>Up to five emails addresses for reaching this location</msg>  <msg>Must be valid email addresses</msg>
      * @return $this
      */
     public function setEmails($emails)
@@ -2469,7 +2423,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets specialties
-     * @param string[] $specialties Up to 100 specialties (e.g., for food and dining: Chicago style)  All strings must be non-empty when trimmed of whitespace.
+     * @param string[] $specialties <msg>Up to 100 specialties (e.g., for food and dining: Chicago style)</msg>  <msg>All strings must be non-empty when trimmed of whitespace.</msg>
      * @return $this
      */
     public function setSpecialties($specialties)
@@ -2490,7 +2444,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets associations
-     * @param string[] $associations Up to 100 specialties (e.g., for food and dining: Chicago style)  All strings must be non-empty when trimmed of whitespace.
+     * @param string[] $associations <msg>Up to 100 specialties (e.g., for food and dining: Chicago style)</msg>  <msg>All strings must be non-empty when trimmed of whitespace.</msg>
      * @return $this
      */
     public function setAssociations($associations)
@@ -2511,7 +2465,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets products
-     * @param string[] $products Up to 100 products sold at this location  All strings must be non-empty when trimmed of whitespace.
+     * @param string[] $products <msg>Up to 100 products sold at this location</msg>  <msg>All strings must be non-empty when trimmed of whitespace.</msg>
      * @return $this
      */
     public function setProducts($products)
@@ -2532,7 +2486,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets services
-     * @param string[] $services Up to 100 services offered at this location  All strings must be non-empty when trimmed of whitespace.
+     * @param string[] $services <msg>Up to 100 services offered at this location</msg>  <msg>All strings must be non-empty when trimmed of whitespace.</msg>
      * @return $this
      */
     public function setServices($services)
@@ -2553,7 +2507,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets brands
-     * @param string[] $brands Up to 100 brands sold by this location  All strings must be non-empty when trimmed of whitespace.
+     * @param string[] $brands <msg>Up to 100 brands sold by this location</msg>  <msg>All strings must be non-empty when trimmed of whitespace.</msg>
      * @return $this
      */
     public function setBrands($brands)
@@ -2574,7 +2528,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets languages
-     * @param string[] $languages Up to 100 languages spoken at this location.  All strings must be non-empty when trimmed of whitespace.
+     * @param string[] $languages <msg>Up to 100 languages spoken at this location.</msg>  <msg>All strings must be non-empty when trimmed of whitespace.</msg>
      * @return $this
      */
     public function setLanguages($languages)
@@ -2595,7 +2549,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets keywords
-     * @param string[] $keywords Up to 100 keywords may be provided  All strings must be non-empty when trimmed of whitespace.
+     * @param string[] $keywords <msg>Up to 100 keywords may be provided</msg>  <msg>All strings must be non-empty when trimmed of whitespace.</msg>
      * @return $this
      */
     public function setKeywords($keywords)
@@ -2616,7 +2570,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets menus_label
-     * @param string $menus_label Label to be used for this location’s Menu lists.
+     * @param string $menus_label <msg>Label to be used for this location’s Menu lists.</msg>
      * @return $this
      */
     public function setMenusLabel($menus_label)
@@ -2637,7 +2591,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets menu_ids
-     * @param string[] $menu_ids IDs of Menu lists associated with this location.
+     * @param string[] $menu_ids <msg>IDs of Menu lists associated with this location.</msg>
      * @return $this
      */
     public function setMenuIds($menu_ids)
@@ -2658,7 +2612,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets bio_lists_label
-     * @param string $bio_lists_label Label to be used for this location’s Bio lists.
+     * @param string $bio_lists_label <msg>Label to be used for this location’s Bio lists.</msg>
      * @return $this
      */
     public function setBioListsLabel($bio_lists_label)
@@ -2679,7 +2633,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets bio_list_ids
-     * @param string[] $bio_list_ids IDs of Bio lists associated with this location.
+     * @param string[] $bio_list_ids <msg>IDs of Bio lists associated with this location.</msg>
      * @return $this
      */
     public function setBioListIds($bio_list_ids)
@@ -2700,7 +2654,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets product_lists_label
-     * @param string $product_lists_label Label to be used for this location’s Product & Services lists.
+     * @param string $product_lists_label <msg>Label to be used for this location’s Product & Services lists.</msg>
      * @return $this
      */
     public function setProductListsLabel($product_lists_label)
@@ -2721,7 +2675,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets product_list_ids
-     * @param string[] $product_list_ids IDs of Product lists associated with this location.
+     * @param string[] $product_list_ids <msg>IDs of Product lists associated with this location.</msg>
      * @return $this
      */
     public function setProductListIds($product_list_ids)
@@ -2742,7 +2696,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets event_lists_label
-     * @param string $event_lists_label Label to be used for this location’s Event lists.
+     * @param string $event_lists_label <msg>Label to be used for this location’s Event lists.</msg>
      * @return $this
      */
     public function setEventListsLabel($event_lists_label)
@@ -2763,7 +2717,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets event_list_ids
-     * @param string[] $event_list_ids IDs of Event lists associated with this location.
+     * @param string[] $event_list_ids <msg>IDs of Event lists associated with this location.</msg>
      * @return $this
      */
     public function setEventListIds($event_list_ids)
@@ -2784,7 +2738,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets folder_id
-     * @param string $folder_id The folder that this location is in. If the location is in the customer-level (root) folder, its folderId will be 0. Must be a valid, existing Yext Folder ID or 0
+     * @param string $folder_id <msg desc=\"folderId is a constant and should not be translated\">The folder that this location is in. If the location is in the customer-level (root) folder, its folderId will be 0. Must be a valid, existing Yext Folder ID or 0</msg>
      * @return $this
      */
     public function setFolderId($folder_id)
@@ -2805,7 +2759,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets label_ids
-     * @param string[] $label_ids The IDs of the location labels that have been added tot his location. NOTE: You can only add labels that have already been created via our web interface. Currently, it is not possible to create new labels via the API.
+     * @param string[] $label_ids <msg>The IDs of the location labels that have been added to this location.</msg>  <msg>**NOTE:** You can only add labels that have already been created via our web interface. Currently, it is not possible to create new labels via the API.</msg>
      * @return $this
      */
     public function setLabelIds($label_ids)
@@ -2826,7 +2780,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets custom_fields
-     * @param map[string,object] $custom_fields A set of key-value pairs indicating the location's custom fields and their values. The keys are the Yext Custom Field IDs of the custom fields, and the values are the fields' contents. If the fields' contents are options, those options must be represented by their Yext IDs.
+     * @param map[string,object] $custom_fields <msg>A set of key-value pairs indicating the location's custom fields and their values. The keys are the Yext Custom Field IDs of the custom fields, and the values are the fields' contents. If the fields' contents are options, those options must be represented by their Yext IDs.</msg>
      * @return $this
      */
     public function setCustomFields($custom_fields)

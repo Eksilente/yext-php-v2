@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **createComment**
-> \Yext\Client\Model\InlineResponse2011 createComment($account_id, $review_id, $v, $content, $visibility, $parent_id)
+> \Yext\Client\Model\InlineResponse2014 createComment($account_id, $review_id, $v, $content, $visibility, $parent_id)
 
 Comments: Create
 
@@ -56,7 +56,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse2011**](../Model/InlineResponse2011.md)
+[**\Yext\Client\Model\InlineResponse2014**](../Model/InlineResponse2014.md)
 
 ### Authorization
 
@@ -70,7 +70,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getReview**
-> \Yext\Client\Model\InlineResponse20012 getReview($account_id, $review_id, $v)
+> \Yext\Client\Model\InlineResponse20023 getReview($account_id, $review_id, $v)
 
 Reviews: Get
 
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse20012**](../Model/InlineResponse20012.md)
+[**\Yext\Client\Model\InlineResponse20023**](../Model/InlineResponse20023.md)
 
 ### Authorization
 
@@ -124,7 +124,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listReviews**
-> \Yext\Client\Model\InlineResponse20011 listReviews($account_id, $v, $limit, $offset, $location_ids, $folder_id, $countries, $location_labels, $publisher_ids, $review_content, $min_rating, $max_rating, $min_publisher_date, $max_publisher_date, $min_last_yext_update_date, $max_last_yext_update_date, $awaiting_response, $min_non_owner_comments, $reviewer_name, $reviewer_email)
+> \Yext\Client\Model\InlineResponse20022 listReviews($account_id, $v, $limit, $offset, $location_ids, $folder_id, $countries, $location_labels, $publisher_ids, $review_content, $min_rating, $max_rating, $min_publisher_date, $max_publisher_date, $min_last_yext_update_date, $max_last_yext_update_date, $awaiting_response, $min_non_owner_comments, $reviewer_name, $reviewer_email)
 
 Reviews: List
 
@@ -198,7 +198,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse20011**](../Model/InlineResponse20011.md)
+[**\Yext\Client\Model\InlineResponse20022**](../Model/InlineResponse20022.md)
 
 ### Authorization
 
