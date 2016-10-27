@@ -36,7 +36,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 
 $api_instance = new Yext\Client\Api\PowerListingsApi();
 $account_id = "account_id_example"; // string | 
-$v = "v_example"; // string | A date in `YYYYMMDD` format
+$v = "20161012"; // string | A date in `YYYYMMDD` format
 $url = "url_example"; // string | URL of the Duplicate listing
 $location_ids = array("location_ids_example"); // string[] | Defaults to all account locations with a PowerListings subscription  **Example:** loc123,loc456,loc789
 $publisher_ids = array("publisher_ids_example"); // string[] | Defaults to all publishers subscribed by account  **Example:** MAPQUEST,YELP
@@ -55,7 +55,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format |
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
  **url** | **string**| URL of the Duplicate listing |
  **location_ids** | [**string[]**](../Model/string.md)| Defaults to all account locations with a PowerListings subscription  **Example:** loc123,loc456,loc789 | [optional]
  **publisher_ids** | [**string[]**](../Model/string.md)| Defaults to all publishers subscribed by account  **Example:** MAPQUEST,YELP | [optional]
@@ -94,7 +94,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 
 $api_instance = new Yext\Client\Api\PowerListingsApi();
 $account_id = "account_id_example"; // string | 
-$v = "v_example"; // string | A date in `YYYYMMDD` format
+$v = "20161012"; // string | A date in `YYYYMMDD` format
 $duplicate_id = "duplicate_id_example"; // string | 
 
 try {
@@ -111,7 +111,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format |
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
  **duplicate_id** | **string**|  |
 
 ### Return type
@@ -148,7 +148,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 
 $api_instance = new Yext\Client\Api\PowerListingsApi();
 $account_id = "account_id_example"; // string | 
-$v = "v_example"; // string | A date in `YYYYMMDD` format
+$v = "20161012"; // string | A date in `YYYYMMDD` format
 $suggestion_id = "suggestion_id_example"; // string | 
 
 try {
@@ -165,7 +165,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format |
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
  **suggestion_id** | **string**|  |
 
 ### Return type
@@ -202,7 +202,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 
 $api_instance = new Yext\Client\Api\PowerListingsApi();
 $account_id = "account_id_example"; // string | 
-$v = "v_example"; // string | A date in `YYYYMMDD` format
+$v = "20161012"; // string | A date in `YYYYMMDD` format
 $limit = 10; // int | Number of results to return
 $offset = 0; // int | Number of results to skip. Used to page through results
 $location_ids = array("location_ids_example"); // string[] | Defaults to all account locations with a PowerListings subscription  **Example:** loc123,loc456,loc789
@@ -223,7 +223,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format |
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
  **limit** | **int**| Number of results to return | [optional] [default to 10]
  **offset** | **int**| Number of results to skip. Used to page through results | [optional] [default to 0]
  **location_ids** | [**string[]**](../Model/string.md)| Defaults to all account locations with a PowerListings subscription  **Example:** loc123,loc456,loc789 | [optional]
@@ -264,7 +264,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 
 $api_instance = new Yext\Client\Api\PowerListingsApi();
 $account_id = "account_id_example"; // string | 
-$v = "v_example"; // string | A date in `YYYYMMDD` format
+$v = "20161012"; // string | A date in `YYYYMMDD` format
 $limit = 100; // int | Number of results to return
 $offset = 0; // int | Number of results to skip. Used to page through results
 $location_ids = array("location_ids_example"); // string[] | Defaults to all account locations with a PowerListings subscription  **Example:** loc123,loc456,loc789
@@ -284,7 +284,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format |
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
  **limit** | **int**| Number of results to return | [optional] [default to 100]
  **offset** | **int**| Number of results to skip. Used to page through results | [optional] [default to 0]
  **location_ids** | [**string[]**](../Model/string.md)| Defaults to all account locations with a PowerListings subscription  **Example:** loc123,loc456,loc789 | [optional]
@@ -324,7 +324,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 
 $api_instance = new Yext\Client\Api\PowerListingsApi();
 $account_id = "account_id_example"; // string | 
-$v = "v_example"; // string | A date in `YYYYMMDD` format
+$v = "20161012"; // string | A date in `YYYYMMDD` format
 $limit = 10; // int | Number of results to return
 $offset = 0; // int | Number of results to skip. Used to page through results
 $location_ids = array("location_ids_example"); // string[] | Defaults to all account locations with a PowerListings subscription  **Example:** loc123,loc456,loc789
@@ -345,7 +345,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format |
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
  **limit** | **int**| Number of results to return | [optional] [default to 10]
  **offset** | **int**| Number of results to skip. Used to page through results | [optional] [default to 0]
  **location_ids** | [**string[]**](../Model/string.md)| Defaults to all account locations with a PowerListings subscription  **Example:** loc123,loc456,loc789 | [optional]
@@ -386,7 +386,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 
 $api_instance = new Yext\Client\Api\PowerListingsApi();
 $account_id = "account_id_example"; // string | 
-$v = "v_example"; // string | A date in `YYYYMMDD` format
+$v = "20161012"; // string | A date in `YYYYMMDD` format
 $subset = "RELEVANT_ONLY"; // string | **ALL** - return all publishers  **RELEVANT_ONLY** - only return publishers relevant to the account based on supported countries and location types
 
 try {
@@ -403,7 +403,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format |
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
  **subset** | **string**| **ALL** - return all publishers  **RELEVANT_ONLY** - only return publishers relevant to the account based on supported countries and location types | [optional] [default to RELEVANT_ONLY]
 
 ### Return type
@@ -440,7 +440,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 
 $api_instance = new Yext\Client\Api\PowerListingsApi();
 $account_id = "account_id_example"; // string | 
-$v = "v_example"; // string | A date in `YYYYMMDD` format
+$v = "20161012"; // string | A date in `YYYYMMDD` format
 $location_ids = array("location_ids_example"); // string[] | Defaults to all account locations with a PowerListings subscription  **Example:** loc123,loc456,loc789
 $publisher_ids = array("publisher_ids_example"); // string[] | Defaults to all publishers subscribed by account  **Example:** MAPQUEST,YELP
 
@@ -458,7 +458,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format |
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
  **location_ids** | [**string[]**](../Model/string.md)| Defaults to all account locations with a PowerListings subscription  **Example:** loc123,loc456,loc789 | [optional]
  **publisher_ids** | [**string[]**](../Model/string.md)| Defaults to all publishers subscribed by account  **Example:** MAPQUEST,YELP | [optional]
 
@@ -496,7 +496,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 
 $api_instance = new Yext\Client\Api\PowerListingsApi();
 $account_id = "account_id_example"; // string | 
-$v = "v_example"; // string | A date in `YYYYMMDD` format
+$v = "20161012"; // string | A date in `YYYYMMDD` format
 $location_ids = array("location_ids_example"); // string[] | Defaults to all account locations with a PowerListings subscription  **Example:** loc123,loc456,loc789
 $publisher_ids = array("publisher_ids_example"); // string[] | Defaults to all publishers subscribed by account  **Example:** MAPQUEST,YELP
 
@@ -514,7 +514,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format |
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
  **location_ids** | [**string[]**](../Model/string.md)| Defaults to all account locations with a PowerListings subscription  **Example:** loc123,loc456,loc789 | [optional]
  **publisher_ids** | [**string[]**](../Model/string.md)| Defaults to all publishers subscribed by account  **Example:** MAPQUEST,YELP | [optional]
 
@@ -552,7 +552,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 
 $api_instance = new Yext\Client\Api\PowerListingsApi();
 $account_id = "account_id_example"; // string | 
-$v = "v_example"; // string | A date in `YYYYMMDD` format
+$v = "20161012"; // string | A date in `YYYYMMDD` format
 $duplicate_id = "duplicate_id_example"; // string | 
 
 try {
@@ -569,7 +569,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format |
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
  **duplicate_id** | **string**|  |
 
 ### Return type
@@ -606,7 +606,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 
 $api_instance = new Yext\Client\Api\PowerListingsApi();
 $account_id = "account_id_example"; // string | 
-$v = "v_example"; // string | A date in `YYYYMMDD` format
+$v = "20161012"; // string | A date in `YYYYMMDD` format
 $suggestion_id = "suggestion_id_example"; // string | 
 $status = "status_example"; // string | The status of the Publisher Suggestion
 
@@ -624,7 +624,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format |
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
  **suggestion_id** | **string**|  |
  **status** | **string**| The status of the Publisher Suggestion |
 
