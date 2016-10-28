@@ -53,7 +53,7 @@ use \ArrayAccess;
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class ProductItem extends BaseEclItem implements ArrayAccess
+class ProductItem implements ArrayAccess
 {
     /**
       * The original name of the model.
@@ -75,7 +75,7 @@ class ProductItem extends BaseEclItem implements ArrayAccess
 
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes + parent::swaggerTypes();
+        return self::$swaggerTypes;
     }
 
     /**
@@ -92,7 +92,7 @@ class ProductItem extends BaseEclItem implements ArrayAccess
 
     public static function attributeMap()
     {
-        return parent::attributeMap() + self::$attributeMap;
+        return self::$attributeMap;
     }
 
     /**
@@ -109,7 +109,7 @@ class ProductItem extends BaseEclItem implements ArrayAccess
 
     public static function setters()
     {
-        return parent::setters() + self::$setters;
+        return self::$setters;
     }
 
     /**
@@ -126,7 +126,7 @@ class ProductItem extends BaseEclItem implements ArrayAccess
 
     public static function getters()
     {
-        return parent::getters() + self::$getters;
+        return self::$getters;
     }
 
     
@@ -145,8 +145,6 @@ class ProductItem extends BaseEclItem implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        parent::__construct($data);
-
         $this->container['photos'] = isset($data['photos']) ? $data['photos'] : null;
         $this->container['cost'] = isset($data['cost']) ? $data['cost'] : null;
         $this->container['idcode'] = isset($data['idcode']) ? $data['idcode'] : null;

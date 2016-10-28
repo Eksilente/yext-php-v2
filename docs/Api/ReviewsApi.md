@@ -29,7 +29,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 $api_instance = new Yext\Client\Api\ReviewsApi();
 $account_id = "account_id_example"; // string | 
 $review_id = 56; // int | ID of this Review
-$v = "20161012"; // string | A date in `YYYYMMDD` format
+$v = "v_example"; // string | A date in `YYYYMMDD` format
 $content = "content_example"; // string | Content of the new comment.
 $visibility = "PRIVATE"; // string | 
 $parent_id = 56; // int | If this Comment is in response to another comment, use this field to specify the ID of the parent Comment.
@@ -49,7 +49,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
  **review_id** | **int**| ID of this Review |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format |
  **content** | **string**| Content of the new comment. | [optional]
  **visibility** | **string**|  | [optional] [default to PRIVATE]
  **parent_id** | **int**| If this Comment is in response to another comment, use this field to specify the ID of the parent Comment. | [optional]
@@ -89,7 +89,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 $api_instance = new Yext\Client\Api\ReviewsApi();
 $account_id = "account_id_example"; // string | 
 $review_id = 56; // int | ID of this Review
-$v = "20161012"; // string | A date in `YYYYMMDD` format
+$v = "v_example"; // string | A date in `YYYYMMDD` format
 
 try {
     $result = $api_instance->getReview($account_id, $review_id, $v);
@@ -106,7 +106,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
  **review_id** | **int**| ID of this Review |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format |
 
 ### Return type
 
@@ -142,7 +142,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 
 $api_instance = new Yext\Client\Api\ReviewsApi();
 $account_id = "account_id_example"; // string | 
-$v = "20161012"; // string | A date in `YYYYMMDD` format
+$v = "v_example"; // string | A date in `YYYYMMDD` format
 $limit = 100; // int | Number of results to return.
 $offset = 0; // int | Number of results to skip. Used to page through results
 $location_ids = array("location_ids_example"); // string[] | When provided, only reviews for the requested locations will be returned.  By default, reviews will be returned for all locations subscribed to Review Monitoring.  **Example:** loc123,loc456,loc789
@@ -176,7 +176,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format |
  **limit** | **int**| Number of results to return. | [optional] [default to 100]
  **offset** | **int**| Number of results to skip. Used to page through results | [optional] [default to 0]
  **location_ids** | [**string[]**](../Model/string.md)| When provided, only reviews for the requested locations will be returned.  By default, reviews will be returned for all locations subscribed to Review Monitoring.  **Example:** loc123,loc456,loc789 | [optional]

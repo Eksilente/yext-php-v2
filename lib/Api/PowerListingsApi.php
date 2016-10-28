@@ -516,7 +516,7 @@ class PowerListingsApi
         if ($v === null) {
             throw new \InvalidArgumentException('Missing the required parameter $v when calling listDuplicates');
         }
-        if ($limit > 50.0) {
+        if (!is_null($limit) && ($limit > 50.0)) {
             throw new \InvalidArgumentException('invalid value for "$limit" when calling PowerListingsApi.listDuplicates, must be smaller than or equal to 50.0.');
         }
 
@@ -661,7 +661,7 @@ class PowerListingsApi
         if ($v === null) {
             throw new \InvalidArgumentException('Missing the required parameter $v when calling listListings');
         }
-        if ($limit > 100.0) {
+        if (!is_null($limit) && ($limit > 100.0)) {
             throw new \InvalidArgumentException('invalid value for "$limit" when calling PowerListingsApi.listListings, must be smaller than or equal to 100.0.');
         }
 
@@ -801,7 +801,7 @@ class PowerListingsApi
         if ($v === null) {
             throw new \InvalidArgumentException('Missing the required parameter $v when calling listPublisherSuggestions');
         }
-        if ($limit > 50.0) {
+        if (!is_null($limit) && ($limit > 50.0)) {
             throw new \InvalidArgumentException('invalid value for "$limit" when calling PowerListingsApi.listPublisherSuggestions, must be smaller than or equal to 50.0.');
         }
 

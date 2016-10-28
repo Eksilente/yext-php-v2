@@ -220,10 +220,12 @@ class Listing implements ArrayAccess
         if (!in_array($this->container['status'], $allowed_values)) {
             $invalid_properties[] = "invalid value for 'status', must be one of #{allowed_values}.";
         }
+
         $allowed_values = array("CONNECTED", "NOT_CONNECTED");
         if (!in_array($this->container['additional_status'], $allowed_values)) {
             $invalid_properties[] = "invalid value for 'additional_status', must be one of #{allowed_values}.";
         }
+
         return $invalid_properties;
     }
 

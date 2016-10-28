@@ -53,7 +53,7 @@ use \ArrayAccess;
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class Menu extends BaseEcl implements ArrayAccess
+class Menu implements ArrayAccess
 {
     /**
       * The original name of the model.
@@ -72,7 +72,7 @@ class Menu extends BaseEcl implements ArrayAccess
 
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes + parent::swaggerTypes();
+        return self::$swaggerTypes;
     }
 
     /**
@@ -86,7 +86,7 @@ class Menu extends BaseEcl implements ArrayAccess
 
     public static function attributeMap()
     {
-        return parent::attributeMap() + self::$attributeMap;
+        return self::$attributeMap;
     }
 
     /**
@@ -100,7 +100,7 @@ class Menu extends BaseEcl implements ArrayAccess
 
     public static function setters()
     {
-        return parent::setters() + self::$setters;
+        return self::$setters;
     }
 
     /**
@@ -114,7 +114,7 @@ class Menu extends BaseEcl implements ArrayAccess
 
     public static function getters()
     {
-        return parent::getters() + self::$getters;
+        return self::$getters;
     }
 
     
@@ -133,8 +133,6 @@ class Menu extends BaseEcl implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        parent::__construct($data);
-
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
         $this->container['sections'] = isset($data['sections']) ? $data['sections'] : null;
     }

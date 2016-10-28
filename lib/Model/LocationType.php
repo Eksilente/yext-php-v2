@@ -60,6 +60,10 @@ class LocationType {
     
 
     
+
+    private function isEnum() {
+      return true;
+    }
 }
 
 

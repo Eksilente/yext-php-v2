@@ -1439,7 +1439,7 @@ class LocationManagerApi
         if ($v === null) {
             throw new \InvalidArgumentException('Missing the required parameter $v when calling getBios');
         }
-        if ($limit > 50.0) {
+        if (!is_null($limit) && ($limit > 50.0)) {
             throw new \InvalidArgumentException('invalid value for "$limit" when calling LocationManagerApi.getBios, must be smaller than or equal to 50.0.');
         }
 
@@ -1661,7 +1661,7 @@ class LocationManagerApi
         if ($account_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $account_id when calling getCustomFields');
         }
-        if ($limit > 1000.0) {
+        if (!is_null($limit) && ($limit > 1000.0)) {
             throw new \InvalidArgumentException('invalid value for "$limit" when calling LocationManagerApi.getCustomFields, must be smaller than or equal to 1000.0.');
         }
 
@@ -1899,7 +1899,7 @@ class LocationManagerApi
         if ($v === null) {
             throw new \InvalidArgumentException('Missing the required parameter $v when calling getEvents');
         }
-        if ($limit > 50.0) {
+        if (!is_null($limit) && ($limit > 50.0)) {
             throw new \InvalidArgumentException('invalid value for "$limit" when calling LocationManagerApi.getEvents, must be smaller than or equal to 50.0.');
         }
 
@@ -2477,7 +2477,7 @@ class LocationManagerApi
         if ($v === null) {
             throw new \InvalidArgumentException('Missing the required parameter $v when calling getLocationFolders');
         }
-        if ($limit > 1000.0) {
+        if (!is_null($limit) && ($limit > 1000.0)) {
             throw new \InvalidArgumentException('invalid value for "$limit" when calling LocationManagerApi.getLocationFolders, must be smaller than or equal to 1000.0.');
         }
 
@@ -2597,7 +2597,7 @@ class LocationManagerApi
         if ($v === null) {
             throw new \InvalidArgumentException('Missing the required parameter $v when calling getLocations');
         }
-        if ($limit > 50.0) {
+        if (!is_null($limit) && ($limit > 50.0)) {
             throw new \InvalidArgumentException('invalid value for "$limit" when calling LocationManagerApi.getLocations, must be smaller than or equal to 50.0.');
         }
 
@@ -2835,7 +2835,7 @@ class LocationManagerApi
         if ($v === null) {
             throw new \InvalidArgumentException('Missing the required parameter $v when calling getMenus');
         }
-        if ($limit > 50.0) {
+        if (!is_null($limit) && ($limit > 50.0)) {
             throw new \InvalidArgumentException('invalid value for "$limit" when calling LocationManagerApi.getMenus, must be smaller than or equal to 50.0.');
         }
 
@@ -3073,7 +3073,7 @@ class LocationManagerApi
         if ($v === null) {
             throw new \InvalidArgumentException('Missing the required parameter $v when calling getProducts');
         }
-        if ($limit > 50.0) {
+        if (!is_null($limit) && ($limit > 50.0)) {
             throw new \InvalidArgumentException('invalid value for "$limit" when calling LocationManagerApi.getProducts, must be smaller than or equal to 50.0.');
         }
 

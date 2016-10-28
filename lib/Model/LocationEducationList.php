@@ -172,6 +172,7 @@ class LocationEducationList implements ArrayAccess
         if (!in_array($this->container['type'], $allowed_values)) {
             $invalid_properties[] = "invalid value for 'type', must be one of #{allowed_values}.";
         }
+
         return $invalid_properties;
     }
 

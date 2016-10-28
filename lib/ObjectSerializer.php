@@ -292,6 +292,10 @@ class ObjectSerializer
                 }
             }
             $instance = new $class();
+            if (method_exists($instance, "isEnum")) {
+              settype($data, "string");
+              return $data;
+            }
             foreach ($instance::swaggerTypes() as $property => $type) {
                 $propertySetter = $instance::setters()[$property];
 

@@ -53,7 +53,7 @@ use \ArrayAccess;
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class MenuItem extends BaseEclItem implements ArrayAccess
+class MenuItem implements ArrayAccess
 {
     /**
       * The original name of the model.
@@ -73,7 +73,7 @@ class MenuItem extends BaseEclItem implements ArrayAccess
 
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes + parent::swaggerTypes();
+        return self::$swaggerTypes;
     }
 
     /**
@@ -88,7 +88,7 @@ class MenuItem extends BaseEclItem implements ArrayAccess
 
     public static function attributeMap()
     {
-        return parent::attributeMap() + self::$attributeMap;
+        return self::$attributeMap;
     }
 
     /**
@@ -103,7 +103,7 @@ class MenuItem extends BaseEclItem implements ArrayAccess
 
     public static function setters()
     {
-        return parent::setters() + self::$setters;
+        return self::$setters;
     }
 
     /**
@@ -118,7 +118,7 @@ class MenuItem extends BaseEclItem implements ArrayAccess
 
     public static function getters()
     {
-        return parent::getters() + self::$getters;
+        return self::$getters;
     }
 
     
@@ -137,8 +137,6 @@ class MenuItem extends BaseEclItem implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        parent::__construct($data);
-
         $this->container['photo'] = isset($data['photo']) ? $data['photo'] : null;
         $this->container['calories'] = isset($data['calories']) ? $data['calories'] : null;
         $this->container['cost'] = isset($data['cost']) ? $data['cost'] : null;

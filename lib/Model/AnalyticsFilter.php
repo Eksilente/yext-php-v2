@@ -185,6 +185,28 @@ class AnalyticsFilter implements ArrayAccess
         return self::$getters;
     }
 
+    const ACTIVITY_TYPES_LOCATION_UPDATED = 'LOCATION_UPDATED';
+    const ACTIVITY_TYPES_PUBLISHER_SUGGESTION_CREATED = 'PUBLISHER_SUGGESTION_CREATED';
+    const ACTIVITY_TYPES_PUBLISHER_SUGGESTION_APPROVED = 'PUBLISHER_SUGGESTION_APPROVED';
+    const ACTIVITY_TYPES_PUBLISHER_SUGGESTION_REJECTED = 'PUBLISHER_SUGGESTION_REJECTED';
+    const ACTIVITY_TYPES_PUBLISHER_SUGGESTION_EXPIRED = 'PUBLISHER_SUGGESTION_EXPIRED';
+    const ACTIVITY_TYPES_REVIEW_CREATED = 'REVIEW_CREATED';
+    const ACTIVITY_TYPES_REVIEW_RESPONDED = 'REVIEW_RESPONDED';
+    const ACTIVITY_TYPES_SOCIAL_POST_CREATED = 'SOCIAL_POST_CREATED';
+    const ACTIVITY_TYPES_SOCIAL_POST_UPDATED = 'SOCIAL_POST_UPDATED';
+    const ACTIVITY_TYPES_SOCIAL_POST_COMMENT_CREATED = 'SOCIAL_POST_COMMENT_CREATED';
+    const ACTIVITY_TYPES_SOCIAL_POST_COMMENT_UPDATED = 'SOCIAL_POST_COMMENT_UPDATED';
+    const ACTIVITY_TYPES_LISTING_LIVE = 'LISTING_LIVE';
+    const ACTIVITY_TYPES_DUPLICATE_DETECTED = 'DUPLICATE_DETECTED';
+    const ACTIVITY_TYPES_DUPLICATE_SUPPRESSED = 'DUPLICATE_SUPPRESSED';
+    const ACTIVITY_TYPES_DUPLICATE_IGNORED = 'DUPLICATE_IGNORED';
+    const ACTORS_YEXT_SYSTEM = 'YEXT_SYSTEM';
+    const ACTORS_YEXT_EMPLOYEE = 'YEXT_EMPLOYEE';
+    const ACTORS_SCHEDULED_CONTENT = 'SCHEDULED_CONTENT';
+    const ACTORS_API = 'API';
+    const ACTORS_PUBLISHER = 'PUBLISHER';
+    const ACTORS_CUSTOMER = 'CUSTOMER';
+    const ACTORS_CONSUMER = 'CONSUMER';
     
 
     
@@ -195,7 +217,21 @@ class AnalyticsFilter implements ArrayAccess
     public function getActivityTypesAllowableValues()
     {
         return [
-            
+            self::ACTIVITY_TYPES_LOCATION_UPDATED,
+            self::ACTIVITY_TYPES_PUBLISHER_SUGGESTION_CREATED,
+            self::ACTIVITY_TYPES_PUBLISHER_SUGGESTION_APPROVED,
+            self::ACTIVITY_TYPES_PUBLISHER_SUGGESTION_REJECTED,
+            self::ACTIVITY_TYPES_PUBLISHER_SUGGESTION_EXPIRED,
+            self::ACTIVITY_TYPES_REVIEW_CREATED,
+            self::ACTIVITY_TYPES_REVIEW_RESPONDED,
+            self::ACTIVITY_TYPES_SOCIAL_POST_CREATED,
+            self::ACTIVITY_TYPES_SOCIAL_POST_UPDATED,
+            self::ACTIVITY_TYPES_SOCIAL_POST_COMMENT_CREATED,
+            self::ACTIVITY_TYPES_SOCIAL_POST_COMMENT_UPDATED,
+            self::ACTIVITY_TYPES_LISTING_LIVE,
+            self::ACTIVITY_TYPES_DUPLICATE_DETECTED,
+            self::ACTIVITY_TYPES_DUPLICATE_SUPPRESSED,
+            self::ACTIVITY_TYPES_DUPLICATE_IGNORED,
         ];
     }
     
@@ -206,7 +242,13 @@ class AnalyticsFilter implements ArrayAccess
     public function getActorsAllowableValues()
     {
         return [
-            
+            self::ACTORS_YEXT_SYSTEM,
+            self::ACTORS_YEXT_EMPLOYEE,
+            self::ACTORS_SCHEDULED_CONTENT,
+            self::ACTORS_API,
+            self::ACTORS_PUBLISHER,
+            self::ACTORS_CUSTOMER,
+            self::ACTORS_CONSUMER,
         ];
     }
     
@@ -252,14 +294,6 @@ class AnalyticsFilter implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
-        $allowed_values = array();
-        if (!in_array($this->container['activity_types'], $allowed_values)) {
-            $invalid_properties[] = "invalid value for 'activity_types', must be one of #{allowed_values}.";
-        }
-        $allowed_values = array();
-        if (!in_array($this->container['actors'], $allowed_values)) {
-            $invalid_properties[] = "invalid value for 'actors', must be one of #{allowed_values}.";
-        }
         return $invalid_properties;
     }
 
@@ -271,14 +305,6 @@ class AnalyticsFilter implements ArrayAccess
      */
     public function valid()
     {
-        $allowed_values = array();
-        if (!in_array($this->container['activity_types'], $allowed_values)) {
-            return false;
-        }
-        $allowed_values = array();
-        if (!in_array($this->container['actors'], $allowed_values)) {
-            return false;
-        }
         return true;
     }
 
@@ -467,9 +493,9 @@ class AnalyticsFilter implements ArrayAccess
      */
     public function setActivityTypes($activity_types)
     {
-        $allowed_values = array();
+        $allowed_values = array('LOCATION_UPDATED', 'PUBLISHER_SUGGESTION_CREATED', 'PUBLISHER_SUGGESTION_APPROVED', 'PUBLISHER_SUGGESTION_REJECTED', 'PUBLISHER_SUGGESTION_EXPIRED', 'REVIEW_CREATED', 'REVIEW_RESPONDED', 'SOCIAL_POST_CREATED', 'SOCIAL_POST_UPDATED', 'SOCIAL_POST_COMMENT_CREATED', 'SOCIAL_POST_COMMENT_UPDATED', 'LISTING_LIVE', 'DUPLICATE_DETECTED', 'DUPLICATE_SUPPRESSED', 'DUPLICATE_IGNORED');
         if (!in_array($activity_types, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'activity_types', must be one of ");
+            throw new \InvalidArgumentException("Invalid value for 'activity_types', must be one of 'LOCATION_UPDATED', 'PUBLISHER_SUGGESTION_CREATED', 'PUBLISHER_SUGGESTION_APPROVED', 'PUBLISHER_SUGGESTION_REJECTED', 'PUBLISHER_SUGGESTION_EXPIRED', 'REVIEW_CREATED', 'REVIEW_RESPONDED', 'SOCIAL_POST_CREATED', 'SOCIAL_POST_UPDATED', 'SOCIAL_POST_COMMENT_CREATED', 'SOCIAL_POST_COMMENT_UPDATED', 'LISTING_LIVE', 'DUPLICATE_DETECTED', 'DUPLICATE_SUPPRESSED', 'DUPLICATE_IGNORED'");
         }
         $this->container['activity_types'] = $activity_types;
 
@@ -492,9 +518,9 @@ class AnalyticsFilter implements ArrayAccess
      */
     public function setActors($actors)
     {
-        $allowed_values = array();
+        $allowed_values = array('YEXT_SYSTEM', 'YEXT_EMPLOYEE', 'SCHEDULED_CONTENT', 'API', 'PUBLISHER', 'CUSTOMER', 'CONSUMER');
         if (!in_array($actors, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'actors', must be one of ");
+            throw new \InvalidArgumentException("Invalid value for 'actors', must be one of 'YEXT_SYSTEM', 'YEXT_EMPLOYEE', 'SCHEDULED_CONTENT', 'API', 'PUBLISHER', 'CUSTOMER', 'CONSUMER'");
         }
         $this->container['actors'] = $actors;
 

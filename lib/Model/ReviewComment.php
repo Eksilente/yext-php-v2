@@ -202,10 +202,12 @@ class ReviewComment implements ArrayAccess
         if (!in_array($this->container['author_role'], $allowed_values)) {
             $invalid_properties[] = "invalid value for 'author_role', must be one of #{allowed_values}.";
         }
+
         $allowed_values = array("PUBLIC", "PRIVATE");
         if (!in_array($this->container['visibility'], $allowed_values)) {
             $invalid_properties[] = "invalid value for 'visibility', must be one of #{allowed_values}.";
         }
+
         return $invalid_properties;
     }
 

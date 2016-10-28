@@ -866,7 +866,7 @@ class UserApi
         if ($v === null) {
             throw new \InvalidArgumentException('Missing the required parameter $v when calling getUsers');
         }
-        if ($limit > 50.0) {
+        if (!is_null($limit) && ($limit > 50.0)) {
             throw new \InvalidArgumentException('invalid value for "$limit" when calling UserApi.getUsers, must be smaller than or equal to 50.0.');
         }
 

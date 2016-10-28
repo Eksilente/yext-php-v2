@@ -141,6 +141,13 @@ class Publisher implements ArrayAccess
         return self::$getters;
     }
 
+    const FEATURES_DUAL_SYNC = 'DUAL_SYNC';
+    const FEATURES_SUBMISSION = 'SUBMISSION';
+    const FEATURES_SUPPRESSION = 'SUPPRESSION';
+    const FEATURES_SUPPRESS_BY_URL = 'SUPPRESS_BY_URL';
+    const FEATURES_REVIEW_MONITORING = 'REVIEW_MONITORING';
+    const FEATURES_PUBLISHER_SUGGESTIONS = 'PUBLISHER_SUGGESTIONS';
+    const FEATURES_ANALYTICS = 'ANALYTICS';
     
 
     
@@ -151,7 +158,13 @@ class Publisher implements ArrayAccess
     public function getFeaturesAllowableValues()
     {
         return [
-            
+            self::FEATURES_DUAL_SYNC,
+            self::FEATURES_SUBMISSION,
+            self::FEATURES_SUPPRESSION,
+            self::FEATURES_SUPPRESS_BY_URL,
+            self::FEATURES_REVIEW_MONITORING,
+            self::FEATURES_PUBLISHER_SUGGESTIONS,
+            self::FEATURES_ANALYTICS,
         ];
     }
     
@@ -186,10 +199,6 @@ class Publisher implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
-        $allowed_values = array();
-        if (!in_array($this->container['features'], $allowed_values)) {
-            $invalid_properties[] = "invalid value for 'features', must be one of #{allowed_values}.";
-        }
         return $invalid_properties;
     }
 
@@ -201,10 +210,6 @@ class Publisher implements ArrayAccess
      */
     public function valid()
     {
-        $allowed_values = array();
-        if (!in_array($this->container['features'], $allowed_values)) {
-            return false;
-        }
         return true;
     }
 
@@ -351,9 +356,9 @@ class Publisher implements ArrayAccess
      */
     public function setFeatures($features)
     {
-        $allowed_values = array();
+        $allowed_values = array('DUAL_SYNC', 'SUBMISSION', 'SUPPRESSION', 'SUPPRESS_BY_URL', 'REVIEW_MONITORING', 'PUBLISHER_SUGGESTIONS', 'ANALYTICS');
         if (!in_array($features, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'features', must be one of ");
+            throw new \InvalidArgumentException("Invalid value for 'features', must be one of 'DUAL_SYNC', 'SUBMISSION', 'SUPPRESSION', 'SUPPRESS_BY_URL', 'REVIEW_MONITORING', 'PUBLISHER_SUGGESTIONS', 'ANALYTICS'");
         }
         $this->container['features'] = $features;
 

@@ -175,6 +175,7 @@ class UserAcl implements ArrayAccess
         if (!in_array($this->container['on_type'], $allowed_values)) {
             $invalid_properties[] = "invalid value for 'on_type', must be one of #{allowed_values}.";
         }
+
         return $invalid_properties;
     }
 

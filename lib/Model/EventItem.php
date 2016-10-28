@@ -53,7 +53,7 @@ use \ArrayAccess;
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class EventItem extends BaseEclItem implements ArrayAccess
+class EventItem implements ArrayAccess
 {
     /**
       * The original name of the model.
@@ -76,7 +76,7 @@ class EventItem extends BaseEclItem implements ArrayAccess
 
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes + parent::swaggerTypes();
+        return self::$swaggerTypes;
     }
 
     /**
@@ -94,7 +94,7 @@ class EventItem extends BaseEclItem implements ArrayAccess
 
     public static function attributeMap()
     {
-        return parent::attributeMap() + self::$attributeMap;
+        return self::$attributeMap;
     }
 
     /**
@@ -112,7 +112,7 @@ class EventItem extends BaseEclItem implements ArrayAccess
 
     public static function setters()
     {
-        return parent::setters() + self::$setters;
+        return self::$setters;
     }
 
     /**
@@ -130,7 +130,7 @@ class EventItem extends BaseEclItem implements ArrayAccess
 
     public static function getters()
     {
-        return parent::getters() + self::$getters;
+        return self::$getters;
     }
 
     
@@ -149,8 +149,6 @@ class EventItem extends BaseEclItem implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        parent::__construct($data);
-
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['starts'] = isset($data['starts']) ? $data['starts'] : null;
         $this->container['ends'] = isset($data['ends']) ? $data['ends'] : null;

@@ -53,7 +53,7 @@ use \ArrayAccess;
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class BioSection extends BaseEclSection implements ArrayAccess
+class BioSection implements ArrayAccess
 {
     /**
       * The original name of the model.
@@ -71,7 +71,7 @@ class BioSection extends BaseEclSection implements ArrayAccess
 
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes + parent::swaggerTypes();
+        return self::$swaggerTypes;
     }
 
     /**
@@ -84,7 +84,7 @@ class BioSection extends BaseEclSection implements ArrayAccess
 
     public static function attributeMap()
     {
-        return parent::attributeMap() + self::$attributeMap;
+        return self::$attributeMap;
     }
 
     /**
@@ -97,7 +97,7 @@ class BioSection extends BaseEclSection implements ArrayAccess
 
     public static function setters()
     {
-        return parent::setters() + self::$setters;
+        return self::$setters;
     }
 
     /**
@@ -110,7 +110,7 @@ class BioSection extends BaseEclSection implements ArrayAccess
 
     public static function getters()
     {
-        return parent::getters() + self::$getters;
+        return self::$getters;
     }
 
     
@@ -129,8 +129,6 @@ class BioSection extends BaseEclSection implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        parent::__construct($data);
-
         $this->container['items'] = isset($data['items']) ? $data['items'] : null;
     }
 

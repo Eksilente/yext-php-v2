@@ -168,6 +168,7 @@ class Calories implements ArrayAccess
         if (!in_array($this->container['name'], $allowed_values)) {
             $invalid_properties[] = "invalid value for 'name', must be one of #{allowed_values}.";
         }
+
         return $invalid_properties;
     }
 

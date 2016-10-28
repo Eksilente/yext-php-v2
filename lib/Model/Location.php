@@ -624,86 +624,112 @@ class Location implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
-        if (strlen($this->container['id']) > 50) {
+        if (!is_null($this->container['id']) && (strlen($this->container['id']) > 50)) {
             $invalid_properties[] = "invalid value for 'id', the character length must be smaller than or equal to 50.";
         }
-        if (strlen($this->container['account_id']) > 50) {
+
+        if (!is_null($this->container['account_id']) && (strlen($this->container['account_id']) > 50)) {
             $invalid_properties[] = "invalid value for 'account_id', the character length must be smaller than or equal to 50.";
         }
-        if (strlen($this->container['location_name']) > 100) {
+
+        if (!is_null($this->container['location_name']) && (strlen($this->container['location_name']) > 100)) {
             $invalid_properties[] = "invalid value for 'location_name', the character length must be smaller than or equal to 100.";
         }
+
         $allowed_values = array("FEMALE", "F", "MALE", "M", "UNSPECIFIED");
         if (!in_array($this->container['gender'], $allowed_values)) {
             $invalid_properties[] = "invalid value for 'gender', must be one of #{allowed_values}.";
         }
-        if (strlen($this->container['address']) > 255) {
+
+        if (!is_null($this->container['address']) && (strlen($this->container['address']) > 255)) {
             $invalid_properties[] = "invalid value for 'address', the character length must be smaller than or equal to 255.";
         }
-        if (strlen($this->container['address2']) > 255) {
+
+        if (!is_null($this->container['address2']) && (strlen($this->container['address2']) > 255)) {
             $invalid_properties[] = "invalid value for 'address2', the character length must be smaller than or equal to 255.";
         }
-        if (strlen($this->container['display_address']) > 255) {
+
+        if (!is_null($this->container['display_address']) && (strlen($this->container['display_address']) > 255)) {
             $invalid_properties[] = "invalid value for 'display_address', the character length must be smaller than or equal to 255.";
         }
-        if (strlen($this->container['city']) > 80) {
+
+        if (!is_null($this->container['city']) && (strlen($this->container['city']) > 80)) {
             $invalid_properties[] = "invalid value for 'city', the character length must be smaller than or equal to 80.";
         }
-        if (strlen($this->container['state']) > 80) {
+
+        if (!is_null($this->container['state']) && (strlen($this->container['state']) > 80)) {
             $invalid_properties[] = "invalid value for 'state', the character length must be smaller than or equal to 80.";
         }
-        if (strlen($this->container['zip']) > 10) {
+
+        if (!is_null($this->container['zip']) && (strlen($this->container['zip']) > 10)) {
             $invalid_properties[] = "invalid value for 'zip', the character length must be smaller than or equal to 10.";
         }
-        if (strlen($this->container['country_code']) > 2) {
+
+        if (!is_null($this->container['country_code']) && (strlen($this->container['country_code']) > 2)) {
             $invalid_properties[] = "invalid value for 'country_code', the character length must be smaller than or equal to 2.";
         }
-        if (strlen($this->container['featured_message']) > 50) {
+
+        if (!is_null($this->container['featured_message']) && (strlen($this->container['featured_message']) > 50)) {
             $invalid_properties[] = "invalid value for 'featured_message', the character length must be smaller than or equal to 50.";
         }
-        if (strlen($this->container['featured_message_url']) > 255) {
+
+        if (!is_null($this->container['featured_message_url']) && (strlen($this->container['featured_message_url']) > 255)) {
             $invalid_properties[] = "invalid value for 'featured_message_url', the character length must be smaller than or equal to 255.";
         }
-        if (strlen($this->container['website_url']) > 255) {
+
+        if (!is_null($this->container['website_url']) && (strlen($this->container['website_url']) > 255)) {
             $invalid_properties[] = "invalid value for 'website_url', the character length must be smaller than or equal to 255.";
         }
-        if (strlen($this->container['display_website_url']) > 255) {
+
+        if (!is_null($this->container['display_website_url']) && (strlen($this->container['display_website_url']) > 255)) {
             $invalid_properties[] = "invalid value for 'display_website_url', the character length must be smaller than or equal to 255.";
         }
-        if (strlen($this->container['reservation_url']) > 255) {
+
+        if (!is_null($this->container['reservation_url']) && (strlen($this->container['reservation_url']) > 255)) {
             $invalid_properties[] = "invalid value for 'reservation_url', the character length must be smaller than or equal to 255.";
         }
-        if (strlen($this->container['hours']) > 255) {
+
+        if (!is_null($this->container['hours']) && (strlen($this->container['hours']) > 255)) {
             $invalid_properties[] = "invalid value for 'hours', the character length must be smaller than or equal to 255.";
         }
-        if (strlen($this->container['additional_hours_text']) > 255) {
+
+        if (!is_null($this->container['additional_hours_text']) && (strlen($this->container['additional_hours_text']) > 255)) {
             $invalid_properties[] = "invalid value for 'additional_hours_text', the character length must be smaller than or equal to 255.";
         }
-        if (strlen($this->container['description']) > 5000) {
+
+        if (!is_null($this->container['description']) && (strlen($this->container['description']) > 5000)) {
             $invalid_properties[] = "invalid value for 'description', the character length must be smaller than or equal to 5000.";
         }
-        if (strlen($this->container['twitter_handle']) > 15) {
+
+        if (!is_null($this->container['twitter_handle']) && (strlen($this->container['twitter_handle']) > 15)) {
             $invalid_properties[] = "invalid value for 'twitter_handle', the character length must be smaller than or equal to 15.";
         }
-        if (strlen($this->container['google_website_override']) > 255) {
+
+        if (!is_null($this->container['google_website_override']) && (strlen($this->container['google_website_override']) > 255)) {
             $invalid_properties[] = "invalid value for 'google_website_override', the character length must be smaller than or equal to 255.";
         }
-        if (strlen($this->container['facebook_page_url']) > 255) {
+
+        if (!is_null($this->container['facebook_page_url']) && (strlen($this->container['facebook_page_url']) > 255)) {
             $invalid_properties[] = "invalid value for 'facebook_page_url', the character length must be smaller than or equal to 255.";
         }
+
         $allowed_values = array("TEXT", "BUTTON");
         if (!in_array($this->container['uber_link_type'], $allowed_values)) {
             $invalid_properties[] = "invalid value for 'uber_link_type', must be one of #{allowed_values}.";
         }
-        if (strlen($this->container['uber_link_text']) > 100) {
+
+        if (!is_null($this->container['uber_link_text']) && (strlen($this->container['uber_link_text']) > 100)) {
             $invalid_properties[] = "invalid value for 'uber_link_text', the character length must be smaller than or equal to 100.";
         }
-        if (strlen($this->container['uber_trip_branding_text']) > 28) {
+
+        if (!is_null($this->container['uber_trip_branding_text']) && (strlen($this->container['uber_trip_branding_text']) > 28)) {
             $invalid_properties[] = "invalid value for 'uber_trip_branding_text', the character length must be smaller than or equal to 28.";
         }
-        if (strlen($this->container['year_established']) > 4) {
+
+        if (!is_null($this->container['year_established']) && (strlen($this->container['year_established']) > 4)) {
             $invalid_properties[] = "invalid value for 'year_established', the character length must be smaller than or equal to 4.";
         }
+
         return $invalid_properties;
     }
 

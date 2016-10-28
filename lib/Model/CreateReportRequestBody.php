@@ -121,6 +121,31 @@ class CreateReportRequestBody implements ArrayAccess
         return self::$getters;
     }
 
+    const METRICS_PROFILE_VIEWS = 'PROFILE_VIEWS';
+    const METRICS_SEARCHES = 'SEARCHES';
+    const METRICS_POWERLISTINGS_LIVE = 'POWERLISTINGS_LIVE';
+    const METRICS_FEATURED_MESSAGE_CLICKS = 'FEATURED_MESSAGE_CLICKS';
+    const METRICS_YELP_PAGE_VIEWS = 'YELP_PAGE_VIEWS';
+    const METRICS_BING_SEARCHES = 'BING_SEARCHES';
+    const METRICS_FACEBOOK_LIKES = 'FACEBOOK_LIKES';
+    const METRICS_FACEBOOK_TALKING_ABOUT = 'FACEBOOK_TALKING_ABOUT';
+    const METRICS_FACEBOOK_WERE_HERE = 'FACEBOOK_WERE_HERE';
+    const METRICS_FOURSQUARE_DAILY_CHECKINS = 'FOURSQUARE_DAILY_CHECKINS';
+    const METRICS_INSTAGRAM_POSTS = 'INSTAGRAM_POSTS';
+    const DIMENSIONS_ACCOUNT_IDS = 'ACCOUNT_IDS';
+    const DIMENSIONS_LOCATION_IDS = 'LOCATION_IDS';
+    const DIMENSIONS_FOLDER_IDS = 'FOLDER_IDS';
+    const DIMENSIONS_LOCATION_NAMES = 'LOCATION_NAMES';
+    const DIMENSIONS_FOLDER_NAMES = 'FOLDER_NAMES';
+    const DIMENSIONS_DAYS = 'DAYS';
+    const DIMENSIONS_WEEKS = 'WEEKS';
+    const DIMENSIONS_MONTHS = 'MONTHS';
+    const DIMENSIONS_MONTHS_RETAIL = 'MONTHS_RETAIL';
+    const DIMENSIONS_PLATFORM = 'PLATFORM';
+    const DIMENSIONS_FOURSQUARE_GENDER = 'FOURSQUARE_GENDER';
+    const DIMENSIONS_FOURSQUARE_AGE = 'FOURSQUARE_AGE';
+    const DIMENSIONS_FOURSQUARE_TIME = 'FOURSQUARE_TIME';
+    const DIMENSIONS_SEARCH_QUERY = 'SEARCH_QUERY';
     
 
     
@@ -131,7 +156,17 @@ class CreateReportRequestBody implements ArrayAccess
     public function getMetricsAllowableValues()
     {
         return [
-            
+            self::METRICS_PROFILE_VIEWS,
+            self::METRICS_SEARCHES,
+            self::METRICS_POWERLISTINGS_LIVE,
+            self::METRICS_FEATURED_MESSAGE_CLICKS,
+            self::METRICS_YELP_PAGE_VIEWS,
+            self::METRICS_BING_SEARCHES,
+            self::METRICS_FACEBOOK_LIKES,
+            self::METRICS_FACEBOOK_TALKING_ABOUT,
+            self::METRICS_FACEBOOK_WERE_HERE,
+            self::METRICS_FOURSQUARE_DAILY_CHECKINS,
+            self::METRICS_INSTAGRAM_POSTS,
         ];
     }
     
@@ -142,7 +177,20 @@ class CreateReportRequestBody implements ArrayAccess
     public function getDimensionsAllowableValues()
     {
         return [
-            
+            self::DIMENSIONS_ACCOUNT_IDS,
+            self::DIMENSIONS_LOCATION_IDS,
+            self::DIMENSIONS_FOLDER_IDS,
+            self::DIMENSIONS_LOCATION_NAMES,
+            self::DIMENSIONS_FOLDER_NAMES,
+            self::DIMENSIONS_DAYS,
+            self::DIMENSIONS_WEEKS,
+            self::DIMENSIONS_MONTHS,
+            self::DIMENSIONS_MONTHS_RETAIL,
+            self::DIMENSIONS_PLATFORM,
+            self::DIMENSIONS_FOURSQUARE_GENDER,
+            self::DIMENSIONS_FOURSQUARE_AGE,
+            self::DIMENSIONS_FOURSQUARE_TIME,
+            self::DIMENSIONS_SEARCH_QUERY,
         ];
     }
     
@@ -175,16 +223,8 @@ class CreateReportRequestBody implements ArrayAccess
         if ($this->container['metrics'] === null) {
             $invalid_properties[] = "'metrics' can't be null";
         }
-        $allowed_values = array();
-        if (!in_array($this->container['metrics'], $allowed_values)) {
-            $invalid_properties[] = "invalid value for 'metrics', must be one of #{allowed_values}.";
-        }
         if ($this->container['dimensions'] === null) {
             $invalid_properties[] = "'dimensions' can't be null";
-        }
-        $allowed_values = array();
-        if (!in_array($this->container['dimensions'], $allowed_values)) {
-            $invalid_properties[] = "invalid value for 'dimensions', must be one of #{allowed_values}.";
         }
         return $invalid_properties;
     }
@@ -200,15 +240,7 @@ class CreateReportRequestBody implements ArrayAccess
         if ($this->container['metrics'] === null) {
             return false;
         }
-        $allowed_values = array();
-        if (!in_array($this->container['metrics'], $allowed_values)) {
-            return false;
-        }
         if ($this->container['dimensions'] === null) {
-            return false;
-        }
-        $allowed_values = array();
-        if (!in_array($this->container['dimensions'], $allowed_values)) {
             return false;
         }
         return true;
@@ -231,9 +263,9 @@ class CreateReportRequestBody implements ArrayAccess
      */
     public function setMetrics($metrics)
     {
-        $allowed_values = array();
+        $allowed_values = array('PROFILE_VIEWS', 'SEARCHES', 'POWERLISTINGS_LIVE', 'FEATURED_MESSAGE_CLICKS', 'YELP_PAGE_VIEWS', 'BING_SEARCHES', 'FACEBOOK_LIKES', 'FACEBOOK_TALKING_ABOUT', 'FACEBOOK_WERE_HERE', 'FOURSQUARE_DAILY_CHECKINS', 'INSTAGRAM_POSTS');
         if (!in_array($metrics, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'metrics', must be one of ");
+            throw new \InvalidArgumentException("Invalid value for 'metrics', must be one of 'PROFILE_VIEWS', 'SEARCHES', 'POWERLISTINGS_LIVE', 'FEATURED_MESSAGE_CLICKS', 'YELP_PAGE_VIEWS', 'BING_SEARCHES', 'FACEBOOK_LIKES', 'FACEBOOK_TALKING_ABOUT', 'FACEBOOK_WERE_HERE', 'FOURSQUARE_DAILY_CHECKINS', 'INSTAGRAM_POSTS'");
         }
         $this->container['metrics'] = $metrics;
 
@@ -256,9 +288,9 @@ class CreateReportRequestBody implements ArrayAccess
      */
     public function setDimensions($dimensions)
     {
-        $allowed_values = array();
+        $allowed_values = array('ACCOUNT_IDS', 'LOCATION_IDS', 'FOLDER_IDS', 'LOCATION_NAMES', 'FOLDER_NAMES', 'DAYS', 'WEEKS', 'MONTHS', 'MONTHS_RETAIL', 'PLATFORM', 'FOURSQUARE_GENDER', 'FOURSQUARE_AGE', 'FOURSQUARE_TIME', 'SEARCH_QUERY');
         if (!in_array($dimensions, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'dimensions', must be one of ");
+            throw new \InvalidArgumentException("Invalid value for 'dimensions', must be one of 'ACCOUNT_IDS', 'LOCATION_IDS', 'FOLDER_IDS', 'LOCATION_NAMES', 'FOLDER_NAMES', 'DAYS', 'WEEKS', 'MONTHS', 'MONTHS_RETAIL', 'PLATFORM', 'FOURSQUARE_GENDER', 'FOURSQUARE_AGE', 'FOURSQUARE_TIME', 'SEARCH_QUERY'");
         }
         $this->container['dimensions'] = $dimensions;
 

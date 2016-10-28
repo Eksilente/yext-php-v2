@@ -428,7 +428,7 @@ class ReviewsApi
         if ($v === null) {
             throw new \InvalidArgumentException('Missing the required parameter $v when calling listReviews');
         }
-        if ($limit > 100.0) {
+        if (!is_null($limit) && ($limit > 100.0)) {
             throw new \InvalidArgumentException('invalid value for "$limit" when calling ReviewsApi.listReviews, must be smaller than or equal to 100.0.');
         }
 
