@@ -45,7 +45,7 @@ namespace Yext\Client;
  * LocationServiceAreaTest Class Doc Comment
  *
  * @category    Class */
-// * @description &lt;msg&gt;Area that is served by this location. It may be specified as a radius from the location&#39;s address or as a list of cities and/or postal codes.&lt;/msg&gt;  &lt;msg desc&#x3D;\&quot;Google My Business and serviceArea should not be translated\&quot;&gt;**Only for Google My Business:** Currently, **serviceArea** is only supported by Google My Business and will not affect your listings on other sites.&lt;/msg&gt;
+// * @description Area that is served by this location. It may be specified as a radius from the location&#39;s address or as a list of cities and/or postal codes.  **Only for Google My Business:** Currently, **serviceArea** is only supported by Google My Business and will not affect your listings on other sites.
 /**
  * @package     Yext\Client
  * @author      http://github.com/swagger-api/swagger-codegen

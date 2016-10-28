@@ -171,7 +171,7 @@ class LocationGoogleAttributes implements ArrayAccess
 
     /**
      * Sets id
-     * @param string $id <msg desc=\"Google My Business should not be translated\">The unique ID Of the Google My Business keyword</msg>  <msg desc=\"highlights, planning, and diningoptions are constants and shouldn't be translated\">Keywords are determined by the location's primary category (e.g., highlights, planning, diningoptions).</msg>
+     * @param string $id The unique ID Of the Google My Business keyword  Keywords are determined by the location's primary category (e.g., highlights, planning, diningoptions).
      * @return $this
      */
     public function setId($id)
@@ -192,7 +192,7 @@ class LocationGoogleAttributes implements ArrayAccess
 
     /**
      * Sets option_ids
-     * @param string[] $option_ids <msg>The unique IDs of any options selected for the keyword.</msg>  <msg desc=\"highlights, optionIds, and has_seating_indoors are constants and shouldn't be translated\">Keyword options provide more details on how the keyword applies to the location (e.g., if id is highlights, **optionIds** may include has_seating_optdoors).</msg>
+     * @param string[] $option_ids The unique IDs of any options selected for the keyword.  Keyword options provide more details on how the keyword applies to the location (e.g., if id is highlights, **optionIds** may include has_seating_optdoors).
      * @return $this
      */
     public function setOptionIds($option_ids)

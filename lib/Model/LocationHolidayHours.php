@@ -176,7 +176,7 @@ class LocationHolidayHours implements ArrayAccess
 
     /**
      * Sets hours
-     * @param string $hours <msg desc=\"Describes the format of a field that specifies the hours of operation for a business during the holidays. isRegularHours should not be translated\">Special opening and closing times in 24-hour format (OH:OM:CH:CM, where OH:OM is the opening time and CH:CM is the closing time).  Times with single-digit hours (e.g., 9 AM) can be submitted with or without a leading zero (9:00 or 09:00).  Examples: * 9:00:15:00 — Opening at 9:00 AM, closing at 3:00 PM * \"\" (empty string) — Closed all day * 0:00:0:00 or 0:00:23:59 — Open 24 hours * 9:00:15:00,17:00:19:00 — Split hours: open from 9:00 AM to 3:00 PM and again from 5:00 PM to 7:00 PM  **NOTE:** If **isRegularHours** is set to true, we will ignore this field.</msg>
+     * @param string $hours Special opening and closing times in 24-hour format (OH:OM:CH:CM, where OH:OM is the opening time and CH:CM is the closing time).  Times with single-digit hours (e.g., 9 AM) can be submitted with or without a leading zero (9:00 or 09:00).  Examples: * 9:00:15:00 — Opening at 9:00 AM, closing at 3:00 PM * \"\" (empty string) — Closed all day * 0:00:0:00 or 0:00:23:59 — Open 24 hours * 9:00:15:00,17:00:19:00 — Split hours: open from 9:00 AM to 3:00 PM and again from 5:00 PM to 7:00 PM  **NOTE:** If **isRegularHours** is set to true, we will ignore this field.
      * @return $this
      */
     public function setHours($hours)
@@ -197,7 +197,7 @@ class LocationHolidayHours implements ArrayAccess
 
     /**
      * Sets date
-     * @param string $date <msg>The date on which the holiday hours will be in effect</msg>
+     * @param string $date The date on which the holiday hours will be in effect
      * @return $this
      */
     public function setDate($date)
@@ -218,7 +218,7 @@ class LocationHolidayHours implements ArrayAccess
 
     /**
      * Sets is_regular_hours
-     * @param bool $is_regular_hours <msg>Indicates whether the holiday hours are the same as the regular business hours for the given day of the week. If set to true, we will update the holiday hours if the regular business hours change for the given day of the week.</msg>
+     * @param bool $is_regular_hours Indicates whether the holiday hours are the same as the regular business hours for the given day of the week. If set to true, we will update the holiday hours if the regular business hours change for the given day of the week.
      * @return $this
      */
     public function setIsRegularHours($is_regular_hours)

@@ -203,7 +203,7 @@ class LocationEducationList implements ArrayAccess
 
     /**
      * Sets type
-     * @param string $type <msg>The kind of education or training completed</msg>
+     * @param string $type The kind of education or training completed
      * @return $this
      */
     public function setType($type)
@@ -228,7 +228,7 @@ class LocationEducationList implements ArrayAccess
 
     /**
      * Sets institution_name
-     * @param string $institution_name <msg>The name of the institution where the healthcare professional received the education or training</msg>
+     * @param string $institution_name The name of the institution where the healthcare professional received the education or training
      * @return $this
      */
     public function setInstitutionName($institution_name)
@@ -249,7 +249,7 @@ class LocationEducationList implements ArrayAccess
 
     /**
      * Sets year_completed
-     * @param string $year_completed <msg>The year the healthcare professional completed the education or training</msg>
+     * @param string $year_completed The year the healthcare professional completed the education or training
      * @return $this
      */
     public function setYearCompleted($year_completed)

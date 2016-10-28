@@ -45,7 +45,7 @@ namespace Yext\Client;
  * LocationClosedTest Class Doc Comment
  *
  * @category    Class */
-// * @description &lt;msg&gt;A set of field-value pairs indicating whether the location is closed and, if it is closed, the date of its closing.&lt;/msg&gt;  &lt;msg desc&#x3D;\&quot;GET and PUT are HTTP verbs and may not need to be translated\&quot;&gt;**NOTE:** This field does not appear in the GET response unless it has been explicitly set in a PUT request.&lt;/msg&gt;
+// * @description A set of field-value pairs indicating whether the location is closed and, if it is closed, the date of its closing.  **NOTE:** This field does not appear in the GET response unless it has been explicitly set in a PUT request.
 /**
  * @package     Yext\Client
  * @author      http://github.com/swagger-api/swagger-codegen

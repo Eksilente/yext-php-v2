@@ -47,7 +47,7 @@ use \ArrayAccess;
  * LocationClosed Class Doc Comment
  *
  * @category    Class */
- // @description &lt;msg&gt;A set of field-value pairs indicating whether the location is closed and, if it is closed, the date of its closing.&lt;/msg&gt;  &lt;msg desc&#x3D;\&quot;GET and PUT are HTTP verbs and may not need to be translated\&quot;&gt;**NOTE:** This field does not appear in the GET response unless it has been explicitly set in a PUT request.&lt;/msg&gt;
+ // @description A set of field-value pairs indicating whether the location is closed and, if it is closed, the date of its closing.  **NOTE:** This field does not appear in the GET response unless it has been explicitly set in a PUT request.
 /** 
  * @package     Yext\Client
  * @author      http://github.com/swagger-api/swagger-codegen
@@ -172,7 +172,7 @@ class LocationClosed implements ArrayAccess
 
     /**
      * Sets is_closed
-     * @param bool $is_closed <msg>Indicates whether the location is closed</msg>
+     * @param bool $is_closed Indicates whether the location is closed
      * @return $this
      */
     public function setIsClosed($is_closed)
@@ -193,7 +193,7 @@ class LocationClosed implements ArrayAccess
 
     /**
      * Sets close_date
-     * @param string $close_date <msg desc=\"closeDate, isClosed, true, and false are constants and should not be translated\">The closing date of the location * You cannot specify a value for **closeDate** if **isClosed** is false. * If you specify a value for **closeDate** but not for **isClosed**, **isClosed** is automatically added and set to true.</msg>
+     * @param string $close_date The closing date of the location * You cannot specify a value for **closeDate** if **isClosed** is false. * If you specify a value for **closeDate** but not for **isClosed**, **isClosed** is automatically added and set to true.
      * @return $this
      */
     public function setCloseDate($close_date)
