@@ -66,7 +66,7 @@ class InlineResponse20016Response implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'id' => 'string'
+        'optimization_tasks' => '\Yext\Client\Model\OptimizationTask[]'
     );
 
     public static function swaggerTypes()
@@ -79,7 +79,7 @@ class InlineResponse20016Response implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'id' => 'id'
+        'optimization_tasks' => 'optimizationTasks'
     );
 
     public static function attributeMap()
@@ -92,7 +92,7 @@ class InlineResponse20016Response implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'id' => 'setId'
+        'optimization_tasks' => 'setOptimizationTasks'
     );
 
     public static function setters()
@@ -105,7 +105,7 @@ class InlineResponse20016Response implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'id' => 'getId'
+        'optimization_tasks' => 'getOptimizationTasks'
     );
 
     public static function getters()
@@ -129,7 +129,7 @@ class InlineResponse20016Response implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['optimization_tasks'] = isset($data['optimization_tasks']) ? $data['optimization_tasks'] : null;
     }
 
     /**
@@ -156,22 +156,22 @@ class InlineResponse20016Response implements ArrayAccess
 
 
     /**
-     * Gets id
-     * @return string
+     * Gets optimization_tasks
+     * @return \Yext\Client\Model\OptimizationTask[]
      */
-    public function getId()
+    public function getOptimizationTasks()
     {
-        return $this->container['id'];
+        return $this->container['optimization_tasks'];
     }
 
     /**
-     * Sets id
-     * @param string $id ID of the new Duplicate
+     * Sets optimization_tasks
+     * @param \Yext\Client\Model\OptimizationTask[] $optimization_tasks
      * @return $this
      */
-    public function setId($id)
+    public function setOptimizationTasks($optimization_tasks)
     {
-        $this->container['id'] = $id;
+        $this->container['optimization_tasks'] = $optimization_tasks;
 
         return $this;
     }

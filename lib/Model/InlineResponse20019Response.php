@@ -67,7 +67,7 @@ class InlineResponse20019Response implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'count' => 'int',
-        'suggestions' => '\Yext\Client\Model\PublisherSuggestion[]'
+        'duplicates' => '\Yext\Client\Model\Duplicate[]'
     );
 
     public static function swaggerTypes()
@@ -81,7 +81,7 @@ class InlineResponse20019Response implements ArrayAccess
      */
     protected static $attributeMap = array(
         'count' => 'count',
-        'suggestions' => 'suggestions'
+        'duplicates' => 'duplicates'
     );
 
     public static function attributeMap()
@@ -95,7 +95,7 @@ class InlineResponse20019Response implements ArrayAccess
      */
     protected static $setters = array(
         'count' => 'setCount',
-        'suggestions' => 'setSuggestions'
+        'duplicates' => 'setDuplicates'
     );
 
     public static function setters()
@@ -109,7 +109,7 @@ class InlineResponse20019Response implements ArrayAccess
      */
     protected static $getters = array(
         'count' => 'getCount',
-        'suggestions' => 'getSuggestions'
+        'duplicates' => 'getDuplicates'
     );
 
     public static function getters()
@@ -134,7 +134,7 @@ class InlineResponse20019Response implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['count'] = isset($data['count']) ? $data['count'] : null;
-        $this->container['suggestions'] = isset($data['suggestions']) ? $data['suggestions'] : null;
+        $this->container['duplicates'] = isset($data['duplicates']) ? $data['duplicates'] : null;
     }
 
     /**
@@ -171,7 +171,7 @@ class InlineResponse20019Response implements ArrayAccess
 
     /**
      * Sets count
-     * @param int $count Total number of Publisher Suggestions that meet filter criteria (ignores limit/offset)
+     * @param int $count Total number of locations that meet filter criteria (ignores limit/offset)
      * @return $this
      */
     public function setCount($count)
@@ -182,22 +182,22 @@ class InlineResponse20019Response implements ArrayAccess
     }
 
     /**
-     * Gets suggestions
-     * @return \Yext\Client\Model\PublisherSuggestion[]
+     * Gets duplicates
+     * @return \Yext\Client\Model\Duplicate[]
      */
-    public function getSuggestions()
+    public function getDuplicates()
     {
-        return $this->container['suggestions'];
+        return $this->container['duplicates'];
     }
 
     /**
-     * Sets suggestions
-     * @param \Yext\Client\Model\PublisherSuggestion[] $suggestions
+     * Sets duplicates
+     * @param \Yext\Client\Model\Duplicate[] $duplicates
      * @return $this
      */
-    public function setSuggestions($suggestions)
+    public function setDuplicates($duplicates)
     {
-        $this->container['suggestions'] = $suggestions;
+        $this->container['duplicates'] = $duplicates;
 
         return $this;
     }

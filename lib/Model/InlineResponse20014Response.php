@@ -66,7 +66,8 @@ class InlineResponse20014Response implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'optimization_tasks' => '\Yext\Client\Model\OptimizationTask[]'
+        'count' => 'int',
+        'bios' => '\Yext\Client\Model\Menu[]'
     );
 
     public static function swaggerTypes()
@@ -79,7 +80,8 @@ class InlineResponse20014Response implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'optimization_tasks' => 'optimizationTasks'
+        'count' => 'count',
+        'bios' => 'bios'
     );
 
     public static function attributeMap()
@@ -92,7 +94,8 @@ class InlineResponse20014Response implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'optimization_tasks' => 'setOptimizationTasks'
+        'count' => 'setCount',
+        'bios' => 'setBios'
     );
 
     public static function setters()
@@ -105,7 +108,8 @@ class InlineResponse20014Response implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'optimization_tasks' => 'getOptimizationTasks'
+        'count' => 'getCount',
+        'bios' => 'getBios'
     );
 
     public static function getters()
@@ -129,7 +133,8 @@ class InlineResponse20014Response implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['optimization_tasks'] = isset($data['optimization_tasks']) ? $data['optimization_tasks'] : null;
+        $this->container['count'] = isset($data['count']) ? $data['count'] : null;
+        $this->container['bios'] = isset($data['bios']) ? $data['bios'] : null;
     }
 
     /**
@@ -156,22 +161,43 @@ class InlineResponse20014Response implements ArrayAccess
 
 
     /**
-     * Gets optimization_tasks
-     * @return \Yext\Client\Model\OptimizationTask[]
+     * Gets count
+     * @return int
      */
-    public function getOptimizationTasks()
+    public function getCount()
     {
-        return $this->container['optimization_tasks'];
+        return $this->container['count'];
     }
 
     /**
-     * Sets optimization_tasks
-     * @param \Yext\Client\Model\OptimizationTask[] $optimization_tasks
+     * Sets count
+     * @param int $count Total number of Menu ECLs that meet filter criteria (ignores limit / offset)
      * @return $this
      */
-    public function setOptimizationTasks($optimization_tasks)
+    public function setCount($count)
     {
-        $this->container['optimization_tasks'] = $optimization_tasks;
+        $this->container['count'] = $count;
+
+        return $this;
+    }
+
+    /**
+     * Gets bios
+     * @return \Yext\Client\Model\Menu[]
+     */
+    public function getBios()
+    {
+        return $this->container['bios'];
+    }
+
+    /**
+     * Sets bios
+     * @param \Yext\Client\Model\Menu[] $bios
+     * @return $this
+     */
+    public function setBios($bios)
+    {
+        $this->container['bios'] = $bios;
 
         return $this;
     }

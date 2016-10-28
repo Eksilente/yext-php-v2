@@ -96,9 +96,9 @@ class InlineResponse20013ResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "link"
+     * Test attribute "language_profiles"
      */
-    public function testPropertyLink()
+    public function testPropertyLanguageProfiles()
     {
 
     }

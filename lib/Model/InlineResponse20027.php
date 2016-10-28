@@ -67,7 +67,7 @@ class InlineResponse20027 implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'meta' => '\Yext\Client\Model\ResponseMeta',
-        'response' => '\Yext\Client\Model\InlineResponse20027Response'
+        'response' => '\Yext\Client\Model\Review'
     );
 
     public static function swaggerTypes()
@@ -183,7 +183,7 @@ class InlineResponse20027 implements ArrayAccess
 
     /**
      * Gets response
-     * @return \Yext\Client\Model\InlineResponse20027Response
+     * @return \Yext\Client\Model\Review
      */
     public function getResponse()
     {
@@ -192,7 +192,7 @@ class InlineResponse20027 implements ArrayAccess
 
     /**
      * Sets response
-     * @param \Yext\Client\Model\InlineResponse20027Response $response
+     * @param \Yext\Client\Model\Review $response
      * @return $this
      */
     public function setResponse($response)

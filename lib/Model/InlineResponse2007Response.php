@@ -67,7 +67,7 @@ class InlineResponse2007Response implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'count' => 'int',
-        'locations' => '\Yext\Client\Model\Location[]'
+        'linked_accounts' => '\Yext\Client\Model\LinkedAccount[]'
     );
 
     public static function swaggerTypes()
@@ -81,7 +81,7 @@ class InlineResponse2007Response implements ArrayAccess
      */
     protected static $attributeMap = array(
         'count' => 'count',
-        'locations' => 'locations'
+        'linked_accounts' => 'linkedAccounts'
     );
 
     public static function attributeMap()
@@ -95,7 +95,7 @@ class InlineResponse2007Response implements ArrayAccess
      */
     protected static $setters = array(
         'count' => 'setCount',
-        'locations' => 'setLocations'
+        'linked_accounts' => 'setLinkedAccounts'
     );
 
     public static function setters()
@@ -109,7 +109,7 @@ class InlineResponse2007Response implements ArrayAccess
      */
     protected static $getters = array(
         'count' => 'getCount',
-        'locations' => 'getLocations'
+        'linked_accounts' => 'getLinkedAccounts'
     );
 
     public static function getters()
@@ -134,7 +134,7 @@ class InlineResponse2007Response implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['count'] = isset($data['count']) ? $data['count'] : null;
-        $this->container['locations'] = isset($data['locations']) ? $data['locations'] : null;
+        $this->container['linked_accounts'] = isset($data['linked_accounts']) ? $data['linked_accounts'] : null;
     }
 
     /**
@@ -171,7 +171,7 @@ class InlineResponse2007Response implements ArrayAccess
 
     /**
      * Sets count
-     * @param int $count Total number of Locations that meet filter criteria (ignores limit / offset)
+     * @param int $count Total number of linked accounts that meet filter criteria (ignores limit/offset)
      * @return $this
      */
     public function setCount($count)
@@ -182,22 +182,22 @@ class InlineResponse2007Response implements ArrayAccess
     }
 
     /**
-     * Gets locations
-     * @return \Yext\Client\Model\Location[]
+     * Gets linked_accounts
+     * @return \Yext\Client\Model\LinkedAccount[]
      */
-    public function getLocations()
+    public function getLinkedAccounts()
     {
-        return $this->container['locations'];
+        return $this->container['linked_accounts'];
     }
 
     /**
-     * Sets locations
-     * @param \Yext\Client\Model\Location[] $locations
+     * Sets linked_accounts
+     * @param \Yext\Client\Model\LinkedAccount[] $linked_accounts
      * @return $this
      */
-    public function setLocations($locations)
+    public function setLinkedAccounts($linked_accounts)
     {
-        $this->container['locations'] = $locations;
+        $this->container['linked_accounts'] = $linked_accounts;
 
         return $this;
     }

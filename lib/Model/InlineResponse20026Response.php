@@ -66,7 +66,9 @@ class InlineResponse20026Response implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'categories' => '\Yext\Client\Model\Category[]'
+        'count' => 'int',
+        'average_rating' => 'double',
+        'listings' => '\Yext\Client\Model\Review[]'
     );
 
     public static function swaggerTypes()
@@ -79,7 +81,9 @@ class InlineResponse20026Response implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'categories' => 'categories'
+        'count' => 'count',
+        'average_rating' => 'averageRating',
+        'listings' => 'listings'
     );
 
     public static function attributeMap()
@@ -92,7 +96,9 @@ class InlineResponse20026Response implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'categories' => 'setCategories'
+        'count' => 'setCount',
+        'average_rating' => 'setAverageRating',
+        'listings' => 'setListings'
     );
 
     public static function setters()
@@ -105,7 +111,9 @@ class InlineResponse20026Response implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'categories' => 'getCategories'
+        'count' => 'getCount',
+        'average_rating' => 'getAverageRating',
+        'listings' => 'getListings'
     );
 
     public static function getters()
@@ -129,7 +137,9 @@ class InlineResponse20026Response implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['categories'] = isset($data['categories']) ? $data['categories'] : null;
+        $this->container['count'] = isset($data['count']) ? $data['count'] : null;
+        $this->container['average_rating'] = isset($data['average_rating']) ? $data['average_rating'] : null;
+        $this->container['listings'] = isset($data['listings']) ? $data['listings'] : null;
     }
 
     /**
@@ -156,22 +166,64 @@ class InlineResponse20026Response implements ArrayAccess
 
 
     /**
-     * Gets categories
-     * @return \Yext\Client\Model\Category[]
+     * Gets count
+     * @return int
      */
-    public function getCategories()
+    public function getCount()
     {
-        return $this->container['categories'];
+        return $this->container['count'];
     }
 
     /**
-     * Sets categories
-     * @param \Yext\Client\Model\Category[] $categories List of Categories
+     * Sets count
+     * @param int $count Total number of Reviews that meet filter criteria (ignores limit/offset)
      * @return $this
      */
-    public function setCategories($categories)
+    public function setCount($count)
     {
-        $this->container['categories'] = $categories;
+        $this->container['count'] = $count;
+
+        return $this;
+    }
+
+    /**
+     * Gets average_rating
+     * @return double
+     */
+    public function getAverageRating()
+    {
+        return $this->container['average_rating'];
+    }
+
+    /**
+     * Sets average_rating
+     * @param double $average_rating Average rating of Reviews that matched the query parameters.
+     * @return $this
+     */
+    public function setAverageRating($average_rating)
+    {
+        $this->container['average_rating'] = $average_rating;
+
+        return $this;
+    }
+
+    /**
+     * Gets listings
+     * @return \Yext\Client\Model\Review[]
+     */
+    public function getListings()
+    {
+        return $this->container['listings'];
+    }
+
+    /**
+     * Sets listings
+     * @param \Yext\Client\Model\Review[] $listings
+     * @return $this
+     */
+    public function setListings($listings)
+    {
+        $this->container['listings'] = $listings;
 
         return $this;
     }

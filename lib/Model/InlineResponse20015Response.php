@@ -66,8 +66,7 @@ class InlineResponse20015Response implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'count' => 'int',
-        'duplicates' => '\Yext\Client\Model\Duplicate[]'
+        'link' => 'string'
     );
 
     public static function swaggerTypes()
@@ -80,8 +79,7 @@ class InlineResponse20015Response implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'count' => 'count',
-        'duplicates' => 'duplicates'
+        'link' => 'link'
     );
 
     public static function attributeMap()
@@ -94,8 +92,7 @@ class InlineResponse20015Response implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'count' => 'setCount',
-        'duplicates' => 'setDuplicates'
+        'link' => 'setLink'
     );
 
     public static function setters()
@@ -108,8 +105,7 @@ class InlineResponse20015Response implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'count' => 'getCount',
-        'duplicates' => 'getDuplicates'
+        'link' => 'getLink'
     );
 
     public static function getters()
@@ -133,8 +129,7 @@ class InlineResponse20015Response implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['count'] = isset($data['count']) ? $data['count'] : null;
-        $this->container['duplicates'] = isset($data['duplicates']) ? $data['duplicates'] : null;
+        $this->container['link'] = isset($data['link']) ? $data['link'] : null;
     }
 
     /**
@@ -161,43 +156,22 @@ class InlineResponse20015Response implements ArrayAccess
 
 
     /**
-     * Gets count
-     * @return int
+     * Gets link
+     * @return string
      */
-    public function getCount()
+    public function getLink()
     {
-        return $this->container['count'];
+        return $this->container['link'];
     }
 
     /**
-     * Sets count
-     * @param int $count Total number of locations that meet filter criteria (ignores limit/offset)
+     * Sets link
+     * @param string $link The URL where all requested task(s) for the requested location(s) can be completed.  Will be null if none of the requested tasks on the requested locations are pending and mode is PENDING_ONLY.  **Redirecting after the task:** You can automatically redirect users to a specific URL after they've completed the task. To do so, append a **continueUrl** parameter, whose value is the URL users should be redirected to, to the returned URL.
      * @return $this
      */
-    public function setCount($count)
+    public function setLink($link)
     {
-        $this->container['count'] = $count;
-
-        return $this;
-    }
-
-    /**
-     * Gets duplicates
-     * @return \Yext\Client\Model\Duplicate[]
-     */
-    public function getDuplicates()
-    {
-        return $this->container['duplicates'];
-    }
-
-    /**
-     * Sets duplicates
-     * @param \Yext\Client\Model\Duplicate[] $duplicates
-     * @return $this
-     */
-    public function setDuplicates($duplicates)
-    {
-        $this->container['duplicates'] = $duplicates;
+        $this->container['link'] = $link;
 
         return $this;
     }

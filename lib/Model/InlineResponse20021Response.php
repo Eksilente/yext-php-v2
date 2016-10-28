@@ -67,7 +67,7 @@ class InlineResponse20021Response implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'count' => 'int',
-        'products' => '\Yext\Client\Model\Product[]'
+        'listings' => '\Yext\Client\Model\Listing[]'
     );
 
     public static function swaggerTypes()
@@ -81,7 +81,7 @@ class InlineResponse20021Response implements ArrayAccess
      */
     protected static $attributeMap = array(
         'count' => 'count',
-        'products' => 'products'
+        'listings' => 'listings'
     );
 
     public static function attributeMap()
@@ -95,7 +95,7 @@ class InlineResponse20021Response implements ArrayAccess
      */
     protected static $setters = array(
         'count' => 'setCount',
-        'products' => 'setProducts'
+        'listings' => 'setListings'
     );
 
     public static function setters()
@@ -109,7 +109,7 @@ class InlineResponse20021Response implements ArrayAccess
      */
     protected static $getters = array(
         'count' => 'getCount',
-        'products' => 'getProducts'
+        'listings' => 'getListings'
     );
 
     public static function getters()
@@ -134,7 +134,7 @@ class InlineResponse20021Response implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['count'] = isset($data['count']) ? $data['count'] : null;
-        $this->container['products'] = isset($data['products']) ? $data['products'] : null;
+        $this->container['listings'] = isset($data['listings']) ? $data['listings'] : null;
     }
 
     /**
@@ -171,7 +171,7 @@ class InlineResponse20021Response implements ArrayAccess
 
     /**
      * Sets count
-     * @param int $count Total number of Product ECLs that meet filter criteria (ignores limit / offset)
+     * @param int $count Total number of Listings that meet filter criteria (ignores limit/offset)
      * @return $this
      */
     public function setCount($count)
@@ -182,22 +182,22 @@ class InlineResponse20021Response implements ArrayAccess
     }
 
     /**
-     * Gets products
-     * @return \Yext\Client\Model\Product[]
+     * Gets listings
+     * @return \Yext\Client\Model\Listing[]
      */
-    public function getProducts()
+    public function getListings()
     {
-        return $this->container['products'];
+        return $this->container['listings'];
     }
 
     /**
-     * Sets products
-     * @param \Yext\Client\Model\Product[] $products
+     * Sets listings
+     * @param \Yext\Client\Model\Listing[] $listings
      * @return $this
      */
-    public function setProducts($products)
+    public function setListings($listings)
     {
-        $this->container['products'] = $products;
+        $this->container['listings'] = $listings;
 
         return $this;
     }

@@ -96,17 +96,9 @@ class InlineResponse2008ResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "count"
+     * Test attribute "linked_account"
      */
-    public function testPropertyCount()
-    {
-
-    }
-
-    /**
-     * Test attribute "events"
-     */
-    public function testPropertyEvents()
+    public function testPropertyLinkedAccount()
     {
 
     }

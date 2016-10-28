@@ -104,9 +104,9 @@ class InlineResponse2007ResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "locations"
+     * Test attribute "linked_accounts"
      */
-    public function testPropertyLocations()
+    public function testPropertyLinkedAccounts()
     {
 
     }

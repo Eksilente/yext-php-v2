@@ -104,9 +104,9 @@ class InlineResponse20019ResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "suggestions"
+     * Test attribute "duplicates"
      */
-    public function testPropertySuggestions()
+    public function testPropertyDuplicates()
     {
 
     }

@@ -66,8 +66,7 @@ class InlineResponse2008Response implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'count' => 'int',
-        'events' => '\Yext\Client\Model\Event[]'
+        'linked_account' => '\Yext\Client\Model\LinkedAccount'
     );
 
     public static function swaggerTypes()
@@ -80,8 +79,7 @@ class InlineResponse2008Response implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'count' => 'count',
-        'events' => 'events'
+        'linked_account' => 'linkedAccount'
     );
 
     public static function attributeMap()
@@ -94,8 +92,7 @@ class InlineResponse2008Response implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'count' => 'setCount',
-        'events' => 'setEvents'
+        'linked_account' => 'setLinkedAccount'
     );
 
     public static function setters()
@@ -108,8 +105,7 @@ class InlineResponse2008Response implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'count' => 'getCount',
-        'events' => 'getEvents'
+        'linked_account' => 'getLinkedAccount'
     );
 
     public static function getters()
@@ -133,8 +129,7 @@ class InlineResponse2008Response implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['count'] = isset($data['count']) ? $data['count'] : null;
-        $this->container['events'] = isset($data['events']) ? $data['events'] : null;
+        $this->container['linked_account'] = isset($data['linked_account']) ? $data['linked_account'] : null;
     }
 
     /**
@@ -161,43 +156,22 @@ class InlineResponse2008Response implements ArrayAccess
 
 
     /**
-     * Gets count
-     * @return int
+     * Gets linked_account
+     * @return \Yext\Client\Model\LinkedAccount
      */
-    public function getCount()
+    public function getLinkedAccount()
     {
-        return $this->container['count'];
+        return $this->container['linked_account'];
     }
 
     /**
-     * Sets count
-     * @param int $count Total number of Event ECLs that meet filter criteria (ignores limit / offset)
+     * Sets linked_account
+     * @param \Yext\Client\Model\LinkedAccount $linked_account
      * @return $this
      */
-    public function setCount($count)
+    public function setLinkedAccount($linked_account)
     {
-        $this->container['count'] = $count;
-
-        return $this;
-    }
-
-    /**
-     * Gets events
-     * @return \Yext\Client\Model\Event[]
-     */
-    public function getEvents()
-    {
-        return $this->container['events'];
-    }
-
-    /**
-     * Sets events
-     * @param \Yext\Client\Model\Event[] $events
-     * @return $this
-     */
-    public function setEvents($events)
-    {
-        $this->container['events'] = $events;
+        $this->container['linked_account'] = $linked_account;
 
         return $this;
     }

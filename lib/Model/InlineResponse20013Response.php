@@ -66,7 +66,7 @@ class InlineResponse20013Response implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'link' => 'string'
+        'language_profiles' => '\Yext\Client\Model\Location[]'
     );
 
     public static function swaggerTypes()
@@ -79,7 +79,7 @@ class InlineResponse20013Response implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'link' => 'link'
+        'language_profiles' => 'languageProfiles'
     );
 
     public static function attributeMap()
@@ -92,7 +92,7 @@ class InlineResponse20013Response implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'link' => 'setLink'
+        'language_profiles' => 'setLanguageProfiles'
     );
 
     public static function setters()
@@ -105,7 +105,7 @@ class InlineResponse20013Response implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'link' => 'getLink'
+        'language_profiles' => 'getLanguageProfiles'
     );
 
     public static function getters()
@@ -129,7 +129,7 @@ class InlineResponse20013Response implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['link'] = isset($data['link']) ? $data['link'] : null;
+        $this->container['language_profiles'] = isset($data['language_profiles']) ? $data['language_profiles'] : null;
     }
 
     /**
@@ -156,22 +156,22 @@ class InlineResponse20013Response implements ArrayAccess
 
 
     /**
-     * Gets link
-     * @return string
+     * Gets language_profiles
+     * @return \Yext\Client\Model\Location[]
      */
-    public function getLink()
+    public function getLanguageProfiles()
     {
-        return $this->container['link'];
+        return $this->container['language_profiles'];
     }
 
     /**
-     * Sets link
-     * @param string $link The URL where all requested task(s) for the requested location(s) can be completed.  Will be null if none of the requested tasks on the requested locations are pending and mode is PENDING_ONLY.  **Redirecting after the task:** You can automatically redirect users to a specific URL after they've completed the task. To do so, append a **continueUrl** parameter, whose value is the URL users should be redirected to, to the returned URL.
+     * Sets language_profiles
+     * @param \Yext\Client\Model\Location[] $language_profiles
      * @return $this
      */
-    public function setLink($link)
+    public function setLanguageProfiles($language_profiles)
     {
-        $this->container['link'] = $link;
+        $this->container['language_profiles'] = $language_profiles;
 
         return $this;
     }

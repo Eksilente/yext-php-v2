@@ -67,7 +67,7 @@ class InlineResponse20025Response implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'count' => 'int',
-        'users' => '\Yext\Client\Model\User[]'
+        'products' => '\Yext\Client\Model\Product[]'
     );
 
     public static function swaggerTypes()
@@ -81,7 +81,7 @@ class InlineResponse20025Response implements ArrayAccess
      */
     protected static $attributeMap = array(
         'count' => 'count',
-        'users' => 'users'
+        'products' => 'products'
     );
 
     public static function attributeMap()
@@ -95,7 +95,7 @@ class InlineResponse20025Response implements ArrayAccess
      */
     protected static $setters = array(
         'count' => 'setCount',
-        'users' => 'setUsers'
+        'products' => 'setProducts'
     );
 
     public static function setters()
@@ -109,7 +109,7 @@ class InlineResponse20025Response implements ArrayAccess
      */
     protected static $getters = array(
         'count' => 'getCount',
-        'users' => 'getUsers'
+        'products' => 'getProducts'
     );
 
     public static function getters()
@@ -134,7 +134,7 @@ class InlineResponse20025Response implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['count'] = isset($data['count']) ? $data['count'] : null;
-        $this->container['users'] = isset($data['users']) ? $data['users'] : null;
+        $this->container['products'] = isset($data['products']) ? $data['products'] : null;
     }
 
     /**
@@ -171,7 +171,7 @@ class InlineResponse20025Response implements ArrayAccess
 
     /**
      * Sets count
-     * @param int $count Total number of Users that meet the filter criteria (ignores limit / offset)
+     * @param int $count Total number of Product ECLs that meet filter criteria (ignores limit / offset)
      * @return $this
      */
     public function setCount($count)
@@ -182,22 +182,22 @@ class InlineResponse20025Response implements ArrayAccess
     }
 
     /**
-     * Gets users
-     * @return \Yext\Client\Model\User[]
+     * Gets products
+     * @return \Yext\Client\Model\Product[]
      */
-    public function getUsers()
+    public function getProducts()
     {
-        return $this->container['users'];
+        return $this->container['products'];
     }
 
     /**
-     * Sets users
-     * @param \Yext\Client\Model\User[] $users
+     * Sets products
+     * @param \Yext\Client\Model\Product[] $products
      * @return $this
      */
-    public function setUsers($users)
+    public function setProducts($products)
     {
-        $this->container['users'] = $users;
+        $this->container['products'] = $products;
 
         return $this;
     }

@@ -67,7 +67,7 @@ class InlineResponse20017Response implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'count' => 'int',
-        'listings' => '\Yext\Client\Model\Listing[]'
+        'posts' => '\Yext\Client\Model\PostEntry[]'
     );
 
     public static function swaggerTypes()
@@ -81,7 +81,7 @@ class InlineResponse20017Response implements ArrayAccess
      */
     protected static $attributeMap = array(
         'count' => 'count',
-        'listings' => 'listings'
+        'posts' => 'posts'
     );
 
     public static function attributeMap()
@@ -95,7 +95,7 @@ class InlineResponse20017Response implements ArrayAccess
      */
     protected static $setters = array(
         'count' => 'setCount',
-        'listings' => 'setListings'
+        'posts' => 'setPosts'
     );
 
     public static function setters()
@@ -109,7 +109,7 @@ class InlineResponse20017Response implements ArrayAccess
      */
     protected static $getters = array(
         'count' => 'getCount',
-        'listings' => 'getListings'
+        'posts' => 'getPosts'
     );
 
     public static function getters()
@@ -134,7 +134,7 @@ class InlineResponse20017Response implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['count'] = isset($data['count']) ? $data['count'] : null;
-        $this->container['listings'] = isset($data['listings']) ? $data['listings'] : null;
+        $this->container['posts'] = isset($data['posts']) ? $data['posts'] : null;
     }
 
     /**
@@ -171,7 +171,7 @@ class InlineResponse20017Response implements ArrayAccess
 
     /**
      * Sets count
-     * @param int $count Total number of Listings that meet filter criteria (ignores limit/offset)
+     * @param int $count Total number of Posts that meet filter criteria (ignores limit/offset)
      * @return $this
      */
     public function setCount($count)
@@ -182,22 +182,22 @@ class InlineResponse20017Response implements ArrayAccess
     }
 
     /**
-     * Gets listings
-     * @return \Yext\Client\Model\Listing[]
+     * Gets posts
+     * @return \Yext\Client\Model\PostEntry[]
      */
-    public function getListings()
+    public function getPosts()
     {
-        return $this->container['listings'];
+        return $this->container['posts'];
     }
 
     /**
-     * Sets listings
-     * @param \Yext\Client\Model\Listing[] $listings
+     * Sets posts
+     * @param \Yext\Client\Model\PostEntry[] $posts
      * @return $this
      */
-    public function setListings($listings)
+    public function setPosts($posts)
     {
-        $this->container['listings'] = $listings;
+        $this->container['posts'] = $posts;
 
         return $this;
     }

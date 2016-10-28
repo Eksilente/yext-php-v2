@@ -96,9 +96,9 @@ class InlineResponse20016ResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "id"
+     * Test attribute "optimization_tasks"
      */
-    public function testPropertyId()
+    public function testPropertyOptimizationTasks()
     {
 
     }

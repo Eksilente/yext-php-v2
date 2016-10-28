@@ -104,9 +104,9 @@ class InlineResponse20017ResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "listings"
+     * Test attribute "posts"
      */
-    public function testPropertyListings()
+    public function testPropertyPosts()
     {
 
     }

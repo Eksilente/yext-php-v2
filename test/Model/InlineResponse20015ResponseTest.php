@@ -96,17 +96,9 @@ class InlineResponse20015ResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "count"
+     * Test attribute "link"
      */
-    public function testPropertyCount()
-    {
-
-    }
-
-    /**
-     * Test attribute "duplicates"
-     */
-    public function testPropertyDuplicates()
+    public function testPropertyLink()
     {
 
     }

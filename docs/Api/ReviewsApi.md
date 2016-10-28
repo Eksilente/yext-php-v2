@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **createComment**
-> \Yext\Client\Model\InlineResponse2014 createComment($account_id, $review_id, $v, $content, $visibility, $parent_id)
+> \Yext\Client\Model\InlineResponse2015 createComment($account_id, $review_id, $v, $content, $visibility, $parent_id)
 
 Comments: Create
 
@@ -29,7 +29,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 $api_instance = new Yext\Client\Api\ReviewsApi();
 $account_id = "account_id_example"; // string | 
 $review_id = 56; // int | ID of this Review
-$v = "v_example"; // string | A date in `YYYYMMDD` format
+$v = "20161012"; // string | A date in `YYYYMMDD` format
 $content = "content_example"; // string | Content of the new comment.
 $visibility = "PRIVATE"; // string | 
 $parent_id = 56; // int | If this Comment is in response to another comment, use this field to specify the ID of the parent Comment.
@@ -49,14 +49,14 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
  **review_id** | **int**| ID of this Review |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format |
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
  **content** | **string**| Content of the new comment. | [optional]
  **visibility** | **string**|  | [optional] [default to PRIVATE]
  **parent_id** | **int**| If this Comment is in response to another comment, use this field to specify the ID of the parent Comment. | [optional]
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse2014**](../Model/InlineResponse2014.md)
+[**\Yext\Client\Model\InlineResponse2015**](../Model/InlineResponse2015.md)
 
 ### Authorization
 
@@ -70,7 +70,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getReview**
-> \Yext\Client\Model\InlineResponse20023 getReview($account_id, $review_id, $v)
+> \Yext\Client\Model\InlineResponse20027 getReview($account_id, $review_id, $v)
 
 Reviews: Get
 
@@ -89,7 +89,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 $api_instance = new Yext\Client\Api\ReviewsApi();
 $account_id = "account_id_example"; // string | 
 $review_id = 56; // int | ID of this Review
-$v = "v_example"; // string | A date in `YYYYMMDD` format
+$v = "20161012"; // string | A date in `YYYYMMDD` format
 
 try {
     $result = $api_instance->getReview($account_id, $review_id, $v);
@@ -106,11 +106,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
  **review_id** | **int**| ID of this Review |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format |
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse20023**](../Model/InlineResponse20023.md)
+[**\Yext\Client\Model\InlineResponse20027**](../Model/InlineResponse20027.md)
 
 ### Authorization
 
@@ -124,7 +124,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listReviews**
-> \Yext\Client\Model\InlineResponse20022 listReviews($account_id, $v, $limit, $offset, $location_ids, $folder_id, $countries, $location_labels, $publisher_ids, $review_content, $min_rating, $max_rating, $min_publisher_date, $max_publisher_date, $min_last_yext_update_date, $max_last_yext_update_date, $awaiting_response, $min_non_owner_comments, $reviewer_name, $reviewer_email)
+> \Yext\Client\Model\InlineResponse20026 listReviews($account_id, $v, $limit, $offset, $location_ids, $folder_id, $countries, $location_labels, $publisher_ids, $review_content, $min_rating, $max_rating, $min_publisher_date, $max_publisher_date, $min_last_yext_update_date, $max_last_yext_update_date, $awaiting_response, $min_non_owner_comments, $reviewer_name, $reviewer_email)
 
 Reviews: List
 
@@ -142,7 +142,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 
 $api_instance = new Yext\Client\Api\ReviewsApi();
 $account_id = "account_id_example"; // string | 
-$v = "v_example"; // string | A date in `YYYYMMDD` format
+$v = "20161012"; // string | A date in `YYYYMMDD` format
 $limit = 100; // int | Number of results to return.
 $offset = 0; // int | Number of results to skip. Used to page through results
 $location_ids = array("location_ids_example"); // string[] | When provided, only reviews for the requested locations will be returned.  By default, reviews will be returned for all locations subscribed to Review Monitoring.  **Example:** loc123,loc456,loc789
@@ -176,7 +176,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format |
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
  **limit** | **int**| Number of results to return. | [optional] [default to 100]
  **offset** | **int**| Number of results to skip. Used to page through results | [optional] [default to 0]
  **location_ids** | [**string[]**](../Model/string.md)| When provided, only reviews for the requested locations will be returned.  By default, reviews will be returned for all locations subscribed to Review Monitoring.  **Example:** loc123,loc456,loc789 | [optional]
@@ -198,7 +198,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse20022**](../Model/InlineResponse20022.md)
+[**\Yext\Client\Model\InlineResponse20026**](../Model/InlineResponse20026.md)
 
 ### Authorization
 

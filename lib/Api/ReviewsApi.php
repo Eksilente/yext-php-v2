@@ -113,7 +113,7 @@ class ReviewsApi
      * @param string $content Content of the new comment. (optional)
      * @param string $visibility  (optional, default to PRIVATE)
      * @param int $parent_id If this Comment is in response to another comment, use this field to specify the ID of the parent Comment. (optional)
-     * @return \Yext\Client\Model\InlineResponse2014
+     * @return \Yext\Client\Model\InlineResponse2015
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function createComment($account_id, $review_id, $v, $content = null, $visibility = null, $parent_id = null)
@@ -133,7 +133,7 @@ class ReviewsApi
      * @param string $content Content of the new comment. (optional)
      * @param string $visibility  (optional, default to PRIVATE)
      * @param int $parent_id If this Comment is in response to another comment, use this field to specify the ID of the parent Comment. (optional)
-     * @return Array of \Yext\Client\Model\InlineResponse2014, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \Yext\Client\Model\InlineResponse2015, HTTP status code, HTTP response headers (array of strings)
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function createCommentWithHttpInfo($account_id, $review_id, $v, $content = null, $visibility = null, $parent_id = null)
@@ -217,15 +217,15 @@ class ReviewsApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\InlineResponse2014',
+                '\Yext\Client\Model\InlineResponse2015',
                 '/accounts/{accountId}/reviews/{reviewId}/comments'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse2014', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse2015', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 201:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse2014', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse2015', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -246,7 +246,7 @@ class ReviewsApi
      * @param string $account_id  (required)
      * @param int $review_id ID of this Review (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
-     * @return \Yext\Client\Model\InlineResponse20023
+     * @return \Yext\Client\Model\InlineResponse20027
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function getReview($account_id, $review_id, $v)
@@ -263,7 +263,7 @@ class ReviewsApi
      * @param string $account_id  (required)
      * @param int $review_id ID of this Review (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
-     * @return Array of \Yext\Client\Model\InlineResponse20023, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \Yext\Client\Model\InlineResponse20027, HTTP status code, HTTP response headers (array of strings)
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function getReviewWithHttpInfo($account_id, $review_id, $v)
@@ -335,15 +335,15 @@ class ReviewsApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\InlineResponse20023',
+                '\Yext\Client\Model\InlineResponse20027',
                 '/accounts/{accountId}/reviews/{reviewId}'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse20023', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse20027', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse20023', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse20027', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -381,7 +381,7 @@ class ReviewsApi
      * @param int $min_non_owner_comments When specified, only reviews that have at least the provided number of non-owner comments will be returned. (optional)
      * @param string $reviewer_name When specified, only reviews whose authorName contains the provided string will be returned. (optional)
      * @param string $reviewer_email When specified, only reviews whose authorEmail matches the provided email address will be returned. (optional)
-     * @return \Yext\Client\Model\InlineResponse20022
+     * @return \Yext\Client\Model\InlineResponse20026
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function listReviews($account_id, $v, $limit = null, $offset = null, $location_ids = null, $folder_id = null, $countries = null, $location_labels = null, $publisher_ids = null, $review_content = null, $min_rating = null, $max_rating = null, $min_publisher_date = null, $max_publisher_date = null, $min_last_yext_update_date = null, $max_last_yext_update_date = null, $awaiting_response = null, $min_non_owner_comments = null, $reviewer_name = null, $reviewer_email = null)
@@ -415,7 +415,7 @@ class ReviewsApi
      * @param int $min_non_owner_comments When specified, only reviews that have at least the provided number of non-owner comments will be returned. (optional)
      * @param string $reviewer_name When specified, only reviews whose authorName contains the provided string will be returned. (optional)
      * @param string $reviewer_email When specified, only reviews whose authorEmail matches the provided email address will be returned. (optional)
-     * @return Array of \Yext\Client\Model\InlineResponse20022, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \Yext\Client\Model\InlineResponse20026, HTTP status code, HTTP response headers (array of strings)
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function listReviewsWithHttpInfo($account_id, $v, $limit = null, $offset = null, $location_ids = null, $folder_id = null, $countries = null, $location_labels = null, $publisher_ids = null, $review_content = null, $min_rating = null, $max_rating = null, $min_publisher_date = null, $max_publisher_date = null, $min_last_yext_update_date = null, $max_last_yext_update_date = null, $awaiting_response = null, $min_non_owner_comments = null, $reviewer_name = null, $reviewer_email = null)
@@ -563,15 +563,15 @@ class ReviewsApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\InlineResponse20022',
+                '\Yext\Client\Model\InlineResponse20026',
                 '/accounts/{accountId}/reviews'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse20022', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse20026', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse20022', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse20026', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:

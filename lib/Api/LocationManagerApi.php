@@ -570,7 +570,7 @@ class LocationManagerApi
      * @param string $account_id  (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
      * @param \Yext\Client\Model\Product $body  (required)
-     * @return \Yext\Client\Model\InlineResponse2009
+     * @return \Yext\Client\Model\InlineResponse20011
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function createProduct($account_id, $v, $body)
@@ -587,7 +587,7 @@ class LocationManagerApi
      * @param string $account_id  (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
      * @param \Yext\Client\Model\Product $body  (required)
-     * @return Array of \Yext\Client\Model\InlineResponse2009, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \Yext\Client\Model\InlineResponse20011, HTTP status code, HTTP response headers (array of strings)
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function createProductWithHttpInfo($account_id, $v, $body)
@@ -656,15 +656,15 @@ class LocationManagerApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\InlineResponse2009',
+                '\Yext\Client\Model\InlineResponse20011',
                 '/accounts/{accountId}/products'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse2009', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse20011', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 201:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse2009', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse20011', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -1527,7 +1527,7 @@ class LocationManagerApi
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
      * @param string $language Only categories that apply to this language will be returned.  **Example:** en (optional, default to en)
      * @param string $country Only categories that apply in this country will be returned.  **Example:** US (optional, default to US)
-     * @return \Yext\Client\Model\InlineResponse20026
+     * @return \Yext\Client\Model\InlineResponse20030
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function getBusinessCategories($v, $language = null, $country = null)
@@ -1544,7 +1544,7 @@ class LocationManagerApi
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
      * @param string $language Only categories that apply to this language will be returned.  **Example:** en (optional, default to en)
      * @param string $country Only categories that apply in this country will be returned.  **Example:** US (optional, default to US)
-     * @return Array of \Yext\Client\Model\InlineResponse20026, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \Yext\Client\Model\InlineResponse20030, HTTP status code, HTTP response headers (array of strings)
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function getBusinessCategoriesWithHttpInfo($v, $language = null, $country = null)
@@ -1600,15 +1600,15 @@ class LocationManagerApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\InlineResponse20026',
+                '\Yext\Client\Model\InlineResponse20030',
                 '/categories'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse20026', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse20030', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse20026', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse20030', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -1868,7 +1868,7 @@ class LocationManagerApi
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
      * @param int $limit Number of results to return (optional, default to 10)
      * @param int $offset Number of results to skip. Used to page through results (optional, default to 0)
-     * @return \Yext\Client\Model\InlineResponse2008
+     * @return \Yext\Client\Model\InlineResponse20010
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function getEvents($account_id, $v, $limit = null, $offset = null)
@@ -1886,7 +1886,7 @@ class LocationManagerApi
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
      * @param int $limit Number of results to return (optional, default to 10)
      * @param int $offset Number of results to skip. Used to page through results (optional, default to 0)
-     * @return Array of \Yext\Client\Model\InlineResponse2008, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \Yext\Client\Model\InlineResponse20010, HTTP status code, HTTP response headers (array of strings)
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function getEventsWithHttpInfo($account_id, $v, $limit = null, $offset = null)
@@ -1958,15 +1958,15 @@ class LocationManagerApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\InlineResponse2008',
+                '\Yext\Client\Model\InlineResponse20010',
                 '/accounts/{accountId}/locations/events'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse2008', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse20010', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse2008', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse20010', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -1985,7 +1985,7 @@ class LocationManagerApi
      * Google Fields: List
      *
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
-     * @return \Yext\Client\Model\InlineResponse20027
+     * @return \Yext\Client\Model\InlineResponse20031
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function getGoogleKeywords($v)
@@ -2000,7 +2000,7 @@ class LocationManagerApi
      * Google Fields: List
      *
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
-     * @return Array of \Yext\Client\Model\InlineResponse20027, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \Yext\Client\Model\InlineResponse20031, HTTP status code, HTTP response headers (array of strings)
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function getGoogleKeywordsWithHttpInfo($v)
@@ -2048,15 +2048,15 @@ class LocationManagerApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\InlineResponse20027',
+                '\Yext\Client\Model\InlineResponse20031',
                 '/googlefields'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse20027', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse20031', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse20027', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse20031', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -2078,7 +2078,7 @@ class LocationManagerApi
      * @param string $location_id  (required)
      * @param string $language_code Locale code (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
-     * @return \Yext\Client\Model\InlineResponse20010
+     * @return \Yext\Client\Model\InlineResponse20012
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function getLanguageProfile($account_id, $location_id, $language_code, $v)
@@ -2096,7 +2096,7 @@ class LocationManagerApi
      * @param string $location_id  (required)
      * @param string $language_code Locale code (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
-     * @return Array of \Yext\Client\Model\InlineResponse20010, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \Yext\Client\Model\InlineResponse20012, HTTP status code, HTTP response headers (array of strings)
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function getLanguageProfileWithHttpInfo($account_id, $location_id, $language_code, $v)
@@ -2180,15 +2180,15 @@ class LocationManagerApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\InlineResponse20010',
+                '\Yext\Client\Model\InlineResponse20012',
                 '/accounts/{accountId}/locations/{locationId}/profiles/{language_code}'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse20010', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse20012', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse20010', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse20012', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -2209,7 +2209,7 @@ class LocationManagerApi
      * @param string $account_id  (required)
      * @param string $location_id  (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
-     * @return \Yext\Client\Model\InlineResponse20011
+     * @return \Yext\Client\Model\InlineResponse20013
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function getLanguageProfiles($account_id, $location_id, $v)
@@ -2226,7 +2226,7 @@ class LocationManagerApi
      * @param string $account_id  (required)
      * @param string $location_id  (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
-     * @return Array of \Yext\Client\Model\InlineResponse20011, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \Yext\Client\Model\InlineResponse20013, HTTP status code, HTTP response headers (array of strings)
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function getLanguageProfilesWithHttpInfo($account_id, $location_id, $v)
@@ -2298,15 +2298,15 @@ class LocationManagerApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\InlineResponse20011',
+                '\Yext\Client\Model\InlineResponse20013',
                 '/accounts/{accountId}/locations/{locationId}/profiles'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse20011', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse20013', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse20011', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse20013', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -2327,7 +2327,7 @@ class LocationManagerApi
      * @param string $account_id  (required)
      * @param string $location_id  (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
-     * @return \Yext\Client\Model\InlineResponse20010
+     * @return \Yext\Client\Model\InlineResponse20012
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function getLocation($account_id, $location_id, $v)
@@ -2344,7 +2344,7 @@ class LocationManagerApi
      * @param string $account_id  (required)
      * @param string $location_id  (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
-     * @return Array of \Yext\Client\Model\InlineResponse20010, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \Yext\Client\Model\InlineResponse20012, HTTP status code, HTTP response headers (array of strings)
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function getLocationWithHttpInfo($account_id, $location_id, $v)
@@ -2416,15 +2416,15 @@ class LocationManagerApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\InlineResponse20010',
+                '\Yext\Client\Model\InlineResponse20012',
                 '/accounts/{accountId}/locations/{locationId}'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse20010', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse20012', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse20010', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse20012', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -2566,7 +2566,7 @@ class LocationManagerApi
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
      * @param int $limit Number of results to return (optional, default to 10)
      * @param int $offset Number of results to skip. Used to page through results (optional, default to 0)
-     * @return \Yext\Client\Model\InlineResponse2007
+     * @return \Yext\Client\Model\InlineResponse2009
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function getLocations($account_id, $v, $limit = null, $offset = null)
@@ -2584,7 +2584,7 @@ class LocationManagerApi
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
      * @param int $limit Number of results to return (optional, default to 10)
      * @param int $offset Number of results to skip. Used to page through results (optional, default to 0)
-     * @return Array of \Yext\Client\Model\InlineResponse2007, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \Yext\Client\Model\InlineResponse2009, HTTP status code, HTTP response headers (array of strings)
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function getLocationsWithHttpInfo($account_id, $v, $limit = null, $offset = null)
@@ -2656,15 +2656,15 @@ class LocationManagerApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\InlineResponse2007',
+                '\Yext\Client\Model\InlineResponse2009',
                 '/accounts/{accountId}/locations'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse2007', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse2009', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse2007', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse2009', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -2804,7 +2804,7 @@ class LocationManagerApi
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
      * @param int $limit Number of results to return (optional, default to 10)
      * @param int $offset Number of results to skip. Used to page through results (optional, default to 0)
-     * @return \Yext\Client\Model\InlineResponse20012
+     * @return \Yext\Client\Model\InlineResponse20014
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function getMenus($account_id, $v, $limit = null, $offset = null)
@@ -2822,7 +2822,7 @@ class LocationManagerApi
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
      * @param int $limit Number of results to return (optional, default to 10)
      * @param int $offset Number of results to skip. Used to page through results (optional, default to 0)
-     * @return Array of \Yext\Client\Model\InlineResponse20012, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \Yext\Client\Model\InlineResponse20014, HTTP status code, HTTP response headers (array of strings)
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function getMenusWithHttpInfo($account_id, $v, $limit = null, $offset = null)
@@ -2894,15 +2894,15 @@ class LocationManagerApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\InlineResponse20012',
+                '\Yext\Client\Model\InlineResponse20014',
                 '/accounts/{accountId}/menus'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse20012', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse20014', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse20012', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse20014', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -2923,7 +2923,7 @@ class LocationManagerApi
      * @param string $account_id  (required)
      * @param string $list_id ID of this List (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
-     * @return \Yext\Client\Model\InlineResponse2009
+     * @return \Yext\Client\Model\InlineResponse20011
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function getProduct($account_id, $list_id, $v)
@@ -2940,7 +2940,7 @@ class LocationManagerApi
      * @param string $account_id  (required)
      * @param string $list_id ID of this List (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
-     * @return Array of \Yext\Client\Model\InlineResponse2009, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \Yext\Client\Model\InlineResponse20011, HTTP status code, HTTP response headers (array of strings)
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function getProductWithHttpInfo($account_id, $list_id, $v)
@@ -3012,15 +3012,15 @@ class LocationManagerApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\InlineResponse2009',
+                '\Yext\Client\Model\InlineResponse20011',
                 '/accounts/{accountId}/locations/products/{listId}'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse2009', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse20011', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse2009', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse20011', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -3042,7 +3042,7 @@ class LocationManagerApi
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
      * @param int $limit Number of results to return (optional, default to 10)
      * @param int $offset Number of results to skip. Used to page through results (optional, default to 0)
-     * @return \Yext\Client\Model\InlineResponse20021
+     * @return \Yext\Client\Model\InlineResponse20025
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function getProducts($account_id, $v, $limit = null, $offset = null)
@@ -3060,7 +3060,7 @@ class LocationManagerApi
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
      * @param int $limit Number of results to return (optional, default to 10)
      * @param int $offset Number of results to skip. Used to page through results (optional, default to 0)
-     * @return Array of \Yext\Client\Model\InlineResponse20021, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \Yext\Client\Model\InlineResponse20025, HTTP status code, HTTP response headers (array of strings)
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function getProductsWithHttpInfo($account_id, $v, $limit = null, $offset = null)
@@ -3132,15 +3132,15 @@ class LocationManagerApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\InlineResponse20021',
+                '\Yext\Client\Model\InlineResponse20025',
                 '/accounts/{accountId}/products'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse20021', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse20025', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse20021', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse20025', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -3678,7 +3678,7 @@ class LocationManagerApi
      * @param string $list_id ID of this List (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
      * @param \Yext\Client\Model\Product $body  (required)
-     * @return \Yext\Client\Model\InlineResponse2009
+     * @return \Yext\Client\Model\InlineResponse20011
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function updateProduct($account_id, $list_id, $v, $body)
@@ -3696,7 +3696,7 @@ class LocationManagerApi
      * @param string $list_id ID of this List (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
      * @param \Yext\Client\Model\Product $body  (required)
-     * @return Array of \Yext\Client\Model\InlineResponse2009, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \Yext\Client\Model\InlineResponse20011, HTTP status code, HTTP response headers (array of strings)
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function updateProductWithHttpInfo($account_id, $list_id, $v, $body)
@@ -3777,15 +3777,15 @@ class LocationManagerApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\InlineResponse2009',
+                '\Yext\Client\Model\InlineResponse20011',
                 '/accounts/{accountId}/locations/products/{listId}'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse2009', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse20011', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse2009', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse20011', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -3809,7 +3809,7 @@ class LocationManagerApi
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
      * @param \Yext\Client\Model\Location $body  (required)
      * @param bool $primary When present and set to true, the specified profile will become the location’s primary Language Profile (optional)
-     * @return \Yext\Client\Model\InlineResponse20010
+     * @return \Yext\Client\Model\InlineResponse20012
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function upsertLanguageProfile($account_id, $location_id, $language_code, $v, $body, $primary = null)
@@ -3829,7 +3829,7 @@ class LocationManagerApi
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
      * @param \Yext\Client\Model\Location $body  (required)
      * @param bool $primary When present and set to true, the specified profile will become the location’s primary Language Profile (optional)
-     * @return Array of \Yext\Client\Model\InlineResponse20010, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \Yext\Client\Model\InlineResponse20012, HTTP status code, HTTP response headers (array of strings)
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function upsertLanguageProfileWithHttpInfo($account_id, $location_id, $language_code, $v, $body, $primary = null)
@@ -3926,15 +3926,15 @@ class LocationManagerApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\InlineResponse20010',
+                '\Yext\Client\Model\InlineResponse20012',
                 '/accounts/{accountId}/locations/{locationId}/profiles/{language_code}'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse20010', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse20012', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse20010', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse20012', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:

@@ -110,7 +110,7 @@ class UserApi
      * @param string $account_id  (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
      * @param \Yext\Client\Model\User $user_request  (required)
-     * @return \Yext\Client\Model\InlineResponse2015
+     * @return \Yext\Client\Model\InlineResponse2016
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function createUser($account_id, $v, $user_request)
@@ -127,7 +127,7 @@ class UserApi
      * @param string $account_id  (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
      * @param \Yext\Client\Model\User $user_request  (required)
-     * @return Array of \Yext\Client\Model\InlineResponse2015, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \Yext\Client\Model\InlineResponse2016, HTTP status code, HTTP response headers (array of strings)
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function createUserWithHttpInfo($account_id, $v, $user_request)
@@ -196,15 +196,15 @@ class UserApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\InlineResponse2015',
+                '\Yext\Client\Model\InlineResponse2016',
                 '/accounts/{accountId}/users'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse2015', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse2016', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 201:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse2015', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse2016', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -226,7 +226,7 @@ class UserApi
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
      * @param string $user_id  (required)
      * @param \Yext\Client\Model\User $user_request  (required)
-     * @return \Yext\Client\Model\InlineResponse2015
+     * @return \Yext\Client\Model\InlineResponse2016
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function deleteUser($account_id, $v, $user_id, $user_request)
@@ -244,7 +244,7 @@ class UserApi
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
      * @param string $user_id  (required)
      * @param \Yext\Client\Model\User $user_request  (required)
-     * @return Array of \Yext\Client\Model\InlineResponse2015, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \Yext\Client\Model\InlineResponse2016, HTTP status code, HTTP response headers (array of strings)
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function deleteUserWithHttpInfo($account_id, $v, $user_id, $user_request)
@@ -325,15 +325,15 @@ class UserApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\InlineResponse2015',
+                '\Yext\Client\Model\InlineResponse2016',
                 '/accounts/{accountId}/users/{userId}'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse2015', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse2016', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse2015', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse2016', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -356,7 +356,7 @@ class UserApi
      * @param string $task_ids Comma-separated list of Optimization Task IDs corresponding to Optimization Tasks that should be included in the response.  Defaults to all available Optimization Tasks in the account. (required)
      * @param string $location_ids Comma-separated list of Location IDs, corresponding to Locations to be evaluated when returning the number of locations eligible &amp; completed for each Optimization Task.  Defaults to all Locations in the account. (required)
      * @param string $mode When mode is PENDING_ONLY, the resulting link will only ask the user to complete tasks that are pending or in progress (that have not been completed before).  When mode is ALL_TASKS, the resulting link will ask the user to complete all specified tasks for all specified locations, regardless of whether they have been completed before, are pending, or are in progress. (required)
-     * @return \Yext\Client\Model\InlineResponse20013
+     * @return \Yext\Client\Model\InlineResponse20015
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function getLinkOptimizationTask($account_id, $v, $task_ids, $location_ids, $mode)
@@ -375,7 +375,7 @@ class UserApi
      * @param string $task_ids Comma-separated list of Optimization Task IDs corresponding to Optimization Tasks that should be included in the response.  Defaults to all available Optimization Tasks in the account. (required)
      * @param string $location_ids Comma-separated list of Location IDs, corresponding to Locations to be evaluated when returning the number of locations eligible &amp; completed for each Optimization Task.  Defaults to all Locations in the account. (required)
      * @param string $mode When mode is PENDING_ONLY, the resulting link will only ask the user to complete tasks that are pending or in progress (that have not been completed before).  When mode is ALL_TASKS, the resulting link will ask the user to complete all specified tasks for all specified locations, regardless of whether they have been completed before, are pending, or are in progress. (required)
-     * @return Array of \Yext\Client\Model\InlineResponse20013, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \Yext\Client\Model\InlineResponse20015, HTTP status code, HTTP response headers (array of strings)
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function getLinkOptimizationTaskWithHttpInfo($account_id, $v, $task_ids, $location_ids, $mode)
@@ -459,15 +459,15 @@ class UserApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\InlineResponse20013',
+                '\Yext\Client\Model\InlineResponse20015',
                 '/accounts/{accountId}/optimizationlink'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse20013', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse20015', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse20013', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse20015', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -489,7 +489,7 @@ class UserApi
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
      * @param string $task_ids Comma-separated list of Optimization Task IDs corresponding to Optimization Tasks that should be included in the response.  Defaults to all available Optimization Tasks in the account. (required)
      * @param string $location_ids Comma-separated list of Location IDs, corresponding to Locations to be evaluated when returning the number of locations eligible &amp; completed for each Optimization Task.  Defaults to all Locations in the account. (required)
-     * @return \Yext\Client\Model\InlineResponse20014
+     * @return \Yext\Client\Model\InlineResponse20016
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function getOptimizationTasks($account_id, $v, $task_ids, $location_ids)
@@ -507,7 +507,7 @@ class UserApi
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
      * @param string $task_ids Comma-separated list of Optimization Task IDs corresponding to Optimization Tasks that should be included in the response.  Defaults to all available Optimization Tasks in the account. (required)
      * @param string $location_ids Comma-separated list of Location IDs, corresponding to Locations to be evaluated when returning the number of locations eligible &amp; completed for each Optimization Task.  Defaults to all Locations in the account. (required)
-     * @return Array of \Yext\Client\Model\InlineResponse20014, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \Yext\Client\Model\InlineResponse20016, HTTP status code, HTTP response headers (array of strings)
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function getOptimizationTasksWithHttpInfo($account_id, $v, $task_ids, $location_ids)
@@ -583,15 +583,15 @@ class UserApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\InlineResponse20014',
+                '\Yext\Client\Model\InlineResponse20016',
                 '/accounts/{accountId}/optimizationtasks'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse20014', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse20016', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse20014', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse20016', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -611,7 +611,7 @@ class UserApi
      *
      * @param string $account_id  (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
-     * @return \Yext\Client\Model\InlineResponse20024
+     * @return \Yext\Client\Model\InlineResponse20028
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function getRoles($account_id, $v)
@@ -627,7 +627,7 @@ class UserApi
      *
      * @param string $account_id  (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
-     * @return Array of \Yext\Client\Model\InlineResponse20024, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \Yext\Client\Model\InlineResponse20028, HTTP status code, HTTP response headers (array of strings)
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function getRolesWithHttpInfo($account_id, $v)
@@ -687,15 +687,15 @@ class UserApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\InlineResponse20024',
+                '\Yext\Client\Model\InlineResponse20028',
                 '/accounts/{accountId}/roles'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse20024', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse20028', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse20024', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse20028', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -716,7 +716,7 @@ class UserApi
      * @param string $account_id  (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
      * @param string $user_id  (required)
-     * @return \Yext\Client\Model\InlineResponse2015
+     * @return \Yext\Client\Model\InlineResponse2016
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function getUser($account_id, $v, $user_id)
@@ -733,7 +733,7 @@ class UserApi
      * @param string $account_id  (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
      * @param string $user_id  (required)
-     * @return Array of \Yext\Client\Model\InlineResponse2015, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \Yext\Client\Model\InlineResponse2016, HTTP status code, HTTP response headers (array of strings)
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function getUserWithHttpInfo($account_id, $v, $user_id)
@@ -805,15 +805,15 @@ class UserApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\InlineResponse2015',
+                '\Yext\Client\Model\InlineResponse2016',
                 '/accounts/{accountId}/users/{userId}'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse2015', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse2016', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse2015', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse2016', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -835,7 +835,7 @@ class UserApi
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
      * @param int $limit Number of results to return (optional, default to 10)
      * @param int $offset Number of results to skip. Used to page through results (optional, default to 0)
-     * @return \Yext\Client\Model\InlineResponse20025
+     * @return \Yext\Client\Model\InlineResponse20029
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function getUsers($account_id, $v, $limit = null, $offset = null)
@@ -853,7 +853,7 @@ class UserApi
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
      * @param int $limit Number of results to return (optional, default to 10)
      * @param int $offset Number of results to skip. Used to page through results (optional, default to 0)
-     * @return Array of \Yext\Client\Model\InlineResponse20025, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \Yext\Client\Model\InlineResponse20029, HTTP status code, HTTP response headers (array of strings)
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function getUsersWithHttpInfo($account_id, $v, $limit = null, $offset = null)
@@ -925,15 +925,15 @@ class UserApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\InlineResponse20025',
+                '\Yext\Client\Model\InlineResponse20029',
                 '/accounts/{accountId}/users'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse20025', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse20029', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse20025', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse20029', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -955,7 +955,7 @@ class UserApi
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
      * @param string $user_id  (required)
      * @param \Yext\Client\Model\User $user_request  (required)
-     * @return \Yext\Client\Model\InlineResponse2015
+     * @return \Yext\Client\Model\InlineResponse2016
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function updateUser($account_id, $v, $user_id, $user_request)
@@ -973,7 +973,7 @@ class UserApi
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
      * @param string $user_id  (required)
      * @param \Yext\Client\Model\User $user_request  (required)
-     * @return Array of \Yext\Client\Model\InlineResponse2015, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \Yext\Client\Model\InlineResponse2016, HTTP status code, HTTP response headers (array of strings)
      * @throws \Yext\Client\ApiException on non-2xx response
      */
     public function updateUserWithHttpInfo($account_id, $v, $user_id, $user_request)
@@ -1054,15 +1054,15 @@ class UserApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\InlineResponse2015',
+                '\Yext\Client\Model\InlineResponse2016',
                 '/accounts/{accountId}/users/{userId}'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse2015', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse2016', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse2015', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse2016', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:

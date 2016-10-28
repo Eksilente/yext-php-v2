@@ -104,9 +104,9 @@ class InlineResponse20025ResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "users"
+     * Test attribute "products"
      */
-    public function testPropertyUsers()
+    public function testPropertyProducts()
     {
 
     }

@@ -96,9 +96,17 @@ class InlineResponse20014ResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "optimization_tasks"
+     * Test attribute "count"
      */
-    public function testPropertyOptimizationTasks()
+    public function testPropertyCount()
+    {
+
+    }
+
+    /**
+     * Test attribute "bios"
+     */
+    public function testPropertyBios()
     {
 
     }

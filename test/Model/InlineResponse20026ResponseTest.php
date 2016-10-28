@@ -96,9 +96,25 @@ class InlineResponse20026ResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "categories"
+     * Test attribute "count"
      */
-    public function testPropertyCategories()
+    public function testPropertyCount()
+    {
+
+    }
+
+    /**
+     * Test attribute "average_rating"
+     */
+    public function testPropertyAverageRating()
+    {
+
+    }
+
+    /**
+     * Test attribute "listings"
+     */
+    public function testPropertyListings()
     {
 
     }
