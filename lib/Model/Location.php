@@ -7,14 +7,14 @@
  * @category Class
  * @package  Yext\Client
  * @author   http://github.com/swagger-api/swagger-codegen
- * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
+ * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache License v2
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 
 /**
  * Yext API
  *
- * # Policies and Conventions  This section gives you the basic information you need to use our APIs.  ## Authentication All requests must be authenticated using an app’s API key.  <pre>GET https://api.yext.com/v2/accounts/[accountId]/locations?<b>api_key=API_KEY</b>&v=YYYYMMDD</pre>  The API key should be kept secret, as each app has exactly one API key.  ## Versioning All requests must be versioned using the **`v`** parameter.   <pre>GET https://api.yext.com/v2/accounts/[accountId]/locations?api_key=API_KEY&<b>v=YYYYMMDD</b></pre>  The **`v`** parameter (a date in `YYYYMMDD` format) is designed to give you the freedom to adapt to Yext API changes on your own schedule. When you pass this parameter, any changes we made to the API after the specified date will not affect the behavior of the request or the content of the response.  **NOTE:** Yext has the ability to make changes that affect previous versions of the API, if necessary.  ## Serialization API v2 only accepts data in JSON format.  ## Content-Type Headers For all requests that include a request body, the Content-Type header must be included and set to `application/json`.  ## Errors and Warnings There are three kinds of issues that can be reported for a given request:  * **`FATAL_ERROR`**     * An issue caused the entire request to be rejected. * **`NON_FATAL_ERROR`**     * An item is rejected, but other items present in the request are accepted (e.g., one invalid Product List item).      * A field is rejected, but the item otherwise is accepted (e.g., invalid website URL in a Location). * **`WARNING`**     * The request did not adhere to our best practices or recommendations, but the data was accepted anyway (e.g., data was sent that may cause some listings to become unavailable, a deprecated API was used, or we changed the format of a field's content to meet our requirements).  ## Validation Modes *(Available December 2016)*  API v2 will support two request validation modes: *Strict Mode* and *Lenient Mode*.  In Strict Mode, both `FATAL_ERROR`s and `NON_FATAL_ERROR`s are reported simply as `FATAL_ERROR`s, and any error will cause the entire request to fail.  In Lenient Mode, `FATAL_ERROR`s and `NON_FATAL_ERROR`s are reported as such, and only `FATAL_ERROR`s will cause a request to fail.  All requests will be processed in Strict Mode by default.  To activate Lenient Mode, append the parameter `validation=lenient` to your request URLs.  ### Dates and times * We always use milliseconds since epoch (a.k.a. Unix time) for timestamps (e.g., review creation times, webhook update times). * We always use ISO 8601 without timezone for local date times (e.g., Event start time, Event end time). * Dates are transmitted as strings: `“YYYY-MM-DD”`.  ## Account ID In keeping with RESTful design principles, every URL in API v2 has an account ID prefix. This prefix helps to ensure that you have unique URLs for all resources.  In addition to specifying resources by explicit account ID, the following two macros are defined: * **`me`** - refers to the account that owns the API key sent with the request * **`all`** - refers to the account that owns the API key sent with the request, as well as all sub-accounts (recursively)  **IMPORTANT:** The **`me`** macro is supported in all API methods.  The **`all`** macro will only be supported in certain URLs, as noted in the reference documentation.  ### Examples This URL refers to all locations in account 123. <pre>https://api.yext.com/v2/accounts/<b>123</b>/locations?api_key=456&v=20160822</pre>  This URL refers to all locations in the account that owns API key 456. <pre>https://api.yext.com/v2/accounts/<b>me</b>/locations?<b>api_key=456</b>&v=20160822</pre>  This URL refers to all locations in the account that owns API key 456, as well as all locations from any of its child accounts. <pre>https://api.yext.com/v2/accounts/<b>all</b>/locations?<b>api_key=456</b>&v=20160822</pre>  ## Actor Headers *(Available December 2016)*  To attribute changes to a particular user or employee, all requests may be passed with the following headers.  **NOTE:** If you choose to provide actor headers, and we are unable to authenticate the request using the values you provide, the request will result in an error and fail.  * Attribute activity to Admin user via admin login cookie *(for Yext’s use only)*     * Header: `YextEmployee`     * Value: Admin user’s AlphaLogin cookie * Attribute activity to Admin user via email address and password     * Headers: `YextEmployeeEmail`, `YextEmployeePassword`     * Values: Admin user’s email address, Admin user’s Admin password * Attribute activity to customer user via login cookie     * Header: `YextUser`     * Value: Customer user’s YextAppsLogin cookie * Attribute activity to customer user via email address and password     * Headers: `YextUserEmail`, `YextUserPassword`     * Values: Customer user’s email address, Customer user’s password  Changes will be logged as follows:  * App with no designated actor     * History Entry \"Updated By\" Value: `App [App ID] - ‘[App Name]’`     * Example: `App 432 - ‘Hello World App’` * App with customer user actor     * History Entry \"Updated By\" Value: `[user name] ([user email]) (App [App ID] - ‘[App Name]’)`     * Example: `Jordan Smith (jsmith@example.com) (App 432 - ‘Hello World App’)` * App with Yext employee actor   * History Entry \"Updated By\" Value: `[employee username] (App [App ID] - ‘[App Name]’)`   * Example: `hlerman (App 432 - ‘Hello World App’)`  ## Response Format * **`meta`**     * Response metadata  * **`meta.uuid`**     * Unique ID for this request / response * **`meta.errors[]`**     * List of errors and warnings  * **`meta.errors[].code`**     * Code that uniquely identifies the error or warning  * **`meta.errors[].type`**     * One of:         * `FATAL_ERROR`         * `NON_FATAL_ERROR`         * `WARNING`     * See \"Errors and Warnings\" above for details. * **`meta.errors[].message`**     * An explanation of the issue * **`response`**     * The main content (body) of the response  Example: <pre><code> {     \"meta\": {         \"uuid\": \"bb0c7e19-4dc3-4891-bfa5-8593b1f124ad\",         \"errors\": [             {                 \"code\": ...error code...,                 \"type\": ...error, fatal error, non fatal error, or warning...,                 \"message\": ...explanation of the issue...             }         ]     },     \"response\": {         ...results...     } } </code></pre>  ## Status Codes * `200 OK`    * Either there are no errors or warnings, or the only issues are of type `WARNING`. * `207 Multi-Status`     * There are errors of type `itemError` or `fieldError` (but none of type `requestError`). * `400 Bad Request`     * A parameter is invalid, or a required parameter is missing. This includes the case where no API key is provided and the case where a resource ID is specified incorrectly in a path.     * This status is if any of the response errors are of type `requestError`. * `401 Unauthorized`     * The API key provided is invalid.     * `403 Forbidden`     * The requested information cannot be viewed by the acting user.  * `404 Not Found`     * The endpoint does not exist. * `405 Method Not Allowed`     * The request is using a method that is not allowed (e.g., POST with a GET-only endpoint). * `409 Conflict`     * The request could not be completed in its current state.     * Use the information included in the response to modify the request and retry. * `429 Too Many Requests`     * You have exceeded your rate limit / quota. * `500 Internal Server Error`     * Yext’s servers are not operating as expected. The request is likely valid but should be resent later. * `504 Timeout`     * Yext’s servers took too long to handle this request, and it timed out.  ## Quotas and Rate Limits Default quotas and rate limits are as follows.  * **Location Cloud API** *(includes Analytics, PowerListings®, Location Manager, Reviews, Social, and User endpoints)*: 5,000 requests per hour * **Administrative API**: 1 qps * **Live API**: 100,000 requests per hour  **NOTE:** Webhook requests do not count towards an account’s quota.  For the most current and accurate rate-limit usage information for a particular request type, check the **`RateLimit-Remaining`** and **`RateLimit-Limit`** HTTP headers of your API responses.  If you are currently over your limit, our API will return a `429` error, and the response object returned by our API will be empty. We will also include a **`RateLimit-Reset`** header in the response, which indicates when you will have additional quota.  ## Client- vs. Yext-assigned IDs You can set the ID for the following objects when you create them. If you do not provide an ID, Yext will generate one for you.  * Account * User * Location * Bio List * Menu List * Product List * Event List * Bio List Item * Menu List Item * Product List Item * Event List Item  ## Logging All API requests are logged. API logs can be found in your Developer Console and are stored for 90 days.
+ * # Policies and Conventions  This section gives you the basic information you need to use our APIs.  ## Authentication All requests must be authenticated using an app’s API key.  <pre>GET https://api.yext.com/v2/accounts/[accountId]/locations?<b>api_key=API_KEY</b>&v=YYYYMMDD</pre>  The API key should be kept secret, as each app has exactly one API key.  ## Versioning All requests must be versioned using the **`v`** parameter.   <pre>GET https://api.yext.com/v2/accounts/[accountId]/locations?api_key=API_KEY&<b>v=YYYYMMDD</b></pre>  The **`v`** parameter (a date in `YYYYMMDD` format) is designed to give you the freedom to adapt to Yext API changes on your own schedule. When you pass this parameter, any changes we made to the API after the specified date will not affect the behavior of the request or the content of the response.  **NOTE:** Yext has the ability to make changes that affect previous versions of the API, if necessary.  ## Serialization API v2 only accepts data in JSON format.  ## Content-Type Headers For all requests that include a request body, the Content-Type header must be included and set to `application/json`.  ## Errors and Warnings There are three kinds of issues that can be reported for a given request:  * **`FATAL_ERROR`**     * An issue caused the entire request to be rejected. * **`NON_FATAL_ERROR`**     * An item is rejected, but other items present in the request are accepted (e.g., one invalid Product List item).      * A field is rejected, but the item otherwise is accepted (e.g., invalid website URL in a Location). * **`WARNING`**     * The request did not adhere to our best practices or recommendations, but the data was accepted anyway (e.g., data was sent that may cause some listings to become unavailable, a deprecated API was used, or we changed the format of a field's content to meet our requirements).  ## Validation Modes *(Available December 2016)*  API v2 will support two request validation modes: *Strict Mode* and *Lenient Mode*.  In Strict Mode, both `FATAL_ERROR`s and `NON_FATAL_ERROR`s are reported simply as `FATAL_ERROR`s, and any error will cause the entire request to fail.  In Lenient Mode, `FATAL_ERROR`s and `NON_FATAL_ERROR`s are reported as such, and only `FATAL_ERROR`s will cause a request to fail.  All requests will be processed in Strict Mode by default.  To activate Lenient Mode, append the parameter `validation=lenient` to your request URLs.  ### Dates and times * We always use milliseconds since epoch (a.k.a. Unix time) for timestamps (e.g., review creation times, webhook update times). * We always use ISO 8601 without timezone for local date times (e.g., Event start time, Event end time). * Dates are transmitted as strings: `“YYYY-MM-DD”`.  ## Account ID In keeping with RESTful design principles, every URL in API v2 has an account ID prefix. This prefix helps to ensure that you have unique URLs for all resources.  In addition to specifying resources by explicit account ID, the following two macros are defined: * **`me`** - refers to the account that owns the API key sent with the request * **`all`** - refers to the account that owns the API key sent with the request, as well as all sub-accounts (recursively)  **IMPORTANT:** The **`me`** macro is supported in all API methods.  The **`all`** macro will only be supported in certain URLs, as noted in the reference documentation.  ### Examples This URL refers to all locations in account 123. <pre>https://api.yext.com/v2/accounts/<b>123</b>/locations?api_key=456&v=20160822</pre>  This URL refers to all locations in the account that owns API key 456. <pre>https://api.yext.com/v2/accounts/<b>me</b>/locations?<b>api_key=456</b>&v=20160822</pre>  This URL refers to all locations in the account that owns API key 456, as well as all locations from any of its child accounts. <pre>https://api.yext.com/v2/accounts/<b>all</b>/locations?<b>api_key=456</b>&v=20160822</pre>  ## Actor Headers *(Available December 2016)*  To attribute changes to a particular user or employee, all requests may be passed with the following headers.  **NOTE:** If you choose to provide actor headers, and we are unable to authenticate the request using the values you provide, the request will result in an error and fail.  * Attribute activity to Admin user via admin login cookie *(for Yext’s use only)*     * Header: `YextEmployee`     * Value: Admin user’s AlphaLogin cookie * Attribute activity to Admin user via email address and password     * Headers: `YextEmployeeEmail`, `YextEmployeePassword`     * Values: Admin user’s email address, Admin user’s Admin password * Attribute activity to customer user via login cookie     * Header: `YextUser`     * Value: Customer user’s YextAppsLogin cookie * Attribute activity to customer user via email address and password     * Headers: `YextUserEmail`, `YextUserPassword`     * Values: Customer user’s email address, Customer user’s password  Changes will be logged as follows:  * App with no designated actor     * History Entry \"Updated By\" Value: `App [App ID] - ‘[App Name]’`     * Example: `App 432 - ‘Hello World App’` * App with customer user actor     * History Entry \"Updated By\" Value: `[user name] ([user email]) (App [App ID] - ‘[App Name]’)`     * Example: `Jordan Smith (jsmith@example.com) (App 432 - ‘Hello World App’)` * App with Yext employee actor   * History Entry \"Updated By\" Value: `[employee username] (App [App ID] - ‘[App Name]’)`   * Example: `hlerman (App 432 - ‘Hello World App’)`  ## Response Format * **`meta`**     * Response metadata  * **`meta.uuid`**     * Unique ID for this request / response * **`meta.errors[]`**     * List of errors and warnings  * **`meta.errors[].code`**     * Code that uniquely identifies the error or warning  * **`meta.errors[].type`**     * One of:         * `FATAL_ERROR`         * `NON_FATAL_ERROR`         * `WARNING`     * See \"Errors and Warnings\" above for details. * **`meta.errors[].message`**     * An explanation of the issue * **`response`**     * The main content (body) of the response  Example: <pre><code> {     \"meta\": {         \"uuid\": \"bb0c7e19-4dc3-4891-bfa5-8593b1f124ad\",         \"errors\": [             {                 \"code\": ...error code...,                 \"type\": ...error, fatal error, non fatal error, or warning...,                 \"message\": ...explanation of the issue...             }         ]     },     \"response\": {         ...results...     } } </code></pre>  ## Status Codes * `200 OK`    * Either there are no errors or warnings, or the only issues are of type `WARNING`. * `207 Multi-Status`     * There are errors of type `itemError` or `fieldError` (but none of type `requestError`). * `400 Bad Request`     * A parameter is invalid, or a required parameter is missing. This includes the case where no API key is provided and the case where a resource ID is specified incorrectly in a path.     * This status is if any of the response errors are of type `requestError`. * `401 Unauthorized`     * The API key provided is invalid.     * `403 Forbidden`     * The requested information cannot be viewed by the acting user.  * `404 Not Found`     * The endpoint does not exist. * `405 Method Not Allowed`     * The request is using a method that is not allowed (e.g., POST with a GET-only endpoint). * `409 Conflict`     * The request could not be completed in its current state.     * Use the information included in the response to modify the request and retry. * `429 Too Many Requests`     * You have exceeded your rate limit / quota. * `500 Internal Server Error`     * Yext’s servers are not operating as expected. The request is likely valid but should be resent later. * `504 Timeout`     * Yext’s servers took too long to handle this request, and it timed out.  ## Quotas and Rate Limits Default quotas and rate limits are as follows.  * **Location Cloud API** *(includes Analytics, PowerListings®, Location Manager, Reviews, Social, and User endpoints)*: 5,000 requests per hour * **Administrative API**: 1 qps * **Live API**: 100,000 requests per hour  **NOTE:** Webhook requests do not count towards an account’s quota.  For the most current and accurate rate-limit usage information for a particular request type, check the **`Rate-Limit-Remaining`** and **`Rate-Limit-Limit`** HTTP headers of your API responses.  If you are currently over your limit, our API will return a `429` error, and the response object returned by our API will be empty. We will also include a **`Rate-Limit-Reset`** header in the response, which indicates when you will have additional quota.  ## Client- vs. Yext-assigned IDs You can set the ID for the following objects when you create them. If you do not provide an ID, Yext will generate one for you.  * Account * User * Location * Bio List * Menu List * Product List * Event List * Bio List Item * Menu List Item * Product List Item * Event List Item  ## Logging All API requests are logged. API logs can be found in your Developer Console and are stored for 90 days.
  *
  * OpenAPI spec version: 0.0.2
  * 
@@ -47,10 +47,10 @@ use \ArrayAccess;
  * Location Class Doc Comment
  *
  * @category    Class */
-/** 
+/**
  * @package     Yext\Client
  * @author      http://github.com/swagger-api/swagger-codegen
- * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
+ * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache License v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
 class Location implements ArrayAccess
@@ -65,7 +65,7 @@ class Location implements ArrayAccess
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
-    protected static $swaggerTypes = array(
+    protected static $swaggerTypes = [
         'id' => 'string',
         'account_id' => 'string',
         'timestamp' => 'int',
@@ -157,7 +157,7 @@ class Location implements ArrayAccess
         'folder_id' => 'string',
         'label_ids' => 'string[]',
         'custom_fields' => 'map[string,object]'
-    );
+    ];
 
     public static function swaggerTypes()
     {
@@ -168,7 +168,7 @@ class Location implements ArrayAccess
      * Array of attributes where the key is the local name, and the value is the original name
      * @var string[]
      */
-    protected static $attributeMap = array(
+    protected static $attributeMap = [
         'id' => 'id',
         'account_id' => 'accountId',
         'timestamp' => 'timestamp',
@@ -260,18 +260,14 @@ class Location implements ArrayAccess
         'folder_id' => 'folderId',
         'label_ids' => 'labelIds',
         'custom_fields' => 'customFields'
-    );
+    ];
 
-    public static function attributeMap()
-    {
-        return self::$attributeMap;
-    }
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
      * @var string[]
      */
-    protected static $setters = array(
+    protected static $setters = [
         'id' => 'setId',
         'account_id' => 'setAccountId',
         'timestamp' => 'setTimestamp',
@@ -363,18 +359,14 @@ class Location implements ArrayAccess
         'folder_id' => 'setFolderId',
         'label_ids' => 'setLabelIds',
         'custom_fields' => 'setCustomFields'
-    );
+    ];
 
-    public static function setters()
-    {
-        return self::$setters;
-    }
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
      * @var string[]
      */
-    protected static $getters = array(
+    protected static $getters = [
         'id' => 'getId',
         'account_id' => 'getAccountId',
         'timestamp' => 'getTimestamp',
@@ -466,7 +458,17 @@ class Location implements ArrayAccess
         'folder_id' => 'getFolderId',
         'label_ids' => 'getLabelIds',
         'custom_fields' => 'getCustomFields'
-    );
+    ];
+
+    public static function attributeMap()
+    {
+        return self::$attributeMap;
+    }
+
+    public static function setters()
+    {
+        return self::$setters;
+    }
 
     public static function getters()
     {
@@ -515,11 +517,11 @@ class Location implements ArrayAccess
      * Associative array for storing property values
      * @var mixed[]
      */
-    protected $container = array();
+    protected $container = [];
 
     /**
      * Constructor
-     * @param mixed[] $data Associated array of property value initalizing the model
+     * @param mixed[] $data Associated array of property values initializing the model
      */
     public function __construct(array $data = null)
     {
@@ -623,7 +625,7 @@ class Location implements ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalid_properties = array();
+        $invalid_properties = [];
         if (!is_null($this->container['id']) && (strlen($this->container['id']) > 50)) {
             $invalid_properties[] = "invalid value for 'id', the character length must be smaller than or equal to 50.";
         }
@@ -636,7 +638,7 @@ class Location implements ArrayAccess
             $invalid_properties[] = "invalid value for 'location_name', the character length must be smaller than or equal to 100.";
         }
 
-        $allowed_values = array("FEMALE", "F", "MALE", "M", "UNSPECIFIED");
+        $allowed_values = ["FEMALE", "F", "MALE", "M", "UNSPECIFIED"];
         if (!in_array($this->container['gender'], $allowed_values)) {
             $invalid_properties[] = "invalid value for 'gender', must be one of #{allowed_values}.";
         }
@@ -713,7 +715,7 @@ class Location implements ArrayAccess
             $invalid_properties[] = "invalid value for 'facebook_page_url', the character length must be smaller than or equal to 255.";
         }
 
-        $allowed_values = array("TEXT", "BUTTON");
+        $allowed_values = ["TEXT", "BUTTON"];
         if (!in_array($this->container['uber_link_type'], $allowed_values)) {
             $invalid_properties[] = "invalid value for 'uber_link_type', must be one of #{allowed_values}.";
         }
@@ -750,7 +752,7 @@ class Location implements ArrayAccess
         if (strlen($this->container['location_name']) > 100) {
             return false;
         }
-        $allowed_values = array("FEMALE", "F", "MALE", "M", "UNSPECIFIED");
+        $allowed_values = ["FEMALE", "F", "MALE", "M", "UNSPECIFIED"];
         if (!in_array($this->container['gender'], $allowed_values)) {
             return false;
         }
@@ -808,7 +810,7 @@ class Location implements ArrayAccess
         if (strlen($this->container['facebook_page_url']) > 255) {
             return false;
         }
-        $allowed_values = array("TEXT", "BUTTON");
+        $allowed_values = ["TEXT", "BUTTON"];
         if (!in_array($this->container['uber_link_type'], $allowed_values)) {
             return false;
         }
@@ -841,9 +843,10 @@ class Location implements ArrayAccess
      */
     public function setId($id)
     {
-        if (strlen($id) > 50) {
+        if (!is_null($id) && (strlen($id) > 50)) {
             throw new \InvalidArgumentException('invalid length for $id when calling Location., must be smaller than or equal to 50.');
         }
+
         $this->container['id'] = $id;
 
         return $this;
@@ -865,9 +868,10 @@ class Location implements ArrayAccess
      */
     public function setAccountId($account_id)
     {
-        if (strlen($account_id) > 50) {
+        if (!is_null($account_id) && (strlen($account_id) > 50)) {
             throw new \InvalidArgumentException('invalid length for $account_id when calling Location., must be smaller than or equal to 50.');
         }
+
         $this->container['account_id'] = $account_id;
 
         return $this;
@@ -931,9 +935,10 @@ class Location implements ArrayAccess
      */
     public function setLocationName($location_name)
     {
-        if (strlen($location_name) > 100) {
+        if (!is_null($location_name) && (strlen($location_name) > 100)) {
             throw new \InvalidArgumentException('invalid length for $location_name when calling Location., must be smaller than or equal to 100.');
         }
+
         $this->container['location_name'] = $location_name;
 
         return $this;
@@ -1040,7 +1045,7 @@ class Location implements ArrayAccess
     public function setGender($gender)
     {
         $allowed_values = array('FEMALE', 'F', 'MALE', 'M', 'UNSPECIFIED');
-        if (!in_array($gender, $allowed_values)) {
+        if (!is_null($gender) && (!in_array($gender, $allowed_values))) {
             throw new \InvalidArgumentException("Invalid value for 'gender', must be one of 'FEMALE', 'F', 'MALE', 'M', 'UNSPECIFIED'");
         }
         $this->container['gender'] = $gender;
@@ -1085,9 +1090,10 @@ class Location implements ArrayAccess
      */
     public function setAddress($address)
     {
-        if (strlen($address) > 255) {
+        if (!is_null($address) && (strlen($address) > 255)) {
             throw new \InvalidArgumentException('invalid length for $address when calling Location., must be smaller than or equal to 255.');
         }
+
         $this->container['address'] = $address;
 
         return $this;
@@ -1109,9 +1115,10 @@ class Location implements ArrayAccess
      */
     public function setAddress2($address2)
     {
-        if (strlen($address2) > 255) {
+        if (!is_null($address2) && (strlen($address2) > 255)) {
             throw new \InvalidArgumentException('invalid length for $address2 when calling Location., must be smaller than or equal to 255.');
         }
+
         $this->container['address2'] = $address2;
 
         return $this;
@@ -1154,9 +1161,10 @@ class Location implements ArrayAccess
      */
     public function setDisplayAddress($display_address)
     {
-        if (strlen($display_address) > 255) {
+        if (!is_null($display_address) && (strlen($display_address) > 255)) {
             throw new \InvalidArgumentException('invalid length for $display_address when calling Location., must be smaller than or equal to 255.');
         }
+
         $this->container['display_address'] = $display_address;
 
         return $this;
@@ -1178,9 +1186,10 @@ class Location implements ArrayAccess
      */
     public function setCity($city)
     {
-        if (strlen($city) > 80) {
+        if (!is_null($city) && (strlen($city) > 80)) {
             throw new \InvalidArgumentException('invalid length for $city when calling Location., must be smaller than or equal to 80.');
         }
+
         $this->container['city'] = $city;
 
         return $this;
@@ -1202,9 +1211,10 @@ class Location implements ArrayAccess
      */
     public function setState($state)
     {
-        if (strlen($state) > 80) {
+        if (!is_null($state) && (strlen($state) > 80)) {
             throw new \InvalidArgumentException('invalid length for $state when calling Location., must be smaller than or equal to 80.');
         }
+
         $this->container['state'] = $state;
 
         return $this;
@@ -1226,9 +1236,10 @@ class Location implements ArrayAccess
      */
     public function setZip($zip)
     {
-        if (strlen($zip) > 10) {
+        if (!is_null($zip) && (strlen($zip) > 10)) {
             throw new \InvalidArgumentException('invalid length for $zip when calling Location., must be smaller than or equal to 10.');
         }
+
         $this->container['zip'] = $zip;
 
         return $this;
@@ -1250,9 +1261,10 @@ class Location implements ArrayAccess
      */
     public function setCountryCode($country_code)
     {
-        if (strlen($country_code) > 2) {
+        if (!is_null($country_code) && (strlen($country_code) > 2)) {
             throw new \InvalidArgumentException('invalid length for $country_code when calling Location., must be smaller than or equal to 2.');
         }
+
         $this->container['country_code'] = $country_code;
 
         return $this;
@@ -1484,9 +1496,10 @@ class Location implements ArrayAccess
      */
     public function setFeaturedMessage($featured_message)
     {
-        if (strlen($featured_message) > 50) {
+        if (!is_null($featured_message) && (strlen($featured_message) > 50)) {
             throw new \InvalidArgumentException('invalid length for $featured_message when calling Location., must be smaller than or equal to 50.');
         }
+
         $this->container['featured_message'] = $featured_message;
 
         return $this;
@@ -1508,9 +1521,10 @@ class Location implements ArrayAccess
      */
     public function setFeaturedMessageUrl($featured_message_url)
     {
-        if (strlen($featured_message_url) > 255) {
+        if (!is_null($featured_message_url) && (strlen($featured_message_url) > 255)) {
             throw new \InvalidArgumentException('invalid length for $featured_message_url when calling Location., must be smaller than or equal to 255.');
         }
+
         $this->container['featured_message_url'] = $featured_message_url;
 
         return $this;
@@ -1532,9 +1546,10 @@ class Location implements ArrayAccess
      */
     public function setWebsiteUrl($website_url)
     {
-        if (strlen($website_url) > 255) {
+        if (!is_null($website_url) && (strlen($website_url) > 255)) {
             throw new \InvalidArgumentException('invalid length for $website_url when calling Location., must be smaller than or equal to 255.');
         }
+
         $this->container['website_url'] = $website_url;
 
         return $this;
@@ -1556,9 +1571,10 @@ class Location implements ArrayAccess
      */
     public function setDisplayWebsiteUrl($display_website_url)
     {
-        if (strlen($display_website_url) > 255) {
+        if (!is_null($display_website_url) && (strlen($display_website_url) > 255)) {
             throw new \InvalidArgumentException('invalid length for $display_website_url when calling Location., must be smaller than or equal to 255.');
         }
+
         $this->container['display_website_url'] = $display_website_url;
 
         return $this;
@@ -1580,9 +1596,10 @@ class Location implements ArrayAccess
      */
     public function setReservationUrl($reservation_url)
     {
-        if (strlen($reservation_url) > 255) {
+        if (!is_null($reservation_url) && (strlen($reservation_url) > 255)) {
             throw new \InvalidArgumentException('invalid length for $reservation_url when calling Location., must be smaller than or equal to 255.');
         }
+
         $this->container['reservation_url'] = $reservation_url;
 
         return $this;
@@ -1604,9 +1621,10 @@ class Location implements ArrayAccess
      */
     public function setHours($hours)
     {
-        if (strlen($hours) > 255) {
+        if (!is_null($hours) && (strlen($hours) > 255)) {
             throw new \InvalidArgumentException('invalid length for $hours when calling Location., must be smaller than or equal to 255.');
         }
+
         $this->container['hours'] = $hours;
 
         return $this;
@@ -1628,9 +1646,10 @@ class Location implements ArrayAccess
      */
     public function setAdditionalHoursText($additional_hours_text)
     {
-        if (strlen($additional_hours_text) > 255) {
+        if (!is_null($additional_hours_text) && (strlen($additional_hours_text) > 255)) {
             throw new \InvalidArgumentException('invalid length for $additional_hours_text when calling Location., must be smaller than or equal to 255.');
         }
+
         $this->container['additional_hours_text'] = $additional_hours_text;
 
         return $this;
@@ -1673,9 +1692,10 @@ class Location implements ArrayAccess
      */
     public function setDescription($description)
     {
-        if (strlen($description) > 5000) {
+        if (!is_null($description) && (strlen($description) > 5000)) {
             throw new \InvalidArgumentException('invalid length for $description when calling Location., must be smaller than or equal to 5000.');
         }
+
         $this->container['description'] = $description;
 
         return $this;
@@ -1970,9 +1990,10 @@ class Location implements ArrayAccess
      */
     public function setTwitterHandle($twitter_handle)
     {
-        if (strlen($twitter_handle) > 15) {
+        if (!is_null($twitter_handle) && (strlen($twitter_handle) > 15)) {
             throw new \InvalidArgumentException('invalid length for $twitter_handle when calling Location., must be smaller than or equal to 15.');
         }
+
         $this->container['twitter_handle'] = $twitter_handle;
 
         return $this;
@@ -1994,9 +2015,10 @@ class Location implements ArrayAccess
      */
     public function setGoogleWebsiteOverride($google_website_override)
     {
-        if (strlen($google_website_override) > 255) {
+        if (!is_null($google_website_override) && (strlen($google_website_override) > 255)) {
             throw new \InvalidArgumentException('invalid length for $google_website_override when calling Location., must be smaller than or equal to 255.');
         }
+
         $this->container['google_website_override'] = $google_website_override;
 
         return $this;
@@ -2102,9 +2124,10 @@ class Location implements ArrayAccess
      */
     public function setFacebookPageUrl($facebook_page_url)
     {
-        if (strlen($facebook_page_url) > 255) {
+        if (!is_null($facebook_page_url) && (strlen($facebook_page_url) > 255)) {
             throw new \InvalidArgumentException('invalid length for $facebook_page_url when calling Location., must be smaller than or equal to 255.');
         }
+
         $this->container['facebook_page_url'] = $facebook_page_url;
 
         return $this;
@@ -2169,7 +2192,7 @@ class Location implements ArrayAccess
     public function setUberLinkType($uber_link_type)
     {
         $allowed_values = array('TEXT', 'BUTTON');
-        if (!in_array($uber_link_type, $allowed_values)) {
+        if (!is_null($uber_link_type) && (!in_array($uber_link_type, $allowed_values))) {
             throw new \InvalidArgumentException("Invalid value for 'uber_link_type', must be one of 'TEXT', 'BUTTON'");
         }
         $this->container['uber_link_type'] = $uber_link_type;
@@ -2193,9 +2216,10 @@ class Location implements ArrayAccess
      */
     public function setUberLinkText($uber_link_text)
     {
-        if (strlen($uber_link_text) > 100) {
+        if (!is_null($uber_link_text) && (strlen($uber_link_text) > 100)) {
             throw new \InvalidArgumentException('invalid length for $uber_link_text when calling Location., must be smaller than or equal to 100.');
         }
+
         $this->container['uber_link_text'] = $uber_link_text;
 
         return $this;
@@ -2217,9 +2241,10 @@ class Location implements ArrayAccess
      */
     public function setUberTripBrandingText($uber_trip_branding_text)
     {
-        if (strlen($uber_trip_branding_text) > 28) {
+        if (!is_null($uber_trip_branding_text) && (strlen($uber_trip_branding_text) > 28)) {
             throw new \InvalidArgumentException('invalid length for $uber_trip_branding_text when calling Location., must be smaller than or equal to 28.');
         }
+
         $this->container['uber_trip_branding_text'] = $uber_trip_branding_text;
 
         return $this;
@@ -2325,9 +2350,10 @@ class Location implements ArrayAccess
      */
     public function setYearEstablished($year_established)
     {
-        if (strlen($year_established) > 4) {
+        if (!is_null($year_established) && (strlen($year_established) > 4)) {
             throw new \InvalidArgumentException('invalid length for $year_established when calling Location., must be smaller than or equal to 4.');
         }
+
         $this->container['year_established'] = $year_established;
 
         return $this;
@@ -2873,5 +2899,3 @@ class Location implements ArrayAccess
         return json_encode(\Yext\Client\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

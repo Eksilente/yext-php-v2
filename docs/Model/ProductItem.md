@@ -3,6 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **string** | Item ID | [optional] 
+**name** | **string** | Item name | [optional] 
+**description** | **string** | Item description | [optional] 
 **photos** | [**\Yext\Client\Model\Photos**](Photos.md) |  | [optional] 
 **cost** | [**\Yext\Client\Model\ContentListCost**](ContentListCost.md) |  | [optional] 
 **idcode** | **string** | Displayed item ID | [optional] 
