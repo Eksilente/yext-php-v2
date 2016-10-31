@@ -104,6 +104,14 @@ class ReviewCommentTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "publisher_date"
+     */
+    public function testPropertyPublisherDate()
+    {
+
+    }
+
+    /**
      * Test attribute "visibility"
      */
     public function testPropertyVisibility()

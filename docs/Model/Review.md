@@ -6,6 +6,8 @@ Name | Type | Description | Notes
 **rating** | **double** | Normalized rating out of 5. This value is omitted if the review does not include a rating. | [optional] 
 **title** | **string** | Title of the review. This value is omitted if reviews on the publisher&#39;s site do not have titles. | [optional] 
 **url** | **string** | The URL of the review, or the URL of the listing where the review can be found if there is no specific URL for the review. | [optional] 
+**publisher_date** | **string** | The date of the review as reported by the publisher.  If edits impact the review date on the publisher, then this date may change.  This date always comes from the publisher and we respect whatever they have. | [optional] 
+**last_yext_update_date** | **string** | This is the date Yext last ingested an update for the review.  This is a date from Yext, and it always means the last time this review changed in Yext. | [optional] 
 **comments** | [**\Yext\Client\Model\ReviewComment[]**](ReviewComment.md) | An ordered array of Comments on the review.  **NOTE:** The order is a flattened tree with depth ties broken by publisher date. | [optional] 
 **content** | **string** | Content of the review. | [optional] 
 **author_name** | **string** | The name of the person who wrote the review (if we have it). | [optional] 

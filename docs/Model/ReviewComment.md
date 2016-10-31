@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **author_role** | **string** |  | [optional] 
+**publisher_date** | **string** | The date of the comment as reported by the publisher.  If edits impact the comment date on the publisher, then this date may change.  This date always comes from the publisher and we respect whatever they have. | [optional] 
 **visibility** | **string** |  | [optional] 
 **author_email** | **string** | The email address of the person who wrote the comment (if we have it). | [optional] 
 **author_name** | **string** | The name of the person who wrote the comment (if we have it). | [optional] 

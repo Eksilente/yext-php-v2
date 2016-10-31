@@ -101,6 +101,17 @@ class ReviewsApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test case for createReviewInvites
+     *
+     * Review Invitations: create.
+     *
+     */
+    public function testCreateReviewInvites()
+    {
+
+    }
+
+    /**
      * Test case for getReview
      *
      * Reviews: Get.

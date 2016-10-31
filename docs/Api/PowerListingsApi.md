@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 
 # **createDuplicate**
-> \Yext\Client\Model\InlineResponse20020 createDuplicate($account_id, $v, $url, $location_ids, $publisher_ids)
+> \Yext\Client\Model\IdResponse createDuplicate($account_id, $v, $url, $location_ids, $publisher_ids)
 
 Duplicates: Create
 
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse20020**](../Model/InlineResponse20020.md)
+[**\Yext\Client\Model\IdResponse**](../Model/IdResponse.md)
 
 ### Authorization
 
@@ -76,7 +76,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteDuplicate**
-> \Yext\Client\Model\InlineResponseDefault deleteDuplicate($account_id, $v, $duplicate_id)
+> \Yext\Client\Model\ErrorResponse deleteDuplicate($account_id, $v, $duplicate_id)
 
 Duplicates: Delete
 
@@ -116,7 +116,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponseDefault**](../Model/InlineResponseDefault.md)
+[**\Yext\Client\Model\ErrorResponse**](../Model/ErrorResponse.md)
 
 ### Authorization
 
@@ -130,7 +130,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPublisherSuggestion**
-> \Yext\Client\Model\InlineResponse20024 getPublisherSuggestion($account_id, $v, $suggestion_id)
+> \Yext\Client\Model\PublisherSuggestionResponse getPublisherSuggestion($account_id, $v, $suggestion_id)
 
 Publisher Suggestions: Get
 
@@ -170,7 +170,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse20024**](../Model/InlineResponse20024.md)
+[**\Yext\Client\Model\PublisherSuggestionResponse**](../Model/PublisherSuggestionResponse.md)
 
 ### Authorization
 
@@ -184,7 +184,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listDuplicates**
-> \Yext\Client\Model\InlineResponse20019 listDuplicates($account_id, $v, $limit, $offset, $location_ids, $publisher_ids, $statuses)
+> \Yext\Client\Model\DuplicatesResponse listDuplicates($account_id, $v, $limit, $offset, $location_ids, $publisher_ids, $statuses)
 
 Duplicates: List
 
@@ -232,7 +232,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse20019**](../Model/InlineResponse20019.md)
+[**\Yext\Client\Model\DuplicatesResponse**](../Model/DuplicatesResponse.md)
 
 ### Authorization
 
@@ -246,7 +246,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listListings**
-> \Yext\Client\Model\InlineResponse20021 listListings($account_id, $v, $limit, $offset, $location_ids, $publisher_ids)
+> \Yext\Client\Model\ListingsResponse listListings($account_id, $v, $limit, $offset, $location_ids, $publisher_ids)
 
 Listings: List
 
@@ -292,7 +292,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse20021**](../Model/InlineResponse20021.md)
+[**\Yext\Client\Model\ListingsResponse**](../Model/ListingsResponse.md)
 
 ### Authorization
 
@@ -306,7 +306,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listPublisherSuggestions**
-> \Yext\Client\Model\InlineResponse20023 listPublisherSuggestions($account_id, $v, $limit, $offset, $location_ids, $publisher_ids, $statuses)
+> \Yext\Client\Model\PublisherSuggestionsResponse listPublisherSuggestions($account_id, $v, $limit, $offset, $location_ids, $publisher_ids, $statuses)
 
 Publisher Suggestions: List
 
@@ -354,7 +354,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse20023**](../Model/InlineResponse20023.md)
+[**\Yext\Client\Model\PublisherSuggestionsResponse**](../Model/PublisherSuggestionsResponse.md)
 
 ### Authorization
 
@@ -368,7 +368,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listPublishers**
-> \Yext\Client\Model\InlineResponse20022 listPublishers($account_id, $v, $subset)
+> \Yext\Client\Model\PublishersResponse listPublishers($account_id, $v, $subset)
 
 Publishers: List
 
@@ -408,7 +408,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse20022**](../Model/InlineResponse20022.md)
+[**\Yext\Client\Model\PublishersResponse**](../Model/PublishersResponse.md)
 
 ### Authorization
 
@@ -422,7 +422,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **optInListings**
-> \Yext\Client\Model\InlineResponseDefault optInListings($account_id, $v, $location_ids, $publisher_ids)
+> \Yext\Client\Model\ErrorResponse optInListings($account_id, $v, $location_ids, $publisher_ids)
 
 Listings: Opt In
 
@@ -464,7 +464,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponseDefault**](../Model/InlineResponseDefault.md)
+[**\Yext\Client\Model\ErrorResponse**](../Model/ErrorResponse.md)
 
 ### Authorization
 
@@ -478,7 +478,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **optOutListings**
-> \Yext\Client\Model\InlineResponseDefault optOutListings($account_id, $v, $location_ids, $publisher_ids)
+> \Yext\Client\Model\ErrorResponse optOutListings($account_id, $v, $location_ids, $publisher_ids)
 
 Listings: Opt Out
 
@@ -520,7 +520,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponseDefault**](../Model/InlineResponseDefault.md)
+[**\Yext\Client\Model\ErrorResponse**](../Model/ErrorResponse.md)
 
 ### Authorization
 
@@ -534,7 +534,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **suppressDuplicate**
-> \Yext\Client\Model\InlineResponseDefault suppressDuplicate($account_id, $v, $duplicate_id)
+> \Yext\Client\Model\ErrorResponse suppressDuplicate($account_id, $v, $duplicate_id)
 
 Duplicates: Suppress
 
@@ -574,7 +574,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponseDefault**](../Model/InlineResponseDefault.md)
+[**\Yext\Client\Model\ErrorResponse**](../Model/ErrorResponse.md)
 
 ### Authorization
 
@@ -588,7 +588,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updatePublisherSuggestion**
-> \Yext\Client\Model\InlineResponseDefault updatePublisherSuggestion($account_id, $v, $suggestion_id, $status)
+> \Yext\Client\Model\ErrorResponse updatePublisherSuggestion($account_id, $v, $suggestion_id, $status)
 
 Publisher Suggestions: Update
 
@@ -630,7 +630,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponseDefault**](../Model/InlineResponseDefault.md)
+[**\Yext\Client\Model\ErrorResponse**](../Model/ErrorResponse.md)
 
 ### Authorization
 

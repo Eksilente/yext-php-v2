@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 
 # **createUser**
-> \Yext\Client\Model\InlineResponse2016 createUser($account_id, $v, $user_request)
+> \Yext\Client\Model\IdResponse createUser($account_id, $v, $user_request)
 
 Users: Create
 
@@ -55,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse2016**](../Model/InlineResponse2016.md)
+[**\Yext\Client\Model\IdResponse**](../Model/IdResponse.md)
 
 ### Authorization
 
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteUser**
-> \Yext\Client\Model\InlineResponse2016 deleteUser($account_id, $v, $user_id, $user_request)
+> \Yext\Client\Model\UserResponse deleteUser($account_id, $v, $user_id, $user_request)
 
 Users: Delete
 
@@ -111,7 +111,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse2016**](../Model/InlineResponse2016.md)
+[**\Yext\Client\Model\UserResponse**](../Model/UserResponse.md)
 
 ### Authorization
 
@@ -125,7 +125,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getLinkOptimizationTask**
-> \Yext\Client\Model\InlineResponse20015 getLinkOptimizationTask($account_id, $v, $task_ids, $location_ids, $mode)
+> \Yext\Client\Model\OptimizationTaskLinksResponse getLinkOptimizationTask($account_id, $v, $task_ids, $location_ids, $mode)
 
 Optimization Tasks: Get Link
 
@@ -169,7 +169,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse20015**](../Model/InlineResponse20015.md)
+[**\Yext\Client\Model\OptimizationTaskLinksResponse**](../Model/OptimizationTaskLinksResponse.md)
 
 ### Authorization
 
@@ -183,7 +183,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getOptimizationTasks**
-> \Yext\Client\Model\InlineResponse20016 getOptimizationTasks($account_id, $v, $task_ids, $location_ids)
+> \Yext\Client\Model\OptimizationTasksResponse getOptimizationTasks($account_id, $v, $task_ids, $location_ids)
 
 Optimization Tasks: List
 
@@ -225,7 +225,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse20016**](../Model/InlineResponse20016.md)
+[**\Yext\Client\Model\OptimizationTasksResponse**](../Model/OptimizationTasksResponse.md)
 
 ### Authorization
 
@@ -239,7 +239,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getRoles**
-> \Yext\Client\Model\InlineResponse20028 getRoles($account_id, $v)
+> \Yext\Client\Model\RolesResponse getRoles($account_id, $v)
 
 Roles: Get
 
@@ -277,7 +277,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse20028**](../Model/InlineResponse20028.md)
+[**\Yext\Client\Model\RolesResponse**](../Model/RolesResponse.md)
 
 ### Authorization
 
@@ -291,7 +291,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getUser**
-> \Yext\Client\Model\InlineResponse2016 getUser($account_id, $v, $user_id)
+> \Yext\Client\Model\UserResponse getUser($account_id, $v, $user_id)
 
 Users: Get
 
@@ -331,7 +331,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse2016**](../Model/InlineResponse2016.md)
+[**\Yext\Client\Model\UserResponse**](../Model/UserResponse.md)
 
 ### Authorization
 
@@ -345,7 +345,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getUsers**
-> \Yext\Client\Model\InlineResponse20029 getUsers($account_id, $v, $limit, $offset)
+> \Yext\Client\Model\UsersResponse getUsers($account_id, $v, $limit, $offset)
 
 Users: List
 
@@ -387,7 +387,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse20029**](../Model/InlineResponse20029.md)
+[**\Yext\Client\Model\UsersResponse**](../Model/UsersResponse.md)
 
 ### Authorization
 
@@ -401,7 +401,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateUser**
-> \Yext\Client\Model\InlineResponse2016 updateUser($account_id, $v, $user_id, $user_request)
+> \Yext\Client\Model\UserResponse updateUser($account_id, $v, $user_id, $user_request)
 
 Users: Update
 
@@ -443,7 +443,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse2016**](../Model/InlineResponse2016.md)
+[**\Yext\Client\Model\UserResponse**](../Model/UserResponse.md)
 
 ### Authorization
 

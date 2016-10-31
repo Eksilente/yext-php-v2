@@ -112,7 +112,7 @@ class PowerListingsApi
      * @param string[] $location_ids Defaults to all account locations with a PowerListings subscription  **Example:** loc123,loc456,loc789 (optional)
      * @param string[] $publisher_ids Defaults to all publishers subscribed by account  **Example:** MAPQUEST,YELP (optional)
      * @throws \Yext\Client\ApiException on non-2xx response
-     * @return \Yext\Client\Model\InlineResponse20020
+     * @return \Yext\Client\Model\IdResponse
      */
     public function createDuplicate($account_id, $v, $url, $location_ids = null, $publisher_ids = null)
     {
@@ -131,7 +131,7 @@ class PowerListingsApi
      * @param string[] $location_ids Defaults to all account locations with a PowerListings subscription  **Example:** loc123,loc456,loc789 (optional)
      * @param string[] $publisher_ids Defaults to all publishers subscribed by account  **Example:** MAPQUEST,YELP (optional)
      * @throws \Yext\Client\ApiException on non-2xx response
-     * @return array of \Yext\Client\Model\InlineResponse20020, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Yext\Client\Model\IdResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function createDuplicateWithHttpInfo($account_id, $v, $url, $location_ids = null, $publisher_ids = null)
     {
@@ -212,19 +212,19 @@ class PowerListingsApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\InlineResponse20020',
+                '\Yext\Client\Model\IdResponse',
                 '/accounts/{accountId}/powerlistings/duplicates'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse20020', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\IdResponse', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse20020', $e->getResponseHeaders());
+                case 201:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\IdResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponseDefault', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -242,7 +242,7 @@ class PowerListingsApi
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
      * @param string $duplicate_id  (required)
      * @throws \Yext\Client\ApiException on non-2xx response
-     * @return \Yext\Client\Model\InlineResponseDefault
+     * @return \Yext\Client\Model\ErrorResponse
      */
     public function deleteDuplicate($account_id, $v, $duplicate_id)
     {
@@ -259,7 +259,7 @@ class PowerListingsApi
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
      * @param string $duplicate_id  (required)
      * @throws \Yext\Client\ApiException on non-2xx response
-     * @return array of \Yext\Client\Model\InlineResponseDefault, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Yext\Client\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteDuplicateWithHttpInfo($account_id, $v, $duplicate_id)
     {
@@ -330,19 +330,19 @@ class PowerListingsApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\InlineResponseDefault',
+                '\Yext\Client\Model\ErrorResponse',
                 '/accounts/{accountId}/powerlistings/duplicates/{duplicateId}'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponseDefault', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\ErrorResponse', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponseDefault', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponseDefault', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -360,7 +360,7 @@ class PowerListingsApi
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
      * @param string $suggestion_id  (required)
      * @throws \Yext\Client\ApiException on non-2xx response
-     * @return \Yext\Client\Model\InlineResponse20024
+     * @return \Yext\Client\Model\PublisherSuggestionResponse
      */
     public function getPublisherSuggestion($account_id, $v, $suggestion_id)
     {
@@ -377,7 +377,7 @@ class PowerListingsApi
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
      * @param string $suggestion_id  (required)
      * @throws \Yext\Client\ApiException on non-2xx response
-     * @return array of \Yext\Client\Model\InlineResponse20024, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Yext\Client\Model\PublisherSuggestionResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getPublisherSuggestionWithHttpInfo($account_id, $v, $suggestion_id)
     {
@@ -448,19 +448,19 @@ class PowerListingsApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\InlineResponse20024',
+                '\Yext\Client\Model\PublisherSuggestionResponse',
                 '/accounts/{accountId}/powerlistings/publishersuggestions/{suggestionId}'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse20024', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\PublisherSuggestionResponse', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse20024', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\PublisherSuggestionResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponseDefault', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -482,7 +482,7 @@ class PowerListingsApi
      * @param string[] $publisher_ids Defaults to all publishers subscribed by account  **Example:** MAPQUEST,YELP (optional)
      * @param string[] $statuses When specified, only Duplicates with the provided statuses will be returned  **Example:** POSSIBLE_DUPLICATE,SUPPRESSION_REQUESTED (optional)
      * @throws \Yext\Client\ApiException on non-2xx response
-     * @return \Yext\Client\Model\InlineResponse20019
+     * @return \Yext\Client\Model\DuplicatesResponse
      */
     public function listDuplicates($account_id, $v, $limit = null, $offset = null, $location_ids = null, $publisher_ids = null, $statuses = null)
     {
@@ -503,7 +503,7 @@ class PowerListingsApi
      * @param string[] $publisher_ids Defaults to all publishers subscribed by account  **Example:** MAPQUEST,YELP (optional)
      * @param string[] $statuses When specified, only Duplicates with the provided statuses will be returned  **Example:** POSSIBLE_DUPLICATE,SUPPRESSION_REQUESTED (optional)
      * @throws \Yext\Client\ApiException on non-2xx response
-     * @return array of \Yext\Client\Model\InlineResponse20019, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Yext\Client\Model\DuplicatesResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function listDuplicatesWithHttpInfo($account_id, $v, $limit = null, $offset = null, $location_ids = null, $publisher_ids = null, $statuses = null)
     {
@@ -595,19 +595,19 @@ class PowerListingsApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\InlineResponse20019',
+                '\Yext\Client\Model\DuplicatesResponse',
                 '/accounts/{accountId}/powerlistings/duplicates'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse20019', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\DuplicatesResponse', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse20019', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\DuplicatesResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponseDefault', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -628,7 +628,7 @@ class PowerListingsApi
      * @param string[] $location_ids Defaults to all account locations with a PowerListings subscription  **Example:** loc123,loc456,loc789 (optional)
      * @param string[] $publisher_ids Defaults to all publishers subscribed by account  **Example:** MAPQUEST,YELP (optional)
      * @throws \Yext\Client\ApiException on non-2xx response
-     * @return \Yext\Client\Model\InlineResponse20021
+     * @return \Yext\Client\Model\ListingsResponse
      */
     public function listListings($account_id, $v, $limit = null, $offset = null, $location_ids = null, $publisher_ids = null)
     {
@@ -648,7 +648,7 @@ class PowerListingsApi
      * @param string[] $location_ids Defaults to all account locations with a PowerListings subscription  **Example:** loc123,loc456,loc789 (optional)
      * @param string[] $publisher_ids Defaults to all publishers subscribed by account  **Example:** MAPQUEST,YELP (optional)
      * @throws \Yext\Client\ApiException on non-2xx response
-     * @return array of \Yext\Client\Model\InlineResponse20021, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Yext\Client\Model\ListingsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function listListingsWithHttpInfo($account_id, $v, $limit = null, $offset = null, $location_ids = null, $publisher_ids = null)
     {
@@ -733,19 +733,19 @@ class PowerListingsApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\InlineResponse20021',
+                '\Yext\Client\Model\ListingsResponse',
                 '/accounts/{accountId}/powerlistings/listings'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse20021', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\ListingsResponse', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse20021', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\ListingsResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponseDefault', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -767,7 +767,7 @@ class PowerListingsApi
      * @param string[] $publisher_ids Defaults to all publishers subscribed by account  **Example:** MAPQUEST,YELP (optional)
      * @param string[] $statuses When specified, only Publisher Suggestions with the provided statuses will be returned  **Example:** WAITING_ON_CUSTOMER,EXPIRED (optional)
      * @throws \Yext\Client\ApiException on non-2xx response
-     * @return \Yext\Client\Model\InlineResponse20023
+     * @return \Yext\Client\Model\PublisherSuggestionsResponse
      */
     public function listPublisherSuggestions($account_id, $v, $limit = null, $offset = null, $location_ids = null, $publisher_ids = null, $statuses = null)
     {
@@ -788,7 +788,7 @@ class PowerListingsApi
      * @param string[] $publisher_ids Defaults to all publishers subscribed by account  **Example:** MAPQUEST,YELP (optional)
      * @param string[] $statuses When specified, only Publisher Suggestions with the provided statuses will be returned  **Example:** WAITING_ON_CUSTOMER,EXPIRED (optional)
      * @throws \Yext\Client\ApiException on non-2xx response
-     * @return array of \Yext\Client\Model\InlineResponse20023, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Yext\Client\Model\PublisherSuggestionsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function listPublisherSuggestionsWithHttpInfo($account_id, $v, $limit = null, $offset = null, $location_ids = null, $publisher_ids = null, $statuses = null)
     {
@@ -880,19 +880,19 @@ class PowerListingsApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\InlineResponse20023',
+                '\Yext\Client\Model\PublisherSuggestionsResponse',
                 '/accounts/{accountId}/powerlistings/publishersuggestions'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse20023', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\PublisherSuggestionsResponse', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse20023', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\PublisherSuggestionsResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponseDefault', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -910,7 +910,7 @@ class PowerListingsApi
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
      * @param string $subset **ALL** - return all publishers  **RELEVANT_ONLY** - only return publishers relevant to the account based on supported countries and location types (optional, default to RELEVANT_ONLY)
      * @throws \Yext\Client\ApiException on non-2xx response
-     * @return \Yext\Client\Model\InlineResponse20022
+     * @return \Yext\Client\Model\PublishersResponse
      */
     public function listPublishers($account_id, $v, $subset = null)
     {
@@ -927,7 +927,7 @@ class PowerListingsApi
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
      * @param string $subset **ALL** - return all publishers  **RELEVANT_ONLY** - only return publishers relevant to the account based on supported countries and location types (optional, default to RELEVANT_ONLY)
      * @throws \Yext\Client\ApiException on non-2xx response
-     * @return array of \Yext\Client\Model\InlineResponse20022, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Yext\Client\Model\PublishersResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function listPublishersWithHttpInfo($account_id, $v, $subset = null)
     {
@@ -990,19 +990,19 @@ class PowerListingsApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\InlineResponse20022',
+                '\Yext\Client\Model\PublishersResponse',
                 '/accounts/{accountId}/powerlistings/publishers'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse20022', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\PublishersResponse', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse20022', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\PublishersResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponseDefault', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -1021,7 +1021,7 @@ class PowerListingsApi
      * @param string[] $location_ids Defaults to all account locations with a PowerListings subscription  **Example:** loc123,loc456,loc789 (optional)
      * @param string[] $publisher_ids Defaults to all publishers subscribed by account  **Example:** MAPQUEST,YELP (optional)
      * @throws \Yext\Client\ApiException on non-2xx response
-     * @return \Yext\Client\Model\InlineResponseDefault
+     * @return \Yext\Client\Model\ErrorResponse
      */
     public function optInListings($account_id, $v, $location_ids = null, $publisher_ids = null)
     {
@@ -1039,7 +1039,7 @@ class PowerListingsApi
      * @param string[] $location_ids Defaults to all account locations with a PowerListings subscription  **Example:** loc123,loc456,loc789 (optional)
      * @param string[] $publisher_ids Defaults to all publishers subscribed by account  **Example:** MAPQUEST,YELP (optional)
      * @throws \Yext\Client\ApiException on non-2xx response
-     * @return array of \Yext\Client\Model\InlineResponseDefault, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Yext\Client\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function optInListingsWithHttpInfo($account_id, $v, $location_ids = null, $publisher_ids = null)
     {
@@ -1112,19 +1112,19 @@ class PowerListingsApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\InlineResponseDefault',
+                '\Yext\Client\Model\ErrorResponse',
                 '/accounts/{accountId}/powerlistings/listings/optin'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponseDefault', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\ErrorResponse', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponseDefault', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponseDefault', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -1143,7 +1143,7 @@ class PowerListingsApi
      * @param string[] $location_ids Defaults to all account locations with a PowerListings subscription  **Example:** loc123,loc456,loc789 (optional)
      * @param string[] $publisher_ids Defaults to all publishers subscribed by account  **Example:** MAPQUEST,YELP (optional)
      * @throws \Yext\Client\ApiException on non-2xx response
-     * @return \Yext\Client\Model\InlineResponseDefault
+     * @return \Yext\Client\Model\ErrorResponse
      */
     public function optOutListings($account_id, $v, $location_ids = null, $publisher_ids = null)
     {
@@ -1161,7 +1161,7 @@ class PowerListingsApi
      * @param string[] $location_ids Defaults to all account locations with a PowerListings subscription  **Example:** loc123,loc456,loc789 (optional)
      * @param string[] $publisher_ids Defaults to all publishers subscribed by account  **Example:** MAPQUEST,YELP (optional)
      * @throws \Yext\Client\ApiException on non-2xx response
-     * @return array of \Yext\Client\Model\InlineResponseDefault, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Yext\Client\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function optOutListingsWithHttpInfo($account_id, $v, $location_ids = null, $publisher_ids = null)
     {
@@ -1234,19 +1234,19 @@ class PowerListingsApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\InlineResponseDefault',
+                '\Yext\Client\Model\ErrorResponse',
                 '/accounts/{accountId}/powerlistings/listings/optout'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponseDefault', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\ErrorResponse', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponseDefault', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponseDefault', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -1264,7 +1264,7 @@ class PowerListingsApi
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
      * @param string $duplicate_id  (required)
      * @throws \Yext\Client\ApiException on non-2xx response
-     * @return \Yext\Client\Model\InlineResponseDefault
+     * @return \Yext\Client\Model\ErrorResponse
      */
     public function suppressDuplicate($account_id, $v, $duplicate_id)
     {
@@ -1281,7 +1281,7 @@ class PowerListingsApi
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format (required)
      * @param string $duplicate_id  (required)
      * @throws \Yext\Client\ApiException on non-2xx response
-     * @return array of \Yext\Client\Model\InlineResponseDefault, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Yext\Client\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function suppressDuplicateWithHttpInfo($account_id, $v, $duplicate_id)
     {
@@ -1352,19 +1352,19 @@ class PowerListingsApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\InlineResponseDefault',
+                '\Yext\Client\Model\ErrorResponse',
                 '/accounts/{accountId}/powerlistings/duplicates/{duplicateId}'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponseDefault', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\ErrorResponse', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponseDefault', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponseDefault', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -1383,7 +1383,7 @@ class PowerListingsApi
      * @param string $suggestion_id  (required)
      * @param string $status The status of the Publisher Suggestion (required)
      * @throws \Yext\Client\ApiException on non-2xx response
-     * @return \Yext\Client\Model\InlineResponseDefault
+     * @return \Yext\Client\Model\ErrorResponse
      */
     public function updatePublisherSuggestion($account_id, $v, $suggestion_id, $status)
     {
@@ -1401,7 +1401,7 @@ class PowerListingsApi
      * @param string $suggestion_id  (required)
      * @param string $status The status of the Publisher Suggestion (required)
      * @throws \Yext\Client\ApiException on non-2xx response
-     * @return array of \Yext\Client\Model\InlineResponseDefault, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Yext\Client\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updatePublisherSuggestionWithHttpInfo($account_id, $v, $suggestion_id, $status)
     {
@@ -1480,19 +1480,19 @@ class PowerListingsApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\InlineResponseDefault',
+                '\Yext\Client\Model\ErrorResponse',
                 '/accounts/{accountId}/powerlistings/publishersuggestions/{suggestionId}'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponseDefault', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\ErrorResponse', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponseDefault', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponseDefault', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }

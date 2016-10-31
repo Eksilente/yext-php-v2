@@ -120,6 +120,22 @@ class ReviewTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "publisher_date"
+     */
+    public function testPropertyPublisherDate()
+    {
+
+    }
+
+    /**
+     * Test attribute "last_yext_update_date"
+     */
+    public function testPropertyLastYextUpdateDate()
+    {
+
+    }
+
+    /**
      * Test attribute "comments"
      */
     public function testPropertyComments()

@@ -5,12 +5,13 @@ All URIs are relative to *https://api.yext.com/v2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createComment**](ReviewsApi.md#createComment) | **POST** /accounts/{accountId}/reviews/{reviewId}/comments | Comments: Create
+[**createReviewInvites**](ReviewsApi.md#createReviewInvites) | **POST** /accounts/{accountId}/reviewinvites | Review Invitations: create
 [**getReview**](ReviewsApi.md#getReview) | **GET** /accounts/{accountId}/reviews/{reviewId} | Reviews: Get
 [**listReviews**](ReviewsApi.md#listReviews) | **GET** /accounts/{accountId}/reviews | Reviews: List
 
 
 # **createComment**
-> \Yext\Client\Model\InlineResponse2015 createComment($account_id, $review_id, $v, $content, $visibility, $parent_id)
+> \Yext\Client\Model\ErrorResponse createComment($account_id, $review_id, $v, $content, $visibility, $parent_id)
 
 Comments: Create
 
@@ -56,7 +57,59 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse2015**](../Model/InlineResponse2015.md)
+[**\Yext\Client\Model\ErrorResponse**](../Model/ErrorResponse.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **createReviewInvites**
+> \Yext\Client\Model\CreateReviewInvitationResponse[] createReviewInvites($account_id, $reviews)
+
+Review Invitations: create
+
+Sends review invitations to one or more consumers.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Yext\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_key', 'Bearer');
+
+$api_instance = new Yext\Client\Api\ReviewsApi();
+$account_id = "account_id_example"; // string | 
+$reviews = array(new ReviewInvitation()); // \Yext\Client\Model\ReviewInvitation[] | 
+
+try {
+    $result = $api_instance->createReviewInvites($account_id, $reviews);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ReviewsApi->createReviewInvites: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **account_id** | **string**|  |
+ **reviews** | [**\Yext\Client\Model\ReviewInvitation[]**](../Model/ReviewInvitation.md)|  |
+
+### Return type
+
+[**\Yext\Client\Model\CreateReviewInvitationResponse[]**](../Model/CreateReviewInvitationResponse.md)
 
 ### Authorization
 
@@ -70,7 +123,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getReview**
-> \Yext\Client\Model\InlineResponse20027 getReview($account_id, $review_id, $v)
+> \Yext\Client\Model\ReviewResponse getReview($account_id, $review_id, $v)
 
 Reviews: Get
 
@@ -110,7 +163,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse20027**](../Model/InlineResponse20027.md)
+[**\Yext\Client\Model\ReviewResponse**](../Model/ReviewResponse.md)
 
 ### Authorization
 
@@ -124,7 +177,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listReviews**
-> \Yext\Client\Model\InlineResponse20026 listReviews($account_id, $v, $limit, $offset, $location_ids, $folder_id, $countries, $location_labels, $publisher_ids, $review_content, $min_rating, $max_rating, $min_publisher_date, $max_publisher_date, $min_last_yext_update_date, $max_last_yext_update_date, $awaiting_response, $min_non_owner_comments, $reviewer_name, $reviewer_email)
+> \Yext\Client\Model\ReviewsResponse listReviews($account_id, $v, $limit, $offset, $location_ids, $folder_id, $countries, $location_labels, $publisher_ids, $review_content, $min_rating, $max_rating, $min_publisher_date, $max_publisher_date, $min_last_yext_update_date, $max_last_yext_update_date, $awaiting_response, $min_non_owner_comments, $reviewer_name, $reviewer_email)
 
 Reviews: List
 
@@ -198,7 +251,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse20026**](../Model/InlineResponse20026.md)
+[**\Yext\Client\Model\ReviewsResponse**](../Model/ReviewsResponse.md)
 
 ### Authorization
 

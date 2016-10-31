@@ -39,7 +39,7 @@ Method | HTTP request | Description
 
 
 # **createBio**
-> \Yext\Client\Model\InlineResponse201 createBio($account_id, $v, $body)
+> \Yext\Client\Model\IdResponse createBio($account_id, $v, $body)
 
 Bios: Create
 
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse201**](../Model/InlineResponse201.md)
+[**\Yext\Client\Model\IdResponse**](../Model/IdResponse.md)
 
 ### Authorization
 
@@ -93,7 +93,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createEvent**
-> \Yext\Client\Model\InlineResponse2012 createEvent($account_id, $v, $body)
+> \Yext\Client\Model\IdResponse createEvent($account_id, $v, $body)
 
 Events: Create
 
@@ -133,7 +133,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse2012**](../Model/InlineResponse2012.md)
+[**\Yext\Client\Model\IdResponse**](../Model/IdResponse.md)
 
 ### Authorization
 
@@ -147,7 +147,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createLocation**
-> \Yext\Client\Model\InlineResponse2011 createLocation($account_id, $v, $location_request)
+> \Yext\Client\Model\IdResponse createLocation($account_id, $v, $location_request)
 
 Locations: Create
 
@@ -187,7 +187,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse2011**](../Model/InlineResponse2011.md)
+[**\Yext\Client\Model\IdResponse**](../Model/IdResponse.md)
 
 ### Authorization
 
@@ -201,7 +201,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createMenu**
-> \Yext\Client\Model\InlineResponse2013 createMenu($account_id, $v, $body)
+> \Yext\Client\Model\IdResponse createMenu($account_id, $v, $body)
 
 Menus: Create
 
@@ -239,7 +239,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse2013**](../Model/InlineResponse2013.md)
+[**\Yext\Client\Model\IdResponse**](../Model/IdResponse.md)
 
 ### Authorization
 
@@ -253,7 +253,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createProduct**
-> \Yext\Client\Model\InlineResponse20011 createProduct($account_id, $v, $body)
+> \Yext\Client\Model\IdResponse createProduct($account_id, $v, $body)
 
 Products: Create
 
@@ -293,7 +293,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse20011**](../Model/InlineResponse20011.md)
+[**\Yext\Client\Model\IdResponse**](../Model/IdResponse.md)
 
 ### Authorization
 
@@ -307,7 +307,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteBioList**
-> \Yext\Client\Model\InlineResponseDefault deleteBioList($account_id, $list_id, $v)
+> \Yext\Client\Model\ErrorResponse deleteBioList($account_id, $list_id, $v)
 
 Bios: Delete
 
@@ -347,7 +347,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponseDefault**](../Model/InlineResponseDefault.md)
+[**\Yext\Client\Model\ErrorResponse**](../Model/ErrorResponse.md)
 
 ### Authorization
 
@@ -361,7 +361,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteEventList**
-> \Yext\Client\Model\InlineResponseDefault deleteEventList($account_id, $list_id, $v)
+> \Yext\Client\Model\ErrorResponse deleteEventList($account_id, $list_id, $v)
 
 Events: Delete
 
@@ -401,7 +401,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponseDefault**](../Model/InlineResponseDefault.md)
+[**\Yext\Client\Model\ErrorResponse**](../Model/ErrorResponse.md)
 
 ### Authorization
 
@@ -415,7 +415,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteLanguageProfile**
-> \Yext\Client\Model\InlineResponseDefault deleteLanguageProfile($account_id, $location_id, $language_code, $v)
+> \Yext\Client\Model\ErrorResponse deleteLanguageProfile($account_id, $location_id, $language_code, $v)
 
 Language Profiles: Delete
 
@@ -457,7 +457,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponseDefault**](../Model/InlineResponseDefault.md)
+[**\Yext\Client\Model\ErrorResponse**](../Model/ErrorResponse.md)
 
 ### Authorization
 
@@ -471,7 +471,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteMenuList**
-> \Yext\Client\Model\InlineResponseDefault deleteMenuList($account_id, $list_id, $v)
+> \Yext\Client\Model\ErrorResponse deleteMenuList($account_id, $list_id, $v)
 
 Menus: Delete
 
@@ -511,7 +511,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponseDefault**](../Model/InlineResponseDefault.md)
+[**\Yext\Client\Model\ErrorResponse**](../Model/ErrorResponse.md)
 
 ### Authorization
 
@@ -525,7 +525,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteProductList**
-> \Yext\Client\Model\InlineResponseDefault deleteProductList($account_id, $list_id, $v)
+> \Yext\Client\Model\ErrorResponse deleteProductList($account_id, $list_id, $v)
 
 Products: Delete
 
@@ -565,7 +565,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponseDefault**](../Model/InlineResponseDefault.md)
+[**\Yext\Client\Model\ErrorResponse**](../Model/ErrorResponse.md)
 
 ### Authorization
 
@@ -579,7 +579,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getBio**
-> \Yext\Client\Model\InlineResponse201 getBio($account_id, $list_id, $v)
+> \Yext\Client\Model\BioListResponse getBio($account_id, $list_id, $v)
 
 Bios: Get
 
@@ -619,7 +619,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse201**](../Model/InlineResponse201.md)
+[**\Yext\Client\Model\BioListResponse**](../Model/BioListResponse.md)
 
 ### Authorization
 
@@ -633,7 +633,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getBios**
-> \Yext\Client\Model\InlineResponse2004 getBios($account_id, $v, $limit, $offset)
+> \Yext\Client\Model\BioListsResponse getBios($account_id, $v, $limit, $offset)
 
 Bios: List
 
@@ -675,7 +675,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse2004**](../Model/InlineResponse2004.md)
+[**\Yext\Client\Model\BioListsResponse**](../Model/BioListsResponse.md)
 
 ### Authorization
 
@@ -689,7 +689,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getBusinessCategories**
-> \Yext\Client\Model\InlineResponse20030 getBusinessCategories($v, $language, $country)
+> \Yext\Client\Model\BusinessCategoriesResponse getBusinessCategories($v, $language, $country)
 
 Categories: List
 
@@ -729,7 +729,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse20030**](../Model/InlineResponse20030.md)
+[**\Yext\Client\Model\BusinessCategoriesResponse**](../Model/BusinessCategoriesResponse.md)
 
 ### Authorization
 
@@ -743,7 +743,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getCustomFields**
-> \Yext\Client\Model\InlineResponse2005 getCustomFields($v, $account_id, $offset, $limit)
+> \Yext\Client\Model\CustomFieldsResponse getCustomFields($v, $account_id, $offset, $limit)
 
 Custom Fields: List
 
@@ -785,7 +785,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse2005**](../Model/InlineResponse2005.md)
+[**\Yext\Client\Model\CustomFieldsResponse**](../Model/CustomFieldsResponse.md)
 
 ### Authorization
 
@@ -799,7 +799,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getEvent**
-> \Yext\Client\Model\InlineResponse2012 getEvent($account_id, $list_id, $v)
+> \Yext\Client\Model\EventListResponse getEvent($account_id, $list_id, $v)
 
 Events: Get
 
@@ -839,7 +839,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse2012**](../Model/InlineResponse2012.md)
+[**\Yext\Client\Model\EventListResponse**](../Model/EventListResponse.md)
 
 ### Authorization
 
@@ -853,7 +853,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getEvents**
-> \Yext\Client\Model\InlineResponse20010 getEvents($account_id, $v, $limit, $offset)
+> \Yext\Client\Model\EventListsResponse getEvents($account_id, $v, $limit, $offset)
 
 Events: List
 
@@ -895,7 +895,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse20010**](../Model/InlineResponse20010.md)
+[**\Yext\Client\Model\EventListsResponse**](../Model/EventListsResponse.md)
 
 ### Authorization
 
@@ -909,7 +909,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getGoogleKeywords**
-> \Yext\Client\Model\InlineResponse20031 getGoogleKeywords($v)
+> \Yext\Client\Model\GoogleFieldsResponse getGoogleKeywords($v)
 
 Google Fields: List
 
@@ -945,7 +945,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse20031**](../Model/InlineResponse20031.md)
+[**\Yext\Client\Model\GoogleFieldsResponse**](../Model/GoogleFieldsResponse.md)
 
 ### Authorization
 
@@ -959,7 +959,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getLanguageProfile**
-> \Yext\Client\Model\InlineResponse20012 getLanguageProfile($account_id, $location_id, $language_code, $v)
+> \Yext\Client\Model\LocationResponse getLanguageProfile($account_id, $location_id, $language_code, $v)
 
 Language Profiles: Get
 
@@ -1001,7 +1001,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse20012**](../Model/InlineResponse20012.md)
+[**\Yext\Client\Model\LocationResponse**](../Model/LocationResponse.md)
 
 ### Authorization
 
@@ -1015,7 +1015,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getLanguageProfiles**
-> \Yext\Client\Model\InlineResponse20013 getLanguageProfiles($account_id, $location_id, $v)
+> \Yext\Client\Model\LanguageProfilesResponse getLanguageProfiles($account_id, $location_id, $v)
 
 Language Profiles: List
 
@@ -1055,7 +1055,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse20013**](../Model/InlineResponse20013.md)
+[**\Yext\Client\Model\LanguageProfilesResponse**](../Model/LanguageProfilesResponse.md)
 
 ### Authorization
 
@@ -1069,7 +1069,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getLocation**
-> \Yext\Client\Model\InlineResponse20012 getLocation($account_id, $location_id, $v)
+> \Yext\Client\Model\LocationResponse getLocation($account_id, $location_id, $v)
 
 Locations: Get
 
@@ -1109,7 +1109,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse20012**](../Model/InlineResponse20012.md)
+[**\Yext\Client\Model\LocationResponse**](../Model/LocationResponse.md)
 
 ### Authorization
 
@@ -1123,7 +1123,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getLocationFolders**
-> \Yext\Client\Model\InlineResponse2006 getLocationFolders($account_id, $v, $offset, $limit)
+> \Yext\Client\Model\FoldersResponse getLocationFolders($account_id, $v, $offset, $limit)
 
 Folders: List
 
@@ -1165,7 +1165,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse2006**](../Model/InlineResponse2006.md)
+[**\Yext\Client\Model\FoldersResponse**](../Model/FoldersResponse.md)
 
 ### Authorization
 
@@ -1179,7 +1179,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getLocations**
-> \Yext\Client\Model\InlineResponse2009 getLocations($account_id, $v, $limit, $offset)
+> \Yext\Client\Model\LocationsResponse getLocations($account_id, $v, $limit, $offset)
 
 Locations: List
 
@@ -1221,7 +1221,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse2009**](../Model/InlineResponse2009.md)
+[**\Yext\Client\Model\LocationsResponse**](../Model/LocationsResponse.md)
 
 ### Authorization
 
@@ -1235,7 +1235,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getMenu**
-> \Yext\Client\Model\InlineResponse2013 getMenu($account_id, $list_id, $v)
+> \Yext\Client\Model\MenuListResponse getMenu($account_id, $list_id, $v)
 
 Menus: Get
 
@@ -1275,7 +1275,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse2013**](../Model/InlineResponse2013.md)
+[**\Yext\Client\Model\MenuListResponse**](../Model/MenuListResponse.md)
 
 ### Authorization
 
@@ -1289,7 +1289,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getMenus**
-> \Yext\Client\Model\InlineResponse20014 getMenus($account_id, $v, $limit, $offset)
+> \Yext\Client\Model\MenuListsResponse getMenus($account_id, $v, $limit, $offset)
 
 Menus: List
 
@@ -1331,7 +1331,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse20014**](../Model/InlineResponse20014.md)
+[**\Yext\Client\Model\MenuListsResponse**](../Model/MenuListsResponse.md)
 
 ### Authorization
 
@@ -1345,7 +1345,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getProduct**
-> \Yext\Client\Model\InlineResponse20011 getProduct($account_id, $list_id, $v)
+> \Yext\Client\Model\ProductListResponse getProduct($account_id, $list_id, $v)
 
 Products: Get
 
@@ -1385,7 +1385,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse20011**](../Model/InlineResponse20011.md)
+[**\Yext\Client\Model\ProductListResponse**](../Model/ProductListResponse.md)
 
 ### Authorization
 
@@ -1399,7 +1399,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getProducts**
-> \Yext\Client\Model\InlineResponse20025 getProducts($account_id, $v, $limit, $offset)
+> \Yext\Client\Model\ProductListsResponse getProducts($account_id, $v, $limit, $offset)
 
 Products: List
 
@@ -1441,7 +1441,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse20025**](../Model/InlineResponse20025.md)
+[**\Yext\Client\Model\ProductListsResponse**](../Model/ProductListsResponse.md)
 
 ### Authorization
 
@@ -1455,7 +1455,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateBio**
-> \Yext\Client\Model\InlineResponse201 updateBio($account_id, $list_id, $v, $body)
+> \Yext\Client\Model\BioListResponse updateBio($account_id, $list_id, $v, $body)
 
 Bios: Update
 
@@ -1497,7 +1497,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse201**](../Model/InlineResponse201.md)
+[**\Yext\Client\Model\BioListResponse**](../Model/BioListResponse.md)
 
 ### Authorization
 
@@ -1511,7 +1511,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateEvent**
-> \Yext\Client\Model\InlineResponse2012 updateEvent($account_id, $list_id, $v, $body)
+> \Yext\Client\Model\EventListResponse updateEvent($account_id, $list_id, $v, $body)
 
 Events: Update
 
@@ -1553,7 +1553,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse2012**](../Model/InlineResponse2012.md)
+[**\Yext\Client\Model\EventListResponse**](../Model/EventListResponse.md)
 
 ### Authorization
 
@@ -1567,7 +1567,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateLocation**
-> \Yext\Client\Model\InlineResponse2011 updateLocation($account_id, $location_id, $v, $location_request)
+> \Yext\Client\Model\IdResponse updateLocation($account_id, $location_id, $v, $location_request)
 
 Locations: Update
 
@@ -1609,7 +1609,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse2011**](../Model/InlineResponse2011.md)
+[**\Yext\Client\Model\IdResponse**](../Model/IdResponse.md)
 
 ### Authorization
 
@@ -1623,7 +1623,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateMenu**
-> \Yext\Client\Model\InlineResponse2013 updateMenu($account_id, $list_id, $v, $body)
+> \Yext\Client\Model\MenuListResponse updateMenu($account_id, $list_id, $v, $body)
 
 Menus: Update
 
@@ -1665,7 +1665,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse2013**](../Model/InlineResponse2013.md)
+[**\Yext\Client\Model\MenuListResponse**](../Model/MenuListResponse.md)
 
 ### Authorization
 
@@ -1679,7 +1679,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateProduct**
-> \Yext\Client\Model\InlineResponse20011 updateProduct($account_id, $list_id, $v, $body)
+> \Yext\Client\Model\ProductListResponse updateProduct($account_id, $list_id, $v, $body)
 
 Products: Update
 
@@ -1721,7 +1721,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse20011**](../Model/InlineResponse20011.md)
+[**\Yext\Client\Model\ProductListResponse**](../Model/ProductListResponse.md)
 
 ### Authorization
 
@@ -1735,7 +1735,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **upsertLanguageProfile**
-> \Yext\Client\Model\InlineResponse20012 upsertLanguageProfile($account_id, $location_id, $language_code, $v, $body, $primary)
+> \Yext\Client\Model\LocationResponse upsertLanguageProfile($account_id, $location_id, $language_code, $v, $body, $primary)
 
 Language Profiles: Upsert
 
@@ -1781,7 +1781,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse20012**](../Model/InlineResponse20012.md)
+[**\Yext\Client\Model\LocationResponse**](../Model/LocationResponse.md)
 
 ### Authorization
 

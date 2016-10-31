@@ -67,6 +67,7 @@ class ReviewComment implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'author_role' => 'string',
+        'publisher_date' => 'string',
         'visibility' => 'string',
         'author_email' => 'string',
         'author_name' => 'string',
@@ -86,6 +87,7 @@ class ReviewComment implements ArrayAccess
      */
     protected static $attributeMap = [
         'author_role' => 'authorRole',
+        'publisher_date' => 'publisherDate',
         'visibility' => 'visibility',
         'author_email' => 'authorEmail',
         'author_name' => 'authorName',
@@ -101,6 +103,7 @@ class ReviewComment implements ArrayAccess
      */
     protected static $setters = [
         'author_role' => 'setAuthorRole',
+        'publisher_date' => 'setPublisherDate',
         'visibility' => 'setVisibility',
         'author_email' => 'setAuthorEmail',
         'author_name' => 'setAuthorName',
@@ -116,6 +119,7 @@ class ReviewComment implements ArrayAccess
      */
     protected static $getters = [
         'author_role' => 'getAuthorRole',
+        'publisher_date' => 'getPublisherDate',
         'visibility' => 'getVisibility',
         'author_email' => 'getAuthorEmail',
         'author_name' => 'getAuthorName',
@@ -184,6 +188,7 @@ class ReviewComment implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['author_role'] = isset($data['author_role']) ? $data['author_role'] : null;
+        $this->container['publisher_date'] = isset($data['publisher_date']) ? $data['publisher_date'] : null;
         $this->container['visibility'] = isset($data['visibility']) ? $data['visibility'] : null;
         $this->container['author_email'] = isset($data['author_email']) ? $data['author_email'] : null;
         $this->container['author_name'] = isset($data['author_name']) ? $data['author_name'] : null;
@@ -254,6 +259,27 @@ class ReviewComment implements ArrayAccess
             throw new \InvalidArgumentException("Invalid value for 'author_role', must be one of 'BUSINESS_OWNER', 'CONSUMER'");
         }
         $this->container['author_role'] = $author_role;
+
+        return $this;
+    }
+
+    /**
+     * Gets publisher_date
+     * @return string
+     */
+    public function getPublisherDate()
+    {
+        return $this->container['publisher_date'];
+    }
+
+    /**
+     * Sets publisher_date
+     * @param string $publisher_date The date of the comment as reported by the publisher.  If edits impact the comment date on the publisher, then this date may change.  This date always comes from the publisher and we respect whatever they have.
+     * @return $this
+     */
+    public function setPublisherDate($publisher_date)
+    {
+        $this->container['publisher_date'] = $publisher_date;
 
         return $this;
     }

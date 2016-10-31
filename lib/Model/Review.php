@@ -69,6 +69,8 @@ class Review implements ArrayAccess
         'rating' => 'double',
         'title' => 'string',
         'url' => 'string',
+        'publisher_date' => 'string',
+        'last_yext_update_date' => 'string',
         'comments' => '\Yext\Client\Model\ReviewComment[]',
         'content' => 'string',
         'author_name' => 'string',
@@ -91,6 +93,8 @@ class Review implements ArrayAccess
         'rating' => 'rating',
         'title' => 'title',
         'url' => 'url',
+        'publisher_date' => 'publisherDate',
+        'last_yext_update_date' => 'lastYextUpdateDate',
         'comments' => 'comments',
         'content' => 'content',
         'author_name' => 'authorName',
@@ -109,6 +113,8 @@ class Review implements ArrayAccess
         'rating' => 'setRating',
         'title' => 'setTitle',
         'url' => 'setUrl',
+        'publisher_date' => 'setPublisherDate',
+        'last_yext_update_date' => 'setLastYextUpdateDate',
         'comments' => 'setComments',
         'content' => 'setContent',
         'author_name' => 'setAuthorName',
@@ -127,6 +133,8 @@ class Review implements ArrayAccess
         'rating' => 'getRating',
         'title' => 'getTitle',
         'url' => 'getUrl',
+        'publisher_date' => 'getPublisherDate',
+        'last_yext_update_date' => 'getLastYextUpdateDate',
         'comments' => 'getComments',
         'content' => 'getContent',
         'author_name' => 'getAuthorName',
@@ -170,6 +178,8 @@ class Review implements ArrayAccess
         $this->container['rating'] = isset($data['rating']) ? $data['rating'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
+        $this->container['publisher_date'] = isset($data['publisher_date']) ? $data['publisher_date'] : null;
+        $this->container['last_yext_update_date'] = isset($data['last_yext_update_date']) ? $data['last_yext_update_date'] : null;
         $this->container['comments'] = isset($data['comments']) ? $data['comments'] : null;
         $this->container['content'] = isset($data['content']) ? $data['content'] : null;
         $this->container['author_name'] = isset($data['author_name']) ? $data['author_name'] : null;
@@ -261,6 +271,48 @@ class Review implements ArrayAccess
     public function setUrl($url)
     {
         $this->container['url'] = $url;
+
+        return $this;
+    }
+
+    /**
+     * Gets publisher_date
+     * @return string
+     */
+    public function getPublisherDate()
+    {
+        return $this->container['publisher_date'];
+    }
+
+    /**
+     * Sets publisher_date
+     * @param string $publisher_date The date of the review as reported by the publisher.  If edits impact the review date on the publisher, then this date may change.  This date always comes from the publisher and we respect whatever they have.
+     * @return $this
+     */
+    public function setPublisherDate($publisher_date)
+    {
+        $this->container['publisher_date'] = $publisher_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets last_yext_update_date
+     * @return string
+     */
+    public function getLastYextUpdateDate()
+    {
+        return $this->container['last_yext_update_date'];
+    }
+
+    /**
+     * Sets last_yext_update_date
+     * @param string $last_yext_update_date This is the date Yext last ingested an update for the review.  This is a date from Yext, and it always means the last time this review changed in Yext.
+     * @return $this
+     */
+    public function setLastYextUpdateDate($last_yext_update_date)
+    {
+        $this->container['last_yext_update_date'] = $last_yext_update_date;
 
         return $this;
     }

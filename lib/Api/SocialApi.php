@@ -113,7 +113,7 @@ class SocialApi
      * @param string $photo_url The URL of the photo included in the Comment, if any.  **Example** “https://…” (optional)
      * @param string $link_url The URL of the link included in the Comment, if any.  **Example** “https://…” (optional)
      * @throws \Yext\Client\ApiException on non-2xx response
-     * @return \Yext\Client\Model\InlineResponse2014
+     * @return \Yext\Client\Model\IdResponse
      */
     public function createComment($account_id, $post_id, $parent_id, $message = null, $photo_url = null, $link_url = null)
     {
@@ -133,7 +133,7 @@ class SocialApi
      * @param string $photo_url The URL of the photo included in the Comment, if any.  **Example** “https://…” (optional)
      * @param string $link_url The URL of the link included in the Comment, if any.  **Example** “https://…” (optional)
      * @throws \Yext\Client\ApiException on non-2xx response
-     * @return array of \Yext\Client\Model\InlineResponse2014, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Yext\Client\Model\IdResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function createCommentWithHttpInfo($account_id, $post_id, $parent_id, $message = null, $photo_url = null, $link_url = null)
     {
@@ -216,19 +216,19 @@ class SocialApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\InlineResponse2014',
+                '\Yext\Client\Model\IdResponse',
                 '/accounts/{accountId}/posts/{postId}/comments'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse2014', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\IdResponse', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 201:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse2014', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\IdResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponseDefault', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -249,7 +249,7 @@ class SocialApi
      * @param string $photo_url The URL of the photo included in the Post, if any.  **Example** \&quot;https://...\&quot; (optional)
      * @param string $link_url The URL of the link included in the Post, if any.  **Example** \&quot;https://...\&quot; (optional)
      * @throws \Yext\Client\ApiException on non-2xx response
-     * @return \Yext\Client\Model\InlineResponse2014
+     * @return \Yext\Client\Model\IdResponse
      */
     public function createPosts($account_id, $location_ids, $publisher_ids, $message, $photo_url = null, $link_url = null)
     {
@@ -269,7 +269,7 @@ class SocialApi
      * @param string $photo_url The URL of the photo included in the Post, if any.  **Example** \&quot;https://...\&quot; (optional)
      * @param string $link_url The URL of the link included in the Post, if any.  **Example** \&quot;https://...\&quot; (optional)
      * @throws \Yext\Client\ApiException on non-2xx response
-     * @return array of \Yext\Client\Model\InlineResponse2014, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Yext\Client\Model\IdResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function createPostsWithHttpInfo($account_id, $location_ids, $publisher_ids, $message, $photo_url = null, $link_url = null)
     {
@@ -358,19 +358,19 @@ class SocialApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\InlineResponse2014',
+                '\Yext\Client\Model\IdResponse',
                 '/accounts/{accountId}/posts'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse2014', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\IdResponse', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 201:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse2014', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\IdResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponseDefault', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -388,7 +388,7 @@ class SocialApi
      * @param string $post_id  (required)
      * @param string $comment_id  (required)
      * @throws \Yext\Client\ApiException on non-2xx response
-     * @return \Yext\Client\Model\InlineResponseDefault
+     * @return \Yext\Client\Model\ErrorResponse
      */
     public function deleteComment($account_id, $post_id, $comment_id)
     {
@@ -405,7 +405,7 @@ class SocialApi
      * @param string $post_id  (required)
      * @param string $comment_id  (required)
      * @throws \Yext\Client\ApiException on non-2xx response
-     * @return array of \Yext\Client\Model\InlineResponseDefault, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Yext\Client\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteCommentWithHttpInfo($account_id, $post_id, $comment_id)
     {
@@ -480,19 +480,19 @@ class SocialApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\InlineResponseDefault',
+                '\Yext\Client\Model\ErrorResponse',
                 '/accounts/{accountId}/posts/{postId}/comments/{commentId}'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponseDefault', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\ErrorResponse', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponseDefault', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponseDefault', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -509,7 +509,7 @@ class SocialApi
      * @param string $account_id  (required)
      * @param string $post_id  (required)
      * @throws \Yext\Client\ApiException on non-2xx response
-     * @return \Yext\Client\Model\InlineResponseDefault
+     * @return \Yext\Client\Model\ErrorResponse
      */
     public function deletePost($account_id, $post_id)
     {
@@ -525,7 +525,7 @@ class SocialApi
      * @param string $account_id  (required)
      * @param string $post_id  (required)
      * @throws \Yext\Client\ApiException on non-2xx response
-     * @return array of \Yext\Client\Model\InlineResponseDefault, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Yext\Client\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function deletePostWithHttpInfo($account_id, $post_id)
     {
@@ -588,19 +588,19 @@ class SocialApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\InlineResponseDefault',
+                '\Yext\Client\Model\ErrorResponse',
                 '/accounts/{accountId}/posts/{postId}'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponseDefault', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\ErrorResponse', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponseDefault', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponseDefault', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -620,7 +620,7 @@ class SocialApi
      * @param int $offset Number of results to skip. Used to page through results (optional, default to 0)
      * @param string $type Determines which type of Comments are returned (optional)
      * @throws \Yext\Client\ApiException on non-2xx response
-     * @return \Yext\Client\Model\InlineResponse20018
+     * @return \Yext\Client\Model\SocialCommentsResponse
      */
     public function getComments($account_id, $post_id, $limit = null, $offset = null, $type = null)
     {
@@ -639,7 +639,7 @@ class SocialApi
      * @param int $offset Number of results to skip. Used to page through results (optional, default to 0)
      * @param string $type Determines which type of Comments are returned (optional)
      * @throws \Yext\Client\ApiException on non-2xx response
-     * @return array of \Yext\Client\Model\InlineResponse20018, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Yext\Client\Model\SocialCommentsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCommentsWithHttpInfo($account_id, $post_id, $limit = null, $offset = null, $type = null)
     {
@@ -718,19 +718,19 @@ class SocialApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\InlineResponse20018',
+                '\Yext\Client\Model\SocialCommentsResponse',
                 '/accounts/{accountId}/posts/{postId}/comments'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse20018', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\SocialCommentsResponse', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse20018', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\SocialCommentsResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponseDefault', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -747,7 +747,7 @@ class SocialApi
      * @param string $account_id  (required)
      * @param string $linked_account_id  (required)
      * @throws \Yext\Client\ApiException on non-2xx response
-     * @return \Yext\Client\Model\InlineResponse2008
+     * @return \Yext\Client\Model\LinkedAccountResponse
      */
     public function getLinkedAccount($account_id, $linked_account_id)
     {
@@ -763,7 +763,7 @@ class SocialApi
      * @param string $account_id  (required)
      * @param string $linked_account_id  (required)
      * @throws \Yext\Client\ApiException on non-2xx response
-     * @return array of \Yext\Client\Model\InlineResponse2008, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Yext\Client\Model\LinkedAccountResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getLinkedAccountWithHttpInfo($account_id, $linked_account_id)
     {
@@ -826,19 +826,19 @@ class SocialApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\InlineResponse2008',
+                '\Yext\Client\Model\LinkedAccountResponse',
                 '/accounts/{accountId}/linkedaccounts/{linkedAccountId}'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse2008', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\LinkedAccountResponse', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse2008', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\LinkedAccountResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponseDefault', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -859,7 +859,7 @@ class SocialApi
      * @param string[] $publisher_ids Defaults to all publishers subscribed by account  **Example** FACEBOOK, FOURSQUARE (optional)
      * @param string $status Used to filter for Linked Accounts with a particular status. (optional, default to ALL)
      * @throws \Yext\Client\ApiException on non-2xx response
-     * @return \Yext\Client\Model\InlineResponse2007
+     * @return \Yext\Client\Model\LinkedAccountsResponse
      */
     public function getLinkedAccounts($account_id, $limit = null, $offset = null, $location_ids = null, $publisher_ids = null, $status = null)
     {
@@ -879,7 +879,7 @@ class SocialApi
      * @param string[] $publisher_ids Defaults to all publishers subscribed by account  **Example** FACEBOOK, FOURSQUARE (optional)
      * @param string $status Used to filter for Linked Accounts with a particular status. (optional, default to ALL)
      * @throws \Yext\Client\ApiException on non-2xx response
-     * @return array of \Yext\Client\Model\InlineResponse2007, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Yext\Client\Model\LinkedAccountsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getLinkedAccountsWithHttpInfo($account_id, $limit = null, $offset = null, $location_ids = null, $publisher_ids = null, $status = null)
     {
@@ -960,19 +960,19 @@ class SocialApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\InlineResponse2007',
+                '\Yext\Client\Model\LinkedAccountsResponse',
                 '/accounts/{accountId}/linkedaccounts'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse2007', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\LinkedAccountsResponse', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse2007', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\LinkedAccountsResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponseDefault', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -996,7 +996,7 @@ class SocialApi
      * @param string[] $publisher_ids Defaults to all publishers subscribed by account  **Example** FACEBOOK, FOURSQUARE (optional)
      * @param string[] $keywords When provided, only Posts that mention the given keywords will be returned. Posts will be returned if the original post or any comments contain this string.  **Example** [&#39;pizza&#39;] (optional)
      * @throws \Yext\Client\ApiException on non-2xx response
-     * @return \Yext\Client\Model\InlineResponse20017
+     * @return \Yext\Client\Model\SocialPostsResponse
      */
     public function getPosts($account_id, $limit = null, $offset = null, $location_ids = null, $folder_id = null, $countries = null, $location_labels = null, $publisher_ids = null, $keywords = null)
     {
@@ -1019,7 +1019,7 @@ class SocialApi
      * @param string[] $publisher_ids Defaults to all publishers subscribed by account  **Example** FACEBOOK, FOURSQUARE (optional)
      * @param string[] $keywords When provided, only Posts that mention the given keywords will be returned. Posts will be returned if the original post or any comments contain this string.  **Example** [&#39;pizza&#39;] (optional)
      * @throws \Yext\Client\ApiException on non-2xx response
-     * @return array of \Yext\Client\Model\InlineResponse20017, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Yext\Client\Model\SocialPostsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getPostsWithHttpInfo($account_id, $limit = null, $offset = null, $location_ids = null, $folder_id = null, $countries = null, $location_labels = null, $publisher_ids = null, $keywords = null)
     {
@@ -1121,19 +1121,19 @@ class SocialApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\InlineResponse20017',
+                '\Yext\Client\Model\SocialPostsResponse',
                 '/accounts/{accountId}/posts'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponse20017', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\SocialPostsResponse', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponse20017', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\SocialPostsResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponseDefault', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -1152,7 +1152,7 @@ class SocialApi
      * @param string $comment_id  (required)
      * @param \Yext\Client\Model\PostEntry $comment  (required)
      * @throws \Yext\Client\ApiException on non-2xx response
-     * @return \Yext\Client\Model\InlineResponseDefault
+     * @return \Yext\Client\Model\ErrorResponse
      */
     public function updateComment($account_id, $post_id, $comment_id, $comment)
     {
@@ -1170,7 +1170,7 @@ class SocialApi
      * @param string $comment_id  (required)
      * @param \Yext\Client\Model\PostEntry $comment  (required)
      * @throws \Yext\Client\ApiException on non-2xx response
-     * @return array of \Yext\Client\Model\InlineResponseDefault, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Yext\Client\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateCommentWithHttpInfo($account_id, $post_id, $comment_id, $comment)
     {
@@ -1254,19 +1254,19 @@ class SocialApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\InlineResponseDefault',
+                '\Yext\Client\Model\ErrorResponse',
                 '/accounts/{accountId}/posts/{postId}/comments/{commentId}'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponseDefault', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\ErrorResponse', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponseDefault', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponseDefault', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -1285,7 +1285,7 @@ class SocialApi
      * @param string[] $assign_location_ids Array of Location IDs to be assigned to this Linked Account.  Use this field to assign this Linked Account to Locations without affecting any other assigned Locations. (optional)
      * @param string[] $unassign_location_ids Array of Location IDs to be unassigned from this Linked Account.  Use this field to unassign this Linked Account from Locations without affecting any other assigned Locations. (optional)
      * @throws \Yext\Client\ApiException on non-2xx response
-     * @return \Yext\Client\Model\InlineResponseDefault
+     * @return \Yext\Client\Model\ErrorResponse
      */
     public function updateLinkedAccount($account_id, $linked_account_id, $assign_location_ids = null, $unassign_location_ids = null)
     {
@@ -1303,7 +1303,7 @@ class SocialApi
      * @param string[] $assign_location_ids Array of Location IDs to be assigned to this Linked Account.  Use this field to assign this Linked Account to Locations without affecting any other assigned Locations. (optional)
      * @param string[] $unassign_location_ids Array of Location IDs to be unassigned from this Linked Account.  Use this field to unassign this Linked Account from Locations without affecting any other assigned Locations. (optional)
      * @throws \Yext\Client\ApiException on non-2xx response
-     * @return array of \Yext\Client\Model\InlineResponseDefault, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Yext\Client\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateLinkedAccountWithHttpInfo($account_id, $linked_account_id, $assign_location_ids = null, $unassign_location_ids = null)
     {
@@ -1380,19 +1380,19 @@ class SocialApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\InlineResponseDefault',
+                '\Yext\Client\Model\ErrorResponse',
                 '/accounts/{accountId}/linkedaccounts/{linkedAccountId}'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\InlineResponseDefault', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\ErrorResponse', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponseDefault', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\InlineResponseDefault', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }

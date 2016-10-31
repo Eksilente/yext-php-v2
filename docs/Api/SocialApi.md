@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 
 # **createComment**
-> \Yext\Client\Model\InlineResponse2014 createComment($account_id, $post_id, $parent_id, $message, $photo_url, $link_url)
+> \Yext\Client\Model\IdResponse createComment($account_id, $post_id, $parent_id, $message, $photo_url, $link_url)
 
 Comments: create
 
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse2014**](../Model/InlineResponse2014.md)
+[**\Yext\Client\Model\IdResponse**](../Model/IdResponse.md)
 
 ### Authorization
 
@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createPosts**
-> \Yext\Client\Model\InlineResponse2014 createPosts($account_id, $location_ids, $publisher_ids, $message, $photo_url, $link_url)
+> \Yext\Client\Model\IdResponse createPosts($account_id, $location_ids, $publisher_ids, $message, $photo_url, $link_url)
 
 Posts: create
 
@@ -123,7 +123,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse2014**](../Model/InlineResponse2014.md)
+[**\Yext\Client\Model\IdResponse**](../Model/IdResponse.md)
 
 ### Authorization
 
@@ -137,7 +137,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteComment**
-> \Yext\Client\Model\InlineResponseDefault deleteComment($account_id, $post_id, $comment_id)
+> \Yext\Client\Model\ErrorResponse deleteComment($account_id, $post_id, $comment_id)
 
 Comments: delete
 
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponseDefault**](../Model/InlineResponseDefault.md)
+[**\Yext\Client\Model\ErrorResponse**](../Model/ErrorResponse.md)
 
 ### Authorization
 
@@ -191,7 +191,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deletePost**
-> \Yext\Client\Model\InlineResponseDefault deletePost($account_id, $post_id)
+> \Yext\Client\Model\ErrorResponse deletePost($account_id, $post_id)
 
 Posts: delete
 
@@ -229,7 +229,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponseDefault**](../Model/InlineResponseDefault.md)
+[**\Yext\Client\Model\ErrorResponse**](../Model/ErrorResponse.md)
 
 ### Authorization
 
@@ -243,7 +243,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getComments**
-> \Yext\Client\Model\InlineResponse20018 getComments($account_id, $post_id, $limit, $offset, $type)
+> \Yext\Client\Model\SocialCommentsResponse getComments($account_id, $post_id, $limit, $offset, $type)
 
 Comments: list
 
@@ -287,7 +287,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse20018**](../Model/InlineResponse20018.md)
+[**\Yext\Client\Model\SocialCommentsResponse**](../Model/SocialCommentsResponse.md)
 
 ### Authorization
 
@@ -301,7 +301,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getLinkedAccount**
-> \Yext\Client\Model\InlineResponse2008 getLinkedAccount($account_id, $linked_account_id)
+> \Yext\Client\Model\LinkedAccountResponse getLinkedAccount($account_id, $linked_account_id)
 
 Linked Accounts: get
 
@@ -339,7 +339,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse2008**](../Model/InlineResponse2008.md)
+[**\Yext\Client\Model\LinkedAccountResponse**](../Model/LinkedAccountResponse.md)
 
 ### Authorization
 
@@ -353,7 +353,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getLinkedAccounts**
-> \Yext\Client\Model\InlineResponse2007 getLinkedAccounts($account_id, $limit, $offset, $location_ids, $publisher_ids, $status)
+> \Yext\Client\Model\LinkedAccountsResponse getLinkedAccounts($account_id, $limit, $offset, $location_ids, $publisher_ids, $status)
 
 Linked Accounts: list
 
@@ -399,7 +399,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse2007**](../Model/InlineResponse2007.md)
+[**\Yext\Client\Model\LinkedAccountsResponse**](../Model/LinkedAccountsResponse.md)
 
 ### Authorization
 
@@ -413,7 +413,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPosts**
-> \Yext\Client\Model\InlineResponse20017 getPosts($account_id, $limit, $offset, $location_ids, $folder_id, $countries, $location_labels, $publisher_ids, $keywords)
+> \Yext\Client\Model\SocialPostsResponse getPosts($account_id, $limit, $offset, $location_ids, $folder_id, $countries, $location_labels, $publisher_ids, $keywords)
 
 Posts: List
 
@@ -465,7 +465,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse20017**](../Model/InlineResponse20017.md)
+[**\Yext\Client\Model\SocialPostsResponse**](../Model/SocialPostsResponse.md)
 
 ### Authorization
 
@@ -479,7 +479,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateComment**
-> \Yext\Client\Model\InlineResponseDefault updateComment($account_id, $post_id, $comment_id, $comment)
+> \Yext\Client\Model\ErrorResponse updateComment($account_id, $post_id, $comment_id, $comment)
 
 Comments: update
 
@@ -521,7 +521,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponseDefault**](../Model/InlineResponseDefault.md)
+[**\Yext\Client\Model\ErrorResponse**](../Model/ErrorResponse.md)
 
 ### Authorization
 
@@ -535,7 +535,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateLinkedAccount**
-> \Yext\Client\Model\InlineResponseDefault updateLinkedAccount($account_id, $linked_account_id, $assign_location_ids, $unassign_location_ids)
+> \Yext\Client\Model\ErrorResponse updateLinkedAccount($account_id, $linked_account_id, $assign_location_ids, $unassign_location_ids)
 
 Linked Accounts: update
 
@@ -577,7 +577,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponseDefault**](../Model/InlineResponseDefault.md)
+[**\Yext\Client\Model\ErrorResponse**](../Model/ErrorResponse.md)
 
 ### Authorization
 
