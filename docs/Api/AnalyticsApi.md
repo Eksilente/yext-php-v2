@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **activityLog**
-> \Yext\Client\Model\ActivitiesResponse activityLog($account_id, $body)
+> \Yext\Client\Model\InlineResponse200 activityLog($account_id, $body)
 
 Activity Log
 
@@ -49,7 +49,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\ActivitiesResponse**](../Model/ActivitiesResponse.md)
+[**\Yext\Client\Model\InlineResponse200**](../Model/InlineResponse200.md)
 
 ### Authorization
 
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createReports**
-> \Yext\Client\Model\CreateReportsResponse createReports($account_id, $async, $callback, $body)
+> \Yext\Client\Model\InlineResponse2002 createReports($account_id, $async, $callback, $body)
 
 Create Reports
 
@@ -105,7 +105,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\CreateReportsResponse**](../Model/CreateReportsResponse.md)
+[**\Yext\Client\Model\InlineResponse2002**](../Model/InlineResponse2002.md)
 
 ### Authorization
 
@@ -119,7 +119,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getMaxDates**
-> \Yext\Client\Model\MaximumDatesResponse getMaxDates($account_id)
+> \Yext\Client\Model\InlineResponse2001 getMaxDates($account_id)
 
 Max Dates
 
@@ -155,7 +155,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\MaximumDatesResponse**](../Model/MaximumDatesResponse.md)
+[**\Yext\Client\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
 
 ### Authorization
 
@@ -169,7 +169,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **reportStatus**
-> \Yext\Client\Model\ReportStatusResponse reportStatus($account_id, $report_id)
+> \Yext\Client\Model\InlineResponse2003 reportStatus($account_id, $report_id)
 
 Report Status
 
@@ -207,7 +207,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\ReportStatusResponse**](../Model/ReportStatusResponse.md)
+[**\Yext\Client\Model\InlineResponse2003**](../Model/InlineResponse2003.md)
 
 ### Authorization
 

@@ -4,7 +4,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **author_role** | **string** |  | [optional] 
-**publisher_date** | **int** | The timestamp of the comment as reported by the publisher.  If edits impact the comment timestamp on the publisher, then this timestamp may change.  This timestamp always comes from the publisher and we respect whatever they have. | [optional] 
 **visibility** | **string** |  | [optional] 
 **author_email** | **string** | The email address of the person who wrote the comment (if we have it). | [optional] 
 **author_name** | **string** | The name of the person who wrote the comment (if we have it). | [optional] 

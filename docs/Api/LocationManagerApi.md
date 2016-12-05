@@ -4,46 +4,46 @@ All URIs are relative to *https://api.yext.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createBio**](LocationManagerApi.md#createBio) | **POST** /accounts/{accountId}/bios | Bios: Create (December 2016)
-[**createEvent**](LocationManagerApi.md#createEvent) | **POST** /accounts/{accountId}/locations/events | Events: Create (December 2016)
+[**createBio**](LocationManagerApi.md#createBio) | **POST** /accounts/{accountId}/bios | Bios: Create
+[**createEvent**](LocationManagerApi.md#createEvent) | **POST** /accounts/{accountId}/locations/events | Events: Create
 [**createLocation**](LocationManagerApi.md#createLocation) | **POST** /accounts/{accountId}/locations | Locations: Create
-[**createMenu**](LocationManagerApi.md#createMenu) | **POST** /accounts/{accountId}/menus | Menus: Create (December 2016)
-[**createProduct**](LocationManagerApi.md#createProduct) | **POST** /accounts/{accountId}/products | Products: Create (December 2016)
-[**deleteBioList**](LocationManagerApi.md#deleteBioList) | **DELETE** /accounts/{accountId}/bios/{listId} | Bios: Delete (December 2016)
-[**deleteEventList**](LocationManagerApi.md#deleteEventList) | **DELETE** /accounts/{accountId}/locations/events/{listId} | Events: Delete (December 2016)
-[**deleteLanguageProfile**](LocationManagerApi.md#deleteLanguageProfile) | **DELETE** /accounts/{accountId}/locations/{locationId}/profiles/{language_code} | Language Profiles: Delete (December 2016)
-[**deleteMenuList**](LocationManagerApi.md#deleteMenuList) | **DELETE** /accounts/{accountId}/menus/{listId} | Menus: Delete (December 2016)
-[**deleteProductList**](LocationManagerApi.md#deleteProductList) | **DELETE** /accounts/{accountId}/locations/products/{listId} | Products: Delete (December 2016)
-[**getBio**](LocationManagerApi.md#getBio) | **GET** /accounts/{accountId}/bios/{listId} | Bios: Get (December 2016)
-[**getBios**](LocationManagerApi.md#getBios) | **GET** /accounts/{accountId}/bios | Bios: List (December 2016)
+[**createMenu**](LocationManagerApi.md#createMenu) | **POST** /accounts/{accountId}/menus | Menus: Create
+[**createProduct**](LocationManagerApi.md#createProduct) | **POST** /accounts/{accountId}/products | Products: Create
+[**deleteBioList**](LocationManagerApi.md#deleteBioList) | **DELETE** /accounts/{accountId}/bios/{listId} | Bios: Delete
+[**deleteEventList**](LocationManagerApi.md#deleteEventList) | **DELETE** /accounts/{accountId}/locations/events/{listId} | Events: Delete
+[**deleteLanguageProfile**](LocationManagerApi.md#deleteLanguageProfile) | **DELETE** /accounts/{accountId}/locations/{locationId}/profiles/{language_code} | Language Profiles: Delete
+[**deleteMenuList**](LocationManagerApi.md#deleteMenuList) | **DELETE** /accounts/{accountId}/menus/{listId} | Menus: Delete
+[**deleteProductList**](LocationManagerApi.md#deleteProductList) | **DELETE** /accounts/{accountId}/locations/products/{listId} | Products: Delete
+[**getBio**](LocationManagerApi.md#getBio) | **GET** /accounts/{accountId}/bios/{listId} | Bios: Get
+[**getBios**](LocationManagerApi.md#getBios) | **GET** /accounts/{accountId}/bios | Bios: List
 [**getBusinessCategories**](LocationManagerApi.md#getBusinessCategories) | **GET** /categories | Categories: List
 [**getCustomFields**](LocationManagerApi.md#getCustomFields) | **GET** /accounts/{accountId}/customfields | Custom Fields: List
-[**getEvent**](LocationManagerApi.md#getEvent) | **GET** /accounts/{accountId}/locations/events/{listId} | Events: Get (December 2016)
-[**getEvents**](LocationManagerApi.md#getEvents) | **GET** /accounts/{accountId}/locations/events | Events: List (December 2016)
+[**getEvent**](LocationManagerApi.md#getEvent) | **GET** /accounts/{accountId}/locations/events/{listId} | Events: Get
+[**getEvents**](LocationManagerApi.md#getEvents) | **GET** /accounts/{accountId}/locations/events | Events: List
 [**getGoogleKeywords**](LocationManagerApi.md#getGoogleKeywords) | **GET** /googlefields | Google Fields: List
-[**getLanguageProfile**](LocationManagerApi.md#getLanguageProfile) | **GET** /accounts/{accountId}/locations/{locationId}/profiles/{language_code} | Language Profiles: Get (December 2016)
-[**getLanguageProfiles**](LocationManagerApi.md#getLanguageProfiles) | **GET** /accounts/{accountId}/locations/{locationId}/profiles | Language Profiles: List (December 2016)
+[**getLanguageProfile**](LocationManagerApi.md#getLanguageProfile) | **GET** /accounts/{accountId}/locations/{locationId}/profiles/{language_code} | Language Profiles: Get
+[**getLanguageProfiles**](LocationManagerApi.md#getLanguageProfiles) | **GET** /accounts/{accountId}/locations/{locationId}/profiles | Language Profiles: List
 [**getLocation**](LocationManagerApi.md#getLocation) | **GET** /accounts/{accountId}/locations/{locationId} | Locations: Get
 [**getLocationFolders**](LocationManagerApi.md#getLocationFolders) | **GET** /accounts/{accountId}/folders | Folders: List
 [**getLocations**](LocationManagerApi.md#getLocations) | **GET** /accounts/{accountId}/locations | Locations: List
-[**getMenu**](LocationManagerApi.md#getMenu) | **GET** /accounts/{accountId}/menus/{listId} | Menus: Get (December 2016)
-[**getMenus**](LocationManagerApi.md#getMenus) | **GET** /accounts/{accountId}/menus | Menus: List (December 2016)
-[**getProduct**](LocationManagerApi.md#getProduct) | **GET** /accounts/{accountId}/locations/products/{listId} | Products: Get (December 2016)
-[**getProducts**](LocationManagerApi.md#getProducts) | **GET** /accounts/{accountId}/products | Products: List (December 2016)
-[**updateBio**](LocationManagerApi.md#updateBio) | **PUT** /accounts/{accountId}/bios/{listId} | Bios: Update (December 2016)
-[**updateEvent**](LocationManagerApi.md#updateEvent) | **PUT** /accounts/{accountId}/locations/events/{listId} | Events: Update (December 2016)
+[**getMenu**](LocationManagerApi.md#getMenu) | **GET** /accounts/{accountId}/menus/{listId} | Menus: Get
+[**getMenus**](LocationManagerApi.md#getMenus) | **GET** /accounts/{accountId}/menus | Menus: List
+[**getProduct**](LocationManagerApi.md#getProduct) | **GET** /accounts/{accountId}/locations/products/{listId} | Products: Get
+[**getProducts**](LocationManagerApi.md#getProducts) | **GET** /accounts/{accountId}/products | Products: List
+[**updateBio**](LocationManagerApi.md#updateBio) | **PUT** /accounts/{accountId}/bios/{listId} | Bios: Update
+[**updateEvent**](LocationManagerApi.md#updateEvent) | **PUT** /accounts/{accountId}/locations/events/{listId} | Events: Update
 [**updateLocation**](LocationManagerApi.md#updateLocation) | **PUT** /accounts/{accountId}/locations/{locationId} | Locations: Update
-[**updateMenu**](LocationManagerApi.md#updateMenu) | **PUT** /accounts/{accountId}/menus/{listId} | Menus: Update (December 2016)
-[**updateProduct**](LocationManagerApi.md#updateProduct) | **PUT** /accounts/{accountId}/locations/products/{listId} | Products: Update (December 2016)
-[**upsertLanguageProfile**](LocationManagerApi.md#upsertLanguageProfile) | **PUT** /accounts/{accountId}/locations/{locationId}/profiles/{language_code} | Language Profiles: Upsert (December 2016)
+[**updateMenu**](LocationManagerApi.md#updateMenu) | **PUT** /accounts/{accountId}/menus/{listId} | Menus: Update
+[**updateProduct**](LocationManagerApi.md#updateProduct) | **PUT** /accounts/{accountId}/locations/products/{listId} | Products: Update
+[**upsertLanguageProfile**](LocationManagerApi.md#upsertLanguageProfile) | **PUT** /accounts/{accountId}/locations/{locationId}/profiles/{language_code} | Language Profiles: Upsert
 
 
 # **createBio**
-> \Yext\Client\Model\IdResponse createBio($account_id, $v, $body)
+> \Yext\Client\Model\InlineResponse201 createBio($account_id, $v, $body)
 
-Bios: Create (December 2016)
+Bios: Create
 
-Create new Bio List.
+Create new Bio ECL
 
 ### Example
 ```php
@@ -57,7 +57,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 
 $api_instance = new Yext\Client\Api\LocationManagerApi();
 $account_id = "account_id_example"; // string | 
-$v = "20161012"; // string | A date in `YYYYMMDD` format.
+$v = "20161012"; // string | A date in `YYYYMMDD` format
 $body = new \Yext\Client\Model\Bio(); // \Yext\Client\Model\Bio | 
 
 try {
@@ -74,12 +74,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format. | [default to 20161012]
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
  **body** | [**\Yext\Client\Model\Bio**](../Model/\Yext\Client\Model\Bio.md)|  |
 
 ### Return type
 
-[**\Yext\Client\Model\IdResponse**](../Model/IdResponse.md)
+[**\Yext\Client\Model\InlineResponse201**](../Model/InlineResponse201.md)
 
 ### Authorization
 
@@ -93,11 +93,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createEvent**
-> \Yext\Client\Model\IdResponse createEvent($account_id, $v, $body)
+> \Yext\Client\Model\InlineResponse2012 createEvent($account_id, $v, $body)
 
-Events: Create (December 2016)
+Events: Create
 
-Create a new Event List.
+Create a new Events ECL
 
 ### Example
 ```php
@@ -111,7 +111,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 
 $api_instance = new Yext\Client\Api\LocationManagerApi();
 $account_id = "account_id_example"; // string | 
-$v = "20161012"; // string | A date in `YYYYMMDD` format.
+$v = "20161012"; // string | A date in `YYYYMMDD` format
 $body = new \Yext\Client\Model\Event(); // \Yext\Client\Model\Event | 
 
 try {
@@ -128,12 +128,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format. | [default to 20161012]
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
  **body** | [**\Yext\Client\Model\Event**](../Model/\Yext\Client\Model\Event.md)|  |
 
 ### Return type
 
-[**\Yext\Client\Model\IdResponse**](../Model/IdResponse.md)
+[**\Yext\Client\Model\InlineResponse2012**](../Model/InlineResponse2012.md)
 
 ### Authorization
 
@@ -147,11 +147,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createLocation**
-> \Yext\Client\Model\IdResponse createLocation($account_id, $v, $location_request)
+> \Yext\Client\Model\InlineResponse2011 createLocation($account_id, $v, $location_request)
 
 Locations: Create
 
-Create a new Location.
+Create a new Location
 
 ### Example
 ```php
@@ -165,7 +165,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 
 $api_instance = new Yext\Client\Api\LocationManagerApi();
 $account_id = "account_id_example"; // string | 
-$v = "20161012"; // string | A date in `YYYYMMDD` format.
+$v = "20161012"; // string | A date in `YYYYMMDD` format
 $location_request = new \Yext\Client\Model\Location(); // \Yext\Client\Model\Location | 
 
 try {
@@ -182,12 +182,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format. | [default to 20161012]
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
  **location_request** | [**\Yext\Client\Model\Location**](../Model/\Yext\Client\Model\Location.md)|  |
 
 ### Return type
 
-[**\Yext\Client\Model\IdResponse**](../Model/IdResponse.md)
+[**\Yext\Client\Model\InlineResponse2011**](../Model/InlineResponse2011.md)
 
 ### Authorization
 
@@ -201,9 +201,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createMenu**
-> \Yext\Client\Model\IdResponse createMenu($account_id, $v, $body)
+> \Yext\Client\Model\InlineResponse2013 createMenu($account_id, $v, $body)
 
-Menus: Create (December 2016)
+Menus: Create
 
 ### Example
 ```php
@@ -217,7 +217,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 
 $api_instance = new Yext\Client\Api\LocationManagerApi();
 $account_id = "account_id_example"; // string | 
-$v = "20161012"; // string | A date in `YYYYMMDD` format.
+$v = "20161012"; // string | A date in `YYYYMMDD` format
 $body = new \Yext\Client\Model\Menu(); // \Yext\Client\Model\Menu | 
 
 try {
@@ -234,12 +234,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format. | [default to 20161012]
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
  **body** | [**\Yext\Client\Model\Menu**](../Model/\Yext\Client\Model\Menu.md)|  |
 
 ### Return type
 
-[**\Yext\Client\Model\IdResponse**](../Model/IdResponse.md)
+[**\Yext\Client\Model\InlineResponse2013**](../Model/InlineResponse2013.md)
 
 ### Authorization
 
@@ -253,11 +253,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createProduct**
-> \Yext\Client\Model\IdResponse createProduct($account_id, $v, $body)
+> \Yext\Client\Model\InlineResponse20011 createProduct($account_id, $v, $body)
 
-Products: Create (December 2016)
+Products: Create
 
-Create a new Product List.
+Create a new Product ECL
 
 ### Example
 ```php
@@ -271,7 +271,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 
 $api_instance = new Yext\Client\Api\LocationManagerApi();
 $account_id = "account_id_example"; // string | 
-$v = "20161012"; // string | A date in `YYYYMMDD` format.
+$v = "20161012"; // string | A date in `YYYYMMDD` format
 $body = new \Yext\Client\Model\Product(); // \Yext\Client\Model\Product | 
 
 try {
@@ -288,12 +288,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format. | [default to 20161012]
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
  **body** | [**\Yext\Client\Model\Product**](../Model/\Yext\Client\Model\Product.md)|  |
 
 ### Return type
 
-[**\Yext\Client\Model\IdResponse**](../Model/IdResponse.md)
+[**\Yext\Client\Model\InlineResponse20011**](../Model/InlineResponse20011.md)
 
 ### Authorization
 
@@ -307,11 +307,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteBioList**
-> \Yext\Client\Model\ErrorResponse deleteBioList($account_id, $list_id, $v)
+> \Yext\Client\Model\InlineResponseDefault deleteBioList($account_id, $list_id, $v)
 
-Bios: Delete (December 2016)
+Bios: Delete
 
-Delete an existing Bios List.
+Delete an existing Bios ECL
 
 ### Example
 ```php
@@ -325,8 +325,8 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 
 $api_instance = new Yext\Client\Api\LocationManagerApi();
 $account_id = "account_id_example"; // string | 
-$list_id = "list_id_example"; // string | ID of this List.
-$v = "20161012"; // string | A date in `YYYYMMDD` format.
+$list_id = "list_id_example"; // string | ID of this List
+$v = "20161012"; // string | A date in `YYYYMMDD` format
 
 try {
     $result = $api_instance->deleteBioList($account_id, $list_id, $v);
@@ -342,12 +342,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
- **list_id** | **string**| ID of this List. |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format. | [default to 20161012]
+ **list_id** | **string**| ID of this List |
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
 
 ### Return type
 
-[**\Yext\Client\Model\ErrorResponse**](../Model/ErrorResponse.md)
+[**\Yext\Client\Model\InlineResponseDefault**](../Model/InlineResponseDefault.md)
 
 ### Authorization
 
@@ -361,11 +361,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteEventList**
-> \Yext\Client\Model\ErrorResponse deleteEventList($account_id, $list_id, $v)
+> \Yext\Client\Model\InlineResponseDefault deleteEventList($account_id, $list_id, $v)
 
-Events: Delete (December 2016)
+Events: Delete
 
-Delete an existing Event List.
+Delete an existing Events ECL
 
 ### Example
 ```php
@@ -379,8 +379,8 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 
 $api_instance = new Yext\Client\Api\LocationManagerApi();
 $account_id = "account_id_example"; // string | 
-$list_id = "list_id_example"; // string | ID of this List.
-$v = "20161012"; // string | A date in `YYYYMMDD` format.
+$list_id = "list_id_example"; // string | ID of this List
+$v = "20161012"; // string | A date in `YYYYMMDD` format
 
 try {
     $result = $api_instance->deleteEventList($account_id, $list_id, $v);
@@ -396,12 +396,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
- **list_id** | **string**| ID of this List. |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format. | [default to 20161012]
+ **list_id** | **string**| ID of this List |
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
 
 ### Return type
 
-[**\Yext\Client\Model\ErrorResponse**](../Model/ErrorResponse.md)
+[**\Yext\Client\Model\InlineResponseDefault**](../Model/InlineResponseDefault.md)
 
 ### Authorization
 
@@ -415,11 +415,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteLanguageProfile**
-> \Yext\Client\Model\ErrorResponse deleteLanguageProfile($account_id, $location_id, $language_code, $v)
+> \Yext\Client\Model\InlineResponseDefault deleteLanguageProfile($account_id, $location_id, $language_code, $v)
 
-Language Profiles: Delete (December 2016)
+Language Profiles: Delete
 
-Remove a Language Profile from a location.
+Remove a Language Profile from a location
 
 ### Example
 ```php
@@ -434,8 +434,8 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 $api_instance = new Yext\Client\Api\LocationManagerApi();
 $account_id = "account_id_example"; // string | 
 $location_id = "location_id_example"; // string | 
-$language_code = "language_code_example"; // string | Locale code.
-$v = "20161012"; // string | A date in `YYYYMMDD` format.
+$language_code = "language_code_example"; // string | Locale code
+$v = "20161012"; // string | A date in `YYYYMMDD` format
 
 try {
     $result = $api_instance->deleteLanguageProfile($account_id, $location_id, $language_code, $v);
@@ -452,12 +452,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
  **location_id** | **string**|  |
- **language_code** | **string**| Locale code. |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format. | [default to 20161012]
+ **language_code** | **string**| Locale code |
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
 
 ### Return type
 
-[**\Yext\Client\Model\ErrorResponse**](../Model/ErrorResponse.md)
+[**\Yext\Client\Model\InlineResponseDefault**](../Model/InlineResponseDefault.md)
 
 ### Authorization
 
@@ -471,11 +471,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteMenuList**
-> \Yext\Client\Model\ErrorResponse deleteMenuList($account_id, $list_id, $v)
+> \Yext\Client\Model\InlineResponseDefault deleteMenuList($account_id, $list_id, $v)
 
-Menus: Delete (December 2016)
+Menus: Delete
 
-Delete an existing Menu.
+Delete an existing Menu
 
 ### Example
 ```php
@@ -489,8 +489,8 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 
 $api_instance = new Yext\Client\Api\LocationManagerApi();
 $account_id = "account_id_example"; // string | 
-$list_id = "list_id_example"; // string | ID of this List.
-$v = "20161012"; // string | A date in `YYYYMMDD` format.
+$list_id = "list_id_example"; // string | ID of this List
+$v = "20161012"; // string | A date in `YYYYMMDD` format
 
 try {
     $result = $api_instance->deleteMenuList($account_id, $list_id, $v);
@@ -506,12 +506,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
- **list_id** | **string**| ID of this List. |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format. | [default to 20161012]
+ **list_id** | **string**| ID of this List |
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
 
 ### Return type
 
-[**\Yext\Client\Model\ErrorResponse**](../Model/ErrorResponse.md)
+[**\Yext\Client\Model\InlineResponseDefault**](../Model/InlineResponseDefault.md)
 
 ### Authorization
 
@@ -525,11 +525,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteProductList**
-> \Yext\Client\Model\ErrorResponse deleteProductList($account_id, $list_id, $v)
+> \Yext\Client\Model\InlineResponseDefault deleteProductList($account_id, $list_id, $v)
 
-Products: Delete (December 2016)
+Products: Delete
 
-Delete an existing Products List.
+Delete an existing Products ECL
 
 ### Example
 ```php
@@ -543,8 +543,8 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 
 $api_instance = new Yext\Client\Api\LocationManagerApi();
 $account_id = "account_id_example"; // string | 
-$list_id = "list_id_example"; // string | ID of this List.
-$v = "20161012"; // string | A date in `YYYYMMDD` format.
+$list_id = "list_id_example"; // string | ID of this List
+$v = "20161012"; // string | A date in `YYYYMMDD` format
 
 try {
     $result = $api_instance->deleteProductList($account_id, $list_id, $v);
@@ -560,12 +560,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
- **list_id** | **string**| ID of this List. |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format. | [default to 20161012]
+ **list_id** | **string**| ID of this List |
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
 
 ### Return type
 
-[**\Yext\Client\Model\ErrorResponse**](../Model/ErrorResponse.md)
+[**\Yext\Client\Model\InlineResponseDefault**](../Model/InlineResponseDefault.md)
 
 ### Authorization
 
@@ -579,11 +579,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getBio**
-> \Yext\Client\Model\BioListResponse getBio($account_id, $list_id, $v)
+> \Yext\Client\Model\InlineResponse201 getBio($account_id, $list_id, $v)
 
-Bios: Get (December 2016)
+Bios: Get
 
-Retrieve a specific Bios List.
+Retrieve a specific Bios ECL
 
 ### Example
 ```php
@@ -597,8 +597,8 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 
 $api_instance = new Yext\Client\Api\LocationManagerApi();
 $account_id = "account_id_example"; // string | 
-$list_id = "list_id_example"; // string | ID of this List.
-$v = "20161012"; // string | A date in `YYYYMMDD` format.
+$list_id = "list_id_example"; // string | ID of this List
+$v = "20161012"; // string | A date in `YYYYMMDD` format
 
 try {
     $result = $api_instance->getBio($account_id, $list_id, $v);
@@ -614,12 +614,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
- **list_id** | **string**| ID of this List. |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format. | [default to 20161012]
+ **list_id** | **string**| ID of this List |
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
 
 ### Return type
 
-[**\Yext\Client\Model\BioListResponse**](../Model/BioListResponse.md)
+[**\Yext\Client\Model\InlineResponse201**](../Model/InlineResponse201.md)
 
 ### Authorization
 
@@ -633,11 +633,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getBios**
-> \Yext\Client\Model\BioListsResponse getBios($account_id, $v, $limit, $offset)
+> \Yext\Client\Model\InlineResponse2004 getBios($account_id, $v, $limit, $offset)
 
-Bios: List (December 2016)
+Bios: List
 
-Retrieve all Bio Lists for an account.
+Retrieve all Bio ECls for an account
 
 ### Example
 ```php
@@ -651,9 +651,9 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 
 $api_instance = new Yext\Client\Api\LocationManagerApi();
 $account_id = "account_id_example"; // string | 
-$v = "20161012"; // string | A date in `YYYYMMDD` format.
-$limit = 10; // int | Number of results to return.
-$offset = 0; // int | Number of results to skip. Used to page through results.
+$v = "20161012"; // string | A date in `YYYYMMDD` format
+$limit = 10; // int | Number of results to return
+$offset = 0; // int | Number of results to skip. Used to page through results
 
 try {
     $result = $api_instance->getBios($account_id, $v, $limit, $offset);
@@ -669,13 +669,13 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format. | [default to 20161012]
- **limit** | **int**| Number of results to return. | [optional] [default to 10]
- **offset** | **int**| Number of results to skip. Used to page through results. | [optional] [default to 0]
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
+ **limit** | **int**| Number of results to return | [optional] [default to 10]
+ **offset** | **int**| Number of results to skip. Used to page through results | [optional] [default to 0]
 
 ### Return type
 
-[**\Yext\Client\Model\BioListsResponse**](../Model/BioListsResponse.md)
+[**\Yext\Client\Model\InlineResponse2004**](../Model/InlineResponse2004.md)
 
 ### Authorization
 
@@ -689,7 +689,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getBusinessCategories**
-> \Yext\Client\Model\BusinessCategoriesResponse getBusinessCategories($v, $language, $country)
+> \Yext\Client\Model\InlineResponse20030 getBusinessCategories($v, $language, $country)
 
 Categories: List
 
@@ -706,7 +706,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 // Yext\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_key', 'Bearer');
 
 $api_instance = new Yext\Client\Api\LocationManagerApi();
-$v = "20161012"; // string | A date in `YYYYMMDD` format.
+$v = "20161012"; // string | A date in `YYYYMMDD` format
 $language = "en"; // string | Only categories that apply to this language will be returned.  **Example:** en
 $country = "US"; // string | Only categories that apply in this country will be returned.  **Example:** US
 
@@ -723,13 +723,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format. | [default to 20161012]
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
  **language** | **string**| Only categories that apply to this language will be returned.  **Example:** en | [optional] [default to en]
  **country** | **string**| Only categories that apply in this country will be returned.  **Example:** US | [optional] [default to US]
 
 ### Return type
 
-[**\Yext\Client\Model\BusinessCategoriesResponse**](../Model/BusinessCategoriesResponse.md)
+[**\Yext\Client\Model\InlineResponse20030**](../Model/InlineResponse20030.md)
 
 ### Authorization
 
@@ -743,7 +743,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getCustomFields**
-> \Yext\Client\Model\CustomFieldsResponse getCustomFields($v, $account_id, $offset, $limit)
+> \Yext\Client\Model\InlineResponse2005 getCustomFields($v, $account_id, $offset, $limit)
 
 Custom Fields: List
 
@@ -760,10 +760,10 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 // Yext\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_key', 'Bearer');
 
 $api_instance = new Yext\Client\Api\LocationManagerApi();
-$v = "20161012"; // string | A date in `YYYYMMDD` format.
+$v = "20161012"; // string | A date in `YYYYMMDD` format
 $account_id = "account_id_example"; // string | 
-$offset = 0; // int | Number of results to skip. Used to page through results.
-$limit = 100; // int | Number of results to return.
+$offset = 0; // int | Number of results to skip. Used to page through results
+$limit = 100; // int | Number of results to return
 
 try {
     $result = $api_instance->getCustomFields($v, $account_id, $offset, $limit);
@@ -778,14 +778,14 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format. | [default to 20161012]
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
  **account_id** | **string**|  |
- **offset** | **int**| Number of results to skip. Used to page through results. | [optional] [default to 0]
- **limit** | **int**| Number of results to return. | [optional] [default to 100]
+ **offset** | **int**| Number of results to skip. Used to page through results | [optional] [default to 0]
+ **limit** | **int**| Number of results to return | [optional] [default to 100]
 
 ### Return type
 
-[**\Yext\Client\Model\CustomFieldsResponse**](../Model/CustomFieldsResponse.md)
+[**\Yext\Client\Model\InlineResponse2005**](../Model/InlineResponse2005.md)
 
 ### Authorization
 
@@ -799,11 +799,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getEvent**
-> \Yext\Client\Model\EventListResponse getEvent($account_id, $list_id, $v)
+> \Yext\Client\Model\InlineResponse2012 getEvent($account_id, $list_id, $v)
 
-Events: Get (December 2016)
+Events: Get
 
-Retrieve a specific Event List.
+Retrieve a specific Events ECL
 
 ### Example
 ```php
@@ -817,8 +817,8 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 
 $api_instance = new Yext\Client\Api\LocationManagerApi();
 $account_id = "account_id_example"; // string | 
-$list_id = "list_id_example"; // string | ID of this List.
-$v = "20161012"; // string | A date in `YYYYMMDD` format.
+$list_id = "list_id_example"; // string | ID of this List
+$v = "20161012"; // string | A date in `YYYYMMDD` format
 
 try {
     $result = $api_instance->getEvent($account_id, $list_id, $v);
@@ -834,12 +834,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
- **list_id** | **string**| ID of this List. |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format. | [default to 20161012]
+ **list_id** | **string**| ID of this List |
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
 
 ### Return type
 
-[**\Yext\Client\Model\EventListResponse**](../Model/EventListResponse.md)
+[**\Yext\Client\Model\InlineResponse2012**](../Model/InlineResponse2012.md)
 
 ### Authorization
 
@@ -853,11 +853,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getEvents**
-> \Yext\Client\Model\EventListsResponse getEvents($account_id, $v, $limit, $offset)
+> \Yext\Client\Model\InlineResponse20010 getEvents($account_id, $v, $limit, $offset)
 
-Events: List (December 2016)
+Events: List
 
-Retrieve all Event Lists for an account.
+Retrieve all Events content lists for an account
 
 ### Example
 ```php
@@ -871,9 +871,9 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 
 $api_instance = new Yext\Client\Api\LocationManagerApi();
 $account_id = "account_id_example"; // string | 
-$v = "20161012"; // string | A date in `YYYYMMDD` format.
-$limit = 10; // int | Number of results to return.
-$offset = 0; // int | Number of results to skip. Used to page through results.
+$v = "20161012"; // string | A date in `YYYYMMDD` format
+$limit = 10; // int | Number of results to return
+$offset = 0; // int | Number of results to skip. Used to page through results
 
 try {
     $result = $api_instance->getEvents($account_id, $v, $limit, $offset);
@@ -889,13 +889,13 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format. | [default to 20161012]
- **limit** | **int**| Number of results to return. | [optional] [default to 10]
- **offset** | **int**| Number of results to skip. Used to page through results. | [optional] [default to 0]
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
+ **limit** | **int**| Number of results to return | [optional] [default to 10]
+ **offset** | **int**| Number of results to skip. Used to page through results | [optional] [default to 0]
 
 ### Return type
 
-[**\Yext\Client\Model\EventListsResponse**](../Model/EventListsResponse.md)
+[**\Yext\Client\Model\InlineResponse20010**](../Model/InlineResponse20010.md)
 
 ### Authorization
 
@@ -909,7 +909,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getGoogleKeywords**
-> \Yext\Client\Model\GoogleFieldsResponse getGoogleKeywords($v)
+> \Yext\Client\Model\InlineResponse20031 getGoogleKeywords($v)
 
 Google Fields: List
 
@@ -926,7 +926,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 // Yext\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_key', 'Bearer');
 
 $api_instance = new Yext\Client\Api\LocationManagerApi();
-$v = "20161012"; // string | A date in `YYYYMMDD` format.
+$v = "20161012"; // string | A date in `YYYYMMDD` format
 
 try {
     $result = $api_instance->getGoogleKeywords($v);
@@ -941,11 +941,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format. | [default to 20161012]
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
 
 ### Return type
 
-[**\Yext\Client\Model\GoogleFieldsResponse**](../Model/GoogleFieldsResponse.md)
+[**\Yext\Client\Model\InlineResponse20031**](../Model/InlineResponse20031.md)
 
 ### Authorization
 
@@ -959,11 +959,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getLanguageProfile**
-> \Yext\Client\Model\LocationResponse getLanguageProfile($account_id, $location_id, $language_code, $v)
+> \Yext\Client\Model\InlineResponse20012 getLanguageProfile($account_id, $location_id, $language_code, $v)
 
-Language Profiles: Get (December 2016)
+Language Profiles: Get
 
-Gets the the requested Language Profile for a given Location.
+Gets the the requested Language Profile for a given Location
 
 ### Example
 ```php
@@ -978,8 +978,8 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 $api_instance = new Yext\Client\Api\LocationManagerApi();
 $account_id = "account_id_example"; // string | 
 $location_id = "location_id_example"; // string | 
-$language_code = "language_code_example"; // string | Locale code.
-$v = "20161012"; // string | A date in `YYYYMMDD` format.
+$language_code = "language_code_example"; // string | Locale code
+$v = "20161012"; // string | A date in `YYYYMMDD` format
 
 try {
     $result = $api_instance->getLanguageProfile($account_id, $location_id, $language_code, $v);
@@ -996,12 +996,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
  **location_id** | **string**|  |
- **language_code** | **string**| Locale code. |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format. | [default to 20161012]
+ **language_code** | **string**| Locale code |
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
 
 ### Return type
 
-[**\Yext\Client\Model\LocationResponse**](../Model/LocationResponse.md)
+[**\Yext\Client\Model\InlineResponse20012**](../Model/InlineResponse20012.md)
 
 ### Authorization
 
@@ -1015,9 +1015,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getLanguageProfiles**
-> \Yext\Client\Model\LanguageProfilesResponse getLanguageProfiles($account_id, $location_id, $v)
+> \Yext\Client\Model\InlineResponse20013 getLanguageProfiles($account_id, $location_id, $v)
 
-Language Profiles: List (December 2016)
+Language Profiles: List
 
 Get Language Profiles for a Location.
 
@@ -1034,7 +1034,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 $api_instance = new Yext\Client\Api\LocationManagerApi();
 $account_id = "account_id_example"; // string | 
 $location_id = "location_id_example"; // string | 
-$v = "20161012"; // string | A date in `YYYYMMDD` format.
+$v = "20161012"; // string | A date in `YYYYMMDD` format
 
 try {
     $result = $api_instance->getLanguageProfiles($account_id, $location_id, $v);
@@ -1051,11 +1051,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
  **location_id** | **string**|  |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format. | [default to 20161012]
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
 
 ### Return type
 
-[**\Yext\Client\Model\LanguageProfilesResponse**](../Model/LanguageProfilesResponse.md)
+[**\Yext\Client\Model\InlineResponse20013**](../Model/InlineResponse20013.md)
 
 ### Authorization
 
@@ -1069,7 +1069,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getLocation**
-> \Yext\Client\Model\LocationResponse getLocation($account_id, $location_id, $v)
+> \Yext\Client\Model\InlineResponse20012 getLocation($account_id, $location_id, $v)
 
 Locations: Get
 
@@ -1088,7 +1088,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 $api_instance = new Yext\Client\Api\LocationManagerApi();
 $account_id = "account_id_example"; // string | 
 $location_id = "location_id_example"; // string | 
-$v = "20161012"; // string | A date in `YYYYMMDD` format.
+$v = "20161012"; // string | A date in `YYYYMMDD` format
 
 try {
     $result = $api_instance->getLocation($account_id, $location_id, $v);
@@ -1105,11 +1105,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
  **location_id** | **string**|  |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format. | [default to 20161012]
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
 
 ### Return type
 
-[**\Yext\Client\Model\LocationResponse**](../Model/LocationResponse.md)
+[**\Yext\Client\Model\InlineResponse20012**](../Model/InlineResponse20012.md)
 
 ### Authorization
 
@@ -1123,7 +1123,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getLocationFolders**
-> \Yext\Client\Model\FoldersResponse getLocationFolders($account_id, $v, $offset, $limit)
+> \Yext\Client\Model\InlineResponse2006 getLocationFolders($account_id, $v, $offset, $limit)
 
 Folders: List
 
@@ -1141,9 +1141,9 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 
 $api_instance = new Yext\Client\Api\LocationManagerApi();
 $account_id = "account_id_example"; // string | 
-$v = "20161012"; // string | A date in `YYYYMMDD` format.
-$offset = 0; // int | Number of results to skip. Used to page through results.
-$limit = 100; // int | Number of results to return.
+$v = "20161012"; // string | A date in `YYYYMMDD` format
+$offset = 0; // int | Number of results to skip. Used to page through results
+$limit = 100; // int | Number of results to return
 
 try {
     $result = $api_instance->getLocationFolders($account_id, $v, $offset, $limit);
@@ -1159,13 +1159,13 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format. | [default to 20161012]
- **offset** | **int**| Number of results to skip. Used to page through results. | [optional] [default to 0]
- **limit** | **int**| Number of results to return. | [optional] [default to 100]
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
+ **offset** | **int**| Number of results to skip. Used to page through results | [optional] [default to 0]
+ **limit** | **int**| Number of results to return | [optional] [default to 100]
 
 ### Return type
 
-[**\Yext\Client\Model\FoldersResponse**](../Model/FoldersResponse.md)
+[**\Yext\Client\Model\InlineResponse2006**](../Model/InlineResponse2006.md)
 
 ### Authorization
 
@@ -1179,7 +1179,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getLocations**
-> \Yext\Client\Model\LocationsResponse getLocations($account_id, $v, $limit, $offset)
+> \Yext\Client\Model\InlineResponse2009 getLocations($account_id, $v, $limit, $offset)
 
 Locations: List
 
@@ -1197,9 +1197,9 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 
 $api_instance = new Yext\Client\Api\LocationManagerApi();
 $account_id = "account_id_example"; // string | 
-$v = "20161012"; // string | A date in `YYYYMMDD` format.
-$limit = 10; // int | Number of results to return.
-$offset = 0; // int | Number of results to skip. Used to page through results.
+$v = "20161012"; // string | A date in `YYYYMMDD` format
+$limit = 10; // int | Number of results to return
+$offset = 0; // int | Number of results to skip. Used to page through results
 
 try {
     $result = $api_instance->getLocations($account_id, $v, $limit, $offset);
@@ -1215,13 +1215,13 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format. | [default to 20161012]
- **limit** | **int**| Number of results to return. | [optional] [default to 10]
- **offset** | **int**| Number of results to skip. Used to page through results. | [optional] [default to 0]
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
+ **limit** | **int**| Number of results to return | [optional] [default to 10]
+ **offset** | **int**| Number of results to skip. Used to page through results | [optional] [default to 0]
 
 ### Return type
 
-[**\Yext\Client\Model\LocationsResponse**](../Model/LocationsResponse.md)
+[**\Yext\Client\Model\InlineResponse2009**](../Model/InlineResponse2009.md)
 
 ### Authorization
 
@@ -1235,11 +1235,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getMenu**
-> \Yext\Client\Model\MenuListResponse getMenu($account_id, $list_id, $v)
+> \Yext\Client\Model\InlineResponse2013 getMenu($account_id, $list_id, $v)
 
-Menus: Get (December 2016)
+Menus: Get
 
-Retrieve a specific Menu.
+Retrieve a specific Menu
 
 ### Example
 ```php
@@ -1253,8 +1253,8 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 
 $api_instance = new Yext\Client\Api\LocationManagerApi();
 $account_id = "account_id_example"; // string | 
-$list_id = "list_id_example"; // string | ID of this List.
-$v = "20161012"; // string | A date in `YYYYMMDD` format.
+$list_id = "list_id_example"; // string | ID of this List
+$v = "20161012"; // string | A date in `YYYYMMDD` format
 
 try {
     $result = $api_instance->getMenu($account_id, $list_id, $v);
@@ -1270,12 +1270,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
- **list_id** | **string**| ID of this List. |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format. | [default to 20161012]
+ **list_id** | **string**| ID of this List |
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
 
 ### Return type
 
-[**\Yext\Client\Model\MenuListResponse**](../Model/MenuListResponse.md)
+[**\Yext\Client\Model\InlineResponse2013**](../Model/InlineResponse2013.md)
 
 ### Authorization
 
@@ -1289,11 +1289,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getMenus**
-> \Yext\Client\Model\MenuListsResponse getMenus($account_id, $v, $limit, $offset)
+> \Yext\Client\Model\InlineResponse20014 getMenus($account_id, $v, $limit, $offset)
 
-Menus: List (December 2016)
+Menus: List
 
-Retrieve all Menus for an account.
+Retrieve all Menu ECLs for an account
 
 ### Example
 ```php
@@ -1307,9 +1307,9 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 
 $api_instance = new Yext\Client\Api\LocationManagerApi();
 $account_id = "account_id_example"; // string | 
-$v = "20161012"; // string | A date in `YYYYMMDD` format.
-$limit = 10; // int | Number of results to return.
-$offset = 0; // int | Number of results to skip. Used to page through results.
+$v = "20161012"; // string | A date in `YYYYMMDD` format
+$limit = 10; // int | Number of results to return
+$offset = 0; // int | Number of results to skip. Used to page through results
 
 try {
     $result = $api_instance->getMenus($account_id, $v, $limit, $offset);
@@ -1325,13 +1325,13 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format. | [default to 20161012]
- **limit** | **int**| Number of results to return. | [optional] [default to 10]
- **offset** | **int**| Number of results to skip. Used to page through results. | [optional] [default to 0]
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
+ **limit** | **int**| Number of results to return | [optional] [default to 10]
+ **offset** | **int**| Number of results to skip. Used to page through results | [optional] [default to 0]
 
 ### Return type
 
-[**\Yext\Client\Model\MenuListsResponse**](../Model/MenuListsResponse.md)
+[**\Yext\Client\Model\InlineResponse20014**](../Model/InlineResponse20014.md)
 
 ### Authorization
 
@@ -1345,11 +1345,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getProduct**
-> \Yext\Client\Model\ProductListResponse getProduct($account_id, $list_id, $v)
+> \Yext\Client\Model\InlineResponse20011 getProduct($account_id, $list_id, $v)
 
-Products: Get (December 2016)
+Products: Get
 
-Retrieve a specific Product List.
+Retrieve a specific Products ECL
 
 ### Example
 ```php
@@ -1363,8 +1363,8 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 
 $api_instance = new Yext\Client\Api\LocationManagerApi();
 $account_id = "account_id_example"; // string | 
-$list_id = "list_id_example"; // string | ID of this List.
-$v = "20161012"; // string | A date in `YYYYMMDD` format.
+$list_id = "list_id_example"; // string | ID of this List
+$v = "20161012"; // string | A date in `YYYYMMDD` format
 
 try {
     $result = $api_instance->getProduct($account_id, $list_id, $v);
@@ -1380,12 +1380,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
- **list_id** | **string**| ID of this List. |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format. | [default to 20161012]
+ **list_id** | **string**| ID of this List |
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
 
 ### Return type
 
-[**\Yext\Client\Model\ProductListResponse**](../Model/ProductListResponse.md)
+[**\Yext\Client\Model\InlineResponse20011**](../Model/InlineResponse20011.md)
 
 ### Authorization
 
@@ -1399,11 +1399,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getProducts**
-> \Yext\Client\Model\ProductListsResponse getProducts($account_id, $v, $limit, $offset)
+> \Yext\Client\Model\InlineResponse20025 getProducts($account_id, $v, $limit, $offset)
 
-Products: List (December 2016)
+Products: List
 
-Retrieve all Product Lists for an account.
+Retrieve all Products content lists for an account
 
 ### Example
 ```php
@@ -1417,9 +1417,9 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 
 $api_instance = new Yext\Client\Api\LocationManagerApi();
 $account_id = "account_id_example"; // string | 
-$v = "20161012"; // string | A date in `YYYYMMDD` format.
-$limit = 10; // int | Number of results to return.
-$offset = 0; // int | Number of results to skip. Used to page through results.
+$v = "20161012"; // string | A date in `YYYYMMDD` format
+$limit = 10; // int | Number of results to return
+$offset = 0; // int | Number of results to skip. Used to page through results
 
 try {
     $result = $api_instance->getProducts($account_id, $v, $limit, $offset);
@@ -1435,13 +1435,13 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format. | [default to 20161012]
- **limit** | **int**| Number of results to return. | [optional] [default to 10]
- **offset** | **int**| Number of results to skip. Used to page through results. | [optional] [default to 0]
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
+ **limit** | **int**| Number of results to return | [optional] [default to 10]
+ **offset** | **int**| Number of results to skip. Used to page through results | [optional] [default to 0]
 
 ### Return type
 
-[**\Yext\Client\Model\ProductListsResponse**](../Model/ProductListsResponse.md)
+[**\Yext\Client\Model\InlineResponse20025**](../Model/InlineResponse20025.md)
 
 ### Authorization
 
@@ -1455,11 +1455,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateBio**
-> \Yext\Client\Model\BioListResponse updateBio($account_id, $list_id, $v, $body)
+> \Yext\Client\Model\InlineResponse201 updateBio($account_id, $list_id, $v, $body)
 
-Bios: Update (December 2016)
+Bios: Update
 
-Update an existing Bios List.
+Update an existing Bios ECL
 
 ### Example
 ```php
@@ -1473,8 +1473,8 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 
 $api_instance = new Yext\Client\Api\LocationManagerApi();
 $account_id = "account_id_example"; // string | 
-$list_id = "list_id_example"; // string | ID of this List.
-$v = "20161012"; // string | A date in `YYYYMMDD` format.
+$list_id = "list_id_example"; // string | ID of this List
+$v = "20161012"; // string | A date in `YYYYMMDD` format
 $body = new \Yext\Client\Model\Bio(); // \Yext\Client\Model\Bio | 
 
 try {
@@ -1491,13 +1491,13 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
- **list_id** | **string**| ID of this List. |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format. | [default to 20161012]
+ **list_id** | **string**| ID of this List |
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
  **body** | [**\Yext\Client\Model\Bio**](../Model/\Yext\Client\Model\Bio.md)|  |
 
 ### Return type
 
-[**\Yext\Client\Model\BioListResponse**](../Model/BioListResponse.md)
+[**\Yext\Client\Model\InlineResponse201**](../Model/InlineResponse201.md)
 
 ### Authorization
 
@@ -1511,11 +1511,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateEvent**
-> \Yext\Client\Model\EventListResponse updateEvent($account_id, $list_id, $v, $body)
+> \Yext\Client\Model\InlineResponse2012 updateEvent($account_id, $list_id, $v, $body)
 
-Events: Update (December 2016)
+Events: Update
 
-Update an existing Event List.
+Update an existing Events ECL
 
 ### Example
 ```php
@@ -1529,8 +1529,8 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 
 $api_instance = new Yext\Client\Api\LocationManagerApi();
 $account_id = "account_id_example"; // string | 
-$list_id = "list_id_example"; // string | ID of this List.
-$v = "20161012"; // string | A date in `YYYYMMDD` format.
+$list_id = "list_id_example"; // string | ID of this List
+$v = "20161012"; // string | A date in `YYYYMMDD` format
 $body = new \Yext\Client\Model\Event(); // \Yext\Client\Model\Event | 
 
 try {
@@ -1547,13 +1547,13 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
- **list_id** | **string**| ID of this List. |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format. | [default to 20161012]
+ **list_id** | **string**| ID of this List |
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
  **body** | [**\Yext\Client\Model\Event**](../Model/\Yext\Client\Model\Event.md)|  |
 
 ### Return type
 
-[**\Yext\Client\Model\EventListResponse**](../Model/EventListResponse.md)
+[**\Yext\Client\Model\InlineResponse2012**](../Model/InlineResponse2012.md)
 
 ### Authorization
 
@@ -1567,7 +1567,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateLocation**
-> \Yext\Client\Model\IdResponse updateLocation($account_id, $location_id, $v, $location_request)
+> \Yext\Client\Model\InlineResponse2011 updateLocation($account_id, $location_id, $v, $location_request)
 
 Locations: Update
 
@@ -1586,7 +1586,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 $api_instance = new Yext\Client\Api\LocationManagerApi();
 $account_id = "account_id_example"; // string | 
 $location_id = "location_id_example"; // string | 
-$v = "20161012"; // string | A date in `YYYYMMDD` format.
+$v = "20161012"; // string | A date in `YYYYMMDD` format
 $location_request = new \Yext\Client\Model\Location(); // \Yext\Client\Model\Location | 
 
 try {
@@ -1604,12 +1604,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
  **location_id** | **string**|  |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format. | [default to 20161012]
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
  **location_request** | [**\Yext\Client\Model\Location**](../Model/\Yext\Client\Model\Location.md)|  |
 
 ### Return type
 
-[**\Yext\Client\Model\IdResponse**](../Model/IdResponse.md)
+[**\Yext\Client\Model\InlineResponse2011**](../Model/InlineResponse2011.md)
 
 ### Authorization
 
@@ -1623,11 +1623,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateMenu**
-> \Yext\Client\Model\MenuListResponse updateMenu($account_id, $list_id, $v, $body)
+> \Yext\Client\Model\InlineResponse2013 updateMenu($account_id, $list_id, $v, $body)
 
-Menus: Update (December 2016)
+Menus: Update
 
-Update an existing Menu.
+Update an existing Menu
 
 ### Example
 ```php
@@ -1641,8 +1641,8 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 
 $api_instance = new Yext\Client\Api\LocationManagerApi();
 $account_id = "account_id_example"; // string | 
-$list_id = "list_id_example"; // string | ID of this List.
-$v = "20161012"; // string | A date in `YYYYMMDD` format.
+$list_id = "list_id_example"; // string | ID of this List
+$v = "20161012"; // string | A date in `YYYYMMDD` format
 $body = new \Yext\Client\Model\Menu(); // \Yext\Client\Model\Menu | 
 
 try {
@@ -1659,13 +1659,13 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
- **list_id** | **string**| ID of this List. |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format. | [default to 20161012]
+ **list_id** | **string**| ID of this List |
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
  **body** | [**\Yext\Client\Model\Menu**](../Model/\Yext\Client\Model\Menu.md)|  |
 
 ### Return type
 
-[**\Yext\Client\Model\MenuListResponse**](../Model/MenuListResponse.md)
+[**\Yext\Client\Model\InlineResponse2013**](../Model/InlineResponse2013.md)
 
 ### Authorization
 
@@ -1679,11 +1679,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateProduct**
-> \Yext\Client\Model\ProductListResponse updateProduct($account_id, $list_id, $v, $body)
+> \Yext\Client\Model\InlineResponse20011 updateProduct($account_id, $list_id, $v, $body)
 
-Products: Update (December 2016)
+Products: Update
 
-Update an existing Product List.
+Update an existing Product ECL
 
 ### Example
 ```php
@@ -1697,8 +1697,8 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 
 $api_instance = new Yext\Client\Api\LocationManagerApi();
 $account_id = "account_id_example"; // string | 
-$list_id = "list_id_example"; // string | ID of this List.
-$v = "20161012"; // string | A date in `YYYYMMDD` format.
+$list_id = "list_id_example"; // string | ID of this List
+$v = "20161012"; // string | A date in `YYYYMMDD` format
 $body = new \Yext\Client\Model\Product(); // \Yext\Client\Model\Product | 
 
 try {
@@ -1715,13 +1715,13 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
- **list_id** | **string**| ID of this List. |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format. | [default to 20161012]
+ **list_id** | **string**| ID of this List |
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
  **body** | [**\Yext\Client\Model\Product**](../Model/\Yext\Client\Model\Product.md)|  |
 
 ### Return type
 
-[**\Yext\Client\Model\ProductListResponse**](../Model/ProductListResponse.md)
+[**\Yext\Client\Model\InlineResponse20011**](../Model/InlineResponse20011.md)
 
 ### Authorization
 
@@ -1735,9 +1735,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **upsertLanguageProfile**
-> \Yext\Client\Model\ErrorResponse upsertLanguageProfile($account_id, $location_id, $language_code, $v, $body, $primary)
+> \Yext\Client\Model\InlineResponse20012 upsertLanguageProfile($account_id, $location_id, $language_code, $v, $body, $primary)
 
-Language Profiles: Upsert (December 2016)
+Language Profiles: Upsert
 
 Creates and / or sets the fields for a Language Profile  **NOTE:** You can change a Language Profile’s language by supplying a different (but unused) language code.
 
@@ -1754,10 +1754,10 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 $api_instance = new Yext\Client\Api\LocationManagerApi();
 $account_id = "account_id_example"; // string | 
 $location_id = "location_id_example"; // string | 
-$language_code = "language_code_example"; // string | Locale code.
-$v = "20161012"; // string | A date in `YYYYMMDD` format.
+$language_code = "language_code_example"; // string | Locale code
+$v = "20161012"; // string | A date in `YYYYMMDD` format
 $body = new \Yext\Client\Model\Location(); // \Yext\Client\Model\Location | 
-$primary = true; // bool | When present and set to true, the specified profile will become the location’s primary Language Profile.
+$primary = true; // bool | When present and set to true, the specified profile will become the location’s primary Language Profile
 
 try {
     $result = $api_instance->upsertLanguageProfile($account_id, $location_id, $language_code, $v, $body, $primary);
@@ -1774,14 +1774,14 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
  **location_id** | **string**|  |
- **language_code** | **string**| Locale code. |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format. | [default to 20161012]
+ **language_code** | **string**| Locale code |
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
  **body** | [**\Yext\Client\Model\Location**](../Model/\Yext\Client\Model\Location.md)|  |
- **primary** | **bool**| When present and set to true, the specified profile will become the location’s primary Language Profile. | [optional]
+ **primary** | **bool**| When present and set to true, the specified profile will become the location’s primary Language Profile | [optional]
 
 ### Return type
 
-[**\Yext\Client\Model\ErrorResponse**](../Model/ErrorResponse.md)
+[**\Yext\Client\Model\InlineResponse20012**](../Model/InlineResponse20012.md)
 
 ### Authorization
 
