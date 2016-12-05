@@ -222,11 +222,11 @@ class ReviewComment implements ArrayAccess
     public function valid()
     {
         $allowed_values = ["BUSINESS_OWNER", "CONSUMER"];
-        if (!in_array($this->container['author_role'], $allowed_values)) {
+        if (!is_null($this->container['author_role']) && !in_array($this->container['author_role'], $allowed_values)) {
             return false;
         }
         $allowed_values = ["PUBLIC", "PRIVATE"];
-        if (!in_array($this->container['visibility'], $allowed_values)) {
+        if (!is_null($this->container['visibility']) && !in_array($this->container['visibility'], $allowed_values)) {
             return false;
         }
         return true;

@@ -189,7 +189,7 @@ class Author implements ArrayAccess
     public function valid()
     {
         $allowed_values = ["BUSINESS_REPRESENTATIVE", "CONSUMER"];
-        if (!in_array($this->container['role'], $allowed_values)) {
+        if (!is_null($this->container['role']) && !in_array($this->container['role'], $allowed_values)) {
             return false;
         }
         return true;

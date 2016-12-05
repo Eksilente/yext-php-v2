@@ -180,7 +180,7 @@ class InlineResponse2003Response implements ArrayAccess
     public function valid()
     {
         $allowed_values = ["PROCESSING", "DONE", "FAILED"];
-        if (!in_array($this->container['status'], $allowed_values)) {
+        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowed_values)) {
             return false;
         }
         return true;

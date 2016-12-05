@@ -187,7 +187,7 @@ class LocationEducationList implements ArrayAccess
     public function valid()
     {
         $allowed_values = ["FELLOWSHIP", "INTERNSHIP", "MEDICAL_SCHOOL", "RESIDENCY"];
-        if (!in_array($this->container['type'], $allowed_values)) {
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowed_values)) {
             return false;
         }
         return true;

@@ -240,11 +240,11 @@ class Listing implements ArrayAccess
     public function valid()
     {
         $allowed_values = ["WAITING_ON_YEXT", "WAITING_ON_CUSTOMER", "WAITING_ON_PUBLISHER", "LIVE", "UNAVAILABLE", "OPTED_OUT"];
-        if (!in_array($this->container['status'], $allowed_values)) {
+        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowed_values)) {
             return false;
         }
         $allowed_values = ["CONNECTED", "NOT_CONNECTED"];
-        if (!in_array($this->container['additional_status'], $allowed_values)) {
+        if (!is_null($this->container['additional_status']) && !in_array($this->container['additional_status'], $allowed_values)) {
             return false;
         }
         return true;

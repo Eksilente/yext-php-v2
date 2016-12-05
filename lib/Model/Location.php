@@ -762,7 +762,7 @@ class Location implements ArrayAccess
             return false;
         }
         $allowed_values = ["FEMALE", "F", "MALE", "M", "UNSPECIFIED"];
-        if (!in_array($this->container['gender'], $allowed_values)) {
+        if (!is_null($this->container['gender']) && !in_array($this->container['gender'], $allowed_values)) {
             return false;
         }
         if (strlen($this->container['website_url']) > 255) {
@@ -799,7 +799,7 @@ class Location implements ArrayAccess
             return false;
         }
         $allowed_values = ["TEXT", "BUTTON"];
-        if (!in_array($this->container['uber_link_type'], $allowed_values)) {
+        if (!is_null($this->container['uber_link_type']) && !in_array($this->container['uber_link_type'], $allowed_values)) {
             return false;
         }
         if (strlen($this->container['year_established']) > 4) {

@@ -212,7 +212,7 @@ class CustomField implements ArrayAccess
     public function valid()
     {
         $allowed_values = ["BOOLEAN", "DAILY_TIMES", "DATE", "GALLERY", "HOURS", "MULTILINE_TEXT", "MULTI_OPTION", "NUMBER", "PHOTO", "SINGLE_OPTION", "TEXT", "TEXT_LIST", "URL", "VIDEO"];
-        if (!in_array($this->container['type'], $allowed_values)) {
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowed_values)) {
             return false;
         }
         return true;

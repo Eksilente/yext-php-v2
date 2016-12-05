@@ -190,7 +190,7 @@ class UserAcl implements ArrayAccess
     public function valid()
     {
         $allowed_values = ["CUSTOMER", "FOLDER", "LOCATION"];
-        if (!in_array($this->container['on_type'], $allowed_values)) {
+        if (!is_null($this->container['on_type']) && !in_array($this->container['on_type'], $allowed_values)) {
             return false;
         }
         return true;

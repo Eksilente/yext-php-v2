@@ -222,7 +222,7 @@ class PublisherSuggestion implements ArrayAccess
     public function valid()
     {
         $allowed_values = ["WAITING_ON_CUSTOMER", "ACCEPTED", "REJECTED", "EXPIRED"];
-        if (!in_array($this->container['status'], $allowed_values)) {
+        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowed_values)) {
             return false;
         }
         return true;

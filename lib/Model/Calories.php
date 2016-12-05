@@ -183,7 +183,7 @@ class Calories implements ArrayAccess
     public function valid()
     {
         $allowed_values = ["FIXED", "RANGE"];
-        if (!in_array($this->container['name'], $allowed_values)) {
+        if (!is_null($this->container['name']) && !in_array($this->container['name'], $allowed_values)) {
             return false;
         }
         return true;

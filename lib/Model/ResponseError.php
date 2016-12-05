@@ -185,7 +185,7 @@ class ResponseError implements ArrayAccess
     public function valid()
     {
         $allowed_values = ["FATAL_ERROR", "NON_FATAL_ERROR", "WARNING"];
-        if (!in_array($this->container['type'], $allowed_values)) {
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowed_values)) {
             return false;
         }
         return true;

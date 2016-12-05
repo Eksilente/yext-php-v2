@@ -235,7 +235,7 @@ class PostEntry implements ArrayAccess
     public function valid()
     {
         $allowed_values = ["NOT_POSTED", "LIVE", "DELETED"];
-        if (!in_array($this->container['status'], $allowed_values)) {
+        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowed_values)) {
             return false;
         }
         return true;
