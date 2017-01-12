@@ -66,8 +66,8 @@ class ReviewInvitation implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'email_address' => 'string',
         'last_name' => 'string',
+        'contact' => 'string',
         'location_id' => 'string',
         'first_name' => 'string',
         'template_id' => 'string'
@@ -83,8 +83,8 @@ class ReviewInvitation implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'email_address' => 'emailAddress',
         'last_name' => 'lastName',
+        'contact' => 'contact',
         'location_id' => 'locationId',
         'first_name' => 'firstName',
         'template_id' => 'templateId'
@@ -96,8 +96,8 @@ class ReviewInvitation implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'email_address' => 'setEmailAddress',
         'last_name' => 'setLastName',
+        'contact' => 'setContact',
         'location_id' => 'setLocationId',
         'first_name' => 'setFirstName',
         'template_id' => 'setTemplateId'
@@ -109,8 +109,8 @@ class ReviewInvitation implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'email_address' => 'getEmailAddress',
         'last_name' => 'getLastName',
+        'contact' => 'getContact',
         'location_id' => 'getLocationId',
         'first_name' => 'getFirstName',
         'template_id' => 'getTemplateId'
@@ -147,8 +147,8 @@ class ReviewInvitation implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['email_address'] = isset($data['email_address']) ? $data['email_address'] : null;
         $this->container['last_name'] = isset($data['last_name']) ? $data['last_name'] : null;
+        $this->container['contact'] = isset($data['contact']) ? $data['contact'] : null;
         $this->container['location_id'] = isset($data['location_id']) ? $data['location_id'] : null;
         $this->container['first_name'] = isset($data['first_name']) ? $data['first_name'] : null;
         $this->container['template_id'] = isset($data['template_id']) ? $data['template_id'] : null;
@@ -178,27 +178,6 @@ class ReviewInvitation implements ArrayAccess
 
 
     /**
-     * Gets email_address
-     * @return string
-     */
-    public function getEmailAddress()
-    {
-        return $this->container['email_address'];
-    }
-
-    /**
-     * Sets email_address
-     * @param string $email_address The consumer’s email address
-     * @return $this
-     */
-    public function setEmailAddress($email_address)
-    {
-        $this->container['email_address'] = $email_address;
-
-        return $this;
-    }
-
-    /**
      * Gets last_name
      * @return string
      */
@@ -215,6 +194,27 @@ class ReviewInvitation implements ArrayAccess
     public function setLastName($last_name)
     {
         $this->container['last_name'] = $last_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets contact
+     * @return string
+     */
+    public function getContact()
+    {
+        return $this->container['contact'];
+    }
+
+    /**
+     * Sets contact
+     * @param string $contact The email address or phone number of the consumer.  Phone numbers should be formatted in one of the following ways: * E.164 standard international format, with a leading \"+\" * National format, according to the country of the corresponding location
+     * @return $this
+     */
+    public function setContact($contact)
+    {
+        $this->container['contact'] = $contact;
 
         return $this;
     }

@@ -167,7 +167,7 @@ class CreateReviewInvitationResponse implements ArrayAccess
     {
         $invalid_properties = [];
         $allowed_values = ["ACCEPTED", "REJECTED"];
-        if (!in_array($this->container['status'], $allowed_values)) {
+        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowed_values)) {
             $invalid_properties[] = "invalid value for 'status', must be one of #{allowed_values}.";
         }
 
@@ -183,7 +183,7 @@ class CreateReviewInvitationResponse implements ArrayAccess
     public function valid()
     {
         $allowed_values = ["ACCEPTED", "REJECTED"];
-        if (!in_array($this->container['status'], $allowed_values)) {
+        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowed_values)) {
             return false;
         }
         return true;

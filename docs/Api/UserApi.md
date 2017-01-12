@@ -12,10 +12,11 @@ Method | HTTP request | Description
 [**getUser**](UserApi.md#getUser) | **GET** /accounts/{accountId}/users/{userId} | Users: Get
 [**getUsers**](UserApi.md#getUsers) | **GET** /accounts/{accountId}/users | Users: List
 [**updateUser**](UserApi.md#updateUser) | **PUT** /accounts/{accountId}/users/{userId} | Users: Update
+[**updateUserPassword**](UserApi.md#updateUserPassword) | **PUT** /accounts/{accountId}/users/{userId}/password | Users: Update Password
 
 
 # **createUser**
-> \Yext\Client\Model\InlineResponse2016 createUser($account_id, $v, $user_request)
+> \Yext\Client\Model\IdResponse createUser($account_id, $v, $create_user_request)
 
 Users: Create
 
@@ -33,11 +34,11 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 
 $api_instance = new Yext\Client\Api\UserApi();
 $account_id = "account_id_example"; // string | 
-$v = "20161012"; // string | A date in `YYYYMMDD` format
-$user_request = new \Yext\Client\Model\User(); // \Yext\Client\Model\User | 
+$v = "20161012"; // string | A date in `YYYYMMDD` format.
+$create_user_request = new \Yext\Client\Model\CreateUserRequest(); // \Yext\Client\Model\CreateUserRequest | 
 
 try {
-    $result = $api_instance->createUser($account_id, $v, $user_request);
+    $result = $api_instance->createUser($account_id, $v, $create_user_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->createUser: ', $e->getMessage(), PHP_EOL;
@@ -50,12 +51,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
- **user_request** | [**\Yext\Client\Model\User**](../Model/\Yext\Client\Model\User.md)|  |
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format. | [default to 20161012]
+ **create_user_request** | [**\Yext\Client\Model\CreateUserRequest**](../Model/\Yext\Client\Model\CreateUserRequest.md)|  |
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse2016**](../Model/InlineResponse2016.md)
+[**\Yext\Client\Model\IdResponse**](../Model/IdResponse.md)
 
 ### Authorization
 
@@ -69,7 +70,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteUser**
-> \Yext\Client\Model\InlineResponse2016 deleteUser($account_id, $v, $user_id, $user_request)
+> \Yext\Client\Model\ErrorResponse deleteUser($account_id, $v, $user_id)
 
 Users: Delete
 
@@ -87,12 +88,11 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 
 $api_instance = new Yext\Client\Api\UserApi();
 $account_id = "account_id_example"; // string | 
-$v = "20161012"; // string | A date in `YYYYMMDD` format
+$v = "20161012"; // string | A date in `YYYYMMDD` format.
 $user_id = "user_id_example"; // string | 
-$user_request = new \Yext\Client\Model\User(); // \Yext\Client\Model\User | 
 
 try {
-    $result = $api_instance->deleteUser($account_id, $v, $user_id, $user_request);
+    $result = $api_instance->deleteUser($account_id, $v, $user_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->deleteUser: ', $e->getMessage(), PHP_EOL;
@@ -105,13 +105,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format. | [default to 20161012]
  **user_id** | **string**|  |
- **user_request** | [**\Yext\Client\Model\User**](../Model/\Yext\Client\Model\User.md)|  |
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse2016**](../Model/InlineResponse2016.md)
+[**\Yext\Client\Model\ErrorResponse**](../Model/ErrorResponse.md)
 
 ### Authorization
 
@@ -125,11 +124,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getLinkOptimizationTask**
-> \Yext\Client\Model\InlineResponse20015 getLinkOptimizationTask($account_id, $v, $task_ids, $location_ids, $mode)
+> \Yext\Client\Model\OptimizationTaskLinksResponse getLinkOptimizationTask($account_id, $v, $task_ids, $location_id, $mode)
 
 Optimization Tasks: Get Link
 
-Retrieve a link to perform any pending Optimization Tasks given a set of Optimization Tasks and Locations.
+Retrieve a link to perform any pending Optimization Tasks given a set of Optimization Tasks and a location
 
 ### Example
 ```php
@@ -143,13 +142,13 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 
 $api_instance = new Yext\Client\Api\UserApi();
 $account_id = "account_id_example"; // string | 
-$v = "20161012"; // string | A date in `YYYYMMDD` format
-$task_ids = "task_ids_example"; // string | Comma-separated list of Optimization Task IDs corresponding to Optimization Tasks that should be included in the response.  Defaults to all available Optimization Tasks in the account.
-$location_ids = "location_ids_example"; // string | Comma-separated list of Location IDs, corresponding to Locations to be evaluated when returning the number of locations eligible & completed for each Optimization Task.  Defaults to all Locations in the account.
+$v = "20161012"; // string | A date in `YYYYMMDD` format.
+$task_ids = "task_ids_example"; // string | Comma-separated list of Optimization Task IDs corresponding to Optimization Tasks that should be included in the response.  If no IDs are provided, defaults to all available Optimization Tasks in the account.
+$location_id = "location_id_example"; // string | Location ID to be used as a filter.  If no ID is provided, defaults to all Locations in the account.
 $mode = "PENDING_ONLY"; // string | When mode is PENDING_ONLY, the resulting link will only ask the user to complete tasks that are pending or in progress (that have not been completed before).  When mode is ALL_TASKS, the resulting link will ask the user to complete all specified tasks for all specified locations, regardless of whether they have been completed before, are pending, or are in progress.
 
 try {
-    $result = $api_instance->getLinkOptimizationTask($account_id, $v, $task_ids, $location_ids, $mode);
+    $result = $api_instance->getLinkOptimizationTask($account_id, $v, $task_ids, $location_id, $mode);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->getLinkOptimizationTask: ', $e->getMessage(), PHP_EOL;
@@ -162,14 +161,14 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
- **task_ids** | **string**| Comma-separated list of Optimization Task IDs corresponding to Optimization Tasks that should be included in the response.  Defaults to all available Optimization Tasks in the account. |
- **location_ids** | **string**| Comma-separated list of Location IDs, corresponding to Locations to be evaluated when returning the number of locations eligible &amp; completed for each Optimization Task.  Defaults to all Locations in the account. |
- **mode** | **string**| When mode is PENDING_ONLY, the resulting link will only ask the user to complete tasks that are pending or in progress (that have not been completed before).  When mode is ALL_TASKS, the resulting link will ask the user to complete all specified tasks for all specified locations, regardless of whether they have been completed before, are pending, or are in progress. | [default to PENDING_ONLY]
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format. | [default to 20161012]
+ **task_ids** | **string**| Comma-separated list of Optimization Task IDs corresponding to Optimization Tasks that should be included in the response.  If no IDs are provided, defaults to all available Optimization Tasks in the account. | [optional]
+ **location_id** | **string**| Location ID to be used as a filter.  If no ID is provided, defaults to all Locations in the account. | [optional]
+ **mode** | **string**| When mode is PENDING_ONLY, the resulting link will only ask the user to complete tasks that are pending or in progress (that have not been completed before).  When mode is ALL_TASKS, the resulting link will ask the user to complete all specified tasks for all specified locations, regardless of whether they have been completed before, are pending, or are in progress. | [optional] [default to PENDING_ONLY]
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse20015**](../Model/InlineResponse20015.md)
+[**\Yext\Client\Model\OptimizationTaskLinksResponse**](../Model/OptimizationTaskLinksResponse.md)
 
 ### Authorization
 
@@ -183,7 +182,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getOptimizationTasks**
-> \Yext\Client\Model\InlineResponse20016 getOptimizationTasks($account_id, $v, $task_ids, $location_ids)
+> \Yext\Client\Model\OptimizationTasksResponse getOptimizationTasks($account_id, $v, $task_ids, $location_ids)
 
 Optimization Tasks: List
 
@@ -201,9 +200,9 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 
 $api_instance = new Yext\Client\Api\UserApi();
 $account_id = "account_id_example"; // string | 
-$v = "20161012"; // string | A date in `YYYYMMDD` format
-$task_ids = "task_ids_example"; // string | Comma-separated list of Optimization Task IDs corresponding to Optimization Tasks that should be included in the response.  Defaults to all available Optimization Tasks in the account.
-$location_ids = "location_ids_example"; // string | Comma-separated list of Location IDs, corresponding to Locations to be evaluated when returning the number of locations eligible & completed for each Optimization Task.  Defaults to all Locations in the account.
+$v = "20161012"; // string | A date in `YYYYMMDD` format.
+$task_ids = "task_ids_example"; // string | Comma-separated list of Optimization Task IDs corresponding to Optimization Tasks that should be included in the response.  If no IDs are provided, defaults to all available Optimization Tasks in the account.
+$location_ids = "location_ids_example"; // string | Comma-separated list of Location IDs to be used as a filter.  If no IDs are provided, defaults to all Locations in the account.
 
 try {
     $result = $api_instance->getOptimizationTasks($account_id, $v, $task_ids, $location_ids);
@@ -219,13 +218,13 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
- **task_ids** | **string**| Comma-separated list of Optimization Task IDs corresponding to Optimization Tasks that should be included in the response.  Defaults to all available Optimization Tasks in the account. |
- **location_ids** | **string**| Comma-separated list of Location IDs, corresponding to Locations to be evaluated when returning the number of locations eligible &amp; completed for each Optimization Task.  Defaults to all Locations in the account. |
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format. | [default to 20161012]
+ **task_ids** | **string**| Comma-separated list of Optimization Task IDs corresponding to Optimization Tasks that should be included in the response.  If no IDs are provided, defaults to all available Optimization Tasks in the account. | [optional]
+ **location_ids** | **string**| Comma-separated list of Location IDs to be used as a filter.  If no IDs are provided, defaults to all Locations in the account. | [optional]
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse20016**](../Model/InlineResponse20016.md)
+[**\Yext\Client\Model\OptimizationTasksResponse**](../Model/OptimizationTasksResponse.md)
 
 ### Authorization
 
@@ -239,7 +238,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getRoles**
-> \Yext\Client\Model\InlineResponse20028 getRoles($account_id, $v)
+> \Yext\Client\Model\RolesResponse getRoles($account_id, $v)
 
 Roles: Get
 
@@ -257,7 +256,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 
 $api_instance = new Yext\Client\Api\UserApi();
 $account_id = "account_id_example"; // string | 
-$v = "20161012"; // string | A date in `YYYYMMDD` format
+$v = "20161012"; // string | A date in `YYYYMMDD` format.
 
 try {
     $result = $api_instance->getRoles($account_id, $v);
@@ -273,11 +272,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format. | [default to 20161012]
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse20028**](../Model/InlineResponse20028.md)
+[**\Yext\Client\Model\RolesResponse**](../Model/RolesResponse.md)
 
 ### Authorization
 
@@ -291,7 +290,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getUser**
-> \Yext\Client\Model\InlineResponse2016 getUser($account_id, $v, $user_id)
+> \Yext\Client\Model\UserResponse getUser($account_id, $v, $user_id)
 
 Users: Get
 
@@ -309,7 +308,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 
 $api_instance = new Yext\Client\Api\UserApi();
 $account_id = "account_id_example"; // string | 
-$v = "20161012"; // string | A date in `YYYYMMDD` format
+$v = "20161012"; // string | A date in `YYYYMMDD` format.
 $user_id = "user_id_example"; // string | 
 
 try {
@@ -326,12 +325,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format. | [default to 20161012]
  **user_id** | **string**|  |
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse2016**](../Model/InlineResponse2016.md)
+[**\Yext\Client\Model\UserResponse**](../Model/UserResponse.md)
 
 ### Authorization
 
@@ -345,7 +344,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getUsers**
-> \Yext\Client\Model\InlineResponse20029 getUsers($account_id, $v, $limit, $offset)
+> \Yext\Client\Model\UsersResponse getUsers($account_id, $v, $limit, $offset)
 
 Users: List
 
@@ -363,9 +362,9 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 
 $api_instance = new Yext\Client\Api\UserApi();
 $account_id = "account_id_example"; // string | 
-$v = "20161012"; // string | A date in `YYYYMMDD` format
-$limit = 10; // int | Number of results to return
-$offset = 0; // int | Number of results to skip. Used to page through results
+$v = "20161012"; // string | A date in `YYYYMMDD` format.
+$limit = 10; // int | Number of results to return.
+$offset = 0; // int | Number of results to skip. Used to page through results.
 
 try {
     $result = $api_instance->getUsers($account_id, $v, $limit, $offset);
@@ -381,13 +380,13 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
- **limit** | **int**| Number of results to return | [optional] [default to 10]
- **offset** | **int**| Number of results to skip. Used to page through results | [optional] [default to 0]
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format. | [default to 20161012]
+ **limit** | **int**| Number of results to return. | [optional] [default to 10]
+ **offset** | **int**| Number of results to skip. Used to page through results. | [optional] [default to 0]
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse20029**](../Model/InlineResponse20029.md)
+[**\Yext\Client\Model\UsersResponse**](../Model/UsersResponse.md)
 
 ### Authorization
 
@@ -401,7 +400,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateUser**
-> \Yext\Client\Model\InlineResponse2016 updateUser($account_id, $v, $user_id, $user_request)
+> \Yext\Client\Model\IdResponse updateUser($account_id, $v, $user_id, $update_user_request)
 
 Users: Update
 
@@ -419,12 +418,12 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 
 $api_instance = new Yext\Client\Api\UserApi();
 $account_id = "account_id_example"; // string | 
-$v = "20161012"; // string | A date in `YYYYMMDD` format
+$v = "20161012"; // string | A date in `YYYYMMDD` format.
 $user_id = "user_id_example"; // string | 
-$user_request = new \Yext\Client\Model\User(); // \Yext\Client\Model\User | 
+$update_user_request = new \Yext\Client\Model\User(); // \Yext\Client\Model\User | 
 
 try {
-    $result = $api_instance->updateUser($account_id, $v, $user_id, $user_request);
+    $result = $api_instance->updateUser($account_id, $v, $user_id, $update_user_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->updateUser: ', $e->getMessage(), PHP_EOL;
@@ -437,13 +436,69 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
- **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format | [default to 20161012]
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format. | [default to 20161012]
  **user_id** | **string**|  |
- **user_request** | [**\Yext\Client\Model\User**](../Model/\Yext\Client\Model\User.md)|  |
+ **update_user_request** | [**\Yext\Client\Model\User**](../Model/\Yext\Client\Model\User.md)|  |
 
 ### Return type
 
-[**\Yext\Client\Model\InlineResponse2016**](../Model/InlineResponse2016.md)
+[**\Yext\Client\Model\IdResponse**](../Model/IdResponse.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **updateUserPassword**
+> \Yext\Client\Model\ErrorResponse updateUserPassword($account_id, $v, $user_id, $update_password_request)
+
+Users: Update Password
+
+Updates a User's password.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Yext\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_key', 'Bearer');
+
+$api_instance = new Yext\Client\Api\UserApi();
+$account_id = "account_id_example"; // string | 
+$v = "20161012"; // string | A date in `YYYYMMDD` format.
+$user_id = "user_id_example"; // string | 
+$update_password_request = new \Yext\Client\Model\UpdatePasswordRequest(); // \Yext\Client\Model\UpdatePasswordRequest | 
+
+try {
+    $result = $api_instance->updateUserPassword($account_id, $v, $user_id, $update_password_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UserApi->updateUserPassword: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **account_id** | **string**|  |
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format. | [default to 20161012]
+ **user_id** | **string**|  |
+ **update_password_request** | [**\Yext\Client\Model\UpdatePasswordRequest**](../Model/\Yext\Client\Model\UpdatePasswordRequest.md)|  | [optional]
+
+### Return type
+
+[**\Yext\Client\Model\ErrorResponse**](../Model/ErrorResponse.md)
 
 ### Authorization
 

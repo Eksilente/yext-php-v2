@@ -104,9 +104,9 @@ class ReviewsResponseResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "listings"
+     * Test attribute "reviews"
      */
-    public function testPropertyListings()
+    public function testPropertyReviews()
     {
 
     }

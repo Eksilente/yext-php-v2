@@ -96,17 +96,17 @@ class ReviewInvitationTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "email_address"
+     * Test attribute "last_name"
      */
-    public function testPropertyEmailAddress()
+    public function testPropertyLastName()
     {
 
     }
 
     /**
-     * Test attribute "last_name"
+     * Test attribute "contact"
      */
-    public function testPropertyLastName()
+    public function testPropertyContact()
     {
 
     }

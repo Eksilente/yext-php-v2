@@ -67,7 +67,7 @@ class ReviewsResponseResponse implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'count' => 'int',
-        'listings' => '\Yext\Client\Model\Review[]',
+        'reviews' => '\Yext\Client\Model\Review[]',
         'average_rating' => 'double'
     ];
 
@@ -82,7 +82,7 @@ class ReviewsResponseResponse implements ArrayAccess
      */
     protected static $attributeMap = [
         'count' => 'count',
-        'listings' => 'listings',
+        'reviews' => 'reviews',
         'average_rating' => 'averageRating'
     ];
 
@@ -93,7 +93,7 @@ class ReviewsResponseResponse implements ArrayAccess
      */
     protected static $setters = [
         'count' => 'setCount',
-        'listings' => 'setListings',
+        'reviews' => 'setReviews',
         'average_rating' => 'setAverageRating'
     ];
 
@@ -104,7 +104,7 @@ class ReviewsResponseResponse implements ArrayAccess
      */
     protected static $getters = [
         'count' => 'getCount',
-        'listings' => 'getListings',
+        'reviews' => 'getReviews',
         'average_rating' => 'getAverageRating'
     ];
 
@@ -140,7 +140,7 @@ class ReviewsResponseResponse implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['count'] = isset($data['count']) ? $data['count'] : null;
-        $this->container['listings'] = isset($data['listings']) ? $data['listings'] : null;
+        $this->container['reviews'] = isset($data['reviews']) ? $data['reviews'] : null;
         $this->container['average_rating'] = isset($data['average_rating']) ? $data['average_rating'] : null;
     }
 
@@ -189,22 +189,22 @@ class ReviewsResponseResponse implements ArrayAccess
     }
 
     /**
-     * Gets listings
+     * Gets reviews
      * @return \Yext\Client\Model\Review[]
      */
-    public function getListings()
+    public function getReviews()
     {
-        return $this->container['listings'];
+        return $this->container['reviews'];
     }
 
     /**
-     * Sets listings
-     * @param \Yext\Client\Model\Review[] $listings
+     * Sets reviews
+     * @param \Yext\Client\Model\Review[] $reviews
      * @return $this
      */
-    public function setListings($listings)
+    public function setReviews($reviews)
     {
-        $this->container['listings'] = $listings;
+        $this->container['reviews'] = $reviews;
 
         return $this;
     }
