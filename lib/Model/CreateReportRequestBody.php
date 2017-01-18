@@ -134,6 +134,11 @@ class CreateReportRequestBody implements ArrayAccess
     const METRICS_FACEBOOK_WERE_HERE = 'FACEBOOK_WERE_HERE';
     const METRICS_FOURSQUARE_DAILY_CHECKINS = 'FOURSQUARE_DAILY_CHECKINS';
     const METRICS_INSTAGRAM_POSTS = 'INSTAGRAM_POSTS';
+    const METRICS_GOOGLE_SEARCHES = 'GOOGLE_SEARCHES';
+    const METRICS_GOOGLE_SEARCH_VIEWS = 'GOOGLE_SEARCH_VIEWS';
+    const METRICS_GOOGLE_MAP_VIEWS = 'GOOGLE_MAP_VIEWS';
+    const METRICS_GOOGLE_CUSTOMER_ACTIONS = 'GOOGLE_CUSTOMER_ACTIONS';
+    const METRICS_GOOGLE_PHONE_CALLS = 'GOOGLE_PHONE_CALLS';
     const DIMENSIONS_ACCOUNT_IDS = 'ACCOUNT_IDS';
     const DIMENSIONS_LOCATION_IDS = 'LOCATION_IDS';
     const DIMENSIONS_FOLDER_IDS = 'FOLDER_IDS';
@@ -148,6 +153,9 @@ class CreateReportRequestBody implements ArrayAccess
     const DIMENSIONS_FOURSQUARE_AGE = 'FOURSQUARE_AGE';
     const DIMENSIONS_FOURSQUARE_TIME = 'FOURSQUARE_TIME';
     const DIMENSIONS_SEARCH_QUERY = 'SEARCH_QUERY';
+    const DIMENSIONS_GOOGLE_ACTION_TYPE = 'GOOGLE_ACTION_TYPE';
+    const DIMENSIONS_GOOGLE_QUERY_TYPE = 'GOOGLE_QUERY_TYPE';
+    const DIMENSIONS_GMB_HOURS = 'GMB_HOURS';
     
 
     
@@ -169,6 +177,11 @@ class CreateReportRequestBody implements ArrayAccess
             self::METRICS_FACEBOOK_WERE_HERE,
             self::METRICS_FOURSQUARE_DAILY_CHECKINS,
             self::METRICS_INSTAGRAM_POSTS,
+            self::METRICS_GOOGLE_SEARCHES,
+            self::METRICS_GOOGLE_SEARCH_VIEWS,
+            self::METRICS_GOOGLE_MAP_VIEWS,
+            self::METRICS_GOOGLE_CUSTOMER_ACTIONS,
+            self::METRICS_GOOGLE_PHONE_CALLS,
         ];
     }
     
@@ -193,6 +206,9 @@ class CreateReportRequestBody implements ArrayAccess
             self::DIMENSIONS_FOURSQUARE_AGE,
             self::DIMENSIONS_FOURSQUARE_TIME,
             self::DIMENSIONS_SEARCH_QUERY,
+            self::DIMENSIONS_GOOGLE_ACTION_TYPE,
+            self::DIMENSIONS_GOOGLE_QUERY_TYPE,
+            self::DIMENSIONS_GMB_HOURS,
         ];
     }
     
@@ -265,9 +281,9 @@ class CreateReportRequestBody implements ArrayAccess
      */
     public function setMetrics($metrics)
     {
-        $allowed_values = array('PROFILE_VIEWS', 'SEARCHES', 'POWERLISTINGS_LIVE', 'FEATURED_MESSAGE_CLICKS', 'YELP_PAGE_VIEWS', 'BING_SEARCHES', 'FACEBOOK_LIKES', 'FACEBOOK_TALKING_ABOUT', 'FACEBOOK_WERE_HERE', 'FOURSQUARE_DAILY_CHECKINS', 'INSTAGRAM_POSTS');
+        $allowed_values = array('PROFILE_VIEWS', 'SEARCHES', 'POWERLISTINGS_LIVE', 'FEATURED_MESSAGE_CLICKS', 'YELP_PAGE_VIEWS', 'BING_SEARCHES', 'FACEBOOK_LIKES', 'FACEBOOK_TALKING_ABOUT', 'FACEBOOK_WERE_HERE', 'FOURSQUARE_DAILY_CHECKINS', 'INSTAGRAM_POSTS', 'GOOGLE_SEARCHES', 'GOOGLE_SEARCH_VIEWS', 'GOOGLE_MAP_VIEWS', 'GOOGLE_CUSTOMER_ACTIONS', 'GOOGLE_PHONE_CALLS');
         if ((array_diff($metrics, $allowed_values))) {
-            throw new \InvalidArgumentException("Invalid value for 'metrics', must be one of 'PROFILE_VIEWS', 'SEARCHES', 'POWERLISTINGS_LIVE', 'FEATURED_MESSAGE_CLICKS', 'YELP_PAGE_VIEWS', 'BING_SEARCHES', 'FACEBOOK_LIKES', 'FACEBOOK_TALKING_ABOUT', 'FACEBOOK_WERE_HERE', 'FOURSQUARE_DAILY_CHECKINS', 'INSTAGRAM_POSTS'");
+            throw new \InvalidArgumentException("Invalid value for 'metrics', must be one of 'PROFILE_VIEWS', 'SEARCHES', 'POWERLISTINGS_LIVE', 'FEATURED_MESSAGE_CLICKS', 'YELP_PAGE_VIEWS', 'BING_SEARCHES', 'FACEBOOK_LIKES', 'FACEBOOK_TALKING_ABOUT', 'FACEBOOK_WERE_HERE', 'FOURSQUARE_DAILY_CHECKINS', 'INSTAGRAM_POSTS', 'GOOGLE_SEARCHES', 'GOOGLE_SEARCH_VIEWS', 'GOOGLE_MAP_VIEWS', 'GOOGLE_CUSTOMER_ACTIONS', 'GOOGLE_PHONE_CALLS'");
         }
         $this->container['metrics'] = $metrics;
 
@@ -290,9 +306,9 @@ class CreateReportRequestBody implements ArrayAccess
      */
     public function setDimensions($dimensions)
     {
-        $allowed_values = array('ACCOUNT_IDS', 'LOCATION_IDS', 'FOLDER_IDS', 'LOCATION_NAMES', 'FOLDER_NAMES', 'DAYS', 'WEEKS', 'MONTHS', 'MONTHS_RETAIL', 'PLATFORM', 'FOURSQUARE_GENDER', 'FOURSQUARE_AGE', 'FOURSQUARE_TIME', 'SEARCH_QUERY');
+        $allowed_values = array('ACCOUNT_IDS', 'LOCATION_IDS', 'FOLDER_IDS', 'LOCATION_NAMES', 'FOLDER_NAMES', 'DAYS', 'WEEKS', 'MONTHS', 'MONTHS_RETAIL', 'PLATFORM', 'FOURSQUARE_GENDER', 'FOURSQUARE_AGE', 'FOURSQUARE_TIME', 'SEARCH_QUERY', 'GOOGLE_ACTION_TYPE', 'GOOGLE_QUERY_TYPE', 'GMB_HOURS');
         if ((array_diff($dimensions, $allowed_values))) {
-            throw new \InvalidArgumentException("Invalid value for 'dimensions', must be one of 'ACCOUNT_IDS', 'LOCATION_IDS', 'FOLDER_IDS', 'LOCATION_NAMES', 'FOLDER_NAMES', 'DAYS', 'WEEKS', 'MONTHS', 'MONTHS_RETAIL', 'PLATFORM', 'FOURSQUARE_GENDER', 'FOURSQUARE_AGE', 'FOURSQUARE_TIME', 'SEARCH_QUERY'");
+            throw new \InvalidArgumentException("Invalid value for 'dimensions', must be one of 'ACCOUNT_IDS', 'LOCATION_IDS', 'FOLDER_IDS', 'LOCATION_NAMES', 'FOLDER_NAMES', 'DAYS', 'WEEKS', 'MONTHS', 'MONTHS_RETAIL', 'PLATFORM', 'FOURSQUARE_GENDER', 'FOURSQUARE_AGE', 'FOURSQUARE_TIME', 'SEARCH_QUERY', 'GOOGLE_ACTION_TYPE', 'GOOGLE_QUERY_TYPE', 'GMB_HOURS'");
         }
         $this->container['dimensions'] = $dimensions;
 

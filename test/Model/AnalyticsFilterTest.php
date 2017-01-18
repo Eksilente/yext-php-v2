@@ -160,9 +160,9 @@ class AnalyticsFilterTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "instagram_content_type"
+     * Test attribute "hours"
      */
-    public function testPropertyInstagramContentType()
+    public function testPropertyHours()
     {
 
     }
@@ -176,9 +176,25 @@ class AnalyticsFilterTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "sites"
+     * Test attribute "instagram_content_type"
      */
-    public function testPropertySites()
+    public function testPropertyInstagramContentType()
+    {
+
+    }
+
+    /**
+     * Test attribute "google_action_type"
+     */
+    public function testPropertyGoogleActionType()
+    {
+
+    }
+
+    /**
+     * Test attribute "google_query_type"
+     */
+    public function testPropertyGoogleQueryType()
     {
 
     }

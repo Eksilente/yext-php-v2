@@ -74,9 +74,11 @@ class AnalyticsFilter implements ArrayAccess
         'min_search_frequency' => 'double',
         'foursquare_checkin_gender' => 'string',
         'foursquare_checkin_age' => 'string',
-        'instagram_content_type' => 'string',
+        'hours' => 'float[]',
         'location_labels' => 'string[]',
-        'sites' => 'string[]',
+        'instagram_content_type' => 'string',
+        'google_action_type' => 'string[]',
+        'google_query_type' => 'string[]',
         'platforms' => 'string[]',
         'max_search_frequency' => 'double',
         'foursquare_checkin_type' => 'string',
@@ -103,9 +105,11 @@ class AnalyticsFilter implements ArrayAccess
         'min_search_frequency' => 'minSearchFrequency',
         'foursquare_checkin_gender' => 'foursquareCheckinGender',
         'foursquare_checkin_age' => 'foursquareCheckinAge',
-        'instagram_content_type' => 'instagramContentType',
+        'hours' => 'hours',
         'location_labels' => 'locationLabels',
-        'sites' => 'sites',
+        'instagram_content_type' => 'instagramContentType',
+        'google_action_type' => 'googleActionType',
+        'google_query_type' => 'googleQueryType',
         'platforms' => 'platforms',
         'max_search_frequency' => 'maxSearchFrequency',
         'foursquare_checkin_type' => 'foursquareCheckinType',
@@ -128,9 +132,11 @@ class AnalyticsFilter implements ArrayAccess
         'min_search_frequency' => 'setMinSearchFrequency',
         'foursquare_checkin_gender' => 'setFoursquareCheckinGender',
         'foursquare_checkin_age' => 'setFoursquareCheckinAge',
-        'instagram_content_type' => 'setInstagramContentType',
+        'hours' => 'setHours',
         'location_labels' => 'setLocationLabels',
-        'sites' => 'setSites',
+        'instagram_content_type' => 'setInstagramContentType',
+        'google_action_type' => 'setGoogleActionType',
+        'google_query_type' => 'setGoogleQueryType',
         'platforms' => 'setPlatforms',
         'max_search_frequency' => 'setMaxSearchFrequency',
         'foursquare_checkin_type' => 'setFoursquareCheckinType',
@@ -153,9 +159,11 @@ class AnalyticsFilter implements ArrayAccess
         'min_search_frequency' => 'getMinSearchFrequency',
         'foursquare_checkin_gender' => 'getFoursquareCheckinGender',
         'foursquare_checkin_age' => 'getFoursquareCheckinAge',
-        'instagram_content_type' => 'getInstagramContentType',
+        'hours' => 'getHours',
         'location_labels' => 'getLocationLabels',
-        'sites' => 'getSites',
+        'instagram_content_type' => 'getInstagramContentType',
+        'google_action_type' => 'getGoogleActionType',
+        'google_query_type' => 'getGoogleQueryType',
         'platforms' => 'getPlatforms',
         'max_search_frequency' => 'getMaxSearchFrequency',
         'foursquare_checkin_type' => 'getFoursquareCheckinType',
@@ -179,8 +187,38 @@ class AnalyticsFilter implements ArrayAccess
         return self::$getters;
     }
 
+    const GOOGLE_ACTION_TYPE_DRIVING_DIRECTIONS = 'ACTION_DRIVING_DIRECTIONS';
+    const GOOGLE_ACTION_TYPE_PHONE = 'ACTION_PHONE';
+    const GOOGLE_ACTION_TYPE_WEBSITE = 'ACTION_WEBSITE';
+    const GOOGLE_QUERY_TYPE_DIRECT = 'QUERIES_DIRECT';
+    const GOOGLE_QUERY_TYPE_INDIRECT = 'QUERIES_INDIRECT';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getGoogleActionTypeAllowableValues()
+    {
+        return [
+            self::GOOGLE_ACTION_TYPE_DRIVING_DIRECTIONS,
+            self::GOOGLE_ACTION_TYPE_PHONE,
+            self::GOOGLE_ACTION_TYPE_WEBSITE,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getGoogleQueryTypeAllowableValues()
+    {
+        return [
+            self::GOOGLE_QUERY_TYPE_DIRECT,
+            self::GOOGLE_QUERY_TYPE_INDIRECT,
+        ];
+    }
     
 
     /**
@@ -203,9 +241,11 @@ class AnalyticsFilter implements ArrayAccess
         $this->container['min_search_frequency'] = isset($data['min_search_frequency']) ? $data['min_search_frequency'] : null;
         $this->container['foursquare_checkin_gender'] = isset($data['foursquare_checkin_gender']) ? $data['foursquare_checkin_gender'] : null;
         $this->container['foursquare_checkin_age'] = isset($data['foursquare_checkin_age']) ? $data['foursquare_checkin_age'] : null;
-        $this->container['instagram_content_type'] = isset($data['instagram_content_type']) ? $data['instagram_content_type'] : null;
+        $this->container['hours'] = isset($data['hours']) ? $data['hours'] : null;
         $this->container['location_labels'] = isset($data['location_labels']) ? $data['location_labels'] : null;
-        $this->container['sites'] = isset($data['sites']) ? $data['sites'] : null;
+        $this->container['instagram_content_type'] = isset($data['instagram_content_type']) ? $data['instagram_content_type'] : null;
+        $this->container['google_action_type'] = isset($data['google_action_type']) ? $data['google_action_type'] : null;
+        $this->container['google_query_type'] = isset($data['google_query_type']) ? $data['google_query_type'] : null;
         $this->container['platforms'] = isset($data['platforms']) ? $data['platforms'] : null;
         $this->container['max_search_frequency'] = isset($data['max_search_frequency']) ? $data['max_search_frequency'] : null;
         $this->container['foursquare_checkin_type'] = isset($data['foursquare_checkin_type']) ? $data['foursquare_checkin_type'] : null;
@@ -248,7 +288,7 @@ class AnalyticsFilter implements ArrayAccess
 
     /**
      * Sets start_date
-     * @param \DateTime $start_date The inclusive start date for the report data.  Defaults to 90 days before the end date. E.g. ‘2016-08-22’ NOTE: If WEEKS, MONTHS, or MONTHS_RETAIL is in dimensions, startDate must coincide with the beginning and end of a week or month, depending on the dimension chosen.
+     * @param \DateTime $start_date The inclusive start date for the report data.  Defaults to 90 days before the end date. E.g. ‘2016-08-22’ NOTE: If `WEEKS`, `MONTHS`, or `MONTHS_RETAIL` is in dimensions, startDate must coincide with the beginning and end of a week or month, depending on the dimension chosen.
      * @return $this
      */
     public function setStartDate($start_date)
@@ -290,7 +330,7 @@ class AnalyticsFilter implements ArrayAccess
 
     /**
      * Sets end_date
-     * @param \DateTime $end_date The inclusive end date for the report data.  Defaults to the lowest common denominator of the relevant maximum reporting dates. E.g. ‘2016-08-30’ NOTE: If WEEKS, MONTHS, or MONTHS_RETAIL is in dimensions, endDate must coincide with the beginning and end of a week or month, depending on the dimension chosen.
+     * @param \DateTime $end_date The inclusive end date for the report data.  Defaults to the lowest common denominator of the relevant maximum reporting dates. E.g. ‘2016-08-30’ NOTE: If `WEEKS`, `MONTHS`, or `MONTHS_RETAIL` is in dimensions, endDate must coincide with the beginning and end of a week or month, depending on the dimension chosen.
      * @return $this
      */
     public function setEndDate($end_date)
@@ -406,22 +446,22 @@ class AnalyticsFilter implements ArrayAccess
     }
 
     /**
-     * Gets instagram_content_type
-     * @return string
+     * Gets hours
+     * @return float[]
      */
-    public function getInstagramContentType()
+    public function getHours()
     {
-        return $this->container['instagram_content_type'];
+        return $this->container['hours'];
     }
 
     /**
-     * Sets instagram_content_type
-     * @param string $instagram_content_type
+     * Sets hours
+     * @param float[] $hours Specifies the hour(s) of day that should be included in the report. Can only, and must be used with the `GOOGLE_PHONE_CALLS` metric.
      * @return $this
      */
-    public function setInstagramContentType($instagram_content_type)
+    public function setHours($hours)
     {
-        $this->container['instagram_content_type'] = $instagram_content_type;
+        $this->container['hours'] = $hours;
 
         return $this;
     }
@@ -448,22 +488,72 @@ class AnalyticsFilter implements ArrayAccess
     }
 
     /**
-     * Gets sites
-     * @return string[]
+     * Gets instagram_content_type
+     * @return string
      */
-    public function getSites()
+    public function getInstagramContentType()
     {
-        return $this->container['sites'];
+        return $this->container['instagram_content_type'];
     }
 
     /**
-     * Sets sites
-     * @param string[] $sites
+     * Sets instagram_content_type
+     * @param string $instagram_content_type
      * @return $this
      */
-    public function setSites($sites)
+    public function setInstagramContentType($instagram_content_type)
     {
-        $this->container['sites'] = $sites;
+        $this->container['instagram_content_type'] = $instagram_content_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets google_action_type
+     * @return string[]
+     */
+    public function getGoogleActionType()
+    {
+        return $this->container['google_action_type'];
+    }
+
+    /**
+     * Sets google_action_type
+     * @param string[] $google_action_type Specifies the type of customer actions to be included in the report. Can only be used with the `GOOGLE_CUSTOMER_ACTIONS` metric.
+     * @return $this
+     */
+    public function setGoogleActionType($google_action_type)
+    {
+        $allowed_values = array('ACTION_DRIVING_DIRECTIONS', 'ACTION_PHONE', 'ACTION_WEBSITE');
+        if (!is_null($google_action_type) && (array_diff($google_action_type, $allowed_values))) {
+            throw new \InvalidArgumentException("Invalid value for 'google_action_type', must be one of 'ACTION_DRIVING_DIRECTIONS', 'ACTION_PHONE', 'ACTION_WEBSITE'");
+        }
+        $this->container['google_action_type'] = $google_action_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets google_query_type
+     * @return string[]
+     */
+    public function getGoogleQueryType()
+    {
+        return $this->container['google_query_type'];
+    }
+
+    /**
+     * Sets google_query_type
+     * @param string[] $google_query_type Specifies the type of queries to be included in the report. Can only be used with the `GOOGLE_SEARCHES` metric.
+     * @return $this
+     */
+    public function setGoogleQueryType($google_query_type)
+    {
+        $allowed_values = array('QUERIES_DIRECT', 'QUERIES_INDIRECT');
+        if (!is_null($google_query_type) && (array_diff($google_query_type, $allowed_values))) {
+            throw new \InvalidArgumentException("Invalid value for 'google_query_type', must be one of 'QUERIES_DIRECT', 'QUERIES_INDIRECT'");
+        }
+        $this->container['google_query_type'] = $google_query_type;
 
         return $this;
     }
@@ -563,7 +653,7 @@ class AnalyticsFilter implements ArrayAccess
 
     /**
      * Sets folder_id
-     * @param int $folder_id Specifies the folder whose locations and subfolders should be included in the results. Default is 0 (root folder). Cannot be used when ACCOUNT_ID is in dimensions.
+     * @param int $folder_id Specifies the folder whose locations and subfolders should be included in the results. Default is 0 (root folder). Cannot be used when `ACCOUNT_ID` is in dimensions.
      * @return $this
      */
     public function setFolderId($folder_id)
