@@ -1,6 +1,6 @@
 <?php
 /**
- * LocationManagerApi
+ * KnowledgeManagerApi
  * PHP version 5
  *
  * @category Class
@@ -46,7 +46,7 @@ use \Yext\Client\Configuration;
 use \Yext\Client\ObjectSerializer;
 
 /**
- * LocationManagerApi Class Doc Comment
+ * KnowledgeManagerApi Class Doc Comment
  *
  * @category Class
  * @package  Yext\Client
@@ -54,7 +54,7 @@ use \Yext\Client\ObjectSerializer;
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache License v2
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class LocationManagerApi
+class KnowledgeManagerApi
 {
     /**
      * API Client
@@ -93,7 +93,7 @@ class LocationManagerApi
      *
      * @param \Yext\Client\ApiClient $apiClient set the API client
      *
-     * @return LocationManagerApi
+     * @return KnowledgeManagerApi
      */
     public function setApiClient(\Yext\Client\ApiClient $apiClient)
     {
@@ -259,7 +259,7 @@ class LocationManagerApi
             throw new \InvalidArgumentException('Missing the required parameter $body when calling createEvent');
         }
         // parse inputs
-        $resourcePath = "/accounts/{accountId}/locations/events";
+        $resourcePath = "/accounts/{accountId}/events";
         $httpBody = '';
         $queryParams = [];
         $headerParams = [];
@@ -311,7 +311,7 @@ class LocationManagerApi
                 $httpBody,
                 $headerParams,
                 '\Yext\Client\Model\IdResponse',
-                '/accounts/{accountId}/locations/events'
+                '/accounts/{accountId}/events'
             );
 
             return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\IdResponse', $httpHeader), $statusCode, $httpHeader];
@@ -837,7 +837,7 @@ class LocationManagerApi
             throw new \InvalidArgumentException('Missing the required parameter $v when calling deleteEventList');
         }
         // parse inputs
-        $resourcePath = "/accounts/{accountId}/locations/events/{listId}";
+        $resourcePath = "/accounts/{accountId}/events/{listId}";
         $httpBody = '';
         $queryParams = [];
         $headerParams = [];
@@ -892,7 +892,7 @@ class LocationManagerApi
                 $httpBody,
                 $headerParams,
                 '\Yext\Client\Model\ErrorResponse',
-                '/accounts/{accountId}/locations/events/{listId}'
+                '/accounts/{accountId}/events/{listId}'
             );
 
             return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\ErrorResponse', $httpHeader), $statusCode, $httpHeader];
@@ -1205,7 +1205,7 @@ class LocationManagerApi
             throw new \InvalidArgumentException('Missing the required parameter $v when calling deleteProductList');
         }
         // parse inputs
-        $resourcePath = "/accounts/{accountId}/locations/products/{listId}";
+        $resourcePath = "/accounts/{accountId}/products/{listId}";
         $httpBody = '';
         $queryParams = [];
         $headerParams = [];
@@ -1260,7 +1260,7 @@ class LocationManagerApi
                 $httpBody,
                 $headerParams,
                 '\Yext\Client\Model\ErrorResponse',
-                '/accounts/{accountId}/locations/products/{listId}'
+                '/accounts/{accountId}/products/{listId}'
             );
 
             return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\ErrorResponse', $httpHeader), $statusCode, $httpHeader];
@@ -1439,7 +1439,7 @@ class LocationManagerApi
             throw new \InvalidArgumentException('Missing the required parameter $v when calling getBios');
         }
         if (!is_null($limit) && ($limit > 50.0)) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling LocationManagerApi.getBios, must be smaller than or equal to 50.0.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling KnowledgeManagerApi.getBios, must be smaller than or equal to 50.0.');
         }
 
         // parse inputs
@@ -1661,7 +1661,7 @@ class LocationManagerApi
             throw new \InvalidArgumentException('Missing the required parameter $account_id when calling getCustomFields');
         }
         if (!is_null($limit) && ($limit > 1000.0)) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling LocationManagerApi.getCustomFields, must be smaller than or equal to 1000.0.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling KnowledgeManagerApi.getCustomFields, must be smaller than or equal to 1000.0.');
         }
 
         // parse inputs
@@ -1783,7 +1783,7 @@ class LocationManagerApi
             throw new \InvalidArgumentException('Missing the required parameter $v when calling getEvent');
         }
         // parse inputs
-        $resourcePath = "/accounts/{accountId}/locations/events/{listId}";
+        $resourcePath = "/accounts/{accountId}/events/{listId}";
         $httpBody = '';
         $queryParams = [];
         $headerParams = [];
@@ -1838,7 +1838,7 @@ class LocationManagerApi
                 $httpBody,
                 $headerParams,
                 '\Yext\Client\Model\EventListResponse',
-                '/accounts/{accountId}/locations/events/{listId}'
+                '/accounts/{accountId}/events/{listId}'
             );
 
             return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\EventListResponse', $httpHeader), $statusCode, $httpHeader];
@@ -1899,11 +1899,11 @@ class LocationManagerApi
             throw new \InvalidArgumentException('Missing the required parameter $v when calling getEvents');
         }
         if (!is_null($limit) && ($limit > 50.0)) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling LocationManagerApi.getEvents, must be smaller than or equal to 50.0.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling KnowledgeManagerApi.getEvents, must be smaller than or equal to 50.0.');
         }
 
         // parse inputs
-        $resourcePath = "/accounts/{accountId}/locations/events";
+        $resourcePath = "/accounts/{accountId}/events";
         $httpBody = '';
         $queryParams = [];
         $headerParams = [];
@@ -1958,7 +1958,7 @@ class LocationManagerApi
                 $httpBody,
                 $headerParams,
                 '\Yext\Client\Model\EventListsResponse',
-                '/accounts/{accountId}/locations/events'
+                '/accounts/{accountId}/events'
             );
 
             return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\EventListsResponse', $httpHeader), $statusCode, $httpHeader];
@@ -2477,7 +2477,7 @@ class LocationManagerApi
             throw new \InvalidArgumentException('Missing the required parameter $v when calling getLocationFolders');
         }
         if (!is_null($limit) && ($limit > 1000.0)) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling LocationManagerApi.getLocationFolders, must be smaller than or equal to 1000.0.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling KnowledgeManagerApi.getLocationFolders, must be smaller than or equal to 1000.0.');
         }
 
         // parse inputs
@@ -2597,7 +2597,7 @@ class LocationManagerApi
             throw new \InvalidArgumentException('Missing the required parameter $v when calling getLocations');
         }
         if (!is_null($limit) && ($limit > 50.0)) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling LocationManagerApi.getLocations, must be smaller than or equal to 50.0.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling KnowledgeManagerApi.getLocations, must be smaller than or equal to 50.0.');
         }
 
         // parse inputs
@@ -2835,7 +2835,7 @@ class LocationManagerApi
             throw new \InvalidArgumentException('Missing the required parameter $v when calling getMenus');
         }
         if (!is_null($limit) && ($limit > 50.0)) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling LocationManagerApi.getMenus, must be smaller than or equal to 50.0.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling KnowledgeManagerApi.getMenus, must be smaller than or equal to 50.0.');
         }
 
         // parse inputs
@@ -2957,7 +2957,7 @@ class LocationManagerApi
             throw new \InvalidArgumentException('Missing the required parameter $v when calling getProduct');
         }
         // parse inputs
-        $resourcePath = "/accounts/{accountId}/locations/products/{listId}";
+        $resourcePath = "/accounts/{accountId}/products/{listId}";
         $httpBody = '';
         $queryParams = [];
         $headerParams = [];
@@ -3012,7 +3012,7 @@ class LocationManagerApi
                 $httpBody,
                 $headerParams,
                 '\Yext\Client\Model\ProductListResponse',
-                '/accounts/{accountId}/locations/products/{listId}'
+                '/accounts/{accountId}/products/{listId}'
             );
 
             return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\ProductListResponse', $httpHeader), $statusCode, $httpHeader];
@@ -3073,7 +3073,7 @@ class LocationManagerApi
             throw new \InvalidArgumentException('Missing the required parameter $v when calling getProducts');
         }
         if (!is_null($limit) && ($limit > 50.0)) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling LocationManagerApi.getProducts, must be smaller than or equal to 50.0.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling KnowledgeManagerApi.getProducts, must be smaller than or equal to 50.0.');
         }
 
         // parse inputs
@@ -3330,7 +3330,7 @@ class LocationManagerApi
             throw new \InvalidArgumentException('Missing the required parameter $body when calling updateEvent');
         }
         // parse inputs
-        $resourcePath = "/accounts/{accountId}/locations/events/{listId}";
+        $resourcePath = "/accounts/{accountId}/events/{listId}";
         $httpBody = '';
         $queryParams = [];
         $headerParams = [];
@@ -3390,7 +3390,7 @@ class LocationManagerApi
                 $httpBody,
                 $headerParams,
                 '\Yext\Client\Model\EventListResponse',
-                '/accounts/{accountId}/locations/events/{listId}'
+                '/accounts/{accountId}/events/{listId}'
             );
 
             return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\EventListResponse', $httpHeader), $statusCode, $httpHeader];
@@ -3717,7 +3717,7 @@ class LocationManagerApi
             throw new \InvalidArgumentException('Missing the required parameter $body when calling updateProduct');
         }
         // parse inputs
-        $resourcePath = "/accounts/{accountId}/locations/products/{listId}";
+        $resourcePath = "/accounts/{accountId}/products/{listId}";
         $httpBody = '';
         $queryParams = [];
         $headerParams = [];
@@ -3777,7 +3777,7 @@ class LocationManagerApi
                 $httpBody,
                 $headerParams,
                 '\Yext\Client\Model\ProductListResponse',
-                '/accounts/{accountId}/locations/products/{listId}'
+                '/accounts/{accountId}/products/{listId}'
             );
 
             return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\ProductListResponse', $httpHeader), $statusCode, $httpHeader];

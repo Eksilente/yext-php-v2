@@ -63,10 +63,11 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 
 $api_instance = new Yext\Client\Api\AnalyticsApi();
 $account_id = "account_id_example"; // string | 
+$v = "20161012"; // string | A date in `YYYYMMDD` format.
 $body = new \Yext\Client\Model\ActivityLogRequest(); // \Yext\Client\Model\ActivityLogRequest | 
 
 try {
-    $result = $api_instance->activityLog($account_id, $body);
+    $result = $api_instance->activityLog($account_id, $v, $body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AnalyticsApi->activityLog: ', $e->getMessage(), PHP_EOL;
@@ -85,69 +86,72 @@ Class | Method | HTTP request | Description
 *AnalyticsApi* | [**createReports**](docs/Api/AnalyticsApi.md#createreports) | **POST** /accounts/{accountId}/analytics/reports | Create Reports
 *AnalyticsApi* | [**getMaxDates**](docs/Api/AnalyticsApi.md#getmaxdates) | **GET** /accounts/{accountId}/analytics/maxdates | Max Dates
 *AnalyticsApi* | [**reportStatus**](docs/Api/AnalyticsApi.md#reportstatus) | **GET** /accounts/{accountId}/analytics/standardreports/{reportId} | Report Status
-*LocationManagerApi* | [**createBio**](docs/Api/LocationManagerApi.md#createbio) | **POST** /accounts/{accountId}/bios | Bios: Create
-*LocationManagerApi* | [**createEvent**](docs/Api/LocationManagerApi.md#createevent) | **POST** /accounts/{accountId}/locations/events | Events: Create
-*LocationManagerApi* | [**createLocation**](docs/Api/LocationManagerApi.md#createlocation) | **POST** /accounts/{accountId}/locations | Locations: Create
-*LocationManagerApi* | [**createMenu**](docs/Api/LocationManagerApi.md#createmenu) | **POST** /accounts/{accountId}/menus | Menus: Create
-*LocationManagerApi* | [**createProduct**](docs/Api/LocationManagerApi.md#createproduct) | **POST** /accounts/{accountId}/products | Products: Create
-*LocationManagerApi* | [**deleteBioList**](docs/Api/LocationManagerApi.md#deletebiolist) | **DELETE** /accounts/{accountId}/bios/{listId} | Bios: Delete
-*LocationManagerApi* | [**deleteEventList**](docs/Api/LocationManagerApi.md#deleteeventlist) | **DELETE** /accounts/{accountId}/locations/events/{listId} | Events: Delete
-*LocationManagerApi* | [**deleteLanguageProfile**](docs/Api/LocationManagerApi.md#deletelanguageprofile) | **DELETE** /accounts/{accountId}/locations/{locationId}/profiles/{language_code} | Language Profiles: Delete
-*LocationManagerApi* | [**deleteMenuList**](docs/Api/LocationManagerApi.md#deletemenulist) | **DELETE** /accounts/{accountId}/menus/{listId} | Menus: Delete
-*LocationManagerApi* | [**deleteProductList**](docs/Api/LocationManagerApi.md#deleteproductlist) | **DELETE** /accounts/{accountId}/locations/products/{listId} | Products: Delete
-*LocationManagerApi* | [**getBio**](docs/Api/LocationManagerApi.md#getbio) | **GET** /accounts/{accountId}/bios/{listId} | Bios: Get
-*LocationManagerApi* | [**getBios**](docs/Api/LocationManagerApi.md#getbios) | **GET** /accounts/{accountId}/bios | Bios: List
-*LocationManagerApi* | [**getBusinessCategories**](docs/Api/LocationManagerApi.md#getbusinesscategories) | **GET** /categories | Categories: List
-*LocationManagerApi* | [**getCustomFields**](docs/Api/LocationManagerApi.md#getcustomfields) | **GET** /accounts/{accountId}/customfields | Custom Fields: List
-*LocationManagerApi* | [**getEvent**](docs/Api/LocationManagerApi.md#getevent) | **GET** /accounts/{accountId}/locations/events/{listId} | Events: Get
-*LocationManagerApi* | [**getEvents**](docs/Api/LocationManagerApi.md#getevents) | **GET** /accounts/{accountId}/locations/events | Events: List
-*LocationManagerApi* | [**getGoogleKeywords**](docs/Api/LocationManagerApi.md#getgooglekeywords) | **GET** /googlefields | Google Fields: List
-*LocationManagerApi* | [**getLanguageProfile**](docs/Api/LocationManagerApi.md#getlanguageprofile) | **GET** /accounts/{accountId}/locations/{locationId}/profiles/{language_code} | Language Profiles: Get
-*LocationManagerApi* | [**getLanguageProfiles**](docs/Api/LocationManagerApi.md#getlanguageprofiles) | **GET** /accounts/{accountId}/locations/{locationId}/profiles | Language Profiles: List
-*LocationManagerApi* | [**getLocation**](docs/Api/LocationManagerApi.md#getlocation) | **GET** /accounts/{accountId}/locations/{locationId} | Locations: Get
-*LocationManagerApi* | [**getLocationFolders**](docs/Api/LocationManagerApi.md#getlocationfolders) | **GET** /accounts/{accountId}/folders | Folders: List
-*LocationManagerApi* | [**getLocations**](docs/Api/LocationManagerApi.md#getlocations) | **GET** /accounts/{accountId}/locations | Locations: List
-*LocationManagerApi* | [**getMenu**](docs/Api/LocationManagerApi.md#getmenu) | **GET** /accounts/{accountId}/menus/{listId} | Menus: Get
-*LocationManagerApi* | [**getMenus**](docs/Api/LocationManagerApi.md#getmenus) | **GET** /accounts/{accountId}/menus | Menus: List
-*LocationManagerApi* | [**getProduct**](docs/Api/LocationManagerApi.md#getproduct) | **GET** /accounts/{accountId}/locations/products/{listId} | Products: Get
-*LocationManagerApi* | [**getProducts**](docs/Api/LocationManagerApi.md#getproducts) | **GET** /accounts/{accountId}/products | Products: List
-*LocationManagerApi* | [**updateBio**](docs/Api/LocationManagerApi.md#updatebio) | **PUT** /accounts/{accountId}/bios/{listId} | Bios: Update
-*LocationManagerApi* | [**updateEvent**](docs/Api/LocationManagerApi.md#updateevent) | **PUT** /accounts/{accountId}/locations/events/{listId} | Events: Update
-*LocationManagerApi* | [**updateLocation**](docs/Api/LocationManagerApi.md#updatelocation) | **PUT** /accounts/{accountId}/locations/{locationId} | Locations: Update
-*LocationManagerApi* | [**updateMenu**](docs/Api/LocationManagerApi.md#updatemenu) | **PUT** /accounts/{accountId}/menus/{listId} | Menus: Update
-*LocationManagerApi* | [**updateProduct**](docs/Api/LocationManagerApi.md#updateproduct) | **PUT** /accounts/{accountId}/locations/products/{listId} | Products: Update
-*LocationManagerApi* | [**upsertLanguageProfile**](docs/Api/LocationManagerApi.md#upsertlanguageprofile) | **PUT** /accounts/{accountId}/locations/{locationId}/profiles/{language_code} | Language Profiles: Upsert
-*PowerListingsApi* | [**createDuplicate**](docs/Api/PowerListingsApi.md#createduplicate) | **POST** /accounts/{accountId}/powerlistings/duplicates | Duplicates: Create (January 2017)
-*PowerListingsApi* | [**deleteDuplicate**](docs/Api/PowerListingsApi.md#deleteduplicate) | **DELETE** /accounts/{accountId}/powerlistings/duplicates/{duplicateId} | Duplicates: Delete (January 2017)
+*HealthCheckApi* | [**healthCheck**](docs/Api/HealthCheckApi.md#healthcheck) | **GET** /healthy | Health Check
+*KnowledgeManagerApi* | [**createBio**](docs/Api/KnowledgeManagerApi.md#createbio) | **POST** /accounts/{accountId}/bios | Bios: Create
+*KnowledgeManagerApi* | [**createEvent**](docs/Api/KnowledgeManagerApi.md#createevent) | **POST** /accounts/{accountId}/events | Events: Create
+*KnowledgeManagerApi* | [**createLocation**](docs/Api/KnowledgeManagerApi.md#createlocation) | **POST** /accounts/{accountId}/locations | Locations: Create
+*KnowledgeManagerApi* | [**createMenu**](docs/Api/KnowledgeManagerApi.md#createmenu) | **POST** /accounts/{accountId}/menus | Menus: Create
+*KnowledgeManagerApi* | [**createProduct**](docs/Api/KnowledgeManagerApi.md#createproduct) | **POST** /accounts/{accountId}/products | Products: Create
+*KnowledgeManagerApi* | [**deleteBioList**](docs/Api/KnowledgeManagerApi.md#deletebiolist) | **DELETE** /accounts/{accountId}/bios/{listId} | Bios: Delete
+*KnowledgeManagerApi* | [**deleteEventList**](docs/Api/KnowledgeManagerApi.md#deleteeventlist) | **DELETE** /accounts/{accountId}/events/{listId} | Events: Delete
+*KnowledgeManagerApi* | [**deleteLanguageProfile**](docs/Api/KnowledgeManagerApi.md#deletelanguageprofile) | **DELETE** /accounts/{accountId}/locations/{locationId}/profiles/{language_code} | Language Profiles: Delete
+*KnowledgeManagerApi* | [**deleteMenuList**](docs/Api/KnowledgeManagerApi.md#deletemenulist) | **DELETE** /accounts/{accountId}/menus/{listId} | Menus: Delete
+*KnowledgeManagerApi* | [**deleteProductList**](docs/Api/KnowledgeManagerApi.md#deleteproductlist) | **DELETE** /accounts/{accountId}/products/{listId} | Products: Delete
+*KnowledgeManagerApi* | [**getBio**](docs/Api/KnowledgeManagerApi.md#getbio) | **GET** /accounts/{accountId}/bios/{listId} | Bios: Get
+*KnowledgeManagerApi* | [**getBios**](docs/Api/KnowledgeManagerApi.md#getbios) | **GET** /accounts/{accountId}/bios | Bios: List
+*KnowledgeManagerApi* | [**getBusinessCategories**](docs/Api/KnowledgeManagerApi.md#getbusinesscategories) | **GET** /categories | Categories: List
+*KnowledgeManagerApi* | [**getCustomFields**](docs/Api/KnowledgeManagerApi.md#getcustomfields) | **GET** /accounts/{accountId}/customfields | Custom Fields: List
+*KnowledgeManagerApi* | [**getEvent**](docs/Api/KnowledgeManagerApi.md#getevent) | **GET** /accounts/{accountId}/events/{listId} | Events: Get
+*KnowledgeManagerApi* | [**getEvents**](docs/Api/KnowledgeManagerApi.md#getevents) | **GET** /accounts/{accountId}/events | Events: List
+*KnowledgeManagerApi* | [**getGoogleKeywords**](docs/Api/KnowledgeManagerApi.md#getgooglekeywords) | **GET** /googlefields | Google Fields: List
+*KnowledgeManagerApi* | [**getLanguageProfile**](docs/Api/KnowledgeManagerApi.md#getlanguageprofile) | **GET** /accounts/{accountId}/locations/{locationId}/profiles/{language_code} | Language Profiles: Get
+*KnowledgeManagerApi* | [**getLanguageProfiles**](docs/Api/KnowledgeManagerApi.md#getlanguageprofiles) | **GET** /accounts/{accountId}/locations/{locationId}/profiles | Language Profiles: List
+*KnowledgeManagerApi* | [**getLocation**](docs/Api/KnowledgeManagerApi.md#getlocation) | **GET** /accounts/{accountId}/locations/{locationId} | Locations: Get
+*KnowledgeManagerApi* | [**getLocationFolders**](docs/Api/KnowledgeManagerApi.md#getlocationfolders) | **GET** /accounts/{accountId}/folders | Folders: List
+*KnowledgeManagerApi* | [**getLocations**](docs/Api/KnowledgeManagerApi.md#getlocations) | **GET** /accounts/{accountId}/locations | Locations: List
+*KnowledgeManagerApi* | [**getMenu**](docs/Api/KnowledgeManagerApi.md#getmenu) | **GET** /accounts/{accountId}/menus/{listId} | Menus: Get
+*KnowledgeManagerApi* | [**getMenus**](docs/Api/KnowledgeManagerApi.md#getmenus) | **GET** /accounts/{accountId}/menus | Menus: List
+*KnowledgeManagerApi* | [**getProduct**](docs/Api/KnowledgeManagerApi.md#getproduct) | **GET** /accounts/{accountId}/products/{listId} | Products: Get
+*KnowledgeManagerApi* | [**getProducts**](docs/Api/KnowledgeManagerApi.md#getproducts) | **GET** /accounts/{accountId}/products | Products: List
+*KnowledgeManagerApi* | [**updateBio**](docs/Api/KnowledgeManagerApi.md#updatebio) | **PUT** /accounts/{accountId}/bios/{listId} | Bios: Update
+*KnowledgeManagerApi* | [**updateEvent**](docs/Api/KnowledgeManagerApi.md#updateevent) | **PUT** /accounts/{accountId}/events/{listId} | Events: Update
+*KnowledgeManagerApi* | [**updateLocation**](docs/Api/KnowledgeManagerApi.md#updatelocation) | **PUT** /accounts/{accountId}/locations/{locationId} | Locations: Update
+*KnowledgeManagerApi* | [**updateMenu**](docs/Api/KnowledgeManagerApi.md#updatemenu) | **PUT** /accounts/{accountId}/menus/{listId} | Menus: Update
+*KnowledgeManagerApi* | [**updateProduct**](docs/Api/KnowledgeManagerApi.md#updateproduct) | **PUT** /accounts/{accountId}/products/{listId} | Products: Update
+*KnowledgeManagerApi* | [**upsertLanguageProfile**](docs/Api/KnowledgeManagerApi.md#upsertlanguageprofile) | **PUT** /accounts/{accountId}/locations/{locationId}/profiles/{language_code} | Language Profiles: Upsert
+*OptimizationTasksApi* | [**getLinkOptimizationTask**](docs/Api/OptimizationTasksApi.md#getlinkoptimizationtask) | **GET** /accounts/{accountId}/optimizationlink | Optimization Tasks: Get Link
+*OptimizationTasksApi* | [**getOptimizationTasks**](docs/Api/OptimizationTasksApi.md#getoptimizationtasks) | **GET** /accounts/{accountId}/optimizationtasks | Optimization Tasks: List
+*PowerListingsApi* | [**createDuplicate**](docs/Api/PowerListingsApi.md#createduplicate) | **POST** /accounts/{accountId}/powerlistings/duplicates | Duplicates: Create
+*PowerListingsApi* | [**deleteDuplicate**](docs/Api/PowerListingsApi.md#deleteduplicate) | **DELETE** /accounts/{accountId}/powerlistings/duplicates/{duplicateId} | Duplicates: Delete
 *PowerListingsApi* | [**getPublisherSuggestion**](docs/Api/PowerListingsApi.md#getpublishersuggestion) | **GET** /accounts/{accountId}/powerlistings/publishersuggestions/{suggestionId} | Publisher Suggestions: Get
-*PowerListingsApi* | [**listDuplicates**](docs/Api/PowerListingsApi.md#listduplicates) | **GET** /accounts/{accountId}/powerlistings/duplicates | Duplicates: List (January 2017)
+*PowerListingsApi* | [**listDuplicates**](docs/Api/PowerListingsApi.md#listduplicates) | **GET** /accounts/{accountId}/powerlistings/duplicates | Duplicates: List
 *PowerListingsApi* | [**listListings**](docs/Api/PowerListingsApi.md#listlistings) | **GET** /accounts/{accountId}/powerlistings/listings | Listings: List
 *PowerListingsApi* | [**listPublisherSuggestions**](docs/Api/PowerListingsApi.md#listpublishersuggestions) | **GET** /accounts/{accountId}/powerlistings/publishersuggestions | Publisher Suggestions: List
 *PowerListingsApi* | [**listPublishers**](docs/Api/PowerListingsApi.md#listpublishers) | **GET** /accounts/{accountId}/powerlistings/publishers | Publishers: List
 *PowerListingsApi* | [**optInListings**](docs/Api/PowerListingsApi.md#optinlistings) | **PUT** /accounts/{accountId}/powerlistings/listings/optin | Listings: Opt In
 *PowerListingsApi* | [**optOutListings**](docs/Api/PowerListingsApi.md#optoutlistings) | **PUT** /accounts/{accountId}/powerlistings/listings/optout | Listings: Opt Out
-*PowerListingsApi* | [**suppressDuplicate**](docs/Api/PowerListingsApi.md#suppressduplicate) | **PUT** /accounts/{accountId}/powerlistings/duplicates/{duplicateId} | Duplicates: Suppress (January 2017)
+*PowerListingsApi* | [**suppressDuplicate**](docs/Api/PowerListingsApi.md#suppressduplicate) | **PUT** /accounts/{accountId}/powerlistings/duplicates/{duplicateId} | Duplicates: Suppress
 *PowerListingsApi* | [**updatePublisherSuggestion**](docs/Api/PowerListingsApi.md#updatepublishersuggestion) | **PUT** /accounts/{accountId}/powerlistings/publishersuggestions/{suggestionId} | Publisher Suggestions: Update
 *ReviewsApi* | [**createComment**](docs/Api/ReviewsApi.md#createcomment) | **POST** /accounts/{accountId}/reviews/{reviewId}/comments | Comments: Create
 *ReviewsApi* | [**createReview**](docs/Api/ReviewsApi.md#createreview) | **POST** /accounts/{accountId}/reviews | Reviews: Create
 *ReviewsApi* | [**createReviewInvites**](docs/Api/ReviewsApi.md#createreviewinvites) | **POST** /accounts/{accountId}/reviewinvites | Review Invitations: Create
 *ReviewsApi* | [**getReview**](docs/Api/ReviewsApi.md#getreview) | **GET** /accounts/{accountId}/reviews/{reviewId} | Reviews: Get
+*ReviewsApi* | [**getReviewGenerationSettings**](docs/Api/ReviewsApi.md#getreviewgenerationsettings) | **GET** /accounts/{accountId}/reviews/settings/generation | Review Generation Settings: Get
 *ReviewsApi* | [**listReviews**](docs/Api/ReviewsApi.md#listreviews) | **GET** /accounts/{accountId}/reviews | Reviews: List
 *ReviewsApi* | [**updateReview**](docs/Api/ReviewsApi.md#updatereview) | **PUT** /accounts/{accountId}/reviews/{reviewId} | Reviews: Update
-*SocialJanuaryApi* | [**createComment**](docs/Api/SocialJanuaryApi.md#createcomment) | **POST** /accounts/{accountId}/posts/{postId}/comments | Comments: Create
-*SocialJanuaryApi* | [**createPosts**](docs/Api/SocialJanuaryApi.md#createposts) | **POST** /accounts/{accountId}/posts | Posts: Create
-*SocialJanuaryApi* | [**deleteComment**](docs/Api/SocialJanuaryApi.md#deletecomment) | **DELETE** /accounts/{accountId}/posts/{postId}/comments/{commentId} | Comments: delete
-*SocialJanuaryApi* | [**deletePost**](docs/Api/SocialJanuaryApi.md#deletepost) | **DELETE** /accounts/{accountId}/posts/{postId} | Posts: Delete
-*SocialJanuaryApi* | [**getComments**](docs/Api/SocialJanuaryApi.md#getcomments) | **GET** /accounts/{accountId}/posts/{postId}/comments | Comments: List
-*SocialJanuaryApi* | [**getLinkedAccount**](docs/Api/SocialJanuaryApi.md#getlinkedaccount) | **GET** /accounts/{accountId}/linkedaccounts/{linkedAccountId} | Linked Accounts: Get
-*SocialJanuaryApi* | [**getLinkedAccounts**](docs/Api/SocialJanuaryApi.md#getlinkedaccounts) | **GET** /accounts/{accountId}/linkedaccounts | Linked Accounts: List
-*SocialJanuaryApi* | [**getPosts**](docs/Api/SocialJanuaryApi.md#getposts) | **GET** /accounts/{accountId}/posts | Posts: List
-*SocialJanuaryApi* | [**updateComment**](docs/Api/SocialJanuaryApi.md#updatecomment) | **PUT** /accounts/{accountId}/posts/{postId}/comments/{commentId} | Comments: Update
-*SocialJanuaryApi* | [**updateLinkedAccount**](docs/Api/SocialJanuaryApi.md#updatelinkedaccount) | **PUT** /accounts/{accountId}/linkedaccounts/{linkedAccountId} | Linked Accounts: Update
+*ReviewsApi* | [**updateReviewGenerationSettings**](docs/Api/ReviewsApi.md#updatereviewgenerationsettings) | **POST** /accounts/{accountId}/reviews/settings/generation | Review Generation Settings: Update
+*SocialSpringSummerApi* | [**createComment**](docs/Api/SocialSpringSummerApi.md#createcomment) | **POST** /accounts/{accountId}/posts/{postId}/comments | Comments: Create
+*SocialSpringSummerApi* | [**createPosts**](docs/Api/SocialSpringSummerApi.md#createposts) | **POST** /accounts/{accountId}/posts | Posts: Create
+*SocialSpringSummerApi* | [**deleteComment**](docs/Api/SocialSpringSummerApi.md#deletecomment) | **DELETE** /accounts/{accountId}/posts/{postId}/comments/{commentId} | Comments: delete
+*SocialSpringSummerApi* | [**deletePost**](docs/Api/SocialSpringSummerApi.md#deletepost) | **DELETE** /accounts/{accountId}/posts/{postId} | Posts: Delete
+*SocialSpringSummerApi* | [**getComments**](docs/Api/SocialSpringSummerApi.md#getcomments) | **GET** /accounts/{accountId}/posts/{postId}/comments | Comments: List
+*SocialSpringSummerApi* | [**getLinkedAccount**](docs/Api/SocialSpringSummerApi.md#getlinkedaccount) | **GET** /accounts/{accountId}/linkedaccounts/{linkedAccountId} | Linked Accounts: Get
+*SocialSpringSummerApi* | [**getLinkedAccounts**](docs/Api/SocialSpringSummerApi.md#getlinkedaccounts) | **GET** /accounts/{accountId}/linkedaccounts | Linked Accounts: List
+*SocialSpringSummerApi* | [**getPosts**](docs/Api/SocialSpringSummerApi.md#getposts) | **GET** /accounts/{accountId}/posts | Posts: List
+*SocialSpringSummerApi* | [**updateComment**](docs/Api/SocialSpringSummerApi.md#updatecomment) | **PUT** /accounts/{accountId}/posts/{postId}/comments/{commentId} | Comments: Update
+*SocialSpringSummerApi* | [**updateLinkedAccount**](docs/Api/SocialSpringSummerApi.md#updatelinkedaccount) | **PUT** /accounts/{accountId}/linkedaccounts/{linkedAccountId} | Linked Accounts: Update
 *UserApi* | [**createUser**](docs/Api/UserApi.md#createuser) | **POST** /accounts/{accountId}/users | Users: Create
 *UserApi* | [**deleteUser**](docs/Api/UserApi.md#deleteuser) | **DELETE** /accounts/{accountId}/users/{userId} | Users: Delete
-*UserApi* | [**getLinkOptimizationTask**](docs/Api/UserApi.md#getlinkoptimizationtask) | **GET** /accounts/{accountId}/optimizationlink | Optimization Tasks: Get Link
-*UserApi* | [**getOptimizationTasks**](docs/Api/UserApi.md#getoptimizationtasks) | **GET** /accounts/{accountId}/optimizationtasks | Optimization Tasks: List
 *UserApi* | [**getRoles**](docs/Api/UserApi.md#getroles) | **GET** /accounts/{accountId}/roles | Roles: Get
 *UserApi* | [**getUser**](docs/Api/UserApi.md#getuser) | **GET** /accounts/{accountId}/users/{userId} | Users: Get
 *UserApi* | [**getUsers**](docs/Api/UserApi.md#getusers) | **GET** /accounts/{accountId}/users | Users: List
@@ -203,6 +207,7 @@ Class | Method | HTTP request | Description
  - [Folder](docs/Model/Folder.md)
  - [FoldersResponse](docs/Model/FoldersResponse.md)
  - [FoldersResponseResponse](docs/Model/FoldersResponseResponse.md)
+ - [GetReviewGenerationSettingsResponse](docs/Model/GetReviewGenerationSettingsResponse.md)
  - [GoogleCategory](docs/Model/GoogleCategory.md)
  - [GoogleField](docs/Model/GoogleField.md)
  - [GoogleFieldsResponse](docs/Model/GoogleFieldsResponse.md)
@@ -223,6 +228,7 @@ Class | Method | HTTP request | Description
  - [ListingsResponseResponse](docs/Model/ListingsResponseResponse.md)
  - [Location](docs/Model/Location.md)
  - [LocationClosed](docs/Model/LocationClosed.md)
+ - [LocationCompetitors](docs/Model/LocationCompetitors.md)
  - [LocationEducationList](docs/Model/LocationEducationList.md)
  - [LocationGoogleAttributes](docs/Model/LocationGoogleAttributes.md)
  - [LocationHolidayHours](docs/Model/LocationHolidayHours.md)
@@ -266,6 +272,7 @@ Class | Method | HTTP request | Description
  - [ResponseMeta](docs/Model/ResponseMeta.md)
  - [Review](docs/Model/Review.md)
  - [ReviewComment](docs/Model/ReviewComment.md)
+ - [ReviewGenerationSettings](docs/Model/ReviewGenerationSettings.md)
  - [ReviewInvitation](docs/Model/ReviewInvitation.md)
  - [ReviewResponse](docs/Model/ReviewResponse.md)
  - [ReviewsResponse](docs/Model/ReviewsResponse.md)

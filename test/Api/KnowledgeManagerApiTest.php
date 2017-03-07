@@ -1,6 +1,6 @@
 <?php
 /**
- * LocationManagerApiTest
+ * KnowledgeManagerApiTest
  * PHP version 5
  *
  * @category Class
@@ -46,7 +46,7 @@ use \Yext\Client\ApiException;
 use \Yext\Client\ObjectSerializer;
 
 /**
- * LocationManagerApiTest Class Doc Comment
+ * KnowledgeManagerApiTest Class Doc Comment
  *
  * @category Class
  * @package  Yext\Client
@@ -54,7 +54,7 @@ use \Yext\Client\ObjectSerializer;
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache License v2
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class LocationManagerApiTest extends \PHPUnit_Framework_TestCase
+class KnowledgeManagerApiTest extends \PHPUnit_Framework_TestCase
 {
 
     /**

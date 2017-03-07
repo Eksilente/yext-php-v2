@@ -96,6 +96,14 @@ class ReviewTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "status"
+     */
+    public function testPropertyStatus()
+    {
+
+    }
+
+    /**
      * Test attribute "rating"
      */
     public function testPropertyRating()

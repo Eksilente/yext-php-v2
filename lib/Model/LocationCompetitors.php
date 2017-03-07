@@ -1,6 +1,6 @@
 <?php
 /**
- * CustomField
+ * LocationCompetitors
  *
  * PHP version 5
  *
@@ -44,7 +44,7 @@ namespace Yext\Client\Model;
 use \ArrayAccess;
 
 /**
- * CustomField Class Doc Comment
+ * LocationCompetitors Class Doc Comment
  *
  * @category    Class */
 /**
@@ -53,22 +53,20 @@ use \ArrayAccess;
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache License v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class CustomField implements ArrayAccess
+class LocationCompetitors implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'CustomField';
+    protected static $swaggerModelName = 'Location_competitors';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'options' => '\Yext\Client\Model\CustomOption[]',
-        'type' => 'string',
-        'id' => 'string',
+        'website' => 'string',
         'name' => 'string'
     ];
 
@@ -82,9 +80,7 @@ class CustomField implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'options' => 'options',
-        'type' => 'type',
-        'id' => 'id',
+        'website' => 'website',
         'name' => 'name'
     ];
 
@@ -94,9 +90,7 @@ class CustomField implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'options' => 'setOptions',
-        'type' => 'setType',
-        'id' => 'setId',
+        'website' => 'setWebsite',
         'name' => 'setName'
     ];
 
@@ -106,9 +100,7 @@ class CustomField implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'options' => 'getOptions',
-        'type' => 'getType',
-        'id' => 'getId',
+        'website' => 'getWebsite',
         'name' => 'getName'
     ];
 
@@ -127,48 +119,8 @@ class CustomField implements ArrayAccess
         return self::$getters;
     }
 
-    const TYPE_BOOLEAN = 'BOOLEAN';
-    const TYPE_DAILY_TIMES = 'DAILY_TIMES';
-    const TYPE_DATE = 'DATE';
-    const TYPE_GALLERY = 'GALLERY';
-    const TYPE_HOURS = 'HOURS';
-    const TYPE_MULTILINE_TEXT = 'MULTILINE_TEXT';
-    const TYPE_MULTI_OPTION = 'MULTI_OPTION';
-    const TYPE_NUMBER = 'NUMBER';
-    const TYPE_PHOTO = 'PHOTO';
-    const TYPE_SINGLE_OPTION = 'SINGLE_OPTION';
-    const TYPE_TEXT = 'TEXT';
-    const TYPE_TEXT_LIST = 'TEXT_LIST';
-    const TYPE_URL = 'URL';
-    const TYPE_VIDEO = 'VIDEO';
-    const TYPE_VIDEO_GALLERY = 'VIDEO_GALLERY';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_BOOLEAN,
-            self::TYPE_DAILY_TIMES,
-            self::TYPE_DATE,
-            self::TYPE_GALLERY,
-            self::TYPE_HOURS,
-            self::TYPE_MULTILINE_TEXT,
-            self::TYPE_MULTI_OPTION,
-            self::TYPE_NUMBER,
-            self::TYPE_PHOTO,
-            self::TYPE_SINGLE_OPTION,
-            self::TYPE_TEXT,
-            self::TYPE_TEXT_LIST,
-            self::TYPE_URL,
-            self::TYPE_VIDEO,
-            self::TYPE_VIDEO_GALLERY,
-        ];
-    }
     
 
     /**
@@ -183,9 +135,7 @@ class CustomField implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['options'] = isset($data['options']) ? $data['options'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['website'] = isset($data['website']) ? $data['website'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
     }
 
@@ -197,11 +147,6 @@ class CustomField implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = [];
-        $allowed_values = ["BOOLEAN", "DAILY_TIMES", "DATE", "GALLERY", "HOURS", "MULTILINE_TEXT", "MULTI_OPTION", "NUMBER", "PHOTO", "SINGLE_OPTION", "TEXT", "TEXT_LIST", "URL", "VIDEO", "VIDEO_GALLERY"];
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowed_values)) {
-            $invalid_properties[] = "invalid value for 'type', must be one of #{allowed_values}.";
-        }
-
         return $invalid_properties;
     }
 
@@ -213,77 +158,27 @@ class CustomField implements ArrayAccess
      */
     public function valid()
     {
-        $allowed_values = ["BOOLEAN", "DAILY_TIMES", "DATE", "GALLERY", "HOURS", "MULTILINE_TEXT", "MULTI_OPTION", "NUMBER", "PHOTO", "SINGLE_OPTION", "TEXT", "TEXT_LIST", "URL", "VIDEO", "VIDEO_GALLERY"];
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowed_values)) {
-            return false;
-        }
         return true;
     }
 
 
     /**
-     * Gets options
-     * @return \Yext\Client\Model\CustomOption[]
-     */
-    public function getOptions()
-    {
-        return $this->container['options'];
-    }
-
-    /**
-     * Sets options
-     * @param \Yext\Client\Model\CustomOption[] $options List of options for the Custom Field.  Present if and only if `type` is `SINGLE_OPTION` or `MULTI_OPTION`.
-     * @return $this
-     */
-    public function setOptions($options)
-    {
-        $this->container['options'] = $options;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
+     * Gets website
      * @return string
      */
-    public function getType()
+    public function getWebsite()
     {
-        return $this->container['type'];
+        return $this->container['website'];
     }
 
     /**
-     * Sets type
-     * @param string $type The data type of the Custom Field's contents.
+     * Sets website
+     * @param string $website The competitor's website.
      * @return $this
      */
-    public function setType($type)
+    public function setWebsite($website)
     {
-        $allowed_values = array('BOOLEAN', 'DAILY_TIMES', 'DATE', 'GALLERY', 'HOURS', 'MULTILINE_TEXT', 'MULTI_OPTION', 'NUMBER', 'PHOTO', 'SINGLE_OPTION', 'TEXT', 'TEXT_LIST', 'URL', 'VIDEO', 'VIDEO_GALLERY');
-        if (!is_null($type) && (!in_array($type, $allowed_values))) {
-            throw new \InvalidArgumentException("Invalid value for 'type', must be one of 'BOOLEAN', 'DAILY_TIMES', 'DATE', 'GALLERY', 'HOURS', 'MULTILINE_TEXT', 'MULTI_OPTION', 'NUMBER', 'PHOTO', 'SINGLE_OPTION', 'TEXT', 'TEXT_LIST', 'URL', 'VIDEO', 'VIDEO_GALLERY'");
-        }
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     * @param string $id The Custom Field ID.
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
+        $this->container['website'] = $website;
 
         return $this;
     }
@@ -299,7 +194,7 @@ class CustomField implements ArrayAccess
 
     /**
      * Sets name
-     * @param string $name The Custom Field's name.
+     * @param string $name The competitor's name
      * @return $this
      */
     public function setName($name)

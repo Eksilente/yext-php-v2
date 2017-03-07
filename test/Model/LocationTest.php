@@ -136,6 +136,14 @@ class LocationTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "tracking_sites"
+     */
+    public function testPropertyTrackingSites()
+    {
+
+    }
+
+    /**
      * Test attribute "middle_name"
      */
     public function testPropertyMiddleName()
@@ -168,9 +176,9 @@ class LocationTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "pickup_lng"
+     * Test attribute "degrees"
      */
-    public function testPropertyPickupLng()
+    public function testPropertyDegrees()
     {
 
     }
@@ -552,6 +560,14 @@ class LocationTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "query_templates"
+     */
+    public function testPropertyQueryTemplates()
+    {
+
+    }
+
+    /**
      * Test attribute "products"
      */
     public function testPropertyProducts()
@@ -584,9 +600,25 @@ class LocationTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "custom_keywords"
+     */
+    public function testPropertyCustomKeywords()
+    {
+
+    }
+
+    /**
      * Test attribute "dropoff_lng"
      */
     public function testPropertyDropoffLng()
+    {
+
+    }
+
+    /**
+     * Test attribute "intelligent_search_tracking_enabled"
+     */
+    public function testPropertyIntelligentSearchTrackingEnabled()
     {
 
     }
@@ -691,6 +723,14 @@ class LocationTest extends \PHPUnit_Framework_TestCase
      * Test attribute "conditions_treated"
      */
     public function testPropertyConditionsTreated()
+    {
+
+    }
+
+    /**
+     * Test attribute "pickup_lng"
+     */
+    public function testPropertyPickupLng()
     {
 
     }
@@ -856,6 +896,14 @@ class LocationTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "location_keywords"
+     */
+    public function testPropertyLocationKeywords()
+    {
+
+    }
+
+    /**
      * Test attribute "google_website_override"
      */
     public function testPropertyGoogleWebsiteOverride()
@@ -872,6 +920,22 @@ class LocationTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "alternate_websites"
+     */
+    public function testPropertyAlternateWebsites()
+    {
+
+    }
+
+    /**
+     * Test attribute "intelligent_search_tracking_frequency"
+     */
+    public function testPropertyIntelligentSearchTrackingFrequency()
+    {
+
+    }
+
+    /**
      * Test attribute "event_list_ids"
      */
     public function testPropertyEventListIds()
@@ -883,6 +947,14 @@ class LocationTest extends \PHPUnit_Framework_TestCase
      * Test attribute "display_lat"
      */
     public function testPropertyDisplayLat()
+    {
+
+    }
+
+    /**
+     * Test attribute "competitors"
+     */
+    public function testPropertyCompetitors()
     {
 
     }
@@ -963,6 +1035,14 @@ class LocationTest extends \PHPUnit_Framework_TestCase
      * Test attribute "yext_routable_lat"
      */
     public function testPropertyYextRoutableLat()
+    {
+
+    }
+
+    /**
+     * Test attribute "alternate_names"
+     */
+    public function testPropertyAlternateNames()
     {
 
     }

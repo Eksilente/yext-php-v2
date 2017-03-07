@@ -159,6 +159,7 @@ class Duplicate implements ArrayAccess
     const STATUS_SUPPRESSION_REQUESTED = 'SUPPRESSION_REQUESTED';
     const STATUS_SUPRESSED = 'SUPRESSED';
     const STATUS_UNAVAILABLE = 'UNAVAILABLE';
+    const STATUS_DELETED = 'DELETED';
     
 
     
@@ -173,6 +174,7 @@ class Duplicate implements ArrayAccess
             self::STATUS_SUPPRESSION_REQUESTED,
             self::STATUS_SUPRESSED,
             self::STATUS_UNAVAILABLE,
+            self::STATUS_DELETED,
         ];
     }
     
@@ -210,7 +212,7 @@ class Duplicate implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = [];
-        $allowed_values = ["POSSIBLE_DUPLICATE", "SUPPRESSION_REQUESTED", "SUPRESSED", "UNAVAILABLE"];
+        $allowed_values = ["POSSIBLE_DUPLICATE", "SUPPRESSION_REQUESTED", "SUPRESSED", "UNAVAILABLE", "DELETED"];
         if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowed_values)) {
             $invalid_properties[] = "invalid value for 'status', must be one of #{allowed_values}.";
         }
@@ -226,7 +228,7 @@ class Duplicate implements ArrayAccess
      */
     public function valid()
     {
-        $allowed_values = ["POSSIBLE_DUPLICATE", "SUPPRESSION_REQUESTED", "SUPRESSED", "UNAVAILABLE"];
+        $allowed_values = ["POSSIBLE_DUPLICATE", "SUPPRESSION_REQUESTED", "SUPRESSED", "UNAVAILABLE", "DELETED"];
         if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowed_values)) {
             return false;
         }
@@ -250,9 +252,9 @@ class Duplicate implements ArrayAccess
      */
     public function setStatus($status)
     {
-        $allowed_values = array('POSSIBLE_DUPLICATE', 'SUPPRESSION_REQUESTED', 'SUPRESSED', 'UNAVAILABLE');
+        $allowed_values = array('POSSIBLE_DUPLICATE', 'SUPPRESSION_REQUESTED', 'SUPRESSED', 'UNAVAILABLE', 'DELETED');
         if (!is_null($status) && (!in_array($status, $allowed_values))) {
-            throw new \InvalidArgumentException("Invalid value for 'status', must be one of 'POSSIBLE_DUPLICATE', 'SUPPRESSION_REQUESTED', 'SUPRESSED', 'UNAVAILABLE'");
+            throw new \InvalidArgumentException("Invalid value for 'status', must be one of 'POSSIBLE_DUPLICATE', 'SUPPRESSION_REQUESTED', 'SUPRESSED', 'UNAVAILABLE', 'DELETED'");
         }
         $this->container['status'] = $status;
 
@@ -291,7 +293,7 @@ class Duplicate implements ArrayAccess
 
     /**
      * Sets url
-     * @param string $url URL of Duplicate listing
+     * @param string $url URL of the duplicate listing
      * @return $this
      */
     public function setUrl($url)
@@ -354,7 +356,7 @@ class Duplicate implements ArrayAccess
 
     /**
      * Sets location_id
-     * @param string $location_id ID of the location the suggestion is for
+     * @param string $location_id ID of the location the duplicate listing is for
      * @return $this
      */
     public function setLocationId($location_id)
@@ -417,7 +419,7 @@ class Duplicate implements ArrayAccess
 
     /**
      * Sets publisher_id
-     * @param string $publisher_id ID of the publisher who submitted the suggestion
+     * @param string $publisher_id ID of the publisher site where the duplicate listing appears
      * @return $this
      */
     public function setPublisherId($publisher_id)
@@ -438,7 +440,7 @@ class Duplicate implements ArrayAccess
 
     /**
      * Sets id
-     * @param string $id ID of this Publisher Suggestion
+     * @param string $id ID of this duplicate listing
      * @return $this
      */
     public function setId($id)

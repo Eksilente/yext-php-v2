@@ -1,41 +1,41 @@
-# Yext\Client\LocationManagerApi
+# Yext\Client\KnowledgeManagerApi
 
 All URIs are relative to *https://api.yext.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createBio**](LocationManagerApi.md#createBio) | **POST** /accounts/{accountId}/bios | Bios: Create
-[**createEvent**](LocationManagerApi.md#createEvent) | **POST** /accounts/{accountId}/locations/events | Events: Create
-[**createLocation**](LocationManagerApi.md#createLocation) | **POST** /accounts/{accountId}/locations | Locations: Create
-[**createMenu**](LocationManagerApi.md#createMenu) | **POST** /accounts/{accountId}/menus | Menus: Create
-[**createProduct**](LocationManagerApi.md#createProduct) | **POST** /accounts/{accountId}/products | Products: Create
-[**deleteBioList**](LocationManagerApi.md#deleteBioList) | **DELETE** /accounts/{accountId}/bios/{listId} | Bios: Delete
-[**deleteEventList**](LocationManagerApi.md#deleteEventList) | **DELETE** /accounts/{accountId}/locations/events/{listId} | Events: Delete
-[**deleteLanguageProfile**](LocationManagerApi.md#deleteLanguageProfile) | **DELETE** /accounts/{accountId}/locations/{locationId}/profiles/{language_code} | Language Profiles: Delete
-[**deleteMenuList**](LocationManagerApi.md#deleteMenuList) | **DELETE** /accounts/{accountId}/menus/{listId} | Menus: Delete
-[**deleteProductList**](LocationManagerApi.md#deleteProductList) | **DELETE** /accounts/{accountId}/locations/products/{listId} | Products: Delete
-[**getBio**](LocationManagerApi.md#getBio) | **GET** /accounts/{accountId}/bios/{listId} | Bios: Get
-[**getBios**](LocationManagerApi.md#getBios) | **GET** /accounts/{accountId}/bios | Bios: List
-[**getBusinessCategories**](LocationManagerApi.md#getBusinessCategories) | **GET** /categories | Categories: List
-[**getCustomFields**](LocationManagerApi.md#getCustomFields) | **GET** /accounts/{accountId}/customfields | Custom Fields: List
-[**getEvent**](LocationManagerApi.md#getEvent) | **GET** /accounts/{accountId}/locations/events/{listId} | Events: Get
-[**getEvents**](LocationManagerApi.md#getEvents) | **GET** /accounts/{accountId}/locations/events | Events: List
-[**getGoogleKeywords**](LocationManagerApi.md#getGoogleKeywords) | **GET** /googlefields | Google Fields: List
-[**getLanguageProfile**](LocationManagerApi.md#getLanguageProfile) | **GET** /accounts/{accountId}/locations/{locationId}/profiles/{language_code} | Language Profiles: Get
-[**getLanguageProfiles**](LocationManagerApi.md#getLanguageProfiles) | **GET** /accounts/{accountId}/locations/{locationId}/profiles | Language Profiles: List
-[**getLocation**](LocationManagerApi.md#getLocation) | **GET** /accounts/{accountId}/locations/{locationId} | Locations: Get
-[**getLocationFolders**](LocationManagerApi.md#getLocationFolders) | **GET** /accounts/{accountId}/folders | Folders: List
-[**getLocations**](LocationManagerApi.md#getLocations) | **GET** /accounts/{accountId}/locations | Locations: List
-[**getMenu**](LocationManagerApi.md#getMenu) | **GET** /accounts/{accountId}/menus/{listId} | Menus: Get
-[**getMenus**](LocationManagerApi.md#getMenus) | **GET** /accounts/{accountId}/menus | Menus: List
-[**getProduct**](LocationManagerApi.md#getProduct) | **GET** /accounts/{accountId}/locations/products/{listId} | Products: Get
-[**getProducts**](LocationManagerApi.md#getProducts) | **GET** /accounts/{accountId}/products | Products: List
-[**updateBio**](LocationManagerApi.md#updateBio) | **PUT** /accounts/{accountId}/bios/{listId} | Bios: Update
-[**updateEvent**](LocationManagerApi.md#updateEvent) | **PUT** /accounts/{accountId}/locations/events/{listId} | Events: Update
-[**updateLocation**](LocationManagerApi.md#updateLocation) | **PUT** /accounts/{accountId}/locations/{locationId} | Locations: Update
-[**updateMenu**](LocationManagerApi.md#updateMenu) | **PUT** /accounts/{accountId}/menus/{listId} | Menus: Update
-[**updateProduct**](LocationManagerApi.md#updateProduct) | **PUT** /accounts/{accountId}/locations/products/{listId} | Products: Update
-[**upsertLanguageProfile**](LocationManagerApi.md#upsertLanguageProfile) | **PUT** /accounts/{accountId}/locations/{locationId}/profiles/{language_code} | Language Profiles: Upsert
+[**createBio**](KnowledgeManagerApi.md#createBio) | **POST** /accounts/{accountId}/bios | Bios: Create
+[**createEvent**](KnowledgeManagerApi.md#createEvent) | **POST** /accounts/{accountId}/events | Events: Create
+[**createLocation**](KnowledgeManagerApi.md#createLocation) | **POST** /accounts/{accountId}/locations | Locations: Create
+[**createMenu**](KnowledgeManagerApi.md#createMenu) | **POST** /accounts/{accountId}/menus | Menus: Create
+[**createProduct**](KnowledgeManagerApi.md#createProduct) | **POST** /accounts/{accountId}/products | Products: Create
+[**deleteBioList**](KnowledgeManagerApi.md#deleteBioList) | **DELETE** /accounts/{accountId}/bios/{listId} | Bios: Delete
+[**deleteEventList**](KnowledgeManagerApi.md#deleteEventList) | **DELETE** /accounts/{accountId}/events/{listId} | Events: Delete
+[**deleteLanguageProfile**](KnowledgeManagerApi.md#deleteLanguageProfile) | **DELETE** /accounts/{accountId}/locations/{locationId}/profiles/{language_code} | Language Profiles: Delete
+[**deleteMenuList**](KnowledgeManagerApi.md#deleteMenuList) | **DELETE** /accounts/{accountId}/menus/{listId} | Menus: Delete
+[**deleteProductList**](KnowledgeManagerApi.md#deleteProductList) | **DELETE** /accounts/{accountId}/products/{listId} | Products: Delete
+[**getBio**](KnowledgeManagerApi.md#getBio) | **GET** /accounts/{accountId}/bios/{listId} | Bios: Get
+[**getBios**](KnowledgeManagerApi.md#getBios) | **GET** /accounts/{accountId}/bios | Bios: List
+[**getBusinessCategories**](KnowledgeManagerApi.md#getBusinessCategories) | **GET** /categories | Categories: List
+[**getCustomFields**](KnowledgeManagerApi.md#getCustomFields) | **GET** /accounts/{accountId}/customfields | Custom Fields: List
+[**getEvent**](KnowledgeManagerApi.md#getEvent) | **GET** /accounts/{accountId}/events/{listId} | Events: Get
+[**getEvents**](KnowledgeManagerApi.md#getEvents) | **GET** /accounts/{accountId}/events | Events: List
+[**getGoogleKeywords**](KnowledgeManagerApi.md#getGoogleKeywords) | **GET** /googlefields | Google Fields: List
+[**getLanguageProfile**](KnowledgeManagerApi.md#getLanguageProfile) | **GET** /accounts/{accountId}/locations/{locationId}/profiles/{language_code} | Language Profiles: Get
+[**getLanguageProfiles**](KnowledgeManagerApi.md#getLanguageProfiles) | **GET** /accounts/{accountId}/locations/{locationId}/profiles | Language Profiles: List
+[**getLocation**](KnowledgeManagerApi.md#getLocation) | **GET** /accounts/{accountId}/locations/{locationId} | Locations: Get
+[**getLocationFolders**](KnowledgeManagerApi.md#getLocationFolders) | **GET** /accounts/{accountId}/folders | Folders: List
+[**getLocations**](KnowledgeManagerApi.md#getLocations) | **GET** /accounts/{accountId}/locations | Locations: List
+[**getMenu**](KnowledgeManagerApi.md#getMenu) | **GET** /accounts/{accountId}/menus/{listId} | Menus: Get
+[**getMenus**](KnowledgeManagerApi.md#getMenus) | **GET** /accounts/{accountId}/menus | Menus: List
+[**getProduct**](KnowledgeManagerApi.md#getProduct) | **GET** /accounts/{accountId}/products/{listId} | Products: Get
+[**getProducts**](KnowledgeManagerApi.md#getProducts) | **GET** /accounts/{accountId}/products | Products: List
+[**updateBio**](KnowledgeManagerApi.md#updateBio) | **PUT** /accounts/{accountId}/bios/{listId} | Bios: Update
+[**updateEvent**](KnowledgeManagerApi.md#updateEvent) | **PUT** /accounts/{accountId}/events/{listId} | Events: Update
+[**updateLocation**](KnowledgeManagerApi.md#updateLocation) | **PUT** /accounts/{accountId}/locations/{locationId} | Locations: Update
+[**updateMenu**](KnowledgeManagerApi.md#updateMenu) | **PUT** /accounts/{accountId}/menus/{listId} | Menus: Update
+[**updateProduct**](KnowledgeManagerApi.md#updateProduct) | **PUT** /accounts/{accountId}/products/{listId} | Products: Update
+[**upsertLanguageProfile**](KnowledgeManagerApi.md#upsertLanguageProfile) | **PUT** /accounts/{accountId}/locations/{locationId}/profiles/{language_code} | Language Profiles: Upsert
 
 
 # **createBio**
@@ -55,7 +55,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Yext\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_key', 'Bearer');
 
-$api_instance = new Yext\Client\Api\LocationManagerApi();
+$api_instance = new Yext\Client\Api\KnowledgeManagerApi();
 $account_id = "account_id_example"; // string | 
 $v = "20161012"; // string | A date in `YYYYMMDD` format.
 $body = new \Yext\Client\Model\Bio(); // \Yext\Client\Model\Bio | 
@@ -64,7 +64,7 @@ try {
     $result = $api_instance->createBio($account_id, $v, $body);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling LocationManagerApi->createBio: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling KnowledgeManagerApi->createBio: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -109,7 +109,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Yext\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_key', 'Bearer');
 
-$api_instance = new Yext\Client\Api\LocationManagerApi();
+$api_instance = new Yext\Client\Api\KnowledgeManagerApi();
 $account_id = "account_id_example"; // string | 
 $v = "20161012"; // string | A date in `YYYYMMDD` format.
 $body = new \Yext\Client\Model\Event(); // \Yext\Client\Model\Event | 
@@ -118,7 +118,7 @@ try {
     $result = $api_instance->createEvent($account_id, $v, $body);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling LocationManagerApi->createEvent: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling KnowledgeManagerApi->createEvent: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -163,7 +163,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Yext\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_key', 'Bearer');
 
-$api_instance = new Yext\Client\Api\LocationManagerApi();
+$api_instance = new Yext\Client\Api\KnowledgeManagerApi();
 $account_id = "account_id_example"; // string | 
 $v = "20161012"; // string | A date in `YYYYMMDD` format.
 $location_request = new \Yext\Client\Model\Location(); // \Yext\Client\Model\Location | 
@@ -172,7 +172,7 @@ try {
     $result = $api_instance->createLocation($account_id, $v, $location_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling LocationManagerApi->createLocation: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling KnowledgeManagerApi->createLocation: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -215,7 +215,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Yext\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_key', 'Bearer');
 
-$api_instance = new Yext\Client\Api\LocationManagerApi();
+$api_instance = new Yext\Client\Api\KnowledgeManagerApi();
 $account_id = "account_id_example"; // string | 
 $v = "20161012"; // string | A date in `YYYYMMDD` format.
 $body = new \Yext\Client\Model\Menu(); // \Yext\Client\Model\Menu | 
@@ -224,7 +224,7 @@ try {
     $result = $api_instance->createMenu($account_id, $v, $body);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling LocationManagerApi->createMenu: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling KnowledgeManagerApi->createMenu: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -269,7 +269,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Yext\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_key', 'Bearer');
 
-$api_instance = new Yext\Client\Api\LocationManagerApi();
+$api_instance = new Yext\Client\Api\KnowledgeManagerApi();
 $account_id = "account_id_example"; // string | 
 $v = "20161012"; // string | A date in `YYYYMMDD` format.
 $body = new \Yext\Client\Model\Product(); // \Yext\Client\Model\Product | 
@@ -278,7 +278,7 @@ try {
     $result = $api_instance->createProduct($account_id, $v, $body);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling LocationManagerApi->createProduct: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling KnowledgeManagerApi->createProduct: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -323,7 +323,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Yext\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_key', 'Bearer');
 
-$api_instance = new Yext\Client\Api\LocationManagerApi();
+$api_instance = new Yext\Client\Api\KnowledgeManagerApi();
 $account_id = "account_id_example"; // string | 
 $list_id = "list_id_example"; // string | ID of this List.
 $v = "20161012"; // string | A date in `YYYYMMDD` format.
@@ -332,7 +332,7 @@ try {
     $result = $api_instance->deleteBioList($account_id, $list_id, $v);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling LocationManagerApi->deleteBioList: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling KnowledgeManagerApi->deleteBioList: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -377,7 +377,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Yext\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_key', 'Bearer');
 
-$api_instance = new Yext\Client\Api\LocationManagerApi();
+$api_instance = new Yext\Client\Api\KnowledgeManagerApi();
 $account_id = "account_id_example"; // string | 
 $list_id = "list_id_example"; // string | ID of this List.
 $v = "20161012"; // string | A date in `YYYYMMDD` format.
@@ -386,7 +386,7 @@ try {
     $result = $api_instance->deleteEventList($account_id, $list_id, $v);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling LocationManagerApi->deleteEventList: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling KnowledgeManagerApi->deleteEventList: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -431,7 +431,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Yext\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_key', 'Bearer');
 
-$api_instance = new Yext\Client\Api\LocationManagerApi();
+$api_instance = new Yext\Client\Api\KnowledgeManagerApi();
 $account_id = "account_id_example"; // string | 
 $location_id = "location_id_example"; // string | 
 $language_code = "language_code_example"; // string | Locale code.
@@ -441,7 +441,7 @@ try {
     $result = $api_instance->deleteLanguageProfile($account_id, $location_id, $language_code, $v);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling LocationManagerApi->deleteLanguageProfile: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling KnowledgeManagerApi->deleteLanguageProfile: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -487,7 +487,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Yext\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_key', 'Bearer');
 
-$api_instance = new Yext\Client\Api\LocationManagerApi();
+$api_instance = new Yext\Client\Api\KnowledgeManagerApi();
 $account_id = "account_id_example"; // string | 
 $list_id = "list_id_example"; // string | ID of this List.
 $v = "20161012"; // string | A date in `YYYYMMDD` format.
@@ -496,7 +496,7 @@ try {
     $result = $api_instance->deleteMenuList($account_id, $list_id, $v);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling LocationManagerApi->deleteMenuList: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling KnowledgeManagerApi->deleteMenuList: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -541,7 +541,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Yext\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_key', 'Bearer');
 
-$api_instance = new Yext\Client\Api\LocationManagerApi();
+$api_instance = new Yext\Client\Api\KnowledgeManagerApi();
 $account_id = "account_id_example"; // string | 
 $list_id = "list_id_example"; // string | ID of this List.
 $v = "20161012"; // string | A date in `YYYYMMDD` format.
@@ -550,7 +550,7 @@ try {
     $result = $api_instance->deleteProductList($account_id, $list_id, $v);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling LocationManagerApi->deleteProductList: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling KnowledgeManagerApi->deleteProductList: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -595,7 +595,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Yext\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_key', 'Bearer');
 
-$api_instance = new Yext\Client\Api\LocationManagerApi();
+$api_instance = new Yext\Client\Api\KnowledgeManagerApi();
 $account_id = "account_id_example"; // string | 
 $list_id = "list_id_example"; // string | ID of this List.
 $v = "20161012"; // string | A date in `YYYYMMDD` format.
@@ -604,7 +604,7 @@ try {
     $result = $api_instance->getBio($account_id, $list_id, $v);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling LocationManagerApi->getBio: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling KnowledgeManagerApi->getBio: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -649,7 +649,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Yext\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_key', 'Bearer');
 
-$api_instance = new Yext\Client\Api\LocationManagerApi();
+$api_instance = new Yext\Client\Api\KnowledgeManagerApi();
 $account_id = "account_id_example"; // string | 
 $v = "20161012"; // string | A date in `YYYYMMDD` format.
 $limit = 10; // int | Number of results to return.
@@ -659,7 +659,7 @@ try {
     $result = $api_instance->getBios($account_id, $v, $limit, $offset);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling LocationManagerApi->getBios: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling KnowledgeManagerApi->getBios: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -705,7 +705,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Yext\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_key', 'Bearer');
 
-$api_instance = new Yext\Client\Api\LocationManagerApi();
+$api_instance = new Yext\Client\Api\KnowledgeManagerApi();
 $v = "20161012"; // string | A date in `YYYYMMDD` format.
 $language = "en"; // string | Only categories that apply to this language will be returned.  **Example:** en
 $country = "US"; // string | Only categories that apply in this country will be returned.  **Example:** US
@@ -714,7 +714,7 @@ try {
     $result = $api_instance->getBusinessCategories($v, $language, $country);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling LocationManagerApi->getBusinessCategories: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling KnowledgeManagerApi->getBusinessCategories: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -759,7 +759,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Yext\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_key', 'Bearer');
 
-$api_instance = new Yext\Client\Api\LocationManagerApi();
+$api_instance = new Yext\Client\Api\KnowledgeManagerApi();
 $v = "20161012"; // string | A date in `YYYYMMDD` format.
 $account_id = "account_id_example"; // string | 
 $offset = 0; // int | Number of results to skip. Used to page through results.
@@ -769,7 +769,7 @@ try {
     $result = $api_instance->getCustomFields($v, $account_id, $offset, $limit);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling LocationManagerApi->getCustomFields: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling KnowledgeManagerApi->getCustomFields: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -815,7 +815,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Yext\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_key', 'Bearer');
 
-$api_instance = new Yext\Client\Api\LocationManagerApi();
+$api_instance = new Yext\Client\Api\KnowledgeManagerApi();
 $account_id = "account_id_example"; // string | 
 $list_id = "list_id_example"; // string | ID of this List.
 $v = "20161012"; // string | A date in `YYYYMMDD` format.
@@ -824,7 +824,7 @@ try {
     $result = $api_instance->getEvent($account_id, $list_id, $v);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling LocationManagerApi->getEvent: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling KnowledgeManagerApi->getEvent: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -869,7 +869,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Yext\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_key', 'Bearer');
 
-$api_instance = new Yext\Client\Api\LocationManagerApi();
+$api_instance = new Yext\Client\Api\KnowledgeManagerApi();
 $account_id = "account_id_example"; // string | 
 $v = "20161012"; // string | A date in `YYYYMMDD` format.
 $limit = 10; // int | Number of results to return.
@@ -879,7 +879,7 @@ try {
     $result = $api_instance->getEvents($account_id, $v, $limit, $offset);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling LocationManagerApi->getEvents: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling KnowledgeManagerApi->getEvents: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -913,7 +913,7 @@ Name | Type | Description  | Notes
 
 Google Fields: List
 
-Use the Google Attributes API to retrieve a complete list of Google's location attributes for each business category. This list includes attributes that may not apply to all Partner Locations in an account. The attributes available to a Partner Location depends on its primary business category. You can view and edit the attributes of Partner Locations via the googleKeywords field in the Locations API.
+Use the Google Fields endpoint to retrieve a complete list of Google's location attributes for each business category. This list includes attributes that may not apply to all Locations in an account. The set of attributes available to a Location depends on its primary business category. You can view and edit the attributes of Locations in the googleAttributes Location field.
 
 ### Example
 ```php
@@ -925,14 +925,14 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Yext\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_key', 'Bearer');
 
-$api_instance = new Yext\Client\Api\LocationManagerApi();
+$api_instance = new Yext\Client\Api\KnowledgeManagerApi();
 $v = "20161012"; // string | A date in `YYYYMMDD` format.
 
 try {
     $result = $api_instance->getGoogleKeywords($v);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling LocationManagerApi->getGoogleKeywords: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling KnowledgeManagerApi->getGoogleKeywords: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -975,7 +975,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Yext\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_key', 'Bearer');
 
-$api_instance = new Yext\Client\Api\LocationManagerApi();
+$api_instance = new Yext\Client\Api\KnowledgeManagerApi();
 $account_id = "account_id_example"; // string | 
 $location_id = "location_id_example"; // string | 
 $language_code = "language_code_example"; // string | Locale code.
@@ -985,7 +985,7 @@ try {
     $result = $api_instance->getLanguageProfile($account_id, $location_id, $language_code, $v);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling LocationManagerApi->getLanguageProfile: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling KnowledgeManagerApi->getLanguageProfile: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -1031,7 +1031,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Yext\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_key', 'Bearer');
 
-$api_instance = new Yext\Client\Api\LocationManagerApi();
+$api_instance = new Yext\Client\Api\KnowledgeManagerApi();
 $account_id = "account_id_example"; // string | 
 $location_id = "location_id_example"; // string | 
 $v = "20161012"; // string | A date in `YYYYMMDD` format.
@@ -1040,7 +1040,7 @@ try {
     $result = $api_instance->getLanguageProfiles($account_id, $location_id, $v);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling LocationManagerApi->getLanguageProfiles: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling KnowledgeManagerApi->getLanguageProfiles: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -1085,7 +1085,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Yext\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_key', 'Bearer');
 
-$api_instance = new Yext\Client\Api\LocationManagerApi();
+$api_instance = new Yext\Client\Api\KnowledgeManagerApi();
 $account_id = "account_id_example"; // string | 
 $location_id = "location_id_example"; // string | 
 $v = "20161012"; // string | A date in `YYYYMMDD` format.
@@ -1094,7 +1094,7 @@ try {
     $result = $api_instance->getLocation($account_id, $location_id, $v);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling LocationManagerApi->getLocation: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling KnowledgeManagerApi->getLocation: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -1139,7 +1139,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Yext\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_key', 'Bearer');
 
-$api_instance = new Yext\Client\Api\LocationManagerApi();
+$api_instance = new Yext\Client\Api\KnowledgeManagerApi();
 $account_id = "account_id_example"; // string | 
 $v = "20161012"; // string | A date in `YYYYMMDD` format.
 $offset = 0; // int | Number of results to skip. Used to page through results.
@@ -1149,7 +1149,7 @@ try {
     $result = $api_instance->getLocationFolders($account_id, $v, $offset, $limit);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling LocationManagerApi->getLocationFolders: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling KnowledgeManagerApi->getLocationFolders: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -1195,7 +1195,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Yext\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_key', 'Bearer');
 
-$api_instance = new Yext\Client\Api\LocationManagerApi();
+$api_instance = new Yext\Client\Api\KnowledgeManagerApi();
 $account_id = "account_id_example"; // string | 
 $v = "20161012"; // string | A date in `YYYYMMDD` format.
 $limit = 10; // int | Number of results to return.
@@ -1205,7 +1205,7 @@ try {
     $result = $api_instance->getLocations($account_id, $v, $limit, $offset);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling LocationManagerApi->getLocations: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling KnowledgeManagerApi->getLocations: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -1251,7 +1251,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Yext\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_key', 'Bearer');
 
-$api_instance = new Yext\Client\Api\LocationManagerApi();
+$api_instance = new Yext\Client\Api\KnowledgeManagerApi();
 $account_id = "account_id_example"; // string | 
 $list_id = "list_id_example"; // string | ID of this List.
 $v = "20161012"; // string | A date in `YYYYMMDD` format.
@@ -1260,7 +1260,7 @@ try {
     $result = $api_instance->getMenu($account_id, $list_id, $v);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling LocationManagerApi->getMenu: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling KnowledgeManagerApi->getMenu: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -1305,7 +1305,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Yext\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_key', 'Bearer');
 
-$api_instance = new Yext\Client\Api\LocationManagerApi();
+$api_instance = new Yext\Client\Api\KnowledgeManagerApi();
 $account_id = "account_id_example"; // string | 
 $v = "20161012"; // string | A date in `YYYYMMDD` format.
 $limit = 10; // int | Number of results to return.
@@ -1315,7 +1315,7 @@ try {
     $result = $api_instance->getMenus($account_id, $v, $limit, $offset);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling LocationManagerApi->getMenus: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling KnowledgeManagerApi->getMenus: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -1361,7 +1361,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Yext\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_key', 'Bearer');
 
-$api_instance = new Yext\Client\Api\LocationManagerApi();
+$api_instance = new Yext\Client\Api\KnowledgeManagerApi();
 $account_id = "account_id_example"; // string | 
 $list_id = "list_id_example"; // string | ID of this List.
 $v = "20161012"; // string | A date in `YYYYMMDD` format.
@@ -1370,7 +1370,7 @@ try {
     $result = $api_instance->getProduct($account_id, $list_id, $v);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling LocationManagerApi->getProduct: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling KnowledgeManagerApi->getProduct: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -1415,7 +1415,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Yext\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_key', 'Bearer');
 
-$api_instance = new Yext\Client\Api\LocationManagerApi();
+$api_instance = new Yext\Client\Api\KnowledgeManagerApi();
 $account_id = "account_id_example"; // string | 
 $v = "20161012"; // string | A date in `YYYYMMDD` format.
 $limit = 10; // int | Number of results to return.
@@ -1425,7 +1425,7 @@ try {
     $result = $api_instance->getProducts($account_id, $v, $limit, $offset);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling LocationManagerApi->getProducts: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling KnowledgeManagerApi->getProducts: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -1471,7 +1471,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Yext\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_key', 'Bearer');
 
-$api_instance = new Yext\Client\Api\LocationManagerApi();
+$api_instance = new Yext\Client\Api\KnowledgeManagerApi();
 $account_id = "account_id_example"; // string | 
 $list_id = "list_id_example"; // string | ID of this List.
 $v = "20161012"; // string | A date in `YYYYMMDD` format.
@@ -1481,7 +1481,7 @@ try {
     $result = $api_instance->updateBio($account_id, $list_id, $v, $body);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling LocationManagerApi->updateBio: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling KnowledgeManagerApi->updateBio: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -1527,7 +1527,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Yext\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_key', 'Bearer');
 
-$api_instance = new Yext\Client\Api\LocationManagerApi();
+$api_instance = new Yext\Client\Api\KnowledgeManagerApi();
 $account_id = "account_id_example"; // string | 
 $list_id = "list_id_example"; // string | ID of this List.
 $v = "20161012"; // string | A date in `YYYYMMDD` format.
@@ -1537,7 +1537,7 @@ try {
     $result = $api_instance->updateEvent($account_id, $list_id, $v, $body);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling LocationManagerApi->updateEvent: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling KnowledgeManagerApi->updateEvent: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -1583,7 +1583,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Yext\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_key', 'Bearer');
 
-$api_instance = new Yext\Client\Api\LocationManagerApi();
+$api_instance = new Yext\Client\Api\KnowledgeManagerApi();
 $account_id = "account_id_example"; // string | 
 $location_id = "location_id_example"; // string | 
 $v = "20161012"; // string | A date in `YYYYMMDD` format.
@@ -1593,7 +1593,7 @@ try {
     $result = $api_instance->updateLocation($account_id, $location_id, $v, $location_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling LocationManagerApi->updateLocation: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling KnowledgeManagerApi->updateLocation: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -1639,7 +1639,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Yext\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_key', 'Bearer');
 
-$api_instance = new Yext\Client\Api\LocationManagerApi();
+$api_instance = new Yext\Client\Api\KnowledgeManagerApi();
 $account_id = "account_id_example"; // string | 
 $list_id = "list_id_example"; // string | ID of this List.
 $v = "20161012"; // string | A date in `YYYYMMDD` format.
@@ -1649,7 +1649,7 @@ try {
     $result = $api_instance->updateMenu($account_id, $list_id, $v, $body);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling LocationManagerApi->updateMenu: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling KnowledgeManagerApi->updateMenu: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -1695,7 +1695,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Yext\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_key', 'Bearer');
 
-$api_instance = new Yext\Client\Api\LocationManagerApi();
+$api_instance = new Yext\Client\Api\KnowledgeManagerApi();
 $account_id = "account_id_example"; // string | 
 $list_id = "list_id_example"; // string | ID of this List.
 $v = "20161012"; // string | A date in `YYYYMMDD` format.
@@ -1705,7 +1705,7 @@ try {
     $result = $api_instance->updateProduct($account_id, $list_id, $v, $body);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling LocationManagerApi->updateProduct: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling KnowledgeManagerApi->updateProduct: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -1751,7 +1751,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Yext\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_key', 'Bearer');
 
-$api_instance = new Yext\Client\Api\LocationManagerApi();
+$api_instance = new Yext\Client\Api\KnowledgeManagerApi();
 $account_id = "account_id_example"; // string | 
 $location_id = "location_id_example"; // string | 
 $language_code = "language_code_example"; // string | Locale code.
@@ -1763,7 +1763,7 @@ try {
     $result = $api_instance->upsertLanguageProfile($account_id, $location_id, $language_code, $v, $body, $primary);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling LocationManagerApi->upsertLanguageProfile: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling KnowledgeManagerApi->upsertLanguageProfile: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

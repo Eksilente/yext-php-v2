@@ -123,94 +123,8 @@ class CreateReportRequestBody implements ArrayAccess
         return self::$getters;
     }
 
-    const METRICS_PROFILE_VIEWS = 'PROFILE_VIEWS';
-    const METRICS_SEARCHES = 'SEARCHES';
-    const METRICS_POWERLISTINGS_LIVE = 'POWERLISTINGS_LIVE';
-    const METRICS_FEATURED_MESSAGE_CLICKS = 'FEATURED_MESSAGE_CLICKS';
-    const METRICS_YELP_PAGE_VIEWS = 'YELP_PAGE_VIEWS';
-    const METRICS_BING_SEARCHES = 'BING_SEARCHES';
-    const METRICS_FACEBOOK_LIKES = 'FACEBOOK_LIKES';
-    const METRICS_FACEBOOK_TALKING_ABOUT = 'FACEBOOK_TALKING_ABOUT';
-    const METRICS_FACEBOOK_WERE_HERE = 'FACEBOOK_WERE_HERE';
-    const METRICS_FOURSQUARE_DAILY_CHECKINS = 'FOURSQUARE_DAILY_CHECKINS';
-    const METRICS_INSTAGRAM_POSTS = 'INSTAGRAM_POSTS';
-    const METRICS_GOOGLE_SEARCHES = 'GOOGLE_SEARCHES';
-    const METRICS_GOOGLE_SEARCH_VIEWS = 'GOOGLE_SEARCH_VIEWS';
-    const METRICS_GOOGLE_MAP_VIEWS = 'GOOGLE_MAP_VIEWS';
-    const METRICS_GOOGLE_CUSTOMER_ACTIONS = 'GOOGLE_CUSTOMER_ACTIONS';
-    const METRICS_GOOGLE_PHONE_CALLS = 'GOOGLE_PHONE_CALLS';
-    const DIMENSIONS_ACCOUNT_IDS = 'ACCOUNT_IDS';
-    const DIMENSIONS_LOCATION_IDS = 'LOCATION_IDS';
-    const DIMENSIONS_FOLDER_IDS = 'FOLDER_IDS';
-    const DIMENSIONS_LOCATION_NAMES = 'LOCATION_NAMES';
-    const DIMENSIONS_FOLDER_NAMES = 'FOLDER_NAMES';
-    const DIMENSIONS_DAYS = 'DAYS';
-    const DIMENSIONS_WEEKS = 'WEEKS';
-    const DIMENSIONS_MONTHS = 'MONTHS';
-    const DIMENSIONS_MONTHS_RETAIL = 'MONTHS_RETAIL';
-    const DIMENSIONS_PLATFORM = 'PLATFORM';
-    const DIMENSIONS_FOURSQUARE_GENDER = 'FOURSQUARE_GENDER';
-    const DIMENSIONS_FOURSQUARE_AGE = 'FOURSQUARE_AGE';
-    const DIMENSIONS_FOURSQUARE_TIME = 'FOURSQUARE_TIME';
-    const DIMENSIONS_SEARCH_QUERY = 'SEARCH_QUERY';
-    const DIMENSIONS_GOOGLE_ACTION_TYPE = 'GOOGLE_ACTION_TYPE';
-    const DIMENSIONS_GOOGLE_QUERY_TYPE = 'GOOGLE_QUERY_TYPE';
-    const DIMENSIONS_GMB_HOURS = 'GMB_HOURS';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     * @return string[]
-     */
-    public function getMetricsAllowableValues()
-    {
-        return [
-            self::METRICS_PROFILE_VIEWS,
-            self::METRICS_SEARCHES,
-            self::METRICS_POWERLISTINGS_LIVE,
-            self::METRICS_FEATURED_MESSAGE_CLICKS,
-            self::METRICS_YELP_PAGE_VIEWS,
-            self::METRICS_BING_SEARCHES,
-            self::METRICS_FACEBOOK_LIKES,
-            self::METRICS_FACEBOOK_TALKING_ABOUT,
-            self::METRICS_FACEBOOK_WERE_HERE,
-            self::METRICS_FOURSQUARE_DAILY_CHECKINS,
-            self::METRICS_INSTAGRAM_POSTS,
-            self::METRICS_GOOGLE_SEARCHES,
-            self::METRICS_GOOGLE_SEARCH_VIEWS,
-            self::METRICS_GOOGLE_MAP_VIEWS,
-            self::METRICS_GOOGLE_CUSTOMER_ACTIONS,
-            self::METRICS_GOOGLE_PHONE_CALLS,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     * @return string[]
-     */
-    public function getDimensionsAllowableValues()
-    {
-        return [
-            self::DIMENSIONS_ACCOUNT_IDS,
-            self::DIMENSIONS_LOCATION_IDS,
-            self::DIMENSIONS_FOLDER_IDS,
-            self::DIMENSIONS_LOCATION_NAMES,
-            self::DIMENSIONS_FOLDER_NAMES,
-            self::DIMENSIONS_DAYS,
-            self::DIMENSIONS_WEEKS,
-            self::DIMENSIONS_MONTHS,
-            self::DIMENSIONS_MONTHS_RETAIL,
-            self::DIMENSIONS_PLATFORM,
-            self::DIMENSIONS_FOURSQUARE_GENDER,
-            self::DIMENSIONS_FOURSQUARE_AGE,
-            self::DIMENSIONS_FOURSQUARE_TIME,
-            self::DIMENSIONS_SEARCH_QUERY,
-            self::DIMENSIONS_GOOGLE_ACTION_TYPE,
-            self::DIMENSIONS_GOOGLE_QUERY_TYPE,
-            self::DIMENSIONS_GMB_HOURS,
-        ];
-    }
     
 
     /**
@@ -276,15 +190,11 @@ class CreateReportRequestBody implements ArrayAccess
 
     /**
      * Sets metrics
-     * @param string[] $metrics The kinds of data the report should include. Specify up to 10 values.
+     * @param string[] $metrics The kinds of data the report should include. Specify up to 10 values.  * **`PROFILE_VIEWS`**: the number of times your listings were viewed. Does not include listings on Yelp, Facebook, Bing, or Google. * **`SEARCHES`**: the number of times your listings were included in search results. Does not include search results on Yelp, Facebook, Bing, or Google. * **`POWERLISTINGS_LIVE`**: the total number of your listings that were live * **`FEATURED_MESSAGE_CLICKS`**: the number of times consumers clicked on your Featured Messsage. Does not include Featured Messages on Yelp, Facebook, Bing, or Google. * **`YELP_PAGE_VIEWS`**: number of times your listings on Yelp (\"pages\") were viewed * **`BING_SEARCHES`**: the number of times your listings were included in Bing search results. Because Bing sends data for full weeks rather than individual days, **`dimensions`** cannot contain `DAYS`, `MONTHS`, or `MONTHS_RETAIL` if `BING_SEARCHES` is in **`metrics`**. Also, reports with `BING_SEARCHES` have different reporting maximum dates than reports with other metrics. * **`FACEBOOK_LIKES`**: the total number of consumers who have \"liked\" your Page * **`FACEBOOK_TALKING_ABOUT`**: the number of unique consumers who had an interaction with your Page. For an interaction to be included in this total, it must result in a story being posted to the newsfeeds of those consumers' friends. Examples of these interactions include, but are not limited to, sharing a post on your Page, liking your Page, or tagging your location in a photo. * **`FACEBOOK_WERE_HERE`**: the total number of consumers who have checked into your business on Facebook, along with the people tagged as being with them when checking in * **`FOURSQUARE_DAILY_CHECKINS`**: the number of consumers who checked into your business on Foursquare on a given date * **`INSTAGRAM_POSTS`**: the number of times consumers posted Instagram content geotagged at your business * **`GOOGLE_SEARCH_QUERIES`**: the number of times your listings appeared in search results on either Google Search or Google Maps * **`GOOGLE_SEARCH_VIEWS`**: the number of times your listings were viewed on Google Search * **`GOOGLE_MAP_VIEWS`**: the number of times your listings were viewed on Google Maps * **`GOOGLE_CUSTOMER_ACTIONS`**: the number of times consumers called your business, got driving directions to your business, or visited your website via the links your Google listings * **`GOOGLE_PHONE_CALLS`**: the number of times consumers called your business by clicking your phone numer in your Google listings during the past 90 days. You must use the `GOOGLE_PHONE_CALL_HOURS` dimension with this metric. * **`AVERAGE_RATING`**: the cumulative average of the ratings your business has received * **`NEW_REVIEWS`**: the number of new reviews your business has received
      * @return $this
      */
     public function setMetrics($metrics)
     {
-        $allowed_values = array('PROFILE_VIEWS', 'SEARCHES', 'POWERLISTINGS_LIVE', 'FEATURED_MESSAGE_CLICKS', 'YELP_PAGE_VIEWS', 'BING_SEARCHES', 'FACEBOOK_LIKES', 'FACEBOOK_TALKING_ABOUT', 'FACEBOOK_WERE_HERE', 'FOURSQUARE_DAILY_CHECKINS', 'INSTAGRAM_POSTS', 'GOOGLE_SEARCHES', 'GOOGLE_SEARCH_VIEWS', 'GOOGLE_MAP_VIEWS', 'GOOGLE_CUSTOMER_ACTIONS', 'GOOGLE_PHONE_CALLS');
-        if ((array_diff($metrics, $allowed_values))) {
-            throw new \InvalidArgumentException("Invalid value for 'metrics', must be one of 'PROFILE_VIEWS', 'SEARCHES', 'POWERLISTINGS_LIVE', 'FEATURED_MESSAGE_CLICKS', 'YELP_PAGE_VIEWS', 'BING_SEARCHES', 'FACEBOOK_LIKES', 'FACEBOOK_TALKING_ABOUT', 'FACEBOOK_WERE_HERE', 'FOURSQUARE_DAILY_CHECKINS', 'INSTAGRAM_POSTS', 'GOOGLE_SEARCHES', 'GOOGLE_SEARCH_VIEWS', 'GOOGLE_MAP_VIEWS', 'GOOGLE_CUSTOMER_ACTIONS', 'GOOGLE_PHONE_CALLS'");
-        }
         $this->container['metrics'] = $metrics;
 
         return $this;
@@ -301,15 +211,11 @@ class CreateReportRequestBody implements ArrayAccess
 
     /**
      * Sets dimensions
-     * @param string[] $dimensions The kinds of data the report should include. Specify up to 3 values.
+     * @param string[] $dimensions Determines how the data will be grouped. Specify up to 3 values. <br><br> **NOTES:** <br> You can only use one time-based dimension (e.g., `DAYS`, `WEEKS`) per report. <br> You can only use one location-based dimenion (e.g. `FOLDER_IDS`, `LOCATION_NAMES`) per report. <br><br> * **`ACCOUNT_IDS`** * **`LOCATION_IDS`** * **`FOLDER_IDS`** * **`LOCATION_NAMES`** * **`FOLDER_NAMES`** * **`DAYS`** * **`WEEKS`** * **`MONTHS`**: refers to the Gregorian calendar (January, February, etc.) * **`MONTHS_RETAIL`**: refers to the 4-5-4 merchandising calendar * **`PLATFORM`**: groups data by the platform on which the action measured in **`metrics`** was conducted (e.g., Desktop, Mobile) * **`FOURSQUARE_GENDER`**: groups checkins by users' sexes (`male` or `female`). Can only be used with the `FOURSQUARE_DAILY_CHECKINS` metric. * **`FOURSQUARE_AGE`**: groups checkins by the users' ages (`13-17`, `18-24`, `25-34`, `35-44`, `45-54`, `55+`). Can only be used with the `FOURSQUARE_DAILY_CHECKINS` metric. * **`FOURSQUARE_TIME`**: groups checkins by their times (`morning`: 7 AM - 10:59 AM, `noon`: 11 AM - 1:59 PM, `afternoon`: 2 PM - 5:59 PM, `evening`: 6 PM - 8:59 PM, `night`: 9 PM - 6:59 AM). Can only be used with the `FOURSQUARE_DAILY_CHECKINS` metric. * **`SEARCH_QUERY`**: groups searches according to the search criteria used. Can only be used with the `SEARCHES` metric. * **`GOOGLE_ACTION_TYPE`**: the type of action consumers took through your Google listings (Phone Calls, Get Directions, or Website Clicks). Can only be used with the `GOOGLE_CUSTOMER_ACTIONS` metric. * **`GOOGLE_QUERY_TYPE`**: groups search criteria based on whether they contained your brand name (branded) or not (unbranded). Can only be used with the `GOOGLE_SEARCH_QUERIES` metric. * **`GOOGLE_PHONE_CALL_HOURS`**: can only be used with the `GOOGLE_PHONE_CALLS` metric * **`RATINGS`**: can only be used with the `AVERAGE_RATING` and `NEW_REVIEWS` metrics * **`FREQUENT_WORDS`**: the words that most frequently appear in your reviews. Can only be used with the `AVERAGE_RATING` and `NEW_REVIEWS` metrics. * **`PARTNERS`**: the sites your reviews appear on. Can only be used with the `AVERAGE_RATING` and `NEW_REVIEWS` metrics.
      * @return $this
      */
     public function setDimensions($dimensions)
     {
-        $allowed_values = array('ACCOUNT_IDS', 'LOCATION_IDS', 'FOLDER_IDS', 'LOCATION_NAMES', 'FOLDER_NAMES', 'DAYS', 'WEEKS', 'MONTHS', 'MONTHS_RETAIL', 'PLATFORM', 'FOURSQUARE_GENDER', 'FOURSQUARE_AGE', 'FOURSQUARE_TIME', 'SEARCH_QUERY', 'GOOGLE_ACTION_TYPE', 'GOOGLE_QUERY_TYPE', 'GMB_HOURS');
-        if ((array_diff($dimensions, $allowed_values))) {
-            throw new \InvalidArgumentException("Invalid value for 'dimensions', must be one of 'ACCOUNT_IDS', 'LOCATION_IDS', 'FOLDER_IDS', 'LOCATION_NAMES', 'FOLDER_NAMES', 'DAYS', 'WEEKS', 'MONTHS', 'MONTHS_RETAIL', 'PLATFORM', 'FOURSQUARE_GENDER', 'FOURSQUARE_AGE', 'FOURSQUARE_TIME', 'SEARCH_QUERY', 'GOOGLE_ACTION_TYPE', 'GOOGLE_QUERY_TYPE', 'GMB_HOURS'");
-        }
         $this->container['dimensions'] = $dimensions;
 
         return $this;

@@ -1,6 +1,6 @@
 <?php
 /**
- * SocialJanuaryApiTest
+ * SocialSpringSummerApiTest
  * PHP version 5
  *
  * @category Class
@@ -46,7 +46,7 @@ use \Yext\Client\ApiException;
 use \Yext\Client\ObjectSerializer;
 
 /**
- * SocialJanuaryApiTest Class Doc Comment
+ * SocialSpringSummerApiTest Class Doc Comment
  *
  * @category Class
  * @package  Yext\Client
@@ -54,7 +54,7 @@ use \Yext\Client\ObjectSerializer;
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache License v2
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SocialJanuaryApiTest extends \PHPUnit_Framework_TestCase
+class SocialSpringSummerApiTest extends \PHPUnit_Framework_TestCase
 {
 
     /**

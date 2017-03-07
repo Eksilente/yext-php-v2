@@ -104,9 +104,9 @@ class AnalyticsFilterTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "location_ids"
+     * Test attribute "location_labels"
      */
-    public function testPropertyLocationIds()
+    public function testPropertyLocationLabels()
     {
 
     }
@@ -115,62 +115,6 @@ class AnalyticsFilterTest extends \PHPUnit_Framework_TestCase
      * Test attribute "end_date"
      */
     public function testPropertyEndDate()
-    {
-
-    }
-
-    /**
-     * Test attribute "search_type"
-     */
-    public function testPropertySearchType()
-    {
-
-    }
-
-    /**
-     * Test attribute "countries"
-     */
-    public function testPropertyCountries()
-    {
-
-    }
-
-    /**
-     * Test attribute "min_search_frequency"
-     */
-    public function testPropertyMinSearchFrequency()
-    {
-
-    }
-
-    /**
-     * Test attribute "foursquare_checkin_gender"
-     */
-    public function testPropertyFoursquareCheckinGender()
-    {
-
-    }
-
-    /**
-     * Test attribute "foursquare_checkin_age"
-     */
-    public function testPropertyFoursquareCheckinAge()
-    {
-
-    }
-
-    /**
-     * Test attribute "hours"
-     */
-    public function testPropertyHours()
-    {
-
-    }
-
-    /**
-     * Test attribute "location_labels"
-     */
-    public function testPropertyLocationLabels()
     {
 
     }
@@ -208,9 +152,65 @@ class AnalyticsFilterTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "max_search_frequency"
+     * Test attribute "search_term"
      */
-    public function testPropertyMaxSearchFrequency()
+    public function testPropertySearchTerm()
+    {
+
+    }
+
+    /**
+     * Test attribute "partners"
+     */
+    public function testPropertyPartners()
+    {
+
+    }
+
+    /**
+     * Test attribute "search_type"
+     */
+    public function testPropertySearchType()
+    {
+
+    }
+
+    /**
+     * Test attribute "foursquare_checkin_age"
+     */
+    public function testPropertyFoursquareCheckinAge()
+    {
+
+    }
+
+    /**
+     * Test attribute "frequent_words"
+     */
+    public function testPropertyFrequentWords()
+    {
+
+    }
+
+    /**
+     * Test attribute "foursquare_checkin_time_of_day"
+     */
+    public function testPropertyFoursquareCheckinTimeOfDay()
+    {
+
+    }
+
+    /**
+     * Test attribute "ratings"
+     */
+    public function testPropertyRatings()
+    {
+
+    }
+
+    /**
+     * Test attribute "foursquare_checkin_gender"
+     */
+    public function testPropertyFoursquareCheckinGender()
     {
 
     }
@@ -224,9 +224,17 @@ class AnalyticsFilterTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "search_term"
+     * Test attribute "hours"
      */
-    public function testPropertySearchTerm()
+    public function testPropertyHours()
+    {
+
+    }
+
+    /**
+     * Test attribute "max_search_frequency"
+     */
+    public function testPropertyMaxSearchFrequency()
     {
 
     }
@@ -240,9 +248,25 @@ class AnalyticsFilterTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "foursquare_checkin_time_of_day"
+     * Test attribute "location_ids"
      */
-    public function testPropertyFoursquareCheckinTimeOfDay()
+    public function testPropertyLocationIds()
+    {
+
+    }
+
+    /**
+     * Test attribute "countries"
+     */
+    public function testPropertyCountries()
+    {
+
+    }
+
+    /**
+     * Test attribute "min_search_frequency"
+     */
+    public function testPropertyMinSearchFrequency()
     {
 
     }

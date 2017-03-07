@@ -173,7 +173,7 @@ class MaximumDatesResponseResponse implements ArrayAccess
 
     /**
      * Sets standard_max_date
-     * @param \DateTime $standard_max_date The date through which reporting data is available from PowerListings publishers other than Bing.
+     * @param \DateTime $standard_max_date The date through which reporting data is available from PowerListings® publishers other than Bing.
      * @return $this
      */
     public function setStandardMaxDate($standard_max_date)

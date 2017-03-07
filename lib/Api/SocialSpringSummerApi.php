@@ -1,6 +1,6 @@
 <?php
 /**
- * SocialJanuaryApi
+ * SocialSpringSummerApi
  * PHP version 5
  *
  * @category Class
@@ -46,7 +46,7 @@ use \Yext\Client\Configuration;
 use \Yext\Client\ObjectSerializer;
 
 /**
- * SocialJanuaryApi Class Doc Comment
+ * SocialSpringSummerApi Class Doc Comment
  *
  * @category Class
  * @package  Yext\Client
@@ -54,7 +54,7 @@ use \Yext\Client\ObjectSerializer;
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache License v2
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SocialJanuaryApi
+class SocialSpringSummerApi
 {
     /**
      * API Client
@@ -93,7 +93,7 @@ class SocialJanuaryApi
      *
      * @param \Yext\Client\ApiClient $apiClient set the API client
      *
-     * @return SocialJanuaryApi
+     * @return SocialSpringSummerApi
      */
     public function setApiClient(\Yext\Client\ApiClient $apiClient)
     {
@@ -108,6 +108,7 @@ class SocialJanuaryApi
      *
      * @param string $account_id  (required)
      * @param string $post_id  (required)
+     * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
      * @param string $parent_id The ID of the Comment this Comment is replying to.  **Example** 123 (required)
      * @param string $message The message included in the Comment, if any.  **Example** “Hello, World!” (optional)
      * @param string $photo_url The URL of the photo included in the Comment, if any.  **Example** “https://…” (optional)
@@ -115,9 +116,9 @@ class SocialJanuaryApi
      * @throws \Yext\Client\ApiException on non-2xx response
      * @return \Yext\Client\Model\IdResponse
      */
-    public function createComment($account_id, $post_id, $parent_id, $message = null, $photo_url = null, $link_url = null)
+    public function createComment($account_id, $post_id, $v, $parent_id, $message = null, $photo_url = null, $link_url = null)
     {
-        list($response) = $this->createCommentWithHttpInfo($account_id, $post_id, $parent_id, $message, $photo_url, $link_url);
+        list($response) = $this->createCommentWithHttpInfo($account_id, $post_id, $v, $parent_id, $message, $photo_url, $link_url);
         return $response;
     }
 
@@ -128,6 +129,7 @@ class SocialJanuaryApi
      *
      * @param string $account_id  (required)
      * @param string $post_id  (required)
+     * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
      * @param string $parent_id The ID of the Comment this Comment is replying to.  **Example** 123 (required)
      * @param string $message The message included in the Comment, if any.  **Example** “Hello, World!” (optional)
      * @param string $photo_url The URL of the photo included in the Comment, if any.  **Example** “https://…” (optional)
@@ -135,7 +137,7 @@ class SocialJanuaryApi
      * @throws \Yext\Client\ApiException on non-2xx response
      * @return array of \Yext\Client\Model\IdResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createCommentWithHttpInfo($account_id, $post_id, $parent_id, $message = null, $photo_url = null, $link_url = null)
+    public function createCommentWithHttpInfo($account_id, $post_id, $v, $parent_id, $message = null, $photo_url = null, $link_url = null)
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
@@ -144,6 +146,10 @@ class SocialJanuaryApi
         // verify the required parameter 'post_id' is set
         if ($post_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $post_id when calling createComment');
+        }
+        // verify the required parameter 'v' is set
+        if ($v === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $v when calling createComment');
         }
         // verify the required parameter 'parent_id' is set
         if ($parent_id === null) {
@@ -161,6 +167,10 @@ class SocialJanuaryApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
+        // query params
+        if ($v !== null) {
+            $queryParams['v'] = $this->apiClient->getSerializer()->toQueryValue($v);
+        }
         // query params
         if ($parent_id !== null) {
             $queryParams['parentId'] = $this->apiClient->getSerializer()->toQueryValue($parent_id);
@@ -243,6 +253,7 @@ class SocialJanuaryApi
      * Posts: Create
      *
      * @param string $account_id  (required)
+     * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
      * @param string[] $location_ids List of Location IDs for this Post (required)
      * @param string[] $publisher_ids List of Publisher IDs for this Post (required)
      * @param string $message The message included in the Post, if any.  **Example** \&quot;Hello, World!\&quot; (required)
@@ -251,9 +262,9 @@ class SocialJanuaryApi
      * @throws \Yext\Client\ApiException on non-2xx response
      * @return \Yext\Client\Model\IdResponse
      */
-    public function createPosts($account_id, $location_ids, $publisher_ids, $message, $photo_url = null, $link_url = null)
+    public function createPosts($account_id, $v, $location_ids, $publisher_ids, $message, $photo_url = null, $link_url = null)
     {
-        list($response) = $this->createPostsWithHttpInfo($account_id, $location_ids, $publisher_ids, $message, $photo_url, $link_url);
+        list($response) = $this->createPostsWithHttpInfo($account_id, $v, $location_ids, $publisher_ids, $message, $photo_url, $link_url);
         return $response;
     }
 
@@ -263,6 +274,7 @@ class SocialJanuaryApi
      * Posts: Create
      *
      * @param string $account_id  (required)
+     * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
      * @param string[] $location_ids List of Location IDs for this Post (required)
      * @param string[] $publisher_ids List of Publisher IDs for this Post (required)
      * @param string $message The message included in the Post, if any.  **Example** \&quot;Hello, World!\&quot; (required)
@@ -271,11 +283,15 @@ class SocialJanuaryApi
      * @throws \Yext\Client\ApiException on non-2xx response
      * @return array of \Yext\Client\Model\IdResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createPostsWithHttpInfo($account_id, $location_ids, $publisher_ids, $message, $photo_url = null, $link_url = null)
+    public function createPostsWithHttpInfo($account_id, $v, $location_ids, $publisher_ids, $message, $photo_url = null, $link_url = null)
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $account_id when calling createPosts');
+        }
+        // verify the required parameter 'v' is set
+        if ($v === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $v when calling createPosts');
         }
         // verify the required parameter 'location_ids' is set
         if ($location_ids === null) {
@@ -301,6 +317,10 @@ class SocialJanuaryApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
+        // query params
+        if ($v !== null) {
+            $queryParams['v'] = $this->apiClient->getSerializer()->toQueryValue($v);
+        }
         // query params
         if (is_array($location_ids)) {
             $location_ids = $this->apiClient->getSerializer()->serializeCollection($location_ids, 'csv', true);
@@ -387,12 +407,13 @@ class SocialJanuaryApi
      * @param string $account_id  (required)
      * @param string $post_id  (required)
      * @param string $comment_id  (required)
+     * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
      * @throws \Yext\Client\ApiException on non-2xx response
      * @return \Yext\Client\Model\ErrorResponse
      */
-    public function deleteComment($account_id, $post_id, $comment_id)
+    public function deleteComment($account_id, $post_id, $comment_id, $v)
     {
-        list($response) = $this->deleteCommentWithHttpInfo($account_id, $post_id, $comment_id);
+        list($response) = $this->deleteCommentWithHttpInfo($account_id, $post_id, $comment_id, $v);
         return $response;
     }
 
@@ -404,10 +425,11 @@ class SocialJanuaryApi
      * @param string $account_id  (required)
      * @param string $post_id  (required)
      * @param string $comment_id  (required)
+     * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
      * @throws \Yext\Client\ApiException on non-2xx response
      * @return array of \Yext\Client\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteCommentWithHttpInfo($account_id, $post_id, $comment_id)
+    public function deleteCommentWithHttpInfo($account_id, $post_id, $comment_id, $v)
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
@@ -421,6 +443,10 @@ class SocialJanuaryApi
         if ($comment_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $comment_id when calling deleteComment');
         }
+        // verify the required parameter 'v' is set
+        if ($v === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $v when calling deleteComment');
+        }
         // parse inputs
         $resourcePath = "/accounts/{accountId}/posts/{postId}/comments/{commentId}";
         $httpBody = '';
@@ -433,6 +459,10 @@ class SocialJanuaryApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
+        // query params
+        if ($v !== null) {
+            $queryParams['v'] = $this->apiClient->getSerializer()->toQueryValue($v);
+        }
         // path params
         if ($account_id !== null) {
             $resourcePath = str_replace(
@@ -508,12 +538,13 @@ class SocialJanuaryApi
      *
      * @param string $account_id  (required)
      * @param string $post_id  (required)
+     * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
      * @throws \Yext\Client\ApiException on non-2xx response
      * @return \Yext\Client\Model\ErrorResponse
      */
-    public function deletePost($account_id, $post_id)
+    public function deletePost($account_id, $post_id, $v)
     {
-        list($response) = $this->deletePostWithHttpInfo($account_id, $post_id);
+        list($response) = $this->deletePostWithHttpInfo($account_id, $post_id, $v);
         return $response;
     }
 
@@ -524,10 +555,11 @@ class SocialJanuaryApi
      *
      * @param string $account_id  (required)
      * @param string $post_id  (required)
+     * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
      * @throws \Yext\Client\ApiException on non-2xx response
      * @return array of \Yext\Client\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deletePostWithHttpInfo($account_id, $post_id)
+    public function deletePostWithHttpInfo($account_id, $post_id, $v)
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
@@ -536,6 +568,10 @@ class SocialJanuaryApi
         // verify the required parameter 'post_id' is set
         if ($post_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $post_id when calling deletePost');
+        }
+        // verify the required parameter 'v' is set
+        if ($v === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $v when calling deletePost');
         }
         // parse inputs
         $resourcePath = "/accounts/{accountId}/posts/{postId}";
@@ -549,6 +585,10 @@ class SocialJanuaryApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
+        // query params
+        if ($v !== null) {
+            $queryParams['v'] = $this->apiClient->getSerializer()->toQueryValue($v);
+        }
         // path params
         if ($account_id !== null) {
             $resourcePath = str_replace(
@@ -616,15 +656,16 @@ class SocialJanuaryApi
      *
      * @param string $account_id  (required)
      * @param string $post_id  (required)
+     * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
      * @param int $limit Number of results to return, up to 100. Default 100.  **Example** 20 (optional, default to 100)
      * @param int $offset Number of results to skip. Used to page through results. (optional, default to 0)
      * @param string $type Determines which type of Comments are returned (optional)
      * @throws \Yext\Client\ApiException on non-2xx response
      * @return \Yext\Client\Model\SocialCommentsResponse
      */
-    public function getComments($account_id, $post_id, $limit = null, $offset = null, $type = null)
+    public function getComments($account_id, $post_id, $v, $limit = null, $offset = null, $type = null)
     {
-        list($response) = $this->getCommentsWithHttpInfo($account_id, $post_id, $limit, $offset, $type);
+        list($response) = $this->getCommentsWithHttpInfo($account_id, $post_id, $v, $limit, $offset, $type);
         return $response;
     }
 
@@ -635,13 +676,14 @@ class SocialJanuaryApi
      *
      * @param string $account_id  (required)
      * @param string $post_id  (required)
+     * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
      * @param int $limit Number of results to return, up to 100. Default 100.  **Example** 20 (optional, default to 100)
      * @param int $offset Number of results to skip. Used to page through results. (optional, default to 0)
      * @param string $type Determines which type of Comments are returned (optional)
      * @throws \Yext\Client\ApiException on non-2xx response
      * @return array of \Yext\Client\Model\SocialCommentsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCommentsWithHttpInfo($account_id, $post_id, $limit = null, $offset = null, $type = null)
+    public function getCommentsWithHttpInfo($account_id, $post_id, $v, $limit = null, $offset = null, $type = null)
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
@@ -651,8 +693,12 @@ class SocialJanuaryApi
         if ($post_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $post_id when calling getComments');
         }
+        // verify the required parameter 'v' is set
+        if ($v === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $v when calling getComments');
+        }
         if (!is_null($limit) && ($limit > 100.0)) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling SocialJanuaryApi.getComments, must be smaller than or equal to 100.0.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling SocialSpringSummerApi.getComments, must be smaller than or equal to 100.0.');
         }
 
         // parse inputs
@@ -667,6 +713,10 @@ class SocialJanuaryApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
+        // query params
+        if ($v !== null) {
+            $queryParams['v'] = $this->apiClient->getSerializer()->toQueryValue($v);
+        }
         // query params
         if ($limit !== null) {
             $queryParams['limit'] = $this->apiClient->getSerializer()->toQueryValue($limit);
@@ -746,12 +796,13 @@ class SocialJanuaryApi
      *
      * @param string $account_id  (required)
      * @param string $linked_account_id  (required)
+     * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
      * @throws \Yext\Client\ApiException on non-2xx response
      * @return \Yext\Client\Model\LinkedAccountResponse
      */
-    public function getLinkedAccount($account_id, $linked_account_id)
+    public function getLinkedAccount($account_id, $linked_account_id, $v)
     {
-        list($response) = $this->getLinkedAccountWithHttpInfo($account_id, $linked_account_id);
+        list($response) = $this->getLinkedAccountWithHttpInfo($account_id, $linked_account_id, $v);
         return $response;
     }
 
@@ -762,10 +813,11 @@ class SocialJanuaryApi
      *
      * @param string $account_id  (required)
      * @param string $linked_account_id  (required)
+     * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
      * @throws \Yext\Client\ApiException on non-2xx response
      * @return array of \Yext\Client\Model\LinkedAccountResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getLinkedAccountWithHttpInfo($account_id, $linked_account_id)
+    public function getLinkedAccountWithHttpInfo($account_id, $linked_account_id, $v)
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
@@ -774,6 +826,10 @@ class SocialJanuaryApi
         // verify the required parameter 'linked_account_id' is set
         if ($linked_account_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $linked_account_id when calling getLinkedAccount');
+        }
+        // verify the required parameter 'v' is set
+        if ($v === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $v when calling getLinkedAccount');
         }
         // parse inputs
         $resourcePath = "/accounts/{accountId}/linkedaccounts/{linkedAccountId}";
@@ -787,6 +843,10 @@ class SocialJanuaryApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
+        // query params
+        if ($v !== null) {
+            $queryParams['v'] = $this->apiClient->getSerializer()->toQueryValue($v);
+        }
         // path params
         if ($account_id !== null) {
             $resourcePath = str_replace(
@@ -853,6 +913,7 @@ class SocialJanuaryApi
      * Linked Accounts: List
      *
      * @param string $account_id  (required)
+     * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
      * @param int $limit Number of results to return, up to 100. Default 100.  **Example** 20 (optional, default to 100)
      * @param int $offset Number of results to skip. Used to page through results. (optional, default to 0)
      * @param string[] $location_ids Defaults to all account locations with a PowerListings subscription.  **Example** 123, 456, 789 (optional)
@@ -861,9 +922,9 @@ class SocialJanuaryApi
      * @throws \Yext\Client\ApiException on non-2xx response
      * @return \Yext\Client\Model\LinkedAccountsResponse
      */
-    public function getLinkedAccounts($account_id, $limit = null, $offset = null, $location_ids = null, $publisher_ids = null, $status = null)
+    public function getLinkedAccounts($account_id, $v, $limit = null, $offset = null, $location_ids = null, $publisher_ids = null, $status = null)
     {
-        list($response) = $this->getLinkedAccountsWithHttpInfo($account_id, $limit, $offset, $location_ids, $publisher_ids, $status);
+        list($response) = $this->getLinkedAccountsWithHttpInfo($account_id, $v, $limit, $offset, $location_ids, $publisher_ids, $status);
         return $response;
     }
 
@@ -873,6 +934,7 @@ class SocialJanuaryApi
      * Linked Accounts: List
      *
      * @param string $account_id  (required)
+     * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
      * @param int $limit Number of results to return, up to 100. Default 100.  **Example** 20 (optional, default to 100)
      * @param int $offset Number of results to skip. Used to page through results. (optional, default to 0)
      * @param string[] $location_ids Defaults to all account locations with a PowerListings subscription.  **Example** 123, 456, 789 (optional)
@@ -881,14 +943,18 @@ class SocialJanuaryApi
      * @throws \Yext\Client\ApiException on non-2xx response
      * @return array of \Yext\Client\Model\LinkedAccountsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getLinkedAccountsWithHttpInfo($account_id, $limit = null, $offset = null, $location_ids = null, $publisher_ids = null, $status = null)
+    public function getLinkedAccountsWithHttpInfo($account_id, $v, $limit = null, $offset = null, $location_ids = null, $publisher_ids = null, $status = null)
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $account_id when calling getLinkedAccounts');
         }
+        // verify the required parameter 'v' is set
+        if ($v === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $v when calling getLinkedAccounts');
+        }
         if (!is_null($limit) && ($limit > 100.0)) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling SocialJanuaryApi.getLinkedAccounts, must be smaller than or equal to 100.0.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling SocialSpringSummerApi.getLinkedAccounts, must be smaller than or equal to 100.0.');
         }
 
         // parse inputs
@@ -903,6 +969,10 @@ class SocialJanuaryApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
+        // query params
+        if ($v !== null) {
+            $queryParams['v'] = $this->apiClient->getSerializer()->toQueryValue($v);
+        }
         // query params
         if ($limit !== null) {
             $queryParams['limit'] = $this->apiClient->getSerializer()->toQueryValue($limit);
@@ -987,6 +1057,7 @@ class SocialJanuaryApi
      * Posts: List
      *
      * @param string $account_id  (required)
+     * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
      * @param int $limit Number of results to return, up to 100. Default 100.  **Example** 20 (optional, default to 100)
      * @param int $offset Number of results to skip. Used to page through results. (optional, default to 0)
      * @param string[] $location_ids When provided, only Posts that involve the requested locations will be returned.  By defaults, Posts will be returned for all locations subscribed to Social Posting.  **Example** 123, 456, 789 (optional)
@@ -998,9 +1069,9 @@ class SocialJanuaryApi
      * @throws \Yext\Client\ApiException on non-2xx response
      * @return \Yext\Client\Model\SocialPostsResponse
      */
-    public function getPosts($account_id, $limit = null, $offset = null, $location_ids = null, $folder_id = null, $countries = null, $location_labels = null, $publisher_ids = null, $keywords = null)
+    public function getPosts($account_id, $v, $limit = null, $offset = null, $location_ids = null, $folder_id = null, $countries = null, $location_labels = null, $publisher_ids = null, $keywords = null)
     {
-        list($response) = $this->getPostsWithHttpInfo($account_id, $limit, $offset, $location_ids, $folder_id, $countries, $location_labels, $publisher_ids, $keywords);
+        list($response) = $this->getPostsWithHttpInfo($account_id, $v, $limit, $offset, $location_ids, $folder_id, $countries, $location_labels, $publisher_ids, $keywords);
         return $response;
     }
 
@@ -1010,6 +1081,7 @@ class SocialJanuaryApi
      * Posts: List
      *
      * @param string $account_id  (required)
+     * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
      * @param int $limit Number of results to return, up to 100. Default 100.  **Example** 20 (optional, default to 100)
      * @param int $offset Number of results to skip. Used to page through results. (optional, default to 0)
      * @param string[] $location_ids When provided, only Posts that involve the requested locations will be returned.  By defaults, Posts will be returned for all locations subscribed to Social Posting.  **Example** 123, 456, 789 (optional)
@@ -1021,14 +1093,18 @@ class SocialJanuaryApi
      * @throws \Yext\Client\ApiException on non-2xx response
      * @return array of \Yext\Client\Model\SocialPostsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPostsWithHttpInfo($account_id, $limit = null, $offset = null, $location_ids = null, $folder_id = null, $countries = null, $location_labels = null, $publisher_ids = null, $keywords = null)
+    public function getPostsWithHttpInfo($account_id, $v, $limit = null, $offset = null, $location_ids = null, $folder_id = null, $countries = null, $location_labels = null, $publisher_ids = null, $keywords = null)
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $account_id when calling getPosts');
         }
+        // verify the required parameter 'v' is set
+        if ($v === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $v when calling getPosts');
+        }
         if (!is_null($limit) && ($limit > 100.0)) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling SocialJanuaryApi.getPosts, must be smaller than or equal to 100.0.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling SocialSpringSummerApi.getPosts, must be smaller than or equal to 100.0.');
         }
 
         // parse inputs
@@ -1043,6 +1119,10 @@ class SocialJanuaryApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
+        // query params
+        if ($v !== null) {
+            $queryParams['v'] = $this->apiClient->getSerializer()->toQueryValue($v);
+        }
         // query params
         if ($limit !== null) {
             $queryParams['limit'] = $this->apiClient->getSerializer()->toQueryValue($limit);
@@ -1150,13 +1230,14 @@ class SocialJanuaryApi
      * @param string $account_id  (required)
      * @param string $post_id  (required)
      * @param string $comment_id  (required)
+     * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
      * @param \Yext\Client\Model\PostEntry $comment  (required)
      * @throws \Yext\Client\ApiException on non-2xx response
      * @return \Yext\Client\Model\ErrorResponse
      */
-    public function updateComment($account_id, $post_id, $comment_id, $comment)
+    public function updateComment($account_id, $post_id, $comment_id, $v, $comment)
     {
-        list($response) = $this->updateCommentWithHttpInfo($account_id, $post_id, $comment_id, $comment);
+        list($response) = $this->updateCommentWithHttpInfo($account_id, $post_id, $comment_id, $v, $comment);
         return $response;
     }
 
@@ -1168,11 +1249,12 @@ class SocialJanuaryApi
      * @param string $account_id  (required)
      * @param string $post_id  (required)
      * @param string $comment_id  (required)
+     * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
      * @param \Yext\Client\Model\PostEntry $comment  (required)
      * @throws \Yext\Client\ApiException on non-2xx response
      * @return array of \Yext\Client\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateCommentWithHttpInfo($account_id, $post_id, $comment_id, $comment)
+    public function updateCommentWithHttpInfo($account_id, $post_id, $comment_id, $v, $comment)
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
@@ -1185,6 +1267,10 @@ class SocialJanuaryApi
         // verify the required parameter 'comment_id' is set
         if ($comment_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $comment_id when calling updateComment');
+        }
+        // verify the required parameter 'v' is set
+        if ($v === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $v when calling updateComment');
         }
         // verify the required parameter 'comment' is set
         if ($comment === null) {
@@ -1202,6 +1288,10 @@ class SocialJanuaryApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
+        // query params
+        if ($v !== null) {
+            $queryParams['v'] = $this->apiClient->getSerializer()->toQueryValue($v);
+        }
         // path params
         if ($account_id !== null) {
             $resourcePath = str_replace(
@@ -1282,14 +1372,15 @@ class SocialJanuaryApi
      *
      * @param string $account_id  (required)
      * @param string $linked_account_id  (required)
+     * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
      * @param string[] $assign_location_ids Array of Location IDs to be assigned to this Linked Account.  Use this field to assign this Linked Account to Locations without affecting any other assigned Locations. (optional)
      * @param string[] $unassign_location_ids Array of Location IDs to be unassigned from this Linked Account.  Use this field to unassign this Linked Account from Locations without affecting any other assigned Locations. (optional)
      * @throws \Yext\Client\ApiException on non-2xx response
      * @return \Yext\Client\Model\ErrorResponse
      */
-    public function updateLinkedAccount($account_id, $linked_account_id, $assign_location_ids = null, $unassign_location_ids = null)
+    public function updateLinkedAccount($account_id, $linked_account_id, $v, $assign_location_ids = null, $unassign_location_ids = null)
     {
-        list($response) = $this->updateLinkedAccountWithHttpInfo($account_id, $linked_account_id, $assign_location_ids, $unassign_location_ids);
+        list($response) = $this->updateLinkedAccountWithHttpInfo($account_id, $linked_account_id, $v, $assign_location_ids, $unassign_location_ids);
         return $response;
     }
 
@@ -1300,12 +1391,13 @@ class SocialJanuaryApi
      *
      * @param string $account_id  (required)
      * @param string $linked_account_id  (required)
+     * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
      * @param string[] $assign_location_ids Array of Location IDs to be assigned to this Linked Account.  Use this field to assign this Linked Account to Locations without affecting any other assigned Locations. (optional)
      * @param string[] $unassign_location_ids Array of Location IDs to be unassigned from this Linked Account.  Use this field to unassign this Linked Account from Locations without affecting any other assigned Locations. (optional)
      * @throws \Yext\Client\ApiException on non-2xx response
      * @return array of \Yext\Client\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateLinkedAccountWithHttpInfo($account_id, $linked_account_id, $assign_location_ids = null, $unassign_location_ids = null)
+    public function updateLinkedAccountWithHttpInfo($account_id, $linked_account_id, $v, $assign_location_ids = null, $unassign_location_ids = null)
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
@@ -1314,6 +1406,10 @@ class SocialJanuaryApi
         // verify the required parameter 'linked_account_id' is set
         if ($linked_account_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $linked_account_id when calling updateLinkedAccount');
+        }
+        // verify the required parameter 'v' is set
+        if ($v === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $v when calling updateLinkedAccount');
         }
         // parse inputs
         $resourcePath = "/accounts/{accountId}/linkedaccounts/{linkedAccountId}";
@@ -1327,6 +1423,10 @@ class SocialJanuaryApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
+        // query params
+        if ($v !== null) {
+            $queryParams['v'] = $this->apiClient->getSerializer()->toQueryValue($v);
+        }
         // query params
         if (is_array($assign_location_ids)) {
             $assign_location_ids = $this->apiClient->getSerializer()->serializeCollection($assign_location_ids, 'csv', true);

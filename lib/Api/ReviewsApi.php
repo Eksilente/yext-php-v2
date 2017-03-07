@@ -110,8 +110,8 @@ class ReviewsApi
      * @param int $review_id ID of this Review. (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
      * @param string $content Content of the new comment. (optional)
-     * @param string $visibility  (optional, default to PRIVATE)
-     * @param int $parent_id If this Comment is in response to another comment, use this field to specify the ID of the parent Comment. (optional)
+     * @param string $visibility  (optional, default to PUBLIC)
+     * @param int $parent_id If this Comment is in response to another Comment, use this field to specify the ID of the parent Comment. (optional)
      * @throws \Yext\Client\ApiException on non-2xx response
      * @return \Yext\Client\Model\ErrorResponse
      */
@@ -130,8 +130,8 @@ class ReviewsApi
      * @param int $review_id ID of this Review. (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
      * @param string $content Content of the new comment. (optional)
-     * @param string $visibility  (optional, default to PRIVATE)
-     * @param int $parent_id If this Comment is in response to another comment, use this field to specify the ID of the parent Comment. (optional)
+     * @param string $visibility  (optional, default to PUBLIC)
+     * @param int $parent_id If this Comment is in response to another Comment, use this field to specify the ID of the parent Comment. (optional)
      * @throws \Yext\Client\ApiException on non-2xx response
      * @return array of \Yext\Client\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
@@ -403,13 +403,14 @@ class ReviewsApi
      * Review Invitations: Create
      *
      * @param string $account_id  (required)
+     * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
      * @param \Yext\Client\Model\ReviewInvitation[] $reviews  (required)
      * @throws \Yext\Client\ApiException on non-2xx response
      * @return \Yext\Client\Model\CreateReviewInvitationResponse[]
      */
-    public function createReviewInvites($account_id, $reviews)
+    public function createReviewInvites($account_id, $v, $reviews)
     {
-        list($response) = $this->createReviewInvitesWithHttpInfo($account_id, $reviews);
+        list($response) = $this->createReviewInvitesWithHttpInfo($account_id, $v, $reviews);
         return $response;
     }
 
@@ -419,15 +420,20 @@ class ReviewsApi
      * Review Invitations: Create
      *
      * @param string $account_id  (required)
+     * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
      * @param \Yext\Client\Model\ReviewInvitation[] $reviews  (required)
      * @throws \Yext\Client\ApiException on non-2xx response
      * @return array of \Yext\Client\Model\CreateReviewInvitationResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function createReviewInvitesWithHttpInfo($account_id, $reviews)
+    public function createReviewInvitesWithHttpInfo($account_id, $v, $reviews)
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $account_id when calling createReviewInvites');
+        }
+        // verify the required parameter 'v' is set
+        if ($v === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $v when calling createReviewInvites');
         }
         // verify the required parameter 'reviews' is set
         if ($reviews === null) {
@@ -445,6 +451,10 @@ class ReviewsApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
+        // query params
+        if ($v !== null) {
+            $queryParams['v'] = $this->apiClient->getSerializer()->toQueryValue($v);
+        }
         // path params
         if ($account_id !== null) {
             $resourcePath = str_replace(
@@ -621,6 +631,110 @@ class ReviewsApi
     }
 
     /**
+     * Operation getReviewGenerationSettings
+     *
+     * Review Generation Settings: Get
+     *
+     * @param string $account_id  (required)
+     * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
+     * @throws \Yext\Client\ApiException on non-2xx response
+     * @return \Yext\Client\Model\GetReviewGenerationSettingsResponse
+     */
+    public function getReviewGenerationSettings($account_id, $v)
+    {
+        list($response) = $this->getReviewGenerationSettingsWithHttpInfo($account_id, $v);
+        return $response;
+    }
+
+    /**
+     * Operation getReviewGenerationSettingsWithHttpInfo
+     *
+     * Review Generation Settings: Get
+     *
+     * @param string $account_id  (required)
+     * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
+     * @throws \Yext\Client\ApiException on non-2xx response
+     * @return array of \Yext\Client\Model\GetReviewGenerationSettingsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getReviewGenerationSettingsWithHttpInfo($account_id, $v)
+    {
+        // verify the required parameter 'account_id' is set
+        if ($account_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $account_id when calling getReviewGenerationSettings');
+        }
+        // verify the required parameter 'v' is set
+        if ($v === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $v when calling getReviewGenerationSettings');
+        }
+        // parse inputs
+        $resourcePath = "/accounts/{accountId}/reviews/settings/generation";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
+
+        // query params
+        if ($v !== null) {
+            $queryParams['v'] = $this->apiClient->getSerializer()->toQueryValue($v);
+        }
+        // path params
+        if ($account_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "accountId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($account_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('api_key');
+        if (strlen($apiKey) !== 0) {
+            $queryParams['api_key'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Yext\Client\Model\GetReviewGenerationSettingsResponse',
+                '/accounts/{accountId}/reviews/settings/generation'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\GetReviewGenerationSettingsResponse', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\GetReviewGenerationSettingsResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
      * Operation listReviews
      *
      * Reviews: List
@@ -637,10 +751,10 @@ class ReviewsApi
      * @param string $review_content When specified, only reviews that include the provided content will be returned. (optional)
      * @param double $min_rating When specified, only reviews with the provided minimum rating or higher will be returned. (optional)
      * @param double $max_rating  (optional)
-     * @param \DateTime $min_publisher_date When specified, only reviews with a publisher date on or after the given date will be returned. (optional)
-     * @param \DateTime $max_publisher_date When specified, only reviews with a publisher date on or before the given date will be returned. (optional)
-     * @param \DateTime $min_last_yext_update_date When specified, only reviews with a last Yext update date on or after the given date will be returned. (optional)
-     * @param \DateTime $max_last_yext_update_date When specified, only reviews with a last Yext update date on or before the given date will be returned. (optional)
+     * @param \DateTime $min_publisher_date (&#x60;YYYY-MM-DD&#x60; format) When specified, only reviews with a publisher date on or after the given date will be returned. (optional)
+     * @param \DateTime $max_publisher_date (&#x60;YYYY-MM-DD&#x60; format) When specified, only reviews with a publisher date on or before the given date will be returned. (optional)
+     * @param \DateTime $min_last_yext_update_date (&#x60;YYYY-MM-DD&#x60; format) When specified, only reviews with a last Yext update date on or after the given date will be returned. (optional)
+     * @param \DateTime $max_last_yext_update_date (&#x60;YYYY-MM-DD&#x60; format) When specified, only reviews with a last Yext update date on or before the given date will be returned. (optional)
      * @param string $awaiting_response When specified, only reviews that are awaiting an owner reply on the given objects will be returned.  For example, when &#x60;awaitingResponse&#x3D;COMMENT&#x60;, reviews will only be returned if they have at least one comment that has not been responded to by the owner. (optional)
      * @param int $min_non_owner_comments When specified, only reviews that have at least the provided number of non-owner comments will be returned. (optional)
      * @param string $reviewer_name When specified, only reviews whose authorName contains the provided string will be returned. (optional)
@@ -671,10 +785,10 @@ class ReviewsApi
      * @param string $review_content When specified, only reviews that include the provided content will be returned. (optional)
      * @param double $min_rating When specified, only reviews with the provided minimum rating or higher will be returned. (optional)
      * @param double $max_rating  (optional)
-     * @param \DateTime $min_publisher_date When specified, only reviews with a publisher date on or after the given date will be returned. (optional)
-     * @param \DateTime $max_publisher_date When specified, only reviews with a publisher date on or before the given date will be returned. (optional)
-     * @param \DateTime $min_last_yext_update_date When specified, only reviews with a last Yext update date on or after the given date will be returned. (optional)
-     * @param \DateTime $max_last_yext_update_date When specified, only reviews with a last Yext update date on or before the given date will be returned. (optional)
+     * @param \DateTime $min_publisher_date (&#x60;YYYY-MM-DD&#x60; format) When specified, only reviews with a publisher date on or after the given date will be returned. (optional)
+     * @param \DateTime $max_publisher_date (&#x60;YYYY-MM-DD&#x60; format) When specified, only reviews with a publisher date on or before the given date will be returned. (optional)
+     * @param \DateTime $min_last_yext_update_date (&#x60;YYYY-MM-DD&#x60; format) When specified, only reviews with a last Yext update date on or after the given date will be returned. (optional)
+     * @param \DateTime $max_last_yext_update_date (&#x60;YYYY-MM-DD&#x60; format) When specified, only reviews with a last Yext update date on or before the given date will be returned. (optional)
      * @param string $awaiting_response When specified, only reviews that are awaiting an owner reply on the given objects will be returned.  For example, when &#x60;awaitingResponse&#x3D;COMMENT&#x60;, reviews will only be returned if they have at least one comment that has not been responded to by the owner. (optional)
      * @param int $min_non_owner_comments When specified, only reviews that have at least the provided number of non-owner comments will be returned. (optional)
      * @param string $reviewer_name When specified, only reviews whose authorName contains the provided string will be returned. (optional)
@@ -984,6 +1098,121 @@ class ReviewsApi
             switch ($e->getCode()) {
                 case 200:
                     $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\IdResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateReviewGenerationSettings
+     *
+     * Review Generation Settings: Update
+     *
+     * @param string $account_id  (required)
+     * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
+     * @param \Yext\Client\Model\ReviewGenerationSettings $review_generation_settings_request  (required)
+     * @throws \Yext\Client\ApiException on non-2xx response
+     * @return \Yext\Client\Model\GetReviewGenerationSettingsResponse
+     */
+    public function updateReviewGenerationSettings($account_id, $v, $review_generation_settings_request)
+    {
+        list($response) = $this->updateReviewGenerationSettingsWithHttpInfo($account_id, $v, $review_generation_settings_request);
+        return $response;
+    }
+
+    /**
+     * Operation updateReviewGenerationSettingsWithHttpInfo
+     *
+     * Review Generation Settings: Update
+     *
+     * @param string $account_id  (required)
+     * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
+     * @param \Yext\Client\Model\ReviewGenerationSettings $review_generation_settings_request  (required)
+     * @throws \Yext\Client\ApiException on non-2xx response
+     * @return array of \Yext\Client\Model\GetReviewGenerationSettingsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateReviewGenerationSettingsWithHttpInfo($account_id, $v, $review_generation_settings_request)
+    {
+        // verify the required parameter 'account_id' is set
+        if ($account_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $account_id when calling updateReviewGenerationSettings');
+        }
+        // verify the required parameter 'v' is set
+        if ($v === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $v when calling updateReviewGenerationSettings');
+        }
+        // verify the required parameter 'review_generation_settings_request' is set
+        if ($review_generation_settings_request === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $review_generation_settings_request when calling updateReviewGenerationSettings');
+        }
+        // parse inputs
+        $resourcePath = "/accounts/{accountId}/reviews/settings/generation";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
+
+        // query params
+        if ($v !== null) {
+            $queryParams['v'] = $this->apiClient->getSerializer()->toQueryValue($v);
+        }
+        // path params
+        if ($account_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "accountId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($account_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        // body params
+        $_tempBody = null;
+        if (isset($review_generation_settings_request)) {
+            $_tempBody = $review_generation_settings_request;
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('api_key');
+        if (strlen($apiKey) !== 0) {
+            $queryParams['api_key'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'POST',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Yext\Client\Model\GetReviewGenerationSettingsResponse',
+                '/accounts/{accountId}/reviews/settings/generation'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\GetReviewGenerationSettingsResponse', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\GetReviewGenerationSettingsResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:

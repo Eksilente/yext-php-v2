@@ -104,9 +104,9 @@ class MenuListsResponseResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "bios"
+     * Test attribute "menus"
      */
-    public function testPropertyBios()
+    public function testPropertyMenus()
     {
 
     }

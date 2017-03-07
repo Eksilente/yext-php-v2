@@ -71,11 +71,12 @@ class Location implements ArrayAccess
         'keywords' => 'string[]',
         'toll_free_phone' => 'string',
         'menu_ids' => 'string[]',
+        'tracking_sites' => 'string[]',
         'middle_name' => 'string',
         'additional_hours_text' => 'string',
         'featured_message_url' => 'string',
         'reservation_url' => 'string',
-        'pickup_lng' => 'double',
+        'degrees' => 'string[]',
         'label_ids' => 'string[]',
         'google_preferred_photo' => 'string',
         'video_urls' => 'string[]',
@@ -123,11 +124,14 @@ class Location implements ArrayAccess
         'language' => 'string',
         'last_name' => 'string',
         'location_name' => 'string',
+        'query_templates' => 'string[]',
         'products' => 'string[]',
         'uber_link_text' => 'string',
         'google_attributes' => '\Yext\Client\Model\LocationGoogleAttributes[]',
         'payment_options' => 'string[]',
+        'custom_keywords' => 'string[]',
         'dropoff_lng' => 'double',
+        'intelligent_search_tracking_enabled' => 'bool',
         'uber_embed_code' => 'string',
         'display_reservation_url' => 'string',
         'yext_display_lng' => 'double',
@@ -141,6 +145,7 @@ class Location implements ArrayAccess
         'order_url' => 'string',
         'dropoff_lat' => 'double',
         'conditions_treated' => 'string[]',
+        'pickup_lng' => 'double',
         'custom_fields' => 'map[string,object]',
         'walkable_lat' => 'double',
         'insurance_accepted' => 'string[]',
@@ -161,10 +166,14 @@ class Location implements ArrayAccess
         'routable_lng' => 'double',
         'country_code' => 'string',
         'yext_pickup_lat' => 'double',
+        'location_keywords' => 'string[]',
         'google_website_override' => 'string',
         'id' => 'string',
+        'alternate_websites' => 'string[]',
+        'intelligent_search_tracking_frequency' => 'string',
         'event_list_ids' => 'string[]',
         'display_lat' => 'double',
+        'competitors' => '\Yext\Client\Model\LocationCompetitors[]',
         'yext_dropoff_lng' => 'double',
         'is_phone_tracked' => 'bool',
         'tty_phone' => 'string',
@@ -175,6 +184,7 @@ class Location implements ArrayAccess
         'uber_trip_branding_url' => 'string',
         'routable_lat' => 'double',
         'yext_routable_lat' => 'double',
+        'alternate_names' => 'string[]',
         'photos' => '\Yext\Client\Model\LocationPhoto[]',
         'display_order_url' => 'string',
         'services' => 'string[]',
@@ -197,11 +207,12 @@ class Location implements ArrayAccess
         'keywords' => 'keywords',
         'toll_free_phone' => 'tollFreePhone',
         'menu_ids' => 'menuIds',
+        'tracking_sites' => 'trackingSites',
         'middle_name' => 'middleName',
         'additional_hours_text' => 'additionalHoursText',
         'featured_message_url' => 'featuredMessageUrl',
         'reservation_url' => 'reservationUrl',
-        'pickup_lng' => 'pickupLng',
+        'degrees' => 'degrees',
         'label_ids' => 'labelIds',
         'google_preferred_photo' => 'googlePreferredPhoto',
         'video_urls' => 'videoUrls',
@@ -249,11 +260,14 @@ class Location implements ArrayAccess
         'language' => 'language',
         'last_name' => 'lastName',
         'location_name' => 'locationName',
+        'query_templates' => 'queryTemplates',
         'products' => 'products',
         'uber_link_text' => 'uberLinkText',
         'google_attributes' => 'googleAttributes',
         'payment_options' => 'paymentOptions',
+        'custom_keywords' => 'customKeywords',
         'dropoff_lng' => 'dropoffLng',
+        'intelligent_search_tracking_enabled' => 'intelligentSearchTrackingEnabled',
         'uber_embed_code' => 'uberEmbedCode',
         'display_reservation_url' => 'displayReservationUrl',
         'yext_display_lng' => 'yextDisplayLng',
@@ -267,6 +281,7 @@ class Location implements ArrayAccess
         'order_url' => 'orderUrl',
         'dropoff_lat' => 'dropoffLat',
         'conditions_treated' => 'conditionsTreated',
+        'pickup_lng' => 'pickupLng',
         'custom_fields' => 'customFields',
         'walkable_lat' => 'walkableLat',
         'insurance_accepted' => 'insuranceAccepted',
@@ -287,10 +302,14 @@ class Location implements ArrayAccess
         'routable_lng' => 'routableLng',
         'country_code' => 'countryCode',
         'yext_pickup_lat' => 'yextPickupLat',
+        'location_keywords' => 'locationKeywords',
         'google_website_override' => 'googleWebsiteOverride',
         'id' => 'id',
+        'alternate_websites' => 'alternateWebsites',
+        'intelligent_search_tracking_frequency' => 'intelligentSearchTrackingFrequency',
         'event_list_ids' => 'eventListIds',
         'display_lat' => 'displayLat',
+        'competitors' => 'competitors',
         'yext_dropoff_lng' => 'yextDropoffLng',
         'is_phone_tracked' => 'isPhoneTracked',
         'tty_phone' => 'ttyPhone',
@@ -301,6 +320,7 @@ class Location implements ArrayAccess
         'uber_trip_branding_url' => 'uberTripBrandingUrl',
         'routable_lat' => 'routableLat',
         'yext_routable_lat' => 'yextRoutableLat',
+        'alternate_names' => 'alternateNames',
         'photos' => 'photos',
         'display_order_url' => 'displayOrderUrl',
         'services' => 'services',
@@ -319,11 +339,12 @@ class Location implements ArrayAccess
         'keywords' => 'setKeywords',
         'toll_free_phone' => 'setTollFreePhone',
         'menu_ids' => 'setMenuIds',
+        'tracking_sites' => 'setTrackingSites',
         'middle_name' => 'setMiddleName',
         'additional_hours_text' => 'setAdditionalHoursText',
         'featured_message_url' => 'setFeaturedMessageUrl',
         'reservation_url' => 'setReservationUrl',
-        'pickup_lng' => 'setPickupLng',
+        'degrees' => 'setDegrees',
         'label_ids' => 'setLabelIds',
         'google_preferred_photo' => 'setGooglePreferredPhoto',
         'video_urls' => 'setVideoUrls',
@@ -371,11 +392,14 @@ class Location implements ArrayAccess
         'language' => 'setLanguage',
         'last_name' => 'setLastName',
         'location_name' => 'setLocationName',
+        'query_templates' => 'setQueryTemplates',
         'products' => 'setProducts',
         'uber_link_text' => 'setUberLinkText',
         'google_attributes' => 'setGoogleAttributes',
         'payment_options' => 'setPaymentOptions',
+        'custom_keywords' => 'setCustomKeywords',
         'dropoff_lng' => 'setDropoffLng',
+        'intelligent_search_tracking_enabled' => 'setIntelligentSearchTrackingEnabled',
         'uber_embed_code' => 'setUberEmbedCode',
         'display_reservation_url' => 'setDisplayReservationUrl',
         'yext_display_lng' => 'setYextDisplayLng',
@@ -389,6 +413,7 @@ class Location implements ArrayAccess
         'order_url' => 'setOrderUrl',
         'dropoff_lat' => 'setDropoffLat',
         'conditions_treated' => 'setConditionsTreated',
+        'pickup_lng' => 'setPickupLng',
         'custom_fields' => 'setCustomFields',
         'walkable_lat' => 'setWalkableLat',
         'insurance_accepted' => 'setInsuranceAccepted',
@@ -409,10 +434,14 @@ class Location implements ArrayAccess
         'routable_lng' => 'setRoutableLng',
         'country_code' => 'setCountryCode',
         'yext_pickup_lat' => 'setYextPickupLat',
+        'location_keywords' => 'setLocationKeywords',
         'google_website_override' => 'setGoogleWebsiteOverride',
         'id' => 'setId',
+        'alternate_websites' => 'setAlternateWebsites',
+        'intelligent_search_tracking_frequency' => 'setIntelligentSearchTrackingFrequency',
         'event_list_ids' => 'setEventListIds',
         'display_lat' => 'setDisplayLat',
+        'competitors' => 'setCompetitors',
         'yext_dropoff_lng' => 'setYextDropoffLng',
         'is_phone_tracked' => 'setIsPhoneTracked',
         'tty_phone' => 'setTtyPhone',
@@ -423,6 +452,7 @@ class Location implements ArrayAccess
         'uber_trip_branding_url' => 'setUberTripBrandingUrl',
         'routable_lat' => 'setRoutableLat',
         'yext_routable_lat' => 'setYextRoutableLat',
+        'alternate_names' => 'setAlternateNames',
         'photos' => 'setPhotos',
         'display_order_url' => 'setDisplayOrderUrl',
         'services' => 'setServices',
@@ -441,11 +471,12 @@ class Location implements ArrayAccess
         'keywords' => 'getKeywords',
         'toll_free_phone' => 'getTollFreePhone',
         'menu_ids' => 'getMenuIds',
+        'tracking_sites' => 'getTrackingSites',
         'middle_name' => 'getMiddleName',
         'additional_hours_text' => 'getAdditionalHoursText',
         'featured_message_url' => 'getFeaturedMessageUrl',
         'reservation_url' => 'getReservationUrl',
-        'pickup_lng' => 'getPickupLng',
+        'degrees' => 'getDegrees',
         'label_ids' => 'getLabelIds',
         'google_preferred_photo' => 'getGooglePreferredPhoto',
         'video_urls' => 'getVideoUrls',
@@ -493,11 +524,14 @@ class Location implements ArrayAccess
         'language' => 'getLanguage',
         'last_name' => 'getLastName',
         'location_name' => 'getLocationName',
+        'query_templates' => 'getQueryTemplates',
         'products' => 'getProducts',
         'uber_link_text' => 'getUberLinkText',
         'google_attributes' => 'getGoogleAttributes',
         'payment_options' => 'getPaymentOptions',
+        'custom_keywords' => 'getCustomKeywords',
         'dropoff_lng' => 'getDropoffLng',
+        'intelligent_search_tracking_enabled' => 'getIntelligentSearchTrackingEnabled',
         'uber_embed_code' => 'getUberEmbedCode',
         'display_reservation_url' => 'getDisplayReservationUrl',
         'yext_display_lng' => 'getYextDisplayLng',
@@ -511,6 +545,7 @@ class Location implements ArrayAccess
         'order_url' => 'getOrderUrl',
         'dropoff_lat' => 'getDropoffLat',
         'conditions_treated' => 'getConditionsTreated',
+        'pickup_lng' => 'getPickupLng',
         'custom_fields' => 'getCustomFields',
         'walkable_lat' => 'getWalkableLat',
         'insurance_accepted' => 'getInsuranceAccepted',
@@ -531,10 +566,14 @@ class Location implements ArrayAccess
         'routable_lng' => 'getRoutableLng',
         'country_code' => 'getCountryCode',
         'yext_pickup_lat' => 'getYextPickupLat',
+        'location_keywords' => 'getLocationKeywords',
         'google_website_override' => 'getGoogleWebsiteOverride',
         'id' => 'getId',
+        'alternate_websites' => 'getAlternateWebsites',
+        'intelligent_search_tracking_frequency' => 'getIntelligentSearchTrackingFrequency',
         'event_list_ids' => 'getEventListIds',
         'display_lat' => 'getDisplayLat',
+        'competitors' => 'getCompetitors',
         'yext_dropoff_lng' => 'getYextDropoffLng',
         'is_phone_tracked' => 'getIsPhoneTracked',
         'tty_phone' => 'getTtyPhone',
@@ -545,6 +584,7 @@ class Location implements ArrayAccess
         'uber_trip_branding_url' => 'getUberTripBrandingUrl',
         'routable_lat' => 'getRoutableLat',
         'yext_routable_lat' => 'getYextRoutableLat',
+        'alternate_names' => 'getAlternateNames',
         'photos' => 'getPhotos',
         'display_order_url' => 'getDisplayOrderUrl',
         'services' => 'getServices',
@@ -567,15 +607,44 @@ class Location implements ArrayAccess
         return self::$getters;
     }
 
+    const TRACKING_SITES_GOOGLE_DESKTOP = 'GOOGLE_DESKTOP';
+    const TRACKING_SITES_GOOGLE_MOBILE = 'GOOGLE_MOBILE';
+    const TRACKING_SITES_BING_DESKTOP = 'BING_DESKTOP';
+    const TRACKING_SITES_YAHOO_DESKTOP = 'YAHOO_DESKTOP';
     const GENDER_FEMALE = 'FEMALE';
     const GENDER_F = 'F';
     const GENDER_MALE = 'MALE';
     const GENDER_M = 'M';
     const GENDER_UNSPECIFIED = 'UNSPECIFIED';
-    const UBER_LINK_TYPE_TEXT = 'TEXT';
+    const QUERY_TEMPLATES_KEYWORD = 'KEYWORD';
+    const QUERY_TEMPLATES_KEYWORD_ZIP = 'KEYWORD_ZIP';
+    const QUERY_TEMPLATES_KEYWORD_CITY = 'KEYWORD_CITY';
+    const QUERY_TEMPLATES_KEYWORD_IN_CITY = 'KEYWORD_IN_CITY';
+    const QUERY_TEMPLATES_KEYWORD_NEAR_ME = 'KEYWORD_NEAR_ME';
+    const QUERY_TEMPLATES_KEYWORD_CITY_STATE = 'KEYWORD_CITY_STATE';
+    const UBER_LINK_TYPE_LINK = 'LINK';
     const UBER_LINK_TYPE_BUTTON = 'BUTTON';
+    const LOCATION_KEYWORDS_NAME = 'NAME';
+    const LOCATION_KEYWORDS_PRIMARY_CATEGORY = 'PRIMARY_CATEGORY';
+    const INTELLIGENT_SEARCH_TRACKING_FREQUENCY_WEEKLY = 'WEEKLY';
+    const INTELLIGENT_SEARCH_TRACKING_FREQUENCY_MONTHLY = 'MONTHLY';
+    const INTELLIGENT_SEARCH_TRACKING_FREQUENCY_QUARTERLY = 'QUARTERLY';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getTrackingSitesAllowableValues()
+    {
+        return [
+            self::TRACKING_SITES_GOOGLE_DESKTOP,
+            self::TRACKING_SITES_GOOGLE_MOBILE,
+            self::TRACKING_SITES_BING_DESKTOP,
+            self::TRACKING_SITES_YAHOO_DESKTOP,
+        ];
+    }
     
     /**
      * Gets allowable values of the enum
@@ -596,11 +665,52 @@ class Location implements ArrayAccess
      * Gets allowable values of the enum
      * @return string[]
      */
+    public function getQueryTemplatesAllowableValues()
+    {
+        return [
+            self::QUERY_TEMPLATES_KEYWORD,
+            self::QUERY_TEMPLATES_KEYWORD_ZIP,
+            self::QUERY_TEMPLATES_KEYWORD_CITY,
+            self::QUERY_TEMPLATES_KEYWORD_IN_CITY,
+            self::QUERY_TEMPLATES_KEYWORD_NEAR_ME,
+            self::QUERY_TEMPLATES_KEYWORD_CITY_STATE,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
     public function getUberLinkTypeAllowableValues()
     {
         return [
-            self::UBER_LINK_TYPE_TEXT,
+            self::UBER_LINK_TYPE_LINK,
             self::UBER_LINK_TYPE_BUTTON,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getLocationKeywordsAllowableValues()
+    {
+        return [
+            self::LOCATION_KEYWORDS_NAME,
+            self::LOCATION_KEYWORDS_PRIMARY_CATEGORY,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getIntelligentSearchTrackingFrequencyAllowableValues()
+    {
+        return [
+            self::INTELLIGENT_SEARCH_TRACKING_FREQUENCY_WEEKLY,
+            self::INTELLIGENT_SEARCH_TRACKING_FREQUENCY_MONTHLY,
+            self::INTELLIGENT_SEARCH_TRACKING_FREQUENCY_QUARTERLY,
         ];
     }
     
@@ -622,11 +732,12 @@ class Location implements ArrayAccess
         $this->container['keywords'] = isset($data['keywords']) ? $data['keywords'] : null;
         $this->container['toll_free_phone'] = isset($data['toll_free_phone']) ? $data['toll_free_phone'] : null;
         $this->container['menu_ids'] = isset($data['menu_ids']) ? $data['menu_ids'] : null;
+        $this->container['tracking_sites'] = isset($data['tracking_sites']) ? $data['tracking_sites'] : null;
         $this->container['middle_name'] = isset($data['middle_name']) ? $data['middle_name'] : null;
         $this->container['additional_hours_text'] = isset($data['additional_hours_text']) ? $data['additional_hours_text'] : null;
         $this->container['featured_message_url'] = isset($data['featured_message_url']) ? $data['featured_message_url'] : null;
         $this->container['reservation_url'] = isset($data['reservation_url']) ? $data['reservation_url'] : null;
-        $this->container['pickup_lng'] = isset($data['pickup_lng']) ? $data['pickup_lng'] : null;
+        $this->container['degrees'] = isset($data['degrees']) ? $data['degrees'] : null;
         $this->container['label_ids'] = isset($data['label_ids']) ? $data['label_ids'] : null;
         $this->container['google_preferred_photo'] = isset($data['google_preferred_photo']) ? $data['google_preferred_photo'] : null;
         $this->container['video_urls'] = isset($data['video_urls']) ? $data['video_urls'] : null;
@@ -674,11 +785,14 @@ class Location implements ArrayAccess
         $this->container['language'] = isset($data['language']) ? $data['language'] : null;
         $this->container['last_name'] = isset($data['last_name']) ? $data['last_name'] : null;
         $this->container['location_name'] = isset($data['location_name']) ? $data['location_name'] : null;
+        $this->container['query_templates'] = isset($data['query_templates']) ? $data['query_templates'] : null;
         $this->container['products'] = isset($data['products']) ? $data['products'] : null;
         $this->container['uber_link_text'] = isset($data['uber_link_text']) ? $data['uber_link_text'] : null;
         $this->container['google_attributes'] = isset($data['google_attributes']) ? $data['google_attributes'] : null;
         $this->container['payment_options'] = isset($data['payment_options']) ? $data['payment_options'] : null;
+        $this->container['custom_keywords'] = isset($data['custom_keywords']) ? $data['custom_keywords'] : null;
         $this->container['dropoff_lng'] = isset($data['dropoff_lng']) ? $data['dropoff_lng'] : null;
+        $this->container['intelligent_search_tracking_enabled'] = isset($data['intelligent_search_tracking_enabled']) ? $data['intelligent_search_tracking_enabled'] : null;
         $this->container['uber_embed_code'] = isset($data['uber_embed_code']) ? $data['uber_embed_code'] : null;
         $this->container['display_reservation_url'] = isset($data['display_reservation_url']) ? $data['display_reservation_url'] : null;
         $this->container['yext_display_lng'] = isset($data['yext_display_lng']) ? $data['yext_display_lng'] : null;
@@ -692,6 +806,7 @@ class Location implements ArrayAccess
         $this->container['order_url'] = isset($data['order_url']) ? $data['order_url'] : null;
         $this->container['dropoff_lat'] = isset($data['dropoff_lat']) ? $data['dropoff_lat'] : null;
         $this->container['conditions_treated'] = isset($data['conditions_treated']) ? $data['conditions_treated'] : null;
+        $this->container['pickup_lng'] = isset($data['pickup_lng']) ? $data['pickup_lng'] : null;
         $this->container['custom_fields'] = isset($data['custom_fields']) ? $data['custom_fields'] : null;
         $this->container['walkable_lat'] = isset($data['walkable_lat']) ? $data['walkable_lat'] : null;
         $this->container['insurance_accepted'] = isset($data['insurance_accepted']) ? $data['insurance_accepted'] : null;
@@ -712,10 +827,14 @@ class Location implements ArrayAccess
         $this->container['routable_lng'] = isset($data['routable_lng']) ? $data['routable_lng'] : null;
         $this->container['country_code'] = isset($data['country_code']) ? $data['country_code'] : null;
         $this->container['yext_pickup_lat'] = isset($data['yext_pickup_lat']) ? $data['yext_pickup_lat'] : null;
+        $this->container['location_keywords'] = isset($data['location_keywords']) ? $data['location_keywords'] : null;
         $this->container['google_website_override'] = isset($data['google_website_override']) ? $data['google_website_override'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['alternate_websites'] = isset($data['alternate_websites']) ? $data['alternate_websites'] : null;
+        $this->container['intelligent_search_tracking_frequency'] = isset($data['intelligent_search_tracking_frequency']) ? $data['intelligent_search_tracking_frequency'] : null;
         $this->container['event_list_ids'] = isset($data['event_list_ids']) ? $data['event_list_ids'] : null;
         $this->container['display_lat'] = isset($data['display_lat']) ? $data['display_lat'] : null;
+        $this->container['competitors'] = isset($data['competitors']) ? $data['competitors'] : null;
         $this->container['yext_dropoff_lng'] = isset($data['yext_dropoff_lng']) ? $data['yext_dropoff_lng'] : null;
         $this->container['is_phone_tracked'] = isset($data['is_phone_tracked']) ? $data['is_phone_tracked'] : null;
         $this->container['tty_phone'] = isset($data['tty_phone']) ? $data['tty_phone'] : null;
@@ -726,6 +845,7 @@ class Location implements ArrayAccess
         $this->container['uber_trip_branding_url'] = isset($data['uber_trip_branding_url']) ? $data['uber_trip_branding_url'] : null;
         $this->container['routable_lat'] = isset($data['routable_lat']) ? $data['routable_lat'] : null;
         $this->container['yext_routable_lat'] = isset($data['yext_routable_lat']) ? $data['yext_routable_lat'] : null;
+        $this->container['alternate_names'] = isset($data['alternate_names']) ? $data['alternate_names'] : null;
         $this->container['photos'] = isset($data['photos']) ? $data['photos'] : null;
         $this->container['display_order_url'] = isset($data['display_order_url']) ? $data['display_order_url'] : null;
         $this->container['services'] = isset($data['services']) ? $data['services'] : null;
@@ -834,7 +954,7 @@ class Location implements ArrayAccess
             $invalid_properties[] = "invalid value for 'order_url', the character length must be smaller than or equal to 255.";
         }
 
-        $allowed_values = ["TEXT", "BUTTON"];
+        $allowed_values = ["LINK", "BUTTON"];
         if (!is_null($this->container['uber_link_type']) && !in_array($this->container['uber_link_type'], $allowed_values)) {
             $invalid_properties[] = "invalid value for 'uber_link_type', must be one of #{allowed_values}.";
         }
@@ -853,6 +973,11 @@ class Location implements ArrayAccess
 
         if (!is_null($this->container['id']) && (strlen($this->container['id']) > 50)) {
             $invalid_properties[] = "invalid value for 'id', the character length must be smaller than or equal to 50.";
+        }
+
+        $allowed_values = ["WEEKLY", "MONTHLY", "QUARTERLY"];
+        if (!is_null($this->container['intelligent_search_tracking_frequency']) && !in_array($this->container['intelligent_search_tracking_frequency'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'intelligent_search_tracking_frequency', must be one of #{allowed_values}.";
         }
 
         if (!is_null($this->container['description']) && (strlen($this->container['description']) > 5000)) {
@@ -956,7 +1081,7 @@ class Location implements ArrayAccess
         if (strlen($this->container['order_url']) > 255) {
             return false;
         }
-        $allowed_values = ["TEXT", "BUTTON"];
+        $allowed_values = ["LINK", "BUTTON"];
         if (!is_null($this->container['uber_link_type']) && !in_array($this->container['uber_link_type'], $allowed_values)) {
             return false;
         }
@@ -970,6 +1095,10 @@ class Location implements ArrayAccess
             return false;
         }
         if (strlen($this->container['id']) > 50) {
+            return false;
+        }
+        $allowed_values = ["WEEKLY", "MONTHLY", "QUARTERLY"];
+        if (!is_null($this->container['intelligent_search_tracking_frequency']) && !in_array($this->container['intelligent_search_tracking_frequency'], $allowed_values)) {
             return false;
         }
         if (strlen($this->container['description']) > 5000) {
@@ -1086,12 +1215,37 @@ class Location implements ArrayAccess
 
     /**
      * Sets menu_ids
-     * @param string[] $menu_ids IDs of Menu lists associated with this location.
+     * @param string[] $menu_ids IDs of Menus associated with this location.
      * @return $this
      */
     public function setMenuIds($menu_ids)
     {
         $this->container['menu_ids'] = $menu_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets tracking_sites
+     * @return string[]
+     */
+    public function getTrackingSites()
+    {
+        return $this->container['tracking_sites'];
+    }
+
+    /**
+     * Sets tracking_sites
+     * @param string[] $tracking_sites The search engines that we will use to track your performance
+     * @return $this
+     */
+    public function setTrackingSites($tracking_sites)
+    {
+        $allowed_values = array('GOOGLE_DESKTOP', 'GOOGLE_MOBILE', 'BING_DESKTOP', 'YAHOO_DESKTOP');
+        if (!is_null($tracking_sites) && (array_diff($tracking_sites, $allowed_values))) {
+            throw new \InvalidArgumentException("Invalid value for 'tracking_sites', must be one of 'GOOGLE_DESKTOP', 'GOOGLE_MOBILE', 'BING_DESKTOP', 'YAHOO_DESKTOP'");
+        }
+        $this->container['tracking_sites'] = $tracking_sites;
 
         return $this;
     }
@@ -1193,22 +1347,22 @@ class Location implements ArrayAccess
     }
 
     /**
-     * Gets pickup_lng
-     * @return double
+     * Gets degrees
+     * @return string[]
      */
-    public function getPickupLng()
+    public function getDegrees()
     {
-        return $this->container['pickup_lng'];
+        return $this->container['degrees'];
     }
 
     /**
-     * Sets pickup_lng
-     * @param double $pickup_lng Longitude to use for pickup spot for the location, as provided by you  Between -180.0 and 180.0, inclusive
+     * Sets degrees
+     * @param string[] $degrees A list of the degrees earned by the healthcare professional  **NOTE:**  This field is only available to locations whose **locationType** is HEALTHCARE_PROFESSIONAL.  Valid values:  * `ANP` (Adult Nurse Practitioner) * `APN` (Advanced Practice Nurse) * `APRN` (Advanced Practice Registered Nurse) * `ARNP` (Advanced Registered Nurse Practitioner) * `CNM` (Certified Nurse Midwife) * `CNP` (Certified Nurse Practitioner) * `CNS` (Clinical Nurse Specialist)   * `CPNP` (Certified Pediatric Nurse Practitioner) * `CRNA` (Certified Registered Nurse Anesthetist) * `CRNP` (Certified Registered Nurse Practitioner) * `DC` (Doctor of Chiropractic)   * `DDS` (Doctor of Dental Surgery) * `DMD` (Doctor of Dental Medicine) * `DO` (Doctor of Osteopathy) * `DPM` (Doctor of Podiatric Medicine) * `DVM` (Doctor of Veterinary Medicine)   * `FNP` (Family Nurse Practitioner)     * `GNP` (Geriatric Nurse Practitioner) * `LAC` (Licensed Acupuncturist) * `LPN` (Licensed Practical Nurse) * `MD` (Medical Doctor) * `ND` (Naturopathic Doctor) * `NP` (Nurse Practitioner) * `OD` (Doctor of Optometry) * `PA` (Physician Assistant)     * `PAC` (Physician Assistant Certified) * `PHARMD` (Doctor of Pharmacy) * `PHD` (Doctor of Philosophy) * `PNP` (Pediatric Nurse Practitioner)   * `VMD` (Veterinary Medical Doctor) * `WHNP` (Womens Health Nurse Practitioner)
      * @return $this
      */
-    public function setPickupLng($pickup_lng)
+    public function setDegrees($degrees)
     {
-        $this->container['pickup_lng'] = $pickup_lng;
+        $this->container['degrees'] = $degrees;
 
         return $this;
     }
@@ -2196,7 +2350,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets language
-     * @param string $language Language code of the language in which this location's information is provided. This language is considered the Location's primary language in our system.  While this field is required, we are temporarily using the Customer's **businessLanguage** as the default value of **language**.  If you would like to provide your Location data in more than one language, you can create a Language Profile for each of these additional (alternate) languages.
+     * @param string $language Language code of the language in which this location's information is provided. This language is considered the Location's primary language in our system.   If you would like to provide your Location data in more than one language, you can create a Language Profile for each of these additional (alternate) languages.
      * @return $this
      */
     public function setLanguage($language)
@@ -2257,6 +2411,31 @@ class Location implements ArrayAccess
     }
 
     /**
+     * Gets query_templates
+     * @return string[]
+     */
+    public function getQueryTemplates()
+    {
+        return $this->container['query_templates'];
+    }
+
+    /**
+     * Sets query_templates
+     * @param string[] $query_templates The ways in which your keywords will be arranged in the search queries we use to track your performance
+     * @return $this
+     */
+    public function setQueryTemplates($query_templates)
+    {
+        $allowed_values = array('KEYWORD', 'KEYWORD_ZIP', 'KEYWORD_CITY', 'KEYWORD_IN_CITY', 'KEYWORD_NEAR_ME', 'KEYWORD_CITY_STATE');
+        if (!is_null($query_templates) && (array_diff($query_templates, $allowed_values))) {
+            throw new \InvalidArgumentException("Invalid value for 'query_templates', must be one of 'KEYWORD', 'KEYWORD_ZIP', 'KEYWORD_CITY', 'KEYWORD_IN_CITY', 'KEYWORD_NEAR_ME', 'KEYWORD_CITY_STATE'");
+        }
+        $this->container['query_templates'] = $query_templates;
+
+        return $this;
+    }
+
+    /**
      * Gets products
      * @return string[]
      */
@@ -2288,7 +2467,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets uber_link_text
-     * @param string $uber_link_text The text of the embedded Uber link  Default is \"Ride there with Uber\".  **NOTE:** This field is only available if **uberLinkType** is TEXT.
+     * @param string $uber_link_text The text of the embedded Uber link  Default is \"Ride there with Uber\".  **NOTE:** This field is only available if **uberLinkType** is LINK.
      * @return $this
      */
     public function setUberLinkText($uber_link_text)
@@ -2345,6 +2524,27 @@ class Location implements ArrayAccess
     }
 
     /**
+     * Gets custom_keywords
+     * @return string[]
+     */
+    public function getCustomKeywords()
+    {
+        return $this->container['custom_keywords'];
+    }
+
+    /**
+     * Sets custom_keywords
+     * @param string[] $custom_keywords Additional keywords you would like us to use when tracking your search performance
+     * @return $this
+     */
+    public function setCustomKeywords($custom_keywords)
+    {
+        $this->container['custom_keywords'] = $custom_keywords;
+
+        return $this;
+    }
+
+    /**
      * Gets dropoff_lng
      * @return double
      */
@@ -2361,6 +2561,27 @@ class Location implements ArrayAccess
     public function setDropoffLng($dropoff_lng)
     {
         $this->container['dropoff_lng'] = $dropoff_lng;
+
+        return $this;
+    }
+
+    /**
+     * Gets intelligent_search_tracking_enabled
+     * @return bool
+     */
+    public function getIntelligentSearchTrackingEnabled()
+    {
+        return $this->container['intelligent_search_tracking_enabled'];
+    }
+
+    /**
+     * Sets intelligent_search_tracking_enabled
+     * @param bool $intelligent_search_tracking_enabled Indicates whether Intelligent Search Tracker is enabled.  The Intelligent Search Tracker allows you to understand your performance in local search.
+     * @return $this
+     */
+    public function setIntelligentSearchTrackingEnabled($intelligent_search_tracking_enabled)
+    {
+        $this->container['intelligent_search_tracking_enabled'] = $intelligent_search_tracking_enabled;
 
         return $this;
     }
@@ -2535,7 +2756,7 @@ class Location implements ArrayAccess
 
     /**
      * Sets menus_label
-     * @param string $menus_label Label to be used for this location’s Menu lists. This label will appear on your location's listings.
+     * @param string $menus_label Label to be used for this location’s Menus. This label will appear on your location's listings.
      * @return $this
      */
     public function setMenusLabel($menus_label)
@@ -2659,6 +2880,27 @@ class Location implements ArrayAccess
     }
 
     /**
+     * Gets pickup_lng
+     * @return double
+     */
+    public function getPickupLng()
+    {
+        return $this->container['pickup_lng'];
+    }
+
+    /**
+     * Sets pickup_lng
+     * @param double $pickup_lng Longitude to use for pickup spot for the location, as provided by you  Between -180.0 and 180.0, inclusive
+     * @return $this
+     */
+    public function setPickupLng($pickup_lng)
+    {
+        $this->container['pickup_lng'] = $pickup_lng;
+
+        return $this;
+    }
+
+    /**
      * Gets custom_fields
      * @return map[string,object]
      */
@@ -2737,9 +2979,9 @@ class Location implements ArrayAccess
      */
     public function setUberLinkType($uber_link_type)
     {
-        $allowed_values = array('TEXT', 'BUTTON');
+        $allowed_values = array('LINK', 'BUTTON');
         if (!is_null($uber_link_type) && (!in_array($uber_link_type, $allowed_values))) {
-            throw new \InvalidArgumentException("Invalid value for 'uber_link_type', must be one of 'TEXT', 'BUTTON'");
+            throw new \InvalidArgumentException("Invalid value for 'uber_link_type', must be one of 'LINK', 'BUTTON'");
         }
         $this->container['uber_link_type'] = $uber_link_type;
 
@@ -3091,6 +3333,31 @@ class Location implements ArrayAccess
     }
 
     /**
+     * Gets location_keywords
+     * @return string[]
+     */
+    public function getLocationKeywords()
+    {
+        return $this->container['location_keywords'];
+    }
+
+    /**
+     * Sets location_keywords
+     * @param string[] $location_keywords Keywords that we will use to track your search performance. These keywords are based on the location information you've stored in our system.
+     * @return $this
+     */
+    public function setLocationKeywords($location_keywords)
+    {
+        $allowed_values = array('NAME', 'PRIMARY_CATEGORY');
+        if (!is_null($location_keywords) && (array_diff($location_keywords, $allowed_values))) {
+            throw new \InvalidArgumentException("Invalid value for 'location_keywords', must be one of 'NAME', 'PRIMARY_CATEGORY'");
+        }
+        $this->container['location_keywords'] = $location_keywords;
+
+        return $this;
+    }
+
+    /**
      * Gets google_website_override
      * @return string
      */
@@ -3141,6 +3408,52 @@ class Location implements ArrayAccess
     }
 
     /**
+     * Gets alternate_websites
+     * @return string[]
+     */
+    public function getAlternateWebsites()
+    {
+        return $this->container['alternate_websites'];
+    }
+
+    /**
+     * Sets alternate_websites
+     * @param string[] $alternate_websites Other websites for your business that we should look for when tracking your search performance
+     * @return $this
+     */
+    public function setAlternateWebsites($alternate_websites)
+    {
+        $this->container['alternate_websites'] = $alternate_websites;
+
+        return $this;
+    }
+
+    /**
+     * Gets intelligent_search_tracking_frequency
+     * @return string
+     */
+    public function getIntelligentSearchTrackingFrequency()
+    {
+        return $this->container['intelligent_search_tracking_frequency'];
+    }
+
+    /**
+     * Sets intelligent_search_tracking_frequency
+     * @param string $intelligent_search_tracking_frequency How often we send search queries to track your search performance.
+     * @return $this
+     */
+    public function setIntelligentSearchTrackingFrequency($intelligent_search_tracking_frequency)
+    {
+        $allowed_values = array('WEEKLY', 'MONTHLY', 'QUARTERLY');
+        if (!is_null($intelligent_search_tracking_frequency) && (!in_array($intelligent_search_tracking_frequency, $allowed_values))) {
+            throw new \InvalidArgumentException("Invalid value for 'intelligent_search_tracking_frequency', must be one of 'WEEKLY', 'MONTHLY', 'QUARTERLY'");
+        }
+        $this->container['intelligent_search_tracking_frequency'] = $intelligent_search_tracking_frequency;
+
+        return $this;
+    }
+
+    /**
      * Gets event_list_ids
      * @return string[]
      */
@@ -3178,6 +3491,27 @@ class Location implements ArrayAccess
     public function setDisplayLat($display_lat)
     {
         $this->container['display_lat'] = $display_lat;
+
+        return $this;
+    }
+
+    /**
+     * Gets competitors
+     * @return \Yext\Client\Model\LocationCompetitors[]
+     */
+    public function getCompetitors()
+    {
+        return $this->container['competitors'];
+    }
+
+    /**
+     * Sets competitors
+     * @param \Yext\Client\Model\LocationCompetitors[] $competitors The names and websites of the competitors whose search performance you would like to compare to your own
+     * @return $this
+     */
+    public function setCompetitors($competitors)
+    {
+        $this->container['competitors'] = $competitors;
 
         return $this;
     }
@@ -3396,6 +3730,27 @@ class Location implements ArrayAccess
     public function setYextRoutableLat($yext_routable_lat)
     {
         $this->container['yext_routable_lat'] = $yext_routable_lat;
+
+        return $this;
+    }
+
+    /**
+     * Gets alternate_names
+     * @return string[]
+     */
+    public function getAlternateNames()
+    {
+        return $this->container['alternate_names'];
+    }
+
+    /**
+     * Sets alternate_names
+     * @param string[] $alternate_names Other names for your business that you would like us to use when tracking your search performance
+     * @return $this
+     */
+    public function setAlternateNames($alternate_names)
+    {
+        $this->container['alternate_names'] = $alternate_names;
 
         return $this;
     }

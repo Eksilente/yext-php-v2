@@ -8,8 +8,10 @@ Method | HTTP request | Description
 [**createReview**](ReviewsApi.md#createReview) | **POST** /accounts/{accountId}/reviews | Reviews: Create
 [**createReviewInvites**](ReviewsApi.md#createReviewInvites) | **POST** /accounts/{accountId}/reviewinvites | Review Invitations: Create
 [**getReview**](ReviewsApi.md#getReview) | **GET** /accounts/{accountId}/reviews/{reviewId} | Reviews: Get
+[**getReviewGenerationSettings**](ReviewsApi.md#getReviewGenerationSettings) | **GET** /accounts/{accountId}/reviews/settings/generation | Review Generation Settings: Get
 [**listReviews**](ReviewsApi.md#listReviews) | **GET** /accounts/{accountId}/reviews | Reviews: List
 [**updateReview**](ReviewsApi.md#updateReview) | **PUT** /accounts/{accountId}/reviews/{reviewId} | Reviews: Update
+[**updateReviewGenerationSettings**](ReviewsApi.md#updateReviewGenerationSettings) | **POST** /accounts/{accountId}/reviews/settings/generation | Review Generation Settings: Update
 
 
 # **createComment**
@@ -34,8 +36,8 @@ $account_id = "account_id_example"; // string |
 $review_id = 56; // int | ID of this Review.
 $v = "20161012"; // string | A date in `YYYYMMDD` format.
 $content = "content_example"; // string | Content of the new comment.
-$visibility = "PRIVATE"; // string | 
-$parent_id = 56; // int | If this Comment is in response to another comment, use this field to specify the ID of the parent Comment.
+$visibility = "PUBLIC"; // string | 
+$parent_id = 56; // int | If this Comment is in response to another Comment, use this field to specify the ID of the parent Comment.
 
 try {
     $result = $api_instance->createComment($account_id, $review_id, $v, $content, $visibility, $parent_id);
@@ -54,8 +56,8 @@ Name | Type | Description  | Notes
  **review_id** | **int**| ID of this Review. |
  **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format. | [default to 20161012]
  **content** | **string**| Content of the new comment. | [optional]
- **visibility** | **string**|  | [optional] [default to PRIVATE]
- **parent_id** | **int**| If this Comment is in response to another comment, use this field to specify the ID of the parent Comment. | [optional]
+ **visibility** | **string**|  | [optional] [default to PUBLIC]
+ **parent_id** | **int**| If this Comment is in response to another Comment, use this field to specify the ID of the parent Comment. | [optional]
 
 ### Return type
 
@@ -137,7 +139,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createReviewInvites**
-> \Yext\Client\Model\CreateReviewInvitationResponse[] createReviewInvites($account_id, $reviews)
+> \Yext\Client\Model\CreateReviewInvitationResponse[] createReviewInvites($account_id, $v, $reviews)
 
 Review Invitations: Create
 
@@ -155,10 +157,11 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 
 $api_instance = new Yext\Client\Api\ReviewsApi();
 $account_id = "account_id_example"; // string | 
+$v = "20161012"; // string | A date in `YYYYMMDD` format.
 $reviews = array(new ReviewInvitation()); // \Yext\Client\Model\ReviewInvitation[] | 
 
 try {
-    $result = $api_instance->createReviewInvites($account_id, $reviews);
+    $result = $api_instance->createReviewInvites($account_id, $v, $reviews);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReviewsApi->createReviewInvites: ', $e->getMessage(), PHP_EOL;
@@ -171,6 +174,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format. | [default to 20161012]
  **reviews** | [**\Yext\Client\Model\ReviewInvitation[]**](../Model/ReviewInvitation.md)|  |
 
 ### Return type
@@ -242,6 +246,58 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **getReviewGenerationSettings**
+> \Yext\Client\Model\GetReviewGenerationSettingsResponse getReviewGenerationSettings($account_id, $v)
+
+Review Generation Settings: Get
+
+Returns all current generation settings for a specified account.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Yext\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_key', 'Bearer');
+
+$api_instance = new Yext\Client\Api\ReviewsApi();
+$account_id = "account_id_example"; // string | 
+$v = "20161012"; // string | A date in `YYYYMMDD` format.
+
+try {
+    $result = $api_instance->getReviewGenerationSettings($account_id, $v);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ReviewsApi->getReviewGenerationSettings: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **account_id** | **string**|  |
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format. | [default to 20161012]
+
+### Return type
+
+[**\Yext\Client\Model\GetReviewGenerationSettingsResponse**](../Model/GetReviewGenerationSettingsResponse.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **listReviews**
 > \Yext\Client\Model\ReviewsResponse listReviews($account_id, $v, $limit, $offset, $location_ids, $folder_id, $countries, $location_labels, $publisher_ids, $review_content, $min_rating, $max_rating, $min_publisher_date, $max_publisher_date, $min_last_yext_update_date, $max_last_yext_update_date, $awaiting_response, $min_non_owner_comments, $reviewer_name, $reviewer_email)
 
@@ -272,10 +328,10 @@ $publisher_ids = array("publisher_ids_example"); // string[] | List of publisher
 $review_content = "review_content_example"; // string | When specified, only reviews that include the provided content will be returned.
 $min_rating = 1.2; // double | When specified, only reviews with the provided minimum rating or higher will be returned.
 $max_rating = 1.2; // double | 
-$min_publisher_date = new \DateTime(); // \DateTime | When specified, only reviews with a publisher date on or after the given date will be returned.
-$max_publisher_date = new \DateTime(); // \DateTime | When specified, only reviews with a publisher date on or before the given date will be returned.
-$min_last_yext_update_date = new \DateTime(); // \DateTime | When specified, only reviews with a last Yext update date on or after the given date will be returned.
-$max_last_yext_update_date = new \DateTime(); // \DateTime | When specified, only reviews with a last Yext update date on or before the given date will be returned.
+$min_publisher_date = new \DateTime(); // \DateTime | (`YYYY-MM-DD` format) When specified, only reviews with a publisher date on or after the given date will be returned.
+$max_publisher_date = new \DateTime(); // \DateTime | (`YYYY-MM-DD` format) When specified, only reviews with a publisher date on or before the given date will be returned.
+$min_last_yext_update_date = new \DateTime(); // \DateTime | (`YYYY-MM-DD` format) When specified, only reviews with a last Yext update date on or after the given date will be returned.
+$max_last_yext_update_date = new \DateTime(); // \DateTime | (`YYYY-MM-DD` format) When specified, only reviews with a last Yext update date on or before the given date will be returned.
 $awaiting_response = "awaiting_response_example"; // string | When specified, only reviews that are awaiting an owner reply on the given objects will be returned.  For example, when `awaitingResponse=COMMENT`, reviews will only be returned if they have at least one comment that has not been responded to by the owner.
 $min_non_owner_comments = 56; // int | When specified, only reviews that have at least the provided number of non-owner comments will be returned.
 $reviewer_name = "reviewer_name_example"; // string | When specified, only reviews whose authorName contains the provided string will be returned.
@@ -306,10 +362,10 @@ Name | Type | Description  | Notes
  **review_content** | **string**| When specified, only reviews that include the provided content will be returned. | [optional]
  **min_rating** | **double**| When specified, only reviews with the provided minimum rating or higher will be returned. | [optional]
  **max_rating** | **double**|  | [optional]
- **min_publisher_date** | **\DateTime**| When specified, only reviews with a publisher date on or after the given date will be returned. | [optional]
- **max_publisher_date** | **\DateTime**| When specified, only reviews with a publisher date on or before the given date will be returned. | [optional]
- **min_last_yext_update_date** | **\DateTime**| When specified, only reviews with a last Yext update date on or after the given date will be returned. | [optional]
- **max_last_yext_update_date** | **\DateTime**| When specified, only reviews with a last Yext update date on or before the given date will be returned. | [optional]
+ **min_publisher_date** | **\DateTime**| (&#x60;YYYY-MM-DD&#x60; format) When specified, only reviews with a publisher date on or after the given date will be returned. | [optional]
+ **max_publisher_date** | **\DateTime**| (&#x60;YYYY-MM-DD&#x60; format) When specified, only reviews with a publisher date on or before the given date will be returned. | [optional]
+ **min_last_yext_update_date** | **\DateTime**| (&#x60;YYYY-MM-DD&#x60; format) When specified, only reviews with a last Yext update date on or after the given date will be returned. | [optional]
+ **max_last_yext_update_date** | **\DateTime**| (&#x60;YYYY-MM-DD&#x60; format) When specified, only reviews with a last Yext update date on or before the given date will be returned. | [optional]
  **awaiting_response** | **string**| When specified, only reviews that are awaiting an owner reply on the given objects will be returned.  For example, when &#x60;awaitingResponse&#x3D;COMMENT&#x60;, reviews will only be returned if they have at least one comment that has not been responded to by the owner. | [optional]
  **min_non_owner_comments** | **int**| When specified, only reviews that have at least the provided number of non-owner comments will be returned. | [optional]
  **reviewer_name** | **string**| When specified, only reviews whose authorName contains the provided string will be returned. | [optional]
@@ -382,6 +438,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Yext\Client\Model\IdResponse**](../Model/IdResponse.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **updateReviewGenerationSettings**
+> \Yext\Client\Model\GetReviewGenerationSettingsResponse updateReviewGenerationSettings($account_id, $v, $review_generation_settings_request)
+
+Review Generation Settings: Update
+
+Updates any generation settings specified in a specified account. Call may include any/all settings available to the account. Settings not included will remain unchanged.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Yext\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_key', 'Bearer');
+
+$api_instance = new Yext\Client\Api\ReviewsApi();
+$account_id = "account_id_example"; // string | 
+$v = "20161012"; // string | A date in `YYYYMMDD` format.
+$review_generation_settings_request = new \Yext\Client\Model\ReviewGenerationSettings(); // \Yext\Client\Model\ReviewGenerationSettings | 
+
+try {
+    $result = $api_instance->updateReviewGenerationSettings($account_id, $v, $review_generation_settings_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ReviewsApi->updateReviewGenerationSettings: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **account_id** | **string**|  |
+ **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format. | [default to 20161012]
+ **review_generation_settings_request** | [**\Yext\Client\Model\ReviewGenerationSettings**](../Model/\Yext\Client\Model\ReviewGenerationSettings.md)|  |
+
+### Return type
+
+[**\Yext\Client\Model\GetReviewGenerationSettingsResponse**](../Model/GetReviewGenerationSettingsResponse.md)
 
 ### Authorization
 

@@ -134,6 +134,17 @@ class ReviewsApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test case for getReviewGenerationSettings
+     *
+     * Review Generation Settings: Get.
+     *
+     */
+    public function testGetReviewGenerationSettings()
+    {
+
+    }
+
+    /**
      * Test case for listReviews
      *
      * Reviews: List.
@@ -151,6 +162,17 @@ class ReviewsApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function testUpdateReview()
+    {
+
+    }
+
+    /**
+     * Test case for updateReviewGenerationSettings
+     *
+     * Review Generation Settings: Update.
+     *
+     */
+    public function testUpdateReviewGenerationSettings()
     {
 
     }

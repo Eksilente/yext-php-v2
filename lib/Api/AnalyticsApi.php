@@ -107,13 +107,14 @@ class AnalyticsApi
      * Activity Log
      *
      * @param string $account_id  (required)
+     * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
      * @param \Yext\Client\Model\ActivityLogRequest $body  (optional)
      * @throws \Yext\Client\ApiException on non-2xx response
      * @return \Yext\Client\Model\ActivitiesResponse
      */
-    public function activityLog($account_id, $body = null)
+    public function activityLog($account_id, $v, $body = null)
     {
-        list($response) = $this->activityLogWithHttpInfo($account_id, $body);
+        list($response) = $this->activityLogWithHttpInfo($account_id, $v, $body);
         return $response;
     }
 
@@ -123,15 +124,20 @@ class AnalyticsApi
      * Activity Log
      *
      * @param string $account_id  (required)
+     * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
      * @param \Yext\Client\Model\ActivityLogRequest $body  (optional)
      * @throws \Yext\Client\ApiException on non-2xx response
      * @return array of \Yext\Client\Model\ActivitiesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function activityLogWithHttpInfo($account_id, $body = null)
+    public function activityLogWithHttpInfo($account_id, $v, $body = null)
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $account_id when calling activityLog');
+        }
+        // verify the required parameter 'v' is set
+        if ($v === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $v when calling activityLog');
         }
         // parse inputs
         $resourcePath = "/accounts/{accountId}/analytics/activity";
@@ -145,6 +151,10 @@ class AnalyticsApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
+        // query params
+        if ($v !== null) {
+            $queryParams['v'] = $this->apiClient->getSerializer()->toQueryValue($v);
+        }
         // path params
         if ($account_id !== null) {
             $resourcePath = str_replace(
@@ -208,15 +218,16 @@ class AnalyticsApi
      * Create Reports
      *
      * @param string $account_id  (required)
+     * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
      * @param bool $async Defaults to false.  When true, the report’s ID will be returned immediately and the report results can be fetched later.  When false, the report results will be returned immediately, but an error may occur if the data requested is too large (optional)
      * @param string $callback Optional.  When async&#x3D;true and callback is specified, the provided URL will be called when the report is ready.  The URL must of of the form:       POST https://[your domain]/[your path]  It must accept the following parameters:      id:     (int)     - The ID of the report that is ready      status: (string)  - one of [DONE, FAILED]      url:    (string)  - When status&#x3D;DONE, contains the URL to download the report data as a text file. (optional)
      * @param \Yext\Client\Model\CreateReportRequestBody $body JSON object containing any filters to be applied to the report (optional)
      * @throws \Yext\Client\ApiException on non-2xx response
      * @return \Yext\Client\Model\CreateReportsResponse
      */
-    public function createReports($account_id, $async = null, $callback = null, $body = null)
+    public function createReports($account_id, $v, $async = null, $callback = null, $body = null)
     {
-        list($response) = $this->createReportsWithHttpInfo($account_id, $async, $callback, $body);
+        list($response) = $this->createReportsWithHttpInfo($account_id, $v, $async, $callback, $body);
         return $response;
     }
 
@@ -226,17 +237,22 @@ class AnalyticsApi
      * Create Reports
      *
      * @param string $account_id  (required)
+     * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
      * @param bool $async Defaults to false.  When true, the report’s ID will be returned immediately and the report results can be fetched later.  When false, the report results will be returned immediately, but an error may occur if the data requested is too large (optional)
      * @param string $callback Optional.  When async&#x3D;true and callback is specified, the provided URL will be called when the report is ready.  The URL must of of the form:       POST https://[your domain]/[your path]  It must accept the following parameters:      id:     (int)     - The ID of the report that is ready      status: (string)  - one of [DONE, FAILED]      url:    (string)  - When status&#x3D;DONE, contains the URL to download the report data as a text file. (optional)
      * @param \Yext\Client\Model\CreateReportRequestBody $body JSON object containing any filters to be applied to the report (optional)
      * @throws \Yext\Client\ApiException on non-2xx response
      * @return array of \Yext\Client\Model\CreateReportsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createReportsWithHttpInfo($account_id, $async = null, $callback = null, $body = null)
+    public function createReportsWithHttpInfo($account_id, $v, $async = null, $callback = null, $body = null)
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $account_id when calling createReports');
+        }
+        // verify the required parameter 'v' is set
+        if ($v === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $v when calling createReports');
         }
         // parse inputs
         $resourcePath = "/accounts/{accountId}/analytics/reports";
@@ -250,6 +266,10 @@ class AnalyticsApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
+        // query params
+        if ($v !== null) {
+            $queryParams['v'] = $this->apiClient->getSerializer()->toQueryValue($v);
+        }
         // query params
         if ($async !== null) {
             $queryParams['async'] = $this->apiClient->getSerializer()->toQueryValue($async);
@@ -321,12 +341,13 @@ class AnalyticsApi
      * Max Dates
      *
      * @param string $account_id  (required)
+     * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
      * @throws \Yext\Client\ApiException on non-2xx response
      * @return \Yext\Client\Model\MaximumDatesResponse
      */
-    public function getMaxDates($account_id)
+    public function getMaxDates($account_id, $v)
     {
-        list($response) = $this->getMaxDatesWithHttpInfo($account_id);
+        list($response) = $this->getMaxDatesWithHttpInfo($account_id, $v);
         return $response;
     }
 
@@ -336,14 +357,19 @@ class AnalyticsApi
      * Max Dates
      *
      * @param string $account_id  (required)
+     * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
      * @throws \Yext\Client\ApiException on non-2xx response
      * @return array of \Yext\Client\Model\MaximumDatesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getMaxDatesWithHttpInfo($account_id)
+    public function getMaxDatesWithHttpInfo($account_id, $v)
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $account_id when calling getMaxDates');
+        }
+        // verify the required parameter 'v' is set
+        if ($v === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $v when calling getMaxDates');
         }
         // parse inputs
         $resourcePath = "/accounts/{accountId}/analytics/maxdates";
@@ -357,6 +383,10 @@ class AnalyticsApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
+        // query params
+        if ($v !== null) {
+            $queryParams['v'] = $this->apiClient->getSerializer()->toQueryValue($v);
+        }
         // path params
         if ($account_id !== null) {
             $resourcePath = str_replace(
@@ -415,13 +445,14 @@ class AnalyticsApi
      * Report Status
      *
      * @param string $account_id  (required)
+     * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
      * @param int $report_id  (required)
      * @throws \Yext\Client\ApiException on non-2xx response
      * @return \Yext\Client\Model\ReportStatusResponse
      */
-    public function reportStatus($account_id, $report_id)
+    public function reportStatus($account_id, $v, $report_id)
     {
-        list($response) = $this->reportStatusWithHttpInfo($account_id, $report_id);
+        list($response) = $this->reportStatusWithHttpInfo($account_id, $v, $report_id);
         return $response;
     }
 
@@ -431,15 +462,20 @@ class AnalyticsApi
      * Report Status
      *
      * @param string $account_id  (required)
+     * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
      * @param int $report_id  (required)
      * @throws \Yext\Client\ApiException on non-2xx response
      * @return array of \Yext\Client\Model\ReportStatusResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function reportStatusWithHttpInfo($account_id, $report_id)
+    public function reportStatusWithHttpInfo($account_id, $v, $report_id)
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $account_id when calling reportStatus');
+        }
+        // verify the required parameter 'v' is set
+        if ($v === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $v when calling reportStatus');
         }
         // verify the required parameter 'report_id' is set
         if ($report_id === null) {
@@ -457,6 +493,10 @@ class AnalyticsApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
+        // query params
+        if ($v !== null) {
+            $queryParams['v'] = $this->apiClient->getSerializer()->toQueryValue($v);
+        }
         // path params
         if ($account_id !== null) {
             $resourcePath = str_replace(

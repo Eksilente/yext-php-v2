@@ -104,12 +104,12 @@ class PowerListingsApi
     /**
      * Operation createDuplicate
      *
-     * Duplicates: Create (January 2017)
+     * Duplicates: Create
      *
      * @param string $account_id  (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
      * @param string $url URL of the Duplicate listing (required)
-     * @param string[] $location_ids Defaults to all account locations with a PowerListings subscription.  **Example:** loc123,loc456,loc789 (optional)
+     * @param string[] $location_ids Defaults to all account locations with a PowerListings® subscription.  **Example:** loc123,loc456,loc789 (optional)
      * @param string[] $publisher_ids List of publisher IDs. If no IDs are specified, defaults to all publishers subscribed by account.  **Example:** MAPQUEST,YELP (optional)
      * @throws \Yext\Client\ApiException on non-2xx response
      * @return \Yext\Client\Model\IdResponse
@@ -123,12 +123,12 @@ class PowerListingsApi
     /**
      * Operation createDuplicateWithHttpInfo
      *
-     * Duplicates: Create (January 2017)
+     * Duplicates: Create
      *
      * @param string $account_id  (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
      * @param string $url URL of the Duplicate listing (required)
-     * @param string[] $location_ids Defaults to all account locations with a PowerListings subscription.  **Example:** loc123,loc456,loc789 (optional)
+     * @param string[] $location_ids Defaults to all account locations with a PowerListings® subscription.  **Example:** loc123,loc456,loc789 (optional)
      * @param string[] $publisher_ids List of publisher IDs. If no IDs are specified, defaults to all publishers subscribed by account.  **Example:** MAPQUEST,YELP (optional)
      * @throws \Yext\Client\ApiException on non-2xx response
      * @return array of \Yext\Client\Model\IdResponse, HTTP status code, HTTP response headers (array of strings)
@@ -236,7 +236,7 @@ class PowerListingsApi
     /**
      * Operation deleteDuplicate
      *
-     * Duplicates: Delete (January 2017)
+     * Duplicates: Delete
      *
      * @param string $account_id  (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
@@ -253,7 +253,7 @@ class PowerListingsApi
     /**
      * Operation deleteDuplicateWithHttpInfo
      *
-     * Duplicates: Delete (January 2017)
+     * Duplicates: Delete
      *
      * @param string $account_id  (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
@@ -472,13 +472,13 @@ class PowerListingsApi
     /**
      * Operation listDuplicates
      *
-     * Duplicates: List (January 2017)
+     * Duplicates: List
      *
      * @param string $account_id  (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
      * @param int $limit Number of results to return (optional, default to 10)
      * @param int $offset Number of results to skip. Used to page through results. (optional, default to 0)
-     * @param string[] $location_ids Defaults to all account locations with a PowerListings subscription.  **Example:** loc123,loc456,loc789 (optional)
+     * @param string[] $location_ids Defaults to all account locations with a PowerListings® subscription.  **Example:** loc123,loc456,loc789 (optional)
      * @param string[] $publisher_ids List of publisher IDs. If no IDs are specified, defaults to all publishers subscribed by account.  **Example:** MAPQUEST,YELP (optional)
      * @param string[] $statuses When specified, only Duplicates with the provided statuses will be returned  **Example:** POSSIBLE_DUPLICATE,SUPPRESSION_REQUESTED (optional)
      * @throws \Yext\Client\ApiException on non-2xx response
@@ -493,13 +493,13 @@ class PowerListingsApi
     /**
      * Operation listDuplicatesWithHttpInfo
      *
-     * Duplicates: List (January 2017)
+     * Duplicates: List
      *
      * @param string $account_id  (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
      * @param int $limit Number of results to return (optional, default to 10)
      * @param int $offset Number of results to skip. Used to page through results. (optional, default to 0)
-     * @param string[] $location_ids Defaults to all account locations with a PowerListings subscription.  **Example:** loc123,loc456,loc789 (optional)
+     * @param string[] $location_ids Defaults to all account locations with a PowerListings® subscription.  **Example:** loc123,loc456,loc789 (optional)
      * @param string[] $publisher_ids List of publisher IDs. If no IDs are specified, defaults to all publishers subscribed by account.  **Example:** MAPQUEST,YELP (optional)
      * @param string[] $statuses When specified, only Duplicates with the provided statuses will be returned  **Example:** POSSIBLE_DUPLICATE,SUPPRESSION_REQUESTED (optional)
      * @throws \Yext\Client\ApiException on non-2xx response
@@ -625,7 +625,7 @@ class PowerListingsApi
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
      * @param int $limit Number of results to return (optional, default to 100)
      * @param int $offset Number of results to skip. Used to page through results. (optional, default to 0)
-     * @param string[] $location_ids Defaults to all account locations with a PowerListings subscription.  **Example:** loc123,loc456,loc789 (optional)
+     * @param string[] $location_ids Defaults to all account locations with a PowerListings® subscription.  **Example:** loc123,loc456,loc789 (optional)
      * @param string[] $publisher_ids List of publisher IDs. If no IDs are specified, defaults to all publishers subscribed by account.  **Example:** MAPQUEST,YELP (optional)
      * @param string $language One of the language codes that we support: - cs - Czech - da - Danish - nl - Dutch - en - English - en_GB - English (UK) - fi - Finnish - fr - French (France) - de - German (Germany) - hu - Hungarian - it - Italian - ja - Japanese - no - Norwegian - pt - Portuguese (Portugal) - sk - Slovak - es - Spanish (Spain) - sv - Swedish - tr - Turkish - zh_Hans - Chinese (Simplified) - zh_Hant - Chinese (Traditional) (optional, default to en)
      * @throws \Yext\Client\ApiException on non-2xx response
@@ -646,7 +646,7 @@ class PowerListingsApi
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
      * @param int $limit Number of results to return (optional, default to 100)
      * @param int $offset Number of results to skip. Used to page through results. (optional, default to 0)
-     * @param string[] $location_ids Defaults to all account locations with a PowerListings subscription.  **Example:** loc123,loc456,loc789 (optional)
+     * @param string[] $location_ids Defaults to all account locations with a PowerListings® subscription.  **Example:** loc123,loc456,loc789 (optional)
      * @param string[] $publisher_ids List of publisher IDs. If no IDs are specified, defaults to all publishers subscribed by account.  **Example:** MAPQUEST,YELP (optional)
      * @param string $language One of the language codes that we support: - cs - Czech - da - Danish - nl - Dutch - en - English - en_GB - English (UK) - fi - Finnish - fr - French (France) - de - German (Germany) - hu - Hungarian - it - Italian - ja - Japanese - no - Norwegian - pt - Portuguese (Portugal) - sk - Slovak - es - Spanish (Spain) - sv - Swedish - tr - Turkish - zh_Hans - Chinese (Simplified) - zh_Hant - Chinese (Traditional) (optional, default to en)
      * @throws \Yext\Client\ApiException on non-2xx response
@@ -769,7 +769,7 @@ class PowerListingsApi
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
      * @param int $limit Number of results to return (optional, default to 10)
      * @param int $offset Number of results to skip. Used to page through results. (optional, default to 0)
-     * @param string[] $location_ids Defaults to all account locations with a PowerListings subscription.  **Example:** loc123,loc456,loc789 (optional)
+     * @param string[] $location_ids Defaults to all account locations with a PowerListings® subscription.  **Example:** loc123,loc456,loc789 (optional)
      * @param string[] $publisher_ids List of publisher IDs. If no IDs are specified, defaults to all publishers subscribed by account.  **Example:** MAPQUEST,YELP (optional)
      * @param string[] $statuses When specified, only Publisher Suggestions with the provided statuses will be returned  **Example:** WAITING_ON_CUSTOMER,EXPIRED (optional)
      * @throws \Yext\Client\ApiException on non-2xx response
@@ -790,7 +790,7 @@ class PowerListingsApi
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
      * @param int $limit Number of results to return (optional, default to 10)
      * @param int $offset Number of results to skip. Used to page through results. (optional, default to 0)
-     * @param string[] $location_ids Defaults to all account locations with a PowerListings subscription.  **Example:** loc123,loc456,loc789 (optional)
+     * @param string[] $location_ids Defaults to all account locations with a PowerListings® subscription.  **Example:** loc123,loc456,loc789 (optional)
      * @param string[] $publisher_ids List of publisher IDs. If no IDs are specified, defaults to all publishers subscribed by account.  **Example:** MAPQUEST,YELP (optional)
      * @param string[] $statuses When specified, only Publisher Suggestions with the provided statuses will be returned  **Example:** WAITING_ON_CUSTOMER,EXPIRED (optional)
      * @throws \Yext\Client\ApiException on non-2xx response
@@ -914,13 +914,12 @@ class PowerListingsApi
      *
      * @param string $account_id  (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
-     * @param string $subset **ALL** - return all publishers  **RELEVANT_ONLY** - only return publishers relevant to the account based on supported countries and location types (optional, default to RELEVANT_ONLY)
      * @throws \Yext\Client\ApiException on non-2xx response
      * @return \Yext\Client\Model\PublishersResponse
      */
-    public function listPublishers($account_id, $v, $subset = null)
+    public function listPublishers($account_id, $v)
     {
-        list($response) = $this->listPublishersWithHttpInfo($account_id, $v, $subset);
+        list($response) = $this->listPublishersWithHttpInfo($account_id, $v);
         return $response;
     }
 
@@ -931,11 +930,10 @@ class PowerListingsApi
      *
      * @param string $account_id  (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
-     * @param string $subset **ALL** - return all publishers  **RELEVANT_ONLY** - only return publishers relevant to the account based on supported countries and location types (optional, default to RELEVANT_ONLY)
      * @throws \Yext\Client\ApiException on non-2xx response
      * @return array of \Yext\Client\Model\PublishersResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listPublishersWithHttpInfo($account_id, $v, $subset = null)
+    public function listPublishersWithHttpInfo($account_id, $v)
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
@@ -960,10 +958,6 @@ class PowerListingsApi
         // query params
         if ($v !== null) {
             $queryParams['v'] = $this->apiClient->getSerializer()->toQueryValue($v);
-        }
-        // query params
-        if ($subset !== null) {
-            $queryParams['subset'] = $this->apiClient->getSerializer()->toQueryValue($subset);
         }
         // path params
         if ($account_id !== null) {
@@ -1024,7 +1018,7 @@ class PowerListingsApi
      *
      * @param string $account_id  (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
-     * @param string[] $location_ids Defaults to all account locations with a PowerListings subscription.  **Example:** loc123,loc456,loc789 (optional)
+     * @param string[] $location_ids Defaults to all account locations with a PowerListings® subscription.  **Example:** loc123,loc456,loc789 (optional)
      * @param string[] $publisher_ids List of publisher IDs. If no IDs are specified, defaults to all publishers subscribed by account.  **Example:** MAPQUEST,YELP (optional)
      * @throws \Yext\Client\ApiException on non-2xx response
      * @return \Yext\Client\Model\ErrorResponse
@@ -1042,7 +1036,7 @@ class PowerListingsApi
      *
      * @param string $account_id  (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
-     * @param string[] $location_ids Defaults to all account locations with a PowerListings subscription.  **Example:** loc123,loc456,loc789 (optional)
+     * @param string[] $location_ids Defaults to all account locations with a PowerListings® subscription.  **Example:** loc123,loc456,loc789 (optional)
      * @param string[] $publisher_ids List of publisher IDs. If no IDs are specified, defaults to all publishers subscribed by account.  **Example:** MAPQUEST,YELP (optional)
      * @throws \Yext\Client\ApiException on non-2xx response
      * @return array of \Yext\Client\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
@@ -1146,7 +1140,7 @@ class PowerListingsApi
      *
      * @param string $account_id  (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
-     * @param string[] $location_ids Defaults to all account locations with a PowerListings subscription.  **Example:** loc123,loc456,loc789 (optional)
+     * @param string[] $location_ids Defaults to all account locations with a PowerListings® subscription.  **Example:** loc123,loc456,loc789 (optional)
      * @param string[] $publisher_ids List of publisher IDs. If no IDs are specified, defaults to all publishers subscribed by account.  **Example:** MAPQUEST,YELP (optional)
      * @throws \Yext\Client\ApiException on non-2xx response
      * @return \Yext\Client\Model\ErrorResponse
@@ -1164,7 +1158,7 @@ class PowerListingsApi
      *
      * @param string $account_id  (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
-     * @param string[] $location_ids Defaults to all account locations with a PowerListings subscription.  **Example:** loc123,loc456,loc789 (optional)
+     * @param string[] $location_ids Defaults to all account locations with a PowerListings® subscription.  **Example:** loc123,loc456,loc789 (optional)
      * @param string[] $publisher_ids List of publisher IDs. If no IDs are specified, defaults to all publishers subscribed by account.  **Example:** MAPQUEST,YELP (optional)
      * @throws \Yext\Client\ApiException on non-2xx response
      * @return array of \Yext\Client\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
@@ -1264,7 +1258,7 @@ class PowerListingsApi
     /**
      * Operation suppressDuplicate
      *
-     * Duplicates: Suppress (January 2017)
+     * Duplicates: Suppress
      *
      * @param string $account_id  (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
@@ -1281,7 +1275,7 @@ class PowerListingsApi
     /**
      * Operation suppressDuplicateWithHttpInfo
      *
-     * Duplicates: Suppress (January 2017)
+     * Duplicates: Suppress
      *
      * @param string $account_id  (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)

@@ -1,6 +1,6 @@
 <?php
 /**
- * UserApiTest
+ * HealthCheckApiTest
  * PHP version 5
  *
  * @category Class
@@ -46,7 +46,7 @@ use \Yext\Client\ApiException;
 use \Yext\Client\ObjectSerializer;
 
 /**
- * UserApiTest Class Doc Comment
+ * HealthCheckApiTest Class Doc Comment
  *
  * @category Class
  * @package  Yext\Client
@@ -54,7 +54,7 @@ use \Yext\Client\ObjectSerializer;
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache License v2
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class UserApiTest extends \PHPUnit_Framework_TestCase
+class HealthCheckApiTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -90,78 +90,12 @@ class UserApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for createUser
+     * Test case for healthCheck
      *
-     * Users: Create.
-     *
-     */
-    public function testCreateUser()
-    {
-
-    }
-
-    /**
-     * Test case for deleteUser
-     *
-     * Users: Delete.
+     * Health Check.
      *
      */
-    public function testDeleteUser()
-    {
-
-    }
-
-    /**
-     * Test case for getRoles
-     *
-     * Roles: Get.
-     *
-     */
-    public function testGetRoles()
-    {
-
-    }
-
-    /**
-     * Test case for getUser
-     *
-     * Users: Get.
-     *
-     */
-    public function testGetUser()
-    {
-
-    }
-
-    /**
-     * Test case for getUsers
-     *
-     * Users: List.
-     *
-     */
-    public function testGetUsers()
-    {
-
-    }
-
-    /**
-     * Test case for updateUser
-     *
-     * Users: Update.
-     *
-     */
-    public function testUpdateUser()
-    {
-
-    }
-
-    /**
-     * Test case for updateUserPassword
-     *
-     * Users: Update Password.
-     *
-     */
-    public function testUpdateUserPassword()
+    public function testHealthCheck()
     {
 
     }

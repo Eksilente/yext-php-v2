@@ -67,24 +67,27 @@ class AnalyticsFilter implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'start_date' => '\DateTime',
-        'location_ids' => 'string[]',
-        'end_date' => '\DateTime',
-        'search_type' => 'string',
-        'countries' => 'string[]',
-        'min_search_frequency' => 'double',
-        'foursquare_checkin_gender' => 'string',
-        'foursquare_checkin_age' => 'string',
-        'hours' => 'float[]',
         'location_labels' => 'string[]',
+        'end_date' => '\DateTime',
         'instagram_content_type' => 'string',
         'google_action_type' => 'string[]',
         'google_query_type' => 'string[]',
         'platforms' => 'string[]',
-        'max_search_frequency' => 'double',
-        'foursquare_checkin_type' => 'string',
         'search_term' => 'string',
+        'partners' => 'float[]',
+        'search_type' => 'string',
+        'foursquare_checkin_age' => 'string',
+        'frequent_words' => 'string[]',
+        'foursquare_checkin_time_of_day' => 'string',
+        'ratings' => 'int[]',
+        'foursquare_checkin_gender' => 'string',
+        'foursquare_checkin_type' => 'string',
+        'hours' => 'float[]',
+        'max_search_frequency' => 'double',
         'folder_id' => 'int',
-        'foursquare_checkin_time_of_day' => 'string'
+        'location_ids' => 'string[]',
+        'countries' => 'string[]',
+        'min_search_frequency' => 'double'
     ];
 
     public static function swaggerTypes()
@@ -98,24 +101,27 @@ class AnalyticsFilter implements ArrayAccess
      */
     protected static $attributeMap = [
         'start_date' => 'startDate',
-        'location_ids' => 'locationIds',
-        'end_date' => 'endDate',
-        'search_type' => 'searchType',
-        'countries' => 'countries',
-        'min_search_frequency' => 'minSearchFrequency',
-        'foursquare_checkin_gender' => 'foursquareCheckinGender',
-        'foursquare_checkin_age' => 'foursquareCheckinAge',
-        'hours' => 'hours',
         'location_labels' => 'locationLabels',
+        'end_date' => 'endDate',
         'instagram_content_type' => 'instagramContentType',
         'google_action_type' => 'googleActionType',
         'google_query_type' => 'googleQueryType',
         'platforms' => 'platforms',
-        'max_search_frequency' => 'maxSearchFrequency',
-        'foursquare_checkin_type' => 'foursquareCheckinType',
         'search_term' => 'searchTerm',
+        'partners' => 'partners',
+        'search_type' => 'searchType',
+        'foursquare_checkin_age' => 'foursquareCheckinAge',
+        'frequent_words' => 'frequentWords',
+        'foursquare_checkin_time_of_day' => 'foursquareCheckinTimeOfDay',
+        'ratings' => 'ratings',
+        'foursquare_checkin_gender' => 'foursquareCheckinGender',
+        'foursquare_checkin_type' => 'foursquareCheckinType',
+        'hours' => 'hours',
+        'max_search_frequency' => 'maxSearchFrequency',
         'folder_id' => 'folderId',
-        'foursquare_checkin_time_of_day' => 'foursquareCheckinTimeOfDay'
+        'location_ids' => 'locationIds',
+        'countries' => 'countries',
+        'min_search_frequency' => 'minSearchFrequency'
     ];
 
 
@@ -125,24 +131,27 @@ class AnalyticsFilter implements ArrayAccess
      */
     protected static $setters = [
         'start_date' => 'setStartDate',
-        'location_ids' => 'setLocationIds',
-        'end_date' => 'setEndDate',
-        'search_type' => 'setSearchType',
-        'countries' => 'setCountries',
-        'min_search_frequency' => 'setMinSearchFrequency',
-        'foursquare_checkin_gender' => 'setFoursquareCheckinGender',
-        'foursquare_checkin_age' => 'setFoursquareCheckinAge',
-        'hours' => 'setHours',
         'location_labels' => 'setLocationLabels',
+        'end_date' => 'setEndDate',
         'instagram_content_type' => 'setInstagramContentType',
         'google_action_type' => 'setGoogleActionType',
         'google_query_type' => 'setGoogleQueryType',
         'platforms' => 'setPlatforms',
-        'max_search_frequency' => 'setMaxSearchFrequency',
-        'foursquare_checkin_type' => 'setFoursquareCheckinType',
         'search_term' => 'setSearchTerm',
+        'partners' => 'setPartners',
+        'search_type' => 'setSearchType',
+        'foursquare_checkin_age' => 'setFoursquareCheckinAge',
+        'frequent_words' => 'setFrequentWords',
+        'foursquare_checkin_time_of_day' => 'setFoursquareCheckinTimeOfDay',
+        'ratings' => 'setRatings',
+        'foursquare_checkin_gender' => 'setFoursquareCheckinGender',
+        'foursquare_checkin_type' => 'setFoursquareCheckinType',
+        'hours' => 'setHours',
+        'max_search_frequency' => 'setMaxSearchFrequency',
         'folder_id' => 'setFolderId',
-        'foursquare_checkin_time_of_day' => 'setFoursquareCheckinTimeOfDay'
+        'location_ids' => 'setLocationIds',
+        'countries' => 'setCountries',
+        'min_search_frequency' => 'setMinSearchFrequency'
     ];
 
 
@@ -152,24 +161,27 @@ class AnalyticsFilter implements ArrayAccess
      */
     protected static $getters = [
         'start_date' => 'getStartDate',
-        'location_ids' => 'getLocationIds',
-        'end_date' => 'getEndDate',
-        'search_type' => 'getSearchType',
-        'countries' => 'getCountries',
-        'min_search_frequency' => 'getMinSearchFrequency',
-        'foursquare_checkin_gender' => 'getFoursquareCheckinGender',
-        'foursquare_checkin_age' => 'getFoursquareCheckinAge',
-        'hours' => 'getHours',
         'location_labels' => 'getLocationLabels',
+        'end_date' => 'getEndDate',
         'instagram_content_type' => 'getInstagramContentType',
         'google_action_type' => 'getGoogleActionType',
         'google_query_type' => 'getGoogleQueryType',
         'platforms' => 'getPlatforms',
-        'max_search_frequency' => 'getMaxSearchFrequency',
-        'foursquare_checkin_type' => 'getFoursquareCheckinType',
         'search_term' => 'getSearchTerm',
+        'partners' => 'getPartners',
+        'search_type' => 'getSearchType',
+        'foursquare_checkin_age' => 'getFoursquareCheckinAge',
+        'frequent_words' => 'getFrequentWords',
+        'foursquare_checkin_time_of_day' => 'getFoursquareCheckinTimeOfDay',
+        'ratings' => 'getRatings',
+        'foursquare_checkin_gender' => 'getFoursquareCheckinGender',
+        'foursquare_checkin_type' => 'getFoursquareCheckinType',
+        'hours' => 'getHours',
+        'max_search_frequency' => 'getMaxSearchFrequency',
         'folder_id' => 'getFolderId',
-        'foursquare_checkin_time_of_day' => 'getFoursquareCheckinTimeOfDay'
+        'location_ids' => 'getLocationIds',
+        'countries' => 'getCountries',
+        'min_search_frequency' => 'getMinSearchFrequency'
     ];
 
     public static function attributeMap()
@@ -234,24 +246,27 @@ class AnalyticsFilter implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['start_date'] = isset($data['start_date']) ? $data['start_date'] : null;
-        $this->container['location_ids'] = isset($data['location_ids']) ? $data['location_ids'] : null;
-        $this->container['end_date'] = isset($data['end_date']) ? $data['end_date'] : null;
-        $this->container['search_type'] = isset($data['search_type']) ? $data['search_type'] : null;
-        $this->container['countries'] = isset($data['countries']) ? $data['countries'] : null;
-        $this->container['min_search_frequency'] = isset($data['min_search_frequency']) ? $data['min_search_frequency'] : null;
-        $this->container['foursquare_checkin_gender'] = isset($data['foursquare_checkin_gender']) ? $data['foursquare_checkin_gender'] : null;
-        $this->container['foursquare_checkin_age'] = isset($data['foursquare_checkin_age']) ? $data['foursquare_checkin_age'] : null;
-        $this->container['hours'] = isset($data['hours']) ? $data['hours'] : null;
         $this->container['location_labels'] = isset($data['location_labels']) ? $data['location_labels'] : null;
+        $this->container['end_date'] = isset($data['end_date']) ? $data['end_date'] : null;
         $this->container['instagram_content_type'] = isset($data['instagram_content_type']) ? $data['instagram_content_type'] : null;
         $this->container['google_action_type'] = isset($data['google_action_type']) ? $data['google_action_type'] : null;
         $this->container['google_query_type'] = isset($data['google_query_type']) ? $data['google_query_type'] : null;
         $this->container['platforms'] = isset($data['platforms']) ? $data['platforms'] : null;
-        $this->container['max_search_frequency'] = isset($data['max_search_frequency']) ? $data['max_search_frequency'] : null;
-        $this->container['foursquare_checkin_type'] = isset($data['foursquare_checkin_type']) ? $data['foursquare_checkin_type'] : null;
         $this->container['search_term'] = isset($data['search_term']) ? $data['search_term'] : null;
-        $this->container['folder_id'] = isset($data['folder_id']) ? $data['folder_id'] : null;
+        $this->container['partners'] = isset($data['partners']) ? $data['partners'] : null;
+        $this->container['search_type'] = isset($data['search_type']) ? $data['search_type'] : null;
+        $this->container['foursquare_checkin_age'] = isset($data['foursquare_checkin_age']) ? $data['foursquare_checkin_age'] : null;
+        $this->container['frequent_words'] = isset($data['frequent_words']) ? $data['frequent_words'] : null;
         $this->container['foursquare_checkin_time_of_day'] = isset($data['foursquare_checkin_time_of_day']) ? $data['foursquare_checkin_time_of_day'] : null;
+        $this->container['ratings'] = isset($data['ratings']) ? $data['ratings'] : null;
+        $this->container['foursquare_checkin_gender'] = isset($data['foursquare_checkin_gender']) ? $data['foursquare_checkin_gender'] : null;
+        $this->container['foursquare_checkin_type'] = isset($data['foursquare_checkin_type']) ? $data['foursquare_checkin_type'] : null;
+        $this->container['hours'] = isset($data['hours']) ? $data['hours'] : null;
+        $this->container['max_search_frequency'] = isset($data['max_search_frequency']) ? $data['max_search_frequency'] : null;
+        $this->container['folder_id'] = isset($data['folder_id']) ? $data['folder_id'] : null;
+        $this->container['location_ids'] = isset($data['location_ids']) ? $data['location_ids'] : null;
+        $this->container['countries'] = isset($data['countries']) ? $data['countries'] : null;
+        $this->container['min_search_frequency'] = isset($data['min_search_frequency']) ? $data['min_search_frequency'] : null;
     }
 
     /**
@@ -288,180 +303,12 @@ class AnalyticsFilter implements ArrayAccess
 
     /**
      * Sets start_date
-     * @param \DateTime $start_date The inclusive start date for the report data.  Defaults to 90 days before the end date. E.g. ‘2016-08-22’ NOTE: If `WEEKS`, `MONTHS`, or `MONTHS_RETAIL` is in dimensions, startDate must coincide with the beginning and end of a week or month, depending on the dimension chosen.
+     * @param \DateTime $start_date The inclusive start date for the report data.  Defaults to 90 days before the end date. Must be before the date given in `endDate`. E.g. ‘2016-08-22’ NOTE: If `WEEKS`, `MONTHS`, or `MONTHS_RETAIL` is in dimensions, startDate must coincide with the beginning and end of a week or month, depending on the dimension chosen.
      * @return $this
      */
     public function setStartDate($start_date)
     {
         $this->container['start_date'] = $start_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets location_ids
-     * @return string[]
-     */
-    public function getLocationIds()
-    {
-        return $this->container['location_ids'];
-    }
-
-    /**
-     * Sets location_ids
-     * @param string[] $location_ids Array of locationIds
-     * @return $this
-     */
-    public function setLocationIds($location_ids)
-    {
-        $this->container['location_ids'] = $location_ids;
-
-        return $this;
-    }
-
-    /**
-     * Gets end_date
-     * @return \DateTime
-     */
-    public function getEndDate()
-    {
-        return $this->container['end_date'];
-    }
-
-    /**
-     * Sets end_date
-     * @param \DateTime $end_date The inclusive end date for the report data.  Defaults to the lowest common denominator of the relevant maximum reporting dates. E.g. ‘2016-08-30’ NOTE: If `WEEKS`, `MONTHS`, or `MONTHS_RETAIL` is in dimensions, endDate must coincide with the beginning and end of a week or month, depending on the dimension chosen.
-     * @return $this
-     */
-    public function setEndDate($end_date)
-    {
-        $this->container['end_date'] = $end_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets search_type
-     * @return string
-     */
-    public function getSearchType()
-    {
-        return $this->container['search_type'];
-    }
-
-    /**
-     * Sets search_type
-     * @param string $search_type
-     * @return $this
-     */
-    public function setSearchType($search_type)
-    {
-        $this->container['search_type'] = $search_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets countries
-     * @return string[]
-     */
-    public function getCountries()
-    {
-        return $this->container['countries'];
-    }
-
-    /**
-     * Sets countries
-     * @param string[] $countries Array of 3166 Alpha-2 country codes.
-     * @return $this
-     */
-    public function setCountries($countries)
-    {
-        $this->container['countries'] = $countries;
-
-        return $this;
-    }
-
-    /**
-     * Gets min_search_frequency
-     * @return double
-     */
-    public function getMinSearchFrequency()
-    {
-        return $this->container['min_search_frequency'];
-    }
-
-    /**
-     * Sets min_search_frequency
-     * @param double $min_search_frequency
-     * @return $this
-     */
-    public function setMinSearchFrequency($min_search_frequency)
-    {
-        $this->container['min_search_frequency'] = $min_search_frequency;
-
-        return $this;
-    }
-
-    /**
-     * Gets foursquare_checkin_gender
-     * @return string
-     */
-    public function getFoursquareCheckinGender()
-    {
-        return $this->container['foursquare_checkin_gender'];
-    }
-
-    /**
-     * Sets foursquare_checkin_gender
-     * @param string $foursquare_checkin_gender
-     * @return $this
-     */
-    public function setFoursquareCheckinGender($foursquare_checkin_gender)
-    {
-        $this->container['foursquare_checkin_gender'] = $foursquare_checkin_gender;
-
-        return $this;
-    }
-
-    /**
-     * Gets foursquare_checkin_age
-     * @return string
-     */
-    public function getFoursquareCheckinAge()
-    {
-        return $this->container['foursquare_checkin_age'];
-    }
-
-    /**
-     * Sets foursquare_checkin_age
-     * @param string $foursquare_checkin_age
-     * @return $this
-     */
-    public function setFoursquareCheckinAge($foursquare_checkin_age)
-    {
-        $this->container['foursquare_checkin_age'] = $foursquare_checkin_age;
-
-        return $this;
-    }
-
-    /**
-     * Gets hours
-     * @return float[]
-     */
-    public function getHours()
-    {
-        return $this->container['hours'];
-    }
-
-    /**
-     * Sets hours
-     * @param float[] $hours Specifies the hour(s) of day that should be included in the report. Can only, and must be used with the `GOOGLE_PHONE_CALLS` metric.
-     * @return $this
-     */
-    public function setHours($hours)
-    {
-        $this->container['hours'] = $hours;
 
         return $this;
     }
@@ -483,6 +330,27 @@ class AnalyticsFilter implements ArrayAccess
     public function setLocationLabels($location_labels)
     {
         $this->container['location_labels'] = $location_labels;
+
+        return $this;
+    }
+
+    /**
+     * Gets end_date
+     * @return \DateTime
+     */
+    public function getEndDate()
+    {
+        return $this->container['end_date'];
+    }
+
+    /**
+     * Sets end_date
+     * @param \DateTime $end_date The exclusive end date for the report data.  Defaults to the lowest common denominator of the relevant maximum reporting dates. Must be after the date given in `startDate`. E.g. ‘2016-08-30’ NOTE: If `WEEKS`, `MONTHS`, or `MONTHS_RETAIL` is in dimensions, endDate must coincide with the beginning and end of a week or month, depending on the dimension chosen.
+     * @return $this
+     */
+    public function setEndDate($end_date)
+    {
+        $this->container['end_date'] = $end_date;
 
         return $this;
     }
@@ -580,22 +448,169 @@ class AnalyticsFilter implements ArrayAccess
     }
 
     /**
-     * Gets max_search_frequency
-     * @return double
+     * Gets search_term
+     * @return string
      */
-    public function getMaxSearchFrequency()
+    public function getSearchTerm()
     {
-        return $this->container['max_search_frequency'];
+        return $this->container['search_term'];
     }
 
     /**
-     * Sets max_search_frequency
-     * @param double $max_search_frequency
+     * Sets search_term
+     * @param string $search_term
      * @return $this
      */
-    public function setMaxSearchFrequency($max_search_frequency)
+    public function setSearchTerm($search_term)
     {
-        $this->container['max_search_frequency'] = $max_search_frequency;
+        $this->container['search_term'] = $search_term;
+
+        return $this;
+    }
+
+    /**
+     * Gets partners
+     * @return float[]
+     */
+    public function getPartners()
+    {
+        return $this->container['partners'];
+    }
+
+    /**
+     * Sets partners
+     * @param float[] $partners Specifies the partners that should be included in the report. Can only be used with Reviews metrics.
+     * @return $this
+     */
+    public function setPartners($partners)
+    {
+        $this->container['partners'] = $partners;
+
+        return $this;
+    }
+
+    /**
+     * Gets search_type
+     * @return string
+     */
+    public function getSearchType()
+    {
+        return $this->container['search_type'];
+    }
+
+    /**
+     * Sets search_type
+     * @param string $search_type
+     * @return $this
+     */
+    public function setSearchType($search_type)
+    {
+        $this->container['search_type'] = $search_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets foursquare_checkin_age
+     * @return string
+     */
+    public function getFoursquareCheckinAge()
+    {
+        return $this->container['foursquare_checkin_age'];
+    }
+
+    /**
+     * Sets foursquare_checkin_age
+     * @param string $foursquare_checkin_age
+     * @return $this
+     */
+    public function setFoursquareCheckinAge($foursquare_checkin_age)
+    {
+        $this->container['foursquare_checkin_age'] = $foursquare_checkin_age;
+
+        return $this;
+    }
+
+    /**
+     * Gets frequent_words
+     * @return string[]
+     */
+    public function getFrequentWords()
+    {
+        return $this->container['frequent_words'];
+    }
+
+    /**
+     * Sets frequent_words
+     * @param string[] $frequent_words Specifies the words that should be included in the report. Can only be used with Reviews metrics.
+     * @return $this
+     */
+    public function setFrequentWords($frequent_words)
+    {
+        $this->container['frequent_words'] = $frequent_words;
+
+        return $this;
+    }
+
+    /**
+     * Gets foursquare_checkin_time_of_day
+     * @return string
+     */
+    public function getFoursquareCheckinTimeOfDay()
+    {
+        return $this->container['foursquare_checkin_time_of_day'];
+    }
+
+    /**
+     * Sets foursquare_checkin_time_of_day
+     * @param string $foursquare_checkin_time_of_day
+     * @return $this
+     */
+    public function setFoursquareCheckinTimeOfDay($foursquare_checkin_time_of_day)
+    {
+        $this->container['foursquare_checkin_time_of_day'] = $foursquare_checkin_time_of_day;
+
+        return $this;
+    }
+
+    /**
+     * Gets ratings
+     * @return int[]
+     */
+    public function getRatings()
+    {
+        return $this->container['ratings'];
+    }
+
+    /**
+     * Sets ratings
+     * @param int[] $ratings Specifies the ratings to be included in the report. Can only be used with Reviews metrics.
+     * @return $this
+     */
+    public function setRatings($ratings)
+    {
+        $this->container['ratings'] = $ratings;
+
+        return $this;
+    }
+
+    /**
+     * Gets foursquare_checkin_gender
+     * @return string
+     */
+    public function getFoursquareCheckinGender()
+    {
+        return $this->container['foursquare_checkin_gender'];
+    }
+
+    /**
+     * Sets foursquare_checkin_gender
+     * @param string $foursquare_checkin_gender
+     * @return $this
+     */
+    public function setFoursquareCheckinGender($foursquare_checkin_gender)
+    {
+        $this->container['foursquare_checkin_gender'] = $foursquare_checkin_gender;
 
         return $this;
     }
@@ -622,22 +637,43 @@ class AnalyticsFilter implements ArrayAccess
     }
 
     /**
-     * Gets search_term
-     * @return string
+     * Gets hours
+     * @return float[]
      */
-    public function getSearchTerm()
+    public function getHours()
     {
-        return $this->container['search_term'];
+        return $this->container['hours'];
     }
 
     /**
-     * Sets search_term
-     * @param string $search_term
+     * Sets hours
+     * @param float[] $hours Specifies the hour(s) of day that should be included in the report. Can only, and must be used with the `GOOGLE_PHONE_CALLS` metric.
      * @return $this
      */
-    public function setSearchTerm($search_term)
+    public function setHours($hours)
     {
-        $this->container['search_term'] = $search_term;
+        $this->container['hours'] = $hours;
+
+        return $this;
+    }
+
+    /**
+     * Gets max_search_frequency
+     * @return double
+     */
+    public function getMaxSearchFrequency()
+    {
+        return $this->container['max_search_frequency'];
+    }
+
+    /**
+     * Sets max_search_frequency
+     * @param double $max_search_frequency
+     * @return $this
+     */
+    public function setMaxSearchFrequency($max_search_frequency)
+    {
+        $this->container['max_search_frequency'] = $max_search_frequency;
 
         return $this;
     }
@@ -664,22 +700,64 @@ class AnalyticsFilter implements ArrayAccess
     }
 
     /**
-     * Gets foursquare_checkin_time_of_day
-     * @return string
+     * Gets location_ids
+     * @return string[]
      */
-    public function getFoursquareCheckinTimeOfDay()
+    public function getLocationIds()
     {
-        return $this->container['foursquare_checkin_time_of_day'];
+        return $this->container['location_ids'];
     }
 
     /**
-     * Sets foursquare_checkin_time_of_day
-     * @param string $foursquare_checkin_time_of_day
+     * Sets location_ids
+     * @param string[] $location_ids Array of locationIds
      * @return $this
      */
-    public function setFoursquareCheckinTimeOfDay($foursquare_checkin_time_of_day)
+    public function setLocationIds($location_ids)
     {
-        $this->container['foursquare_checkin_time_of_day'] = $foursquare_checkin_time_of_day;
+        $this->container['location_ids'] = $location_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets countries
+     * @return string[]
+     */
+    public function getCountries()
+    {
+        return $this->container['countries'];
+    }
+
+    /**
+     * Sets countries
+     * @param string[] $countries Array of 3166 Alpha-2 country codes.
+     * @return $this
+     */
+    public function setCountries($countries)
+    {
+        $this->container['countries'] = $countries;
+
+        return $this;
+    }
+
+    /**
+     * Gets min_search_frequency
+     * @return double
+     */
+    public function getMinSearchFrequency()
+    {
+        return $this->container['min_search_frequency'];
+    }
+
+    /**
+     * Sets min_search_frequency
+     * @param double $min_search_frequency
+     * @return $this
+     */
+    public function setMinSearchFrequency($min_search_frequency)
+    {
+        $this->container['min_search_frequency'] = $min_search_frequency;
 
         return $this;
     }

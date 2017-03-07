@@ -67,7 +67,7 @@ class MenuListsResponseResponse implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'count' => 'int',
-        'bios' => '\Yext\Client\Model\Menu[]'
+        'menus' => '\Yext\Client\Model\Menu[]'
     ];
 
     public static function swaggerTypes()
@@ -81,7 +81,7 @@ class MenuListsResponseResponse implements ArrayAccess
      */
     protected static $attributeMap = [
         'count' => 'count',
-        'bios' => 'bios'
+        'menus' => 'menus'
     ];
 
 
@@ -91,7 +91,7 @@ class MenuListsResponseResponse implements ArrayAccess
      */
     protected static $setters = [
         'count' => 'setCount',
-        'bios' => 'setBios'
+        'menus' => 'setMenus'
     ];
 
 
@@ -101,7 +101,7 @@ class MenuListsResponseResponse implements ArrayAccess
      */
     protected static $getters = [
         'count' => 'getCount',
-        'bios' => 'getBios'
+        'menus' => 'getMenus'
     ];
 
     public static function attributeMap()
@@ -136,7 +136,7 @@ class MenuListsResponseResponse implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['count'] = isset($data['count']) ? $data['count'] : null;
-        $this->container['bios'] = isset($data['bios']) ? $data['bios'] : null;
+        $this->container['menus'] = isset($data['menus']) ? $data['menus'] : null;
     }
 
     /**
@@ -184,22 +184,22 @@ class MenuListsResponseResponse implements ArrayAccess
     }
 
     /**
-     * Gets bios
+     * Gets menus
      * @return \Yext\Client\Model\Menu[]
      */
-    public function getBios()
+    public function getMenus()
     {
-        return $this->container['bios'];
+        return $this->container['menus'];
     }
 
     /**
-     * Sets bios
-     * @param \Yext\Client\Model\Menu[] $bios
+     * Sets menus
+     * @param \Yext\Client\Model\Menu[] $menus
      * @return $this
      */
-    public function setBios($bios)
+    public function setMenus($menus)
     {
-        $this->container['bios'] = $bios;
+        $this->container['menus'] = $menus;
 
         return $this;
     }

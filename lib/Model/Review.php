@@ -66,6 +66,7 @@ class Review implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'status' => 'string',
         'rating' => 'double',
         'title' => 'string',
         'url' => 'string',
@@ -90,6 +91,7 @@ class Review implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'status' => 'status',
         'rating' => 'rating',
         'title' => 'title',
         'url' => 'url',
@@ -110,6 +112,7 @@ class Review implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'status' => 'setStatus',
         'rating' => 'setRating',
         'title' => 'setTitle',
         'url' => 'setUrl',
@@ -130,6 +133,7 @@ class Review implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'status' => 'getStatus',
         'rating' => 'getRating',
         'title' => 'getTitle',
         'url' => 'getUrl',
@@ -159,8 +163,24 @@ class Review implements ArrayAccess
         return self::$getters;
     }
 
+    const STATUS_LIVE = 'LIVE';
+    const STATUS_QUARANTINED = 'QUARANTINED';
+    const STATUS_REMOVED = 'REMOVED';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getStatusAllowableValues()
+    {
+        return [
+            self::STATUS_LIVE,
+            self::STATUS_QUARANTINED,
+            self::STATUS_REMOVED,
+        ];
+    }
     
 
     /**
@@ -175,6 +195,7 @@ class Review implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['rating'] = isset($data['rating']) ? $data['rating'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
@@ -197,6 +218,11 @@ class Review implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = [];
+        $allowed_values = ["LIVE", "QUARANTINED", "REMOVED"];
+        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'status', must be one of #{allowed_values}.";
+        }
+
         return $invalid_properties;
     }
 
@@ -208,9 +234,38 @@ class Review implements ArrayAccess
      */
     public function valid()
     {
+        $allowed_values = ["LIVE", "QUARANTINED", "REMOVED"];
+        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowed_values)) {
+            return false;
+        }
         return true;
     }
 
+
+    /**
+     * Gets status
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     * @param string $status The current status of the review; only returned for First Party and External First Party reviews.
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $allowed_values = array('LIVE', 'QUARANTINED', 'REMOVED');
+        if (!is_null($status) && (!in_array($status, $allowed_values))) {
+            throw new \InvalidArgumentException("Invalid value for 'status', must be one of 'LIVE', 'QUARANTINED', 'REMOVED'");
+        }
+        $this->container['status'] = $status;
+
+        return $this;
+    }
 
     /**
      * Gets rating

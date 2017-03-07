@@ -96,9 +96,25 @@ class ReviewInvitationTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "first_name"
+     */
+    public function testPropertyFirstName()
+    {
+
+    }
+
+    /**
      * Test attribute "last_name"
      */
     public function testPropertyLastName()
+    {
+
+    }
+
+    /**
+     * Test attribute "image"
+     */
+    public function testPropertyImage()
     {
 
     }
@@ -115,14 +131,6 @@ class ReviewInvitationTest extends \PHPUnit_Framework_TestCase
      * Test attribute "location_id"
      */
     public function testPropertyLocationId()
-    {
-
-    }
-
-    /**
-     * Test attribute "first_name"
-     */
-    public function testPropertyFirstName()
     {
 
     }

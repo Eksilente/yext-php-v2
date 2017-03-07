@@ -66,10 +66,11 @@ class ReviewInvitation implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'first_name' => 'string',
         'last_name' => 'string',
+        'image' => 'bool',
         'contact' => 'string',
         'location_id' => 'string',
-        'first_name' => 'string',
         'template_id' => 'string'
     ];
 
@@ -83,10 +84,11 @@ class ReviewInvitation implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'first_name' => 'firstName',
         'last_name' => 'lastName',
+        'image' => 'image',
         'contact' => 'contact',
         'location_id' => 'locationId',
-        'first_name' => 'firstName',
         'template_id' => 'templateId'
     ];
 
@@ -96,10 +98,11 @@ class ReviewInvitation implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'first_name' => 'setFirstName',
         'last_name' => 'setLastName',
+        'image' => 'setImage',
         'contact' => 'setContact',
         'location_id' => 'setLocationId',
-        'first_name' => 'setFirstName',
         'template_id' => 'setTemplateId'
     ];
 
@@ -109,10 +112,11 @@ class ReviewInvitation implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'first_name' => 'getFirstName',
         'last_name' => 'getLastName',
+        'image' => 'getImage',
         'contact' => 'getContact',
         'location_id' => 'getLocationId',
-        'first_name' => 'getFirstName',
         'template_id' => 'getTemplateId'
     ];
 
@@ -147,10 +151,11 @@ class ReviewInvitation implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['first_name'] = isset($data['first_name']) ? $data['first_name'] : null;
         $this->container['last_name'] = isset($data['last_name']) ? $data['last_name'] : null;
+        $this->container['image'] = isset($data['image']) ? $data['image'] : null;
         $this->container['contact'] = isset($data['contact']) ? $data['contact'] : null;
         $this->container['location_id'] = isset($data['location_id']) ? $data['location_id'] : null;
-        $this->container['first_name'] = isset($data['first_name']) ? $data['first_name'] : null;
         $this->container['template_id'] = isset($data['template_id']) ? $data['template_id'] : null;
     }
 
@@ -178,6 +183,27 @@ class ReviewInvitation implements ArrayAccess
 
 
     /**
+     * Gets first_name
+     * @return string
+     */
+    public function getFirstName()
+    {
+        return $this->container['first_name'];
+    }
+
+    /**
+     * Sets first_name
+     * @param string $first_name The consumer’s first name
+     * @return $this
+     */
+    public function setFirstName($first_name)
+    {
+        $this->container['first_name'] = $first_name;
+
+        return $this;
+    }
+
+    /**
      * Gets last_name
      * @return string
      */
@@ -194,6 +220,27 @@ class ReviewInvitation implements ArrayAccess
     public function setLastName($last_name)
     {
         $this->container['last_name'] = $last_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets image
+     * @return bool
+     */
+    public function getImage()
+    {
+        return $this->container['image'];
+    }
+
+    /**
+     * Sets image
+     * @param bool $image Only valid if “contact” is a phone number  If true, include a brand image with the phone number - otherwise nothing
+     * @return $this
+     */
+    public function setImage($image)
+    {
+        $this->container['image'] = $image;
 
         return $this;
     }
@@ -236,27 +283,6 @@ class ReviewInvitation implements ArrayAccess
     public function setLocationId($location_id)
     {
         $this->container['location_id'] = $location_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets first_name
-     * @return string
-     */
-    public function getFirstName()
-    {
-        return $this->container['first_name'];
-    }
-
-    /**
-     * Sets first_name
-     * @param string $first_name The consumer’s first name
-     * @return $this
-     */
-    public function setFirstName($first_name)
-    {
-        $this->container['first_name'] = $first_name;
 
         return $this;
     }
