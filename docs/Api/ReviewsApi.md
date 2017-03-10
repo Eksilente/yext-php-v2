@@ -75,11 +75,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createReview**
-> \Yext\Client\Model\IdResponse createReview($account_id, $v, $location_id, $author_name, $author_email, $rating, $content, $status)
+> \Yext\Client\Model\IdResponse createReview($account_id, $v, $location_id, $author_name, $rating, $content, $author_email, $status)
 
 Reviews: Create
 
-Create a new External First Party Review. <br><br>  ## Required fields * **`locationId`** * **`authorName`** * **`authorEmail`** * **`rating`** * **`content`**   ## Optional fields * **`status`**
+Create a new External First Party Review. <br><br>  ## Required fields * **`locationId`** * **`authorName`** * **`rating`** * **`content`**   ## Optional fields * **`authorEmail`** * **`status`**
 
 ### Example
 ```php
@@ -96,13 +96,13 @@ $account_id = "account_id_example"; // string |
 $v = "20161012"; // string | A date in `YYYYMMDD` format.
 $location_id = 56; // int | The ID of the location associated with the review.
 $author_name = "author_name_example"; // string | The name of the person who wrote the review.
-$author_email = "author_email_example"; // string | The email address of the person who wrote the review.
 $rating = 56; // int | The rating of the review from 1 to 5.
 $content = "content_example"; // string | The content of the review.
+$author_email = "author_email_example"; // string | The email address of the person who wrote the review.
 $status = "QUARANTINED"; // string | 
 
 try {
-    $result = $api_instance->createReview($account_id, $v, $location_id, $author_name, $author_email, $rating, $content, $status);
+    $result = $api_instance->createReview($account_id, $v, $location_id, $author_name, $rating, $content, $author_email, $status);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReviewsApi->createReview: ', $e->getMessage(), PHP_EOL;
@@ -118,9 +118,9 @@ Name | Type | Description  | Notes
  **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format. | [default to 20161012]
  **location_id** | **int**| The ID of the location associated with the review. |
  **author_name** | **string**| The name of the person who wrote the review. |
- **author_email** | **string**| The email address of the person who wrote the review. |
  **rating** | **int**| The rating of the review from 1 to 5. |
  **content** | **string**| The content of the review. |
+ **author_email** | **string**| The email address of the person who wrote the review. | [optional]
  **status** | **string**|  | [optional] [default to QUARANTINED]
 
 ### Return type
@@ -139,7 +139,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createReviewInvites**
-> \Yext\Client\Model\CreateReviewInvitationResponse[] createReviewInvites($account_id, $v, $reviews)
+> \Yext\Client\Model\CreateReviewInvitationsResponse createReviewInvites($account_id, $v, $reviews)
 
 Review Invitations: Create
 
@@ -179,7 +179,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\CreateReviewInvitationResponse[]**](../Model/CreateReviewInvitationResponse.md)
+[**\Yext\Client\Model\CreateReviewInvitationsResponse**](../Model/CreateReviewInvitationsResponse.md)
 
 ### Authorization
 

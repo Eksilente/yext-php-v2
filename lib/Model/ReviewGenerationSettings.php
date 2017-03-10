@@ -147,22 +147,8 @@ class ReviewGenerationSettings implements ArrayAccess
         return self::$getters;
     }
 
-    const BALANCING_OPTIMIZATION_DISTRIBUTION = 'DISTRIBUTION';
-    const BALANCING_OPTIMIZATION_MORE_REVIEWS = 'MORE_REVIEWS';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     * @return string[]
-     */
-    public function getBalancingOptimizationAllowableValues()
-    {
-        return [
-            self::BALANCING_OPTIMIZATION_DISTRIBUTION,
-            self::BALANCING_OPTIMIZATION_MORE_REVIEWS,
-        ];
-    }
     
 
     /**
@@ -204,11 +190,6 @@ class ReviewGenerationSettings implements ArrayAccess
             $invalid_properties[] = "invalid value for 'max_texts_per_day', must be bigger than or equal to 1.0.";
         }
 
-        $allowed_values = ["DISTRIBUTION", "MORE_REVIEWS"];
-        if (!is_null($this->container['balancing_optimization']) && !in_array($this->container['balancing_optimization'], $allowed_values)) {
-            $invalid_properties[] = "invalid value for 'balancing_optimization', must be one of #{allowed_values}.";
-        }
-
         if (!is_null($this->container['review_quarantine_days']) && ($this->container['review_quarantine_days'] > 7.0)) {
             $invalid_properties[] = "invalid value for 'review_quarantine_days', must be smaller than or equal to 7.0.";
         }
@@ -246,10 +227,6 @@ class ReviewGenerationSettings implements ArrayAccess
         if ($this->container['max_texts_per_day'] < 1.0) {
             return false;
         }
-        $allowed_values = ["DISTRIBUTION", "MORE_REVIEWS"];
-        if (!is_null($this->container['balancing_optimization']) && !in_array($this->container['balancing_optimization'], $allowed_values)) {
-            return false;
-        }
         if ($this->container['review_quarantine_days'] > 7.0) {
             return false;
         }
@@ -280,7 +257,7 @@ class ReviewGenerationSettings implements ArrayAccess
 
     /**
      * Sets max_contact_frequency
-     * @param int $max_contact_frequency If null is provided, no maximum contact frequency will be enforced.
+     * @param int $max_contact_frequency Indicates the minimum number of days that must pass before a given contact can be sent another review invitation. This setting will prevent you from contacting the same person repeatedly in a short time period.  If null, no maximum contact frequency will be enforced.
      * @return $this
      */
     public function setMaxContactFrequency($max_contact_frequency)
@@ -301,7 +278,7 @@ class ReviewGenerationSettings implements ArrayAccess
 
     /**
      * Sets max_texts_per_day
-     * @param int $max_texts_per_day If null is provided, review invitations by text will be disabled.
+     * @param int $max_texts_per_day Enables review invitations by text and indicates the maximum number of text invites our system will send on a per-location, per-day basis. We will send a maximum of 20 text invites per location per day.  If null, review invitations by text will be disabled.
      * @return $this
      */
     public function setMaxTextsPerDay($max_texts_per_day)
@@ -330,7 +307,7 @@ class ReviewGenerationSettings implements ArrayAccess
 
     /**
      * Sets site_distribution
-     * @param map[string,object] $site_distribution NOTE: First retrieve sites via the Publishers: List endpoint. Valid sites will have REVIEW MONITORING returned in the feature array.
+     * @param map[string,object] $site_distribution A list of third-party sites to generate reviews on. Sites may also be weighted, resulting in certain sites generating more reviews than others. The balancing algorithm will attempt to achieve Weight/(Sum of All Weights)% of review count on each specified site.  Can contain a maximum of 10 sites. Including 0 sites is also acceptable.  Each site in the request must have a corresponding weight.  Valid weights are integers 1-9  NOTE: Retrieve site **`id`**s via the Publishers: List endpoint. Valid sites will have `REVIEW MONITORING` listed in **`features`**.
      * @return $this
      */
     public function setSiteDistribution($site_distribution)
@@ -351,15 +328,11 @@ class ReviewGenerationSettings implements ArrayAccess
 
     /**
      * Sets balancing_optimization
-     * @param string $balancing_optimization Must include one of these choices:  * **`DISTRIBUTION`**: The balancing algorithm will prefer following the weighting distribution outlined in Target Distribution of Reviews by Site, even if this means sending users to sites they are not logged into. * **`MORE_REVIEWS`**: The balancing algorithm will attempt to generate as many reviews as possible by sending users to sites they are logged into, even if this means less closely following the distribution.
+     * @param string $balancing_optimization Sets optimization settings for the balancing algorithm.  Must include one of the following:  * **`DISTRIBUTION`**: The balancing algorithm will prefer following the weighting distribution specified in **`siteDistribution`**, even if users will be sent to sites they are not logged in to as a result. * **`MORE_REVIEWS`**: The balancing algorithm will attempt to generate as many reviews as possible by sending users to sites they are logged in to, even if the distribution will be less closely followed as a result.
      * @return $this
      */
     public function setBalancingOptimization($balancing_optimization)
     {
-        $allowed_values = array('DISTRIBUTION', 'MORE_REVIEWS');
-        if (!is_null($balancing_optimization) && (!in_array($balancing_optimization, $allowed_values))) {
-            throw new \InvalidArgumentException("Invalid value for 'balancing_optimization', must be one of 'DISTRIBUTION', 'MORE_REVIEWS'");
-        }
         $this->container['balancing_optimization'] = $balancing_optimization;
 
         return $this;
@@ -376,7 +349,7 @@ class ReviewGenerationSettings implements ArrayAccess
 
     /**
      * Sets algorithm_configuration
-     * @param string[] $algorithm_configuration Must include zero or more of these choices:  * **`WEBSITE`**: Generate more first party reviews when a 1-star review is visible on the first page, that is, within the last five reviews. * **`RATING`**: Focus on selected sites that have a rating significantly below the location average. * **`RECENCY`**: Ensure each selected site has one review within the last month.
+     * @param string[] $algorithm_configuration Specifies one or more algorithms to address problems with your reviews. If more than one algorithm is specifed, the algorithms are applied in the order they are listed.  Must include at least one of the following:  * **`WEBSITE`**: Generate more first-party reviews when a 1-star review is visible on the first page (i.e., within the last five reviews). * **`RATING`**: Focus on selected sites that have a rating significantly below the location's average. * **`RECENCY`**: Ensure each selected site has one review within the last month.
      * @return $this
      */
     public function setAlgorithmConfiguration($algorithm_configuration)
@@ -397,7 +370,7 @@ class ReviewGenerationSettings implements ArrayAccess
 
     /**
      * Sets review_quarantine_days
-     * @param int $review_quarantine_days Prevents 1st party reviews from immediately showing up on your website or wherever else they may appear. During this quarantine period, users may respond to reviews, increasing the likelihood consumers revise or remove their negative reviews. This may be set to at most 7 days.
+     * @param int $review_quarantine_days Prevents first-party reviews from immediately showing up on your website or wherever else you show your reviews. During this quarantine period, you may respond to reviews, increasing the likelihood that your customers will revise or remove their negative reviews.
      * @return $this
      */
     public function setReviewQuarantineDays($review_quarantine_days)
@@ -426,7 +399,7 @@ class ReviewGenerationSettings implements ArrayAccess
 
     /**
      * Sets privacy_policy_override
-     * @param string $privacy_policy_override Update request must contain a URL or null. Null indicates that the Yext privacy policy default will be used.
+     * @param string $privacy_policy_override Review-collection pages contain a link to the Yext privacy policy by default. This field lets you replace that link with a link to your own privacy policy.  Update request must contain a URL or null. If null, the Yext privacy policy link will be used.
      * @return $this
      */
     public function setPrivacyPolicyOverride($privacy_policy_override)
@@ -447,7 +420,7 @@ class ReviewGenerationSettings implements ArrayAccess
 
     /**
      * Sets max_emails_per_day
-     * @param int $max_emails_per_day Must contain an integer value between 0 and 200. If 0 or null is provided, review invitations by email will be disabled.
+     * @param int $max_emails_per_day Enables review invitations by email and indicates the maximum number of email invites our system will send on a per-location, per-day basis.  Must contain an integer value between 0 and 200. If 0 or null, review invitations by email will be disabled.
      * @return $this
      */
     public function setMaxEmailsPerDay($max_emails_per_day)
@@ -476,7 +449,7 @@ class ReviewGenerationSettings implements ArrayAccess
 
     /**
      * Sets max_texts_per_month
-     * @param int $max_texts_per_month If null is provided, the system enforced maximum will act as the enabled max.
+     * @param int $max_texts_per_month Indicates the maximum number of text invites our system will send on a per-location, per-month basis.
      * @return $this
      */
     public function setMaxTextsPerMonth($max_texts_per_month)

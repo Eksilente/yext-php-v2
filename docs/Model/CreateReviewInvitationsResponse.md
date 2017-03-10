@@ -1,10 +1,10 @@
-# CustomOption
+# CreateReviewInvitationsResponse
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**value** | **string** | The Option&#39;s name. | [optional] 
-**key** | **string** | The Option&#39;s unique ID. | [optional] 
+**meta** | [**\Yext\Client\Model\ResponseMeta**](ResponseMeta.md) |  | [optional] 
+**response** | [**\Yext\Client\Model\CreateReviewInvitationResponse[]**](CreateReviewInvitationResponse.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

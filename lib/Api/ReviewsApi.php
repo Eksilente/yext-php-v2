@@ -246,16 +246,16 @@ class ReviewsApi
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
      * @param int $location_id The ID of the location associated with the review. (required)
      * @param string $author_name The name of the person who wrote the review. (required)
-     * @param string $author_email The email address of the person who wrote the review. (required)
      * @param int $rating The rating of the review from 1 to 5. (required)
      * @param string $content The content of the review. (required)
+     * @param string $author_email The email address of the person who wrote the review. (optional)
      * @param string $status  (optional, default to QUARANTINED)
      * @throws \Yext\Client\ApiException on non-2xx response
      * @return \Yext\Client\Model\IdResponse
      */
-    public function createReview($account_id, $v, $location_id, $author_name, $author_email, $rating, $content, $status = null)
+    public function createReview($account_id, $v, $location_id, $author_name, $rating, $content, $author_email = null, $status = null)
     {
-        list($response) = $this->createReviewWithHttpInfo($account_id, $v, $location_id, $author_name, $author_email, $rating, $content, $status);
+        list($response) = $this->createReviewWithHttpInfo($account_id, $v, $location_id, $author_name, $rating, $content, $author_email, $status);
         return $response;
     }
 
@@ -268,14 +268,14 @@ class ReviewsApi
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
      * @param int $location_id The ID of the location associated with the review. (required)
      * @param string $author_name The name of the person who wrote the review. (required)
-     * @param string $author_email The email address of the person who wrote the review. (required)
      * @param int $rating The rating of the review from 1 to 5. (required)
      * @param string $content The content of the review. (required)
+     * @param string $author_email The email address of the person who wrote the review. (optional)
      * @param string $status  (optional, default to QUARANTINED)
      * @throws \Yext\Client\ApiException on non-2xx response
      * @return array of \Yext\Client\Model\IdResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createReviewWithHttpInfo($account_id, $v, $location_id, $author_name, $author_email, $rating, $content, $status = null)
+    public function createReviewWithHttpInfo($account_id, $v, $location_id, $author_name, $rating, $content, $author_email = null, $status = null)
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
@@ -292,10 +292,6 @@ class ReviewsApi
         // verify the required parameter 'author_name' is set
         if ($author_name === null) {
             throw new \InvalidArgumentException('Missing the required parameter $author_name when calling createReview');
-        }
-        // verify the required parameter 'author_email' is set
-        if ($author_email === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $author_email when calling createReview');
         }
         // verify the required parameter 'rating' is set
         if ($rating === null) {
@@ -406,7 +402,7 @@ class ReviewsApi
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
      * @param \Yext\Client\Model\ReviewInvitation[] $reviews  (required)
      * @throws \Yext\Client\ApiException on non-2xx response
-     * @return \Yext\Client\Model\CreateReviewInvitationResponse[]
+     * @return \Yext\Client\Model\CreateReviewInvitationsResponse
      */
     public function createReviewInvites($account_id, $v, $reviews)
     {
@@ -423,7 +419,7 @@ class ReviewsApi
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
      * @param \Yext\Client\Model\ReviewInvitation[] $reviews  (required)
      * @throws \Yext\Client\ApiException on non-2xx response
-     * @return array of \Yext\Client\Model\CreateReviewInvitationResponse[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Yext\Client\Model\CreateReviewInvitationsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function createReviewInvitesWithHttpInfo($account_id, $v, $reviews)
     {
@@ -491,15 +487,15 @@ class ReviewsApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\CreateReviewInvitationResponse[]',
+                '\Yext\Client\Model\CreateReviewInvitationsResponse',
                 '/accounts/{accountId}/reviewinvites'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\CreateReviewInvitationResponse[]', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\CreateReviewInvitationsResponse', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 201:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\CreateReviewInvitationResponse[]', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\CreateReviewInvitationsResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:

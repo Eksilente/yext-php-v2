@@ -66,9 +66,14 @@ class CreateReviewInvitationResponse implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'first_name' => 'string',
+        'last_name' => 'string',
+        'image' => 'bool',
+        'contact' => 'string',
+        'location_id' => 'string',
+        'template_id' => 'string',
         'status' => 'string',
-        'details' => 'string',
-        'all_of' => '\Yext\Client\Model\ReviewInvitation'
+        'details' => 'string'
     ];
 
     public static function swaggerTypes()
@@ -81,9 +86,14 @@ class CreateReviewInvitationResponse implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'first_name' => 'firstName',
+        'last_name' => 'lastName',
+        'image' => 'image',
+        'contact' => 'contact',
+        'location_id' => 'locationId',
+        'template_id' => 'templateId',
         'status' => 'status',
-        'details' => 'details',
-        'all_of' => 'allOf'
+        'details' => 'details'
     ];
 
 
@@ -92,9 +102,14 @@ class CreateReviewInvitationResponse implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'first_name' => 'setFirstName',
+        'last_name' => 'setLastName',
+        'image' => 'setImage',
+        'contact' => 'setContact',
+        'location_id' => 'setLocationId',
+        'template_id' => 'setTemplateId',
         'status' => 'setStatus',
-        'details' => 'setDetails',
-        'all_of' => 'setAllOf'
+        'details' => 'setDetails'
     ];
 
 
@@ -103,9 +118,14 @@ class CreateReviewInvitationResponse implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'first_name' => 'getFirstName',
+        'last_name' => 'getLastName',
+        'image' => 'getImage',
+        'contact' => 'getContact',
+        'location_id' => 'getLocationId',
+        'template_id' => 'getTemplateId',
         'status' => 'getStatus',
-        'details' => 'getDetails',
-        'all_of' => 'getAllOf'
+        'details' => 'getDetails'
     ];
 
     public static function attributeMap()
@@ -153,9 +173,14 @@ class CreateReviewInvitationResponse implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['first_name'] = isset($data['first_name']) ? $data['first_name'] : null;
+        $this->container['last_name'] = isset($data['last_name']) ? $data['last_name'] : null;
+        $this->container['image'] = isset($data['image']) ? $data['image'] : null;
+        $this->container['contact'] = isset($data['contact']) ? $data['contact'] : null;
+        $this->container['location_id'] = isset($data['location_id']) ? $data['location_id'] : null;
+        $this->container['template_id'] = isset($data['template_id']) ? $data['template_id'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['details'] = isset($data['details']) ? $data['details'] : null;
-        $this->container['all_of'] = isset($data['all_of']) ? $data['all_of'] : null;
     }
 
     /**
@@ -189,6 +214,132 @@ class CreateReviewInvitationResponse implements ArrayAccess
         return true;
     }
 
+
+    /**
+     * Gets first_name
+     * @return string
+     */
+    public function getFirstName()
+    {
+        return $this->container['first_name'];
+    }
+
+    /**
+     * Sets first_name
+     * @param string $first_name The consumer’s first name
+     * @return $this
+     */
+    public function setFirstName($first_name)
+    {
+        $this->container['first_name'] = $first_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets last_name
+     * @return string
+     */
+    public function getLastName()
+    {
+        return $this->container['last_name'];
+    }
+
+    /**
+     * Sets last_name
+     * @param string $last_name The consumer’s last name
+     * @return $this
+     */
+    public function setLastName($last_name)
+    {
+        $this->container['last_name'] = $last_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets image
+     * @return bool
+     */
+    public function getImage()
+    {
+        return $this->container['image'];
+    }
+
+    /**
+     * Sets image
+     * @param bool $image Only valid if “contact” is a phone number  If true, include a brand image with the phone number - otherwise nothing
+     * @return $this
+     */
+    public function setImage($image)
+    {
+        $this->container['image'] = $image;
+
+        return $this;
+    }
+
+    /**
+     * Gets contact
+     * @return string
+     */
+    public function getContact()
+    {
+        return $this->container['contact'];
+    }
+
+    /**
+     * Sets contact
+     * @param string $contact The email address or phone number of the consumer.  Phone numbers should be formatted in one of the following ways: * E.164 standard international format, with a leading \"+\" * National format, according to the country of the corresponding location
+     * @return $this
+     */
+    public function setContact($contact)
+    {
+        $this->container['contact'] = $contact;
+
+        return $this;
+    }
+
+    /**
+     * Gets location_id
+     * @return string
+     */
+    public function getLocationId()
+    {
+        return $this->container['location_id'];
+    }
+
+    /**
+     * Sets location_id
+     * @param string $location_id ID of the location that will be reviewed
+     * @return $this
+     */
+    public function setLocationId($location_id)
+    {
+        $this->container['location_id'] = $location_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets template_id
+     * @return string
+     */
+    public function getTemplateId()
+    {
+        return $this->container['template_id'];
+    }
+
+    /**
+     * Sets template_id
+     * @param string $template_id If specified, the ID of the template used to format the email.  If not specified, the location’s default email template is used.  If the location has no default template, the account’s default template is used.
+     * @return $this
+     */
+    public function setTemplateId($template_id)
+    {
+        $this->container['template_id'] = $template_id;
+
+        return $this;
+    }
 
     /**
      * Gets status
@@ -232,27 +383,6 @@ class CreateReviewInvitationResponse implements ArrayAccess
     public function setDetails($details)
     {
         $this->container['details'] = $details;
-
-        return $this;
-    }
-
-    /**
-     * Gets all_of
-     * @return \Yext\Client\Model\ReviewInvitation
-     */
-    public function getAllOf()
-    {
-        return $this->container['all_of'];
-    }
-
-    /**
-     * Sets all_of
-     * @param \Yext\Client\Model\ReviewInvitation $all_of
-     * @return $this
-     */
-    public function setAllOf($all_of)
-    {
-        $this->container['all_of'] = $all_of;
 
         return $this;
     }

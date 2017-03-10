@@ -1,6 +1,6 @@
 <?php
 /**
- * CustomOption
+ * CreateReviewInvitationsResponse
  *
  * PHP version 5
  *
@@ -44,7 +44,7 @@ namespace Yext\Client\Model;
 use \ArrayAccess;
 
 /**
- * CustomOption Class Doc Comment
+ * CreateReviewInvitationsResponse Class Doc Comment
  *
  * @category    Class */
 /**
@@ -53,21 +53,21 @@ use \ArrayAccess;
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache License v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class CustomOption implements ArrayAccess
+class CreateReviewInvitationsResponse implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'CustomOption';
+    protected static $swaggerModelName = 'CreateReviewInvitationsResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'value' => 'string',
-        'key' => 'string'
+        'meta' => '\Yext\Client\Model\ResponseMeta',
+        'response' => '\Yext\Client\Model\CreateReviewInvitationResponse[]'
     ];
 
     public static function swaggerTypes()
@@ -80,8 +80,8 @@ class CustomOption implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'value' => 'value',
-        'key' => 'key'
+        'meta' => 'meta',
+        'response' => 'response'
     ];
 
 
@@ -90,8 +90,8 @@ class CustomOption implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'value' => 'setValue',
-        'key' => 'setKey'
+        'meta' => 'setMeta',
+        'response' => 'setResponse'
     ];
 
 
@@ -100,8 +100,8 @@ class CustomOption implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'value' => 'getValue',
-        'key' => 'getKey'
+        'meta' => 'getMeta',
+        'response' => 'getResponse'
     ];
 
     public static function attributeMap()
@@ -135,8 +135,8 @@ class CustomOption implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
-        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
+        $this->container['meta'] = isset($data['meta']) ? $data['meta'] : null;
+        $this->container['response'] = isset($data['response']) ? $data['response'] : null;
     }
 
     /**
@@ -163,43 +163,43 @@ class CustomOption implements ArrayAccess
 
 
     /**
-     * Gets value
-     * @return string
+     * Gets meta
+     * @return \Yext\Client\Model\ResponseMeta
      */
-    public function getValue()
+    public function getMeta()
     {
-        return $this->container['value'];
+        return $this->container['meta'];
     }
 
     /**
-     * Sets value
-     * @param string $value The Option's name.
+     * Sets meta
+     * @param \Yext\Client\Model\ResponseMeta $meta
      * @return $this
      */
-    public function setValue($value)
+    public function setMeta($meta)
     {
-        $this->container['value'] = $value;
+        $this->container['meta'] = $meta;
 
         return $this;
     }
 
     /**
-     * Gets key
-     * @return string
+     * Gets response
+     * @return \Yext\Client\Model\CreateReviewInvitationResponse[]
      */
-    public function getKey()
+    public function getResponse()
     {
-        return $this->container['key'];
+        return $this->container['response'];
     }
 
     /**
-     * Sets key
-     * @param string $key The Option's unique ID.
+     * Sets response
+     * @param \Yext\Client\Model\CreateReviewInvitationResponse[] $response
      * @return $this
      */
-    public function setKey($key)
+    public function setResponse($response)
     {
-        $this->container['key'] = $key;
+        $this->container['response'] = $response;
 
         return $this;
     }

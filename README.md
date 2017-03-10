@@ -188,6 +188,7 @@ Class | Method | HTTP request | Description
  - [CreateReportsResponse](docs/Model/CreateReportsResponse.md)
  - [CreateReportsResponseResponse](docs/Model/CreateReportsResponseResponse.md)
  - [CreateReviewInvitationResponse](docs/Model/CreateReviewInvitationResponse.md)
+ - [CreateReviewInvitationsResponse](docs/Model/CreateReviewInvitationsResponse.md)
  - [CreateUserRequest](docs/Model/CreateUserRequest.md)
  - [CustomField](docs/Model/CustomField.md)
  - [CustomFieldsResponse](docs/Model/CustomFieldsResponse.md)

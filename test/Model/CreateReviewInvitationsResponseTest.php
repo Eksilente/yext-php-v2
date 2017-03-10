@@ -1,6 +1,6 @@
 <?php
 /**
- * CreateReviewInvitationResponseTest
+ * CreateReviewInvitationsResponseTest
  *
  * PHP version 5
  *
@@ -42,17 +42,17 @@
 namespace Yext\Client;
 
 /**
- * CreateReviewInvitationResponseTest Class Doc Comment
+ * CreateReviewInvitationsResponseTest Class Doc Comment
  *
  * @category    Class */
-// * @description CreateReviewInvitationResponse
+// * @description CreateReviewInvitationsResponse
 /**
  * @package     Yext\Client
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache License v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class CreateReviewInvitationResponseTest extends \PHPUnit_Framework_TestCase
+class CreateReviewInvitationsResponseTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -88,73 +88,25 @@ class CreateReviewInvitationResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "CreateReviewInvitationResponse"
+     * Test "CreateReviewInvitationsResponse"
      */
-    public function testCreateReviewInvitationResponse()
+    public function testCreateReviewInvitationsResponse()
     {
 
     }
 
     /**
-     * Test attribute "first_name"
+     * Test attribute "meta"
      */
-    public function testPropertyFirstName()
+    public function testPropertyMeta()
     {
 
     }
 
     /**
-     * Test attribute "last_name"
+     * Test attribute "response"
      */
-    public function testPropertyLastName()
-    {
-
-    }
-
-    /**
-     * Test attribute "image"
-     */
-    public function testPropertyImage()
-    {
-
-    }
-
-    /**
-     * Test attribute "contact"
-     */
-    public function testPropertyContact()
-    {
-
-    }
-
-    /**
-     * Test attribute "location_id"
-     */
-    public function testPropertyLocationId()
-    {
-
-    }
-
-    /**
-     * Test attribute "template_id"
-     */
-    public function testPropertyTemplateId()
-    {
-
-    }
-
-    /**
-     * Test attribute "status"
-     */
-    public function testPropertyStatus()
-    {
-
-    }
-
-    /**
-     * Test attribute "details"
-     */
-    public function testPropertyDetails()
+    public function testPropertyResponse()
     {
 
     }
