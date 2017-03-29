@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | **string** | The current status of the review; only returned for First Party and External First Party reviews. | [optional] 
+**status** | **string** | The current status of the review; only returned for First Party and External First Party reviews. Defaults to &#x60;QUARANTINED&#x60; when creating. | [optional] 
 **rating** | **double** | Normalized rating out of 5. This value is omitted if the review does not include a rating. | [optional] 
 **title** | **string** | Title of the review. This value is omitted if reviews on the publisher&#39;s site do not have titles. | [optional] 
 **url** | **string** | The URL of the review, or the URL of the listing where the review can be found if there is no specific URL for the review. | [optional] 

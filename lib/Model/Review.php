@@ -253,7 +253,7 @@ class Review implements ArrayAccess
 
     /**
      * Sets status
-     * @param string $status The current status of the review; only returned for First Party and External First Party reviews.
+     * @param string $status The current status of the review; only returned for First Party and External First Party reviews. Defaults to `QUARANTINED` when creating.
      * @return $this
      */
     public function setStatus($status)

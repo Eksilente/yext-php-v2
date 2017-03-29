@@ -96,6 +96,14 @@ class ReviewCommentTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "content"
+     */
+    public function testPropertyContent()
+    {
+
+    }
+
+    /**
      * Test attribute "author_role"
      */
     public function testPropertyAuthorRole()
@@ -139,14 +147,6 @@ class ReviewCommentTest extends \PHPUnit_Framework_TestCase
      * Test attribute "parent_id"
      */
     public function testPropertyParentId()
-    {
-
-    }
-
-    /**
-     * Test attribute "message"
-     */
-    public function testPropertyMessage()
     {
 
     }

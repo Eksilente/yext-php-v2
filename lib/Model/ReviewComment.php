@@ -66,13 +66,13 @@ class ReviewComment implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'content' => 'string',
         'author_role' => 'string',
         'publisher_date' => 'int',
         'visibility' => 'string',
         'author_email' => 'string',
         'author_name' => 'string',
         'parent_id' => 'int',
-        'message' => 'string',
         'id' => 'int'
     ];
 
@@ -86,13 +86,13 @@ class ReviewComment implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'content' => 'content',
         'author_role' => 'authorRole',
         'publisher_date' => 'publisherDate',
         'visibility' => 'visibility',
         'author_email' => 'authorEmail',
         'author_name' => 'authorName',
         'parent_id' => 'parentId',
-        'message' => 'message',
         'id' => 'id'
     ];
 
@@ -102,13 +102,13 @@ class ReviewComment implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'content' => 'setContent',
         'author_role' => 'setAuthorRole',
         'publisher_date' => 'setPublisherDate',
         'visibility' => 'setVisibility',
         'author_email' => 'setAuthorEmail',
         'author_name' => 'setAuthorName',
         'parent_id' => 'setParentId',
-        'message' => 'setMessage',
         'id' => 'setId'
     ];
 
@@ -118,13 +118,13 @@ class ReviewComment implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'content' => 'getContent',
         'author_role' => 'getAuthorRole',
         'publisher_date' => 'getPublisherDate',
         'visibility' => 'getVisibility',
         'author_email' => 'getAuthorEmail',
         'author_name' => 'getAuthorName',
         'parent_id' => 'getParentId',
-        'message' => 'getMessage',
         'id' => 'getId'
     ];
 
@@ -187,13 +187,13 @@ class ReviewComment implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['content'] = isset($data['content']) ? $data['content'] : null;
         $this->container['author_role'] = isset($data['author_role']) ? $data['author_role'] : null;
         $this->container['publisher_date'] = isset($data['publisher_date']) ? $data['publisher_date'] : null;
         $this->container['visibility'] = isset($data['visibility']) ? $data['visibility'] : null;
         $this->container['author_email'] = isset($data['author_email']) ? $data['author_email'] : null;
         $this->container['author_name'] = isset($data['author_name']) ? $data['author_name'] : null;
         $this->container['parent_id'] = isset($data['parent_id']) ? $data['parent_id'] : null;
-        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
     }
 
@@ -237,6 +237,27 @@ class ReviewComment implements ArrayAccess
         return true;
     }
 
+
+    /**
+     * Gets content
+     * @return string
+     */
+    public function getContent()
+    {
+        return $this->container['content'];
+    }
+
+    /**
+     * Sets content
+     * @param string $content Content of the comment.
+     * @return $this
+     */
+    public function setContent($content)
+    {
+        $this->container['content'] = $content;
+
+        return $this;
+    }
 
     /**
      * Gets author_role
@@ -295,7 +316,7 @@ class ReviewComment implements ArrayAccess
 
     /**
      * Sets visibility
-     * @param string $visibility
+     * @param string $visibility Defaults to `PUBLIC` when creating a comment
      * @return $this
      */
     public function setVisibility($visibility)
@@ -368,27 +389,6 @@ class ReviewComment implements ArrayAccess
     public function setParentId($parent_id)
     {
         $this->container['parent_id'] = $parent_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets message
-     * @return string
-     */
-    public function getMessage()
-    {
-        return $this->container['message'];
-    }
-
-    /**
-     * Sets message
-     * @param string $message Content of the comment.
-     * @return $this
-     */
-    public function setMessage($message)
-    {
-        $this->container['message'] = $message;
 
         return $this;
     }

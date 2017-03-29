@@ -109,15 +109,13 @@ class ReviewsApi
      * @param string $account_id  (required)
      * @param int $review_id ID of this Review. (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
-     * @param string $content Content of the new comment. (optional)
-     * @param string $visibility  (optional, default to PUBLIC)
-     * @param int $parent_id If this Comment is in response to another Comment, use this field to specify the ID of the parent Comment. (optional)
+     * @param \Yext\Client\Model\ReviewComment $comment_request  (required)
      * @throws \Yext\Client\ApiException on non-2xx response
      * @return \Yext\Client\Model\ErrorResponse
      */
-    public function createComment($account_id, $review_id, $v, $content = null, $visibility = null, $parent_id = null)
+    public function createComment($account_id, $review_id, $v, $comment_request)
     {
-        list($response) = $this->createCommentWithHttpInfo($account_id, $review_id, $v, $content, $visibility, $parent_id);
+        list($response) = $this->createCommentWithHttpInfo($account_id, $review_id, $v, $comment_request);
         return $response;
     }
 
@@ -129,13 +127,11 @@ class ReviewsApi
      * @param string $account_id  (required)
      * @param int $review_id ID of this Review. (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
-     * @param string $content Content of the new comment. (optional)
-     * @param string $visibility  (optional, default to PUBLIC)
-     * @param int $parent_id If this Comment is in response to another Comment, use this field to specify the ID of the parent Comment. (optional)
+     * @param \Yext\Client\Model\ReviewComment $comment_request  (required)
      * @throws \Yext\Client\ApiException on non-2xx response
      * @return array of \Yext\Client\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createCommentWithHttpInfo($account_id, $review_id, $v, $content = null, $visibility = null, $parent_id = null)
+    public function createCommentWithHttpInfo($account_id, $review_id, $v, $comment_request)
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
@@ -148,6 +144,10 @@ class ReviewsApi
         // verify the required parameter 'v' is set
         if ($v === null) {
             throw new \InvalidArgumentException('Missing the required parameter $v when calling createComment');
+        }
+        // verify the required parameter 'comment_request' is set
+        if ($comment_request === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $comment_request when calling createComment');
         }
         // parse inputs
         $resourcePath = "/accounts/{accountId}/reviews/{reviewId}/comments";
@@ -164,18 +164,6 @@ class ReviewsApi
         // query params
         if ($v !== null) {
             $queryParams['v'] = $this->apiClient->getSerializer()->toQueryValue($v);
-        }
-        // query params
-        if ($content !== null) {
-            $queryParams['content'] = $this->apiClient->getSerializer()->toQueryValue($content);
-        }
-        // query params
-        if ($visibility !== null) {
-            $queryParams['visibility'] = $this->apiClient->getSerializer()->toQueryValue($visibility);
-        }
-        // query params
-        if ($parent_id !== null) {
-            $queryParams['parentId'] = $this->apiClient->getSerializer()->toQueryValue($parent_id);
         }
         // path params
         if ($account_id !== null) {
@@ -196,7 +184,12 @@ class ReviewsApi
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
-        
+        // body params
+        $_tempBody = null;
+        if (isset($comment_request)) {
+            $_tempBody = $comment_request;
+        }
+
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
@@ -244,18 +237,13 @@ class ReviewsApi
      *
      * @param string $account_id  (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
-     * @param int $location_id The ID of the location associated with the review. (required)
-     * @param string $author_name The name of the person who wrote the review. (required)
-     * @param int $rating The rating of the review from 1 to 5. (required)
-     * @param string $content The content of the review. (required)
-     * @param string $author_email The email address of the person who wrote the review. (optional)
-     * @param string $status  (optional, default to QUARANTINED)
+     * @param \Yext\Client\Model\Review $review_request  (required)
      * @throws \Yext\Client\ApiException on non-2xx response
      * @return \Yext\Client\Model\IdResponse
      */
-    public function createReview($account_id, $v, $location_id, $author_name, $rating, $content, $author_email = null, $status = null)
+    public function createReview($account_id, $v, $review_request)
     {
-        list($response) = $this->createReviewWithHttpInfo($account_id, $v, $location_id, $author_name, $rating, $content, $author_email, $status);
+        list($response) = $this->createReviewWithHttpInfo($account_id, $v, $review_request);
         return $response;
     }
 
@@ -266,16 +254,11 @@ class ReviewsApi
      *
      * @param string $account_id  (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
-     * @param int $location_id The ID of the location associated with the review. (required)
-     * @param string $author_name The name of the person who wrote the review. (required)
-     * @param int $rating The rating of the review from 1 to 5. (required)
-     * @param string $content The content of the review. (required)
-     * @param string $author_email The email address of the person who wrote the review. (optional)
-     * @param string $status  (optional, default to QUARANTINED)
+     * @param \Yext\Client\Model\Review $review_request  (required)
      * @throws \Yext\Client\ApiException on non-2xx response
      * @return array of \Yext\Client\Model\IdResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createReviewWithHttpInfo($account_id, $v, $location_id, $author_name, $rating, $content, $author_email = null, $status = null)
+    public function createReviewWithHttpInfo($account_id, $v, $review_request)
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
@@ -285,21 +268,9 @@ class ReviewsApi
         if ($v === null) {
             throw new \InvalidArgumentException('Missing the required parameter $v when calling createReview');
         }
-        // verify the required parameter 'location_id' is set
-        if ($location_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $location_id when calling createReview');
-        }
-        // verify the required parameter 'author_name' is set
-        if ($author_name === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $author_name when calling createReview');
-        }
-        // verify the required parameter 'rating' is set
-        if ($rating === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $rating when calling createReview');
-        }
-        // verify the required parameter 'content' is set
-        if ($content === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $content when calling createReview');
+        // verify the required parameter 'review_request' is set
+        if ($review_request === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $review_request when calling createReview');
         }
         // parse inputs
         $resourcePath = "/accounts/{accountId}/reviews";
@@ -317,30 +288,6 @@ class ReviewsApi
         if ($v !== null) {
             $queryParams['v'] = $this->apiClient->getSerializer()->toQueryValue($v);
         }
-        // query params
-        if ($location_id !== null) {
-            $queryParams['locationId'] = $this->apiClient->getSerializer()->toQueryValue($location_id);
-        }
-        // query params
-        if ($author_name !== null) {
-            $queryParams['authorName'] = $this->apiClient->getSerializer()->toQueryValue($author_name);
-        }
-        // query params
-        if ($author_email !== null) {
-            $queryParams['authorEmail'] = $this->apiClient->getSerializer()->toQueryValue($author_email);
-        }
-        // query params
-        if ($rating !== null) {
-            $queryParams['rating'] = $this->apiClient->getSerializer()->toQueryValue($rating);
-        }
-        // query params
-        if ($content !== null) {
-            $queryParams['content'] = $this->apiClient->getSerializer()->toQueryValue($content);
-        }
-        // query params
-        if ($status !== null) {
-            $queryParams['status'] = $this->apiClient->getSerializer()->toQueryValue($status);
-        }
         // path params
         if ($account_id !== null) {
             $resourcePath = str_replace(
@@ -352,7 +299,12 @@ class ReviewsApi
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
-        
+        // body params
+        $_tempBody = null;
+        if (isset($review_request)) {
+            $_tempBody = $review_request;
+        }
+
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
@@ -966,17 +918,13 @@ class ReviewsApi
      * @param string $account_id  (required)
      * @param int $review_id ID of this Review. (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
-     * @param string $author_name The name of the person who wrote the review. (optional)
-     * @param string $author_email The email address of the person who wrote the review. (optional)
-     * @param int $rating The rating of the review from 1 to 5. (optional)
-     * @param string $content The content of the review. (optional)
-     * @param string $status  (optional)
+     * @param \Yext\Client\Model\Review $review_request  (required)
      * @throws \Yext\Client\ApiException on non-2xx response
      * @return \Yext\Client\Model\IdResponse
      */
-    public function updateReview($account_id, $review_id, $v, $author_name = null, $author_email = null, $rating = null, $content = null, $status = null)
+    public function updateReview($account_id, $review_id, $v, $review_request)
     {
-        list($response) = $this->updateReviewWithHttpInfo($account_id, $review_id, $v, $author_name, $author_email, $rating, $content, $status);
+        list($response) = $this->updateReviewWithHttpInfo($account_id, $review_id, $v, $review_request);
         return $response;
     }
 
@@ -988,15 +936,11 @@ class ReviewsApi
      * @param string $account_id  (required)
      * @param int $review_id ID of this Review. (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
-     * @param string $author_name The name of the person who wrote the review. (optional)
-     * @param string $author_email The email address of the person who wrote the review. (optional)
-     * @param int $rating The rating of the review from 1 to 5. (optional)
-     * @param string $content The content of the review. (optional)
-     * @param string $status  (optional)
+     * @param \Yext\Client\Model\Review $review_request  (required)
      * @throws \Yext\Client\ApiException on non-2xx response
      * @return array of \Yext\Client\Model\IdResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateReviewWithHttpInfo($account_id, $review_id, $v, $author_name = null, $author_email = null, $rating = null, $content = null, $status = null)
+    public function updateReviewWithHttpInfo($account_id, $review_id, $v, $review_request)
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
@@ -1009,6 +953,10 @@ class ReviewsApi
         // verify the required parameter 'v' is set
         if ($v === null) {
             throw new \InvalidArgumentException('Missing the required parameter $v when calling updateReview');
+        }
+        // verify the required parameter 'review_request' is set
+        if ($review_request === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $review_request when calling updateReview');
         }
         // parse inputs
         $resourcePath = "/accounts/{accountId}/reviews/{reviewId}";
@@ -1025,26 +973,6 @@ class ReviewsApi
         // query params
         if ($v !== null) {
             $queryParams['v'] = $this->apiClient->getSerializer()->toQueryValue($v);
-        }
-        // query params
-        if ($author_name !== null) {
-            $queryParams['authorName'] = $this->apiClient->getSerializer()->toQueryValue($author_name);
-        }
-        // query params
-        if ($author_email !== null) {
-            $queryParams['authorEmail'] = $this->apiClient->getSerializer()->toQueryValue($author_email);
-        }
-        // query params
-        if ($rating !== null) {
-            $queryParams['rating'] = $this->apiClient->getSerializer()->toQueryValue($rating);
-        }
-        // query params
-        if ($content !== null) {
-            $queryParams['content'] = $this->apiClient->getSerializer()->toQueryValue($content);
-        }
-        // query params
-        if ($status !== null) {
-            $queryParams['status'] = $this->apiClient->getSerializer()->toQueryValue($status);
         }
         // path params
         if ($account_id !== null) {
@@ -1065,7 +993,12 @@ class ReviewsApi
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
-        
+        // body params
+        $_tempBody = null;
+        if (isset($review_request)) {
+            $_tempBody = $review_request;
+        }
+
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present

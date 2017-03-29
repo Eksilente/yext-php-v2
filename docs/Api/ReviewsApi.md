@@ -15,11 +15,11 @@ Method | HTTP request | Description
 
 
 # **createComment**
-> \Yext\Client\Model\ErrorResponse createComment($account_id, $review_id, $v, $content, $visibility, $parent_id)
+> \Yext\Client\Model\ErrorResponse createComment($account_id, $review_id, $v, $comment_request)
 
 Comments: Create
 
-Creates a new Comment on a Review.
+Creates a new Comment on a Review. <br><br>  ## Required fields * **`content`** <br><br>  ## Optional fields * **`parentId`** <br><br> Other fields will be ignored.
 
 ### Example
 ```php
@@ -35,12 +35,10 @@ $api_instance = new Yext\Client\Api\ReviewsApi();
 $account_id = "account_id_example"; // string | 
 $review_id = 56; // int | ID of this Review.
 $v = "20161012"; // string | A date in `YYYYMMDD` format.
-$content = "content_example"; // string | Content of the new comment.
-$visibility = "PUBLIC"; // string | 
-$parent_id = 56; // int | If this Comment is in response to another Comment, use this field to specify the ID of the parent Comment.
+$comment_request = new \Yext\Client\Model\ReviewComment(); // \Yext\Client\Model\ReviewComment | 
 
 try {
-    $result = $api_instance->createComment($account_id, $review_id, $v, $content, $visibility, $parent_id);
+    $result = $api_instance->createComment($account_id, $review_id, $v, $comment_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReviewsApi->createComment: ', $e->getMessage(), PHP_EOL;
@@ -55,9 +53,7 @@ Name | Type | Description  | Notes
  **account_id** | **string**|  |
  **review_id** | **int**| ID of this Review. |
  **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format. | [default to 20161012]
- **content** | **string**| Content of the new comment. | [optional]
- **visibility** | **string**|  | [optional] [default to PUBLIC]
- **parent_id** | **int**| If this Comment is in response to another Comment, use this field to specify the ID of the parent Comment. | [optional]
+ **comment_request** | [**\Yext\Client\Model\ReviewComment**](../Model/\Yext\Client\Model\ReviewComment.md)|  |
 
 ### Return type
 
@@ -75,11 +71,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createReview**
-> \Yext\Client\Model\IdResponse createReview($account_id, $v, $location_id, $author_name, $rating, $content, $author_email, $status)
+> \Yext\Client\Model\IdResponse createReview($account_id, $v, $review_request)
 
 Reviews: Create
 
-Create a new External First Party Review. <br><br>  ## Required fields * **`locationId`** * **`authorName`** * **`rating`** * **`content`**   ## Optional fields * **`authorEmail`** * **`status`**
+Create a new External First Party Review. <br><br>  ## Required fields * **`locationId`** * **`authorName`** * **`rating`** * **`content`** <br><br>  ## Optional fields * **`authorEmail`** * **`status`** * **`url`** * **`title`** <br><br> Other fields will be ignored.
 
 ### Example
 ```php
@@ -94,15 +90,10 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 $api_instance = new Yext\Client\Api\ReviewsApi();
 $account_id = "account_id_example"; // string | 
 $v = "20161012"; // string | A date in `YYYYMMDD` format.
-$location_id = 56; // int | The ID of the location associated with the review.
-$author_name = "author_name_example"; // string | The name of the person who wrote the review.
-$rating = 56; // int | The rating of the review from 1 to 5.
-$content = "content_example"; // string | The content of the review.
-$author_email = "author_email_example"; // string | The email address of the person who wrote the review.
-$status = "QUARANTINED"; // string | 
+$review_request = new \Yext\Client\Model\Review(); // \Yext\Client\Model\Review | 
 
 try {
-    $result = $api_instance->createReview($account_id, $v, $location_id, $author_name, $rating, $content, $author_email, $status);
+    $result = $api_instance->createReview($account_id, $v, $review_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReviewsApi->createReview: ', $e->getMessage(), PHP_EOL;
@@ -116,12 +107,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
  **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format. | [default to 20161012]
- **location_id** | **int**| The ID of the location associated with the review. |
- **author_name** | **string**| The name of the person who wrote the review. |
- **rating** | **int**| The rating of the review from 1 to 5. |
- **content** | **string**| The content of the review. |
- **author_email** | **string**| The email address of the person who wrote the review. | [optional]
- **status** | **string**|  | [optional] [default to QUARANTINED]
+ **review_request** | [**\Yext\Client\Model\Review**](../Model/\Yext\Client\Model\Review.md)|  |
 
 ### Return type
 
@@ -387,11 +373,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateReview**
-> \Yext\Client\Model\IdResponse updateReview($account_id, $review_id, $v, $author_name, $author_email, $rating, $content, $status)
+> \Yext\Client\Model\IdResponse updateReview($account_id, $review_id, $v, $review_request)
 
 Reviews: Update
 
-Updates an External First Party Review. <br><br> **NOTE:** Despite using the `PUT` method, Reviews: Update only updates supplied fields. Omitted fields are not modified.
+Updates an External First Party Review. <br><br> **NOTE:** Despite using the `PUT` method, Reviews: Update only updates supplied fields. Omitted fields are not modified. <br><br>  ## Required fields <br><br>  ## Optional fields * **`rating`** * **`title`** * **`content`** * **`authorName`** * **`authorEmail`** * **`url`** * **`status`** <br><br> Other fields will be ignored.
 
 ### Example
 ```php
@@ -407,14 +393,10 @@ $api_instance = new Yext\Client\Api\ReviewsApi();
 $account_id = "account_id_example"; // string | 
 $review_id = 56; // int | ID of this Review.
 $v = "20161012"; // string | A date in `YYYYMMDD` format.
-$author_name = "author_name_example"; // string | The name of the person who wrote the review.
-$author_email = "author_email_example"; // string | The email address of the person who wrote the review.
-$rating = 56; // int | The rating of the review from 1 to 5.
-$content = "content_example"; // string | The content of the review.
-$status = "status_example"; // string | 
+$review_request = new \Yext\Client\Model\Review(); // \Yext\Client\Model\Review | 
 
 try {
-    $result = $api_instance->updateReview($account_id, $review_id, $v, $author_name, $author_email, $rating, $content, $status);
+    $result = $api_instance->updateReview($account_id, $review_id, $v, $review_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReviewsApi->updateReview: ', $e->getMessage(), PHP_EOL;
@@ -429,11 +411,7 @@ Name | Type | Description  | Notes
  **account_id** | **string**|  |
  **review_id** | **int**| ID of this Review. |
  **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format. | [default to 20161012]
- **author_name** | **string**| The name of the person who wrote the review. | [optional]
- **author_email** | **string**| The email address of the person who wrote the review. | [optional]
- **rating** | **int**| The rating of the review from 1 to 5. | [optional]
- **content** | **string**| The content of the review. | [optional]
- **status** | **string**|  | [optional]
+ **review_request** | [**\Yext\Client\Model\Review**](../Model/\Yext\Client\Model\Review.md)|  |
 
 ### Return type
 
