@@ -92,7 +92,7 @@ class ReviewsApiTest extends \PHPUnit_Framework_TestCase
     /**
      * Test case for createComment
      *
-     * Comments: Create.
+     * Comment: Create.
      *
      */
     public function testCreateComment()
@@ -125,7 +125,7 @@ class ReviewsApiTest extends \PHPUnit_Framework_TestCase
     /**
      * Test case for getReview
      *
-     * Reviews: Get.
+     * Review: Get.
      *
      */
     public function testGetReview()
@@ -158,7 +158,7 @@ class ReviewsApiTest extends \PHPUnit_Framework_TestCase
     /**
      * Test case for updateReview
      *
-     * Reviews: Update.
+     * Review: Update.
      *
      */
     public function testUpdateReview()

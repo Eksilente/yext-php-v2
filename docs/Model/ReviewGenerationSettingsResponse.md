@@ -1,4 +1,4 @@
-# GetReviewGenerationSettingsResponse
+# ReviewGenerationSettingsResponse
 
 ## Properties
 Name | Type | Description | Notes

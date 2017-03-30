@@ -4,22 +4,22 @@ All URIs are relative to *https://api.yext.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createComment**](ReviewsApi.md#createComment) | **POST** /accounts/{accountId}/reviews/{reviewId}/comments | Comments: Create
+[**createComment**](ReviewsApi.md#createComment) | **POST** /accounts/{accountId}/reviews/{reviewId}/comments | Comment: Create
 [**createReview**](ReviewsApi.md#createReview) | **POST** /accounts/{accountId}/reviews | Reviews: Create
 [**createReviewInvites**](ReviewsApi.md#createReviewInvites) | **POST** /accounts/{accountId}/reviewinvites | Review Invitations: Create
-[**getReview**](ReviewsApi.md#getReview) | **GET** /accounts/{accountId}/reviews/{reviewId} | Reviews: Get
+[**getReview**](ReviewsApi.md#getReview) | **GET** /accounts/{accountId}/reviews/{reviewId} | Review: Get
 [**getReviewGenerationSettings**](ReviewsApi.md#getReviewGenerationSettings) | **GET** /accounts/{accountId}/reviews/settings/generation | Review Generation Settings: Get
 [**listReviews**](ReviewsApi.md#listReviews) | **GET** /accounts/{accountId}/reviews | Reviews: List
-[**updateReview**](ReviewsApi.md#updateReview) | **PUT** /accounts/{accountId}/reviews/{reviewId} | Reviews: Update
+[**updateReview**](ReviewsApi.md#updateReview) | **PUT** /accounts/{accountId}/reviews/{reviewId} | Review: Update
 [**updateReviewGenerationSettings**](ReviewsApi.md#updateReviewGenerationSettings) | **POST** /accounts/{accountId}/reviews/settings/generation | Review Generation Settings: Update
 
 
 # **createComment**
 > \Yext\Client\Model\ErrorResponse createComment($account_id, $review_id, $v, $comment_request)
 
-Comments: Create
+Comment: Create
 
-Creates a new Comment on a Review. <br><br>  ## Required fields * **`content`** <br><br>  ## Optional fields * **`parentId`** <br><br> Other fields will be ignored.
+Creates a new Comment on a Review. <br><br>  ## Required fields * **`content`** <br><br>  ## Optional fields * **`parentId`** * **`visiblity`** <br><br>
 
 ### Example
 ```php
@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 
 Reviews: Create
 
-Create a new External First Party Review. <br><br>  ## Required fields * **`locationId`** * **`authorName`** * **`rating`** * **`content`** <br><br>  ## Optional fields * **`authorEmail`** * **`status`** * **`url`** * **`title`** <br><br> Other fields will be ignored.
+Create a new External First Party Review. <br><br>  ## Required fields * **`locationId`** * **`authorName`** * **`rating`** * **`content`** <br><br>  ## Optional fields * **`authorEmail`** * **`status`** <br><br>
 
 ### Example
 ```php
@@ -181,7 +181,7 @@ Name | Type | Description  | Notes
 # **getReview**
 > \Yext\Client\Model\ReviewResponse getReview($account_id, $review_id, $v)
 
-Reviews: Get
+Review: Get
 
 Retrieve a specific Review.
 
@@ -233,7 +233,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getReviewGenerationSettings**
-> \Yext\Client\Model\GetReviewGenerationSettingsResponse getReviewGenerationSettings($account_id, $v)
+> \Yext\Client\Model\ReviewGenerationSettingsResponse getReviewGenerationSettings($account_id, $v)
 
 Review Generation Settings: Get
 
@@ -271,7 +271,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\GetReviewGenerationSettingsResponse**](../Model/GetReviewGenerationSettingsResponse.md)
+[**\Yext\Client\Model\ReviewGenerationSettingsResponse**](../Model/ReviewGenerationSettingsResponse.md)
 
 ### Authorization
 
@@ -304,7 +304,7 @@ Yext\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR
 $api_instance = new Yext\Client\Api\ReviewsApi();
 $account_id = "account_id_example"; // string | 
 $v = "20161012"; // string | A date in `YYYYMMDD` format.
-$limit = 100; // int | Number of results to return.
+$limit = 10; // int | Number of results to return.
 $offset = 0; // int | Number of results to skip. Used to page through results.
 $location_ids = array("location_ids_example"); // string[] | When provided, only reviews for the requested locations will be returned.  By default, reviews will be returned for all locations subscribed to Review Monitoring.  **Example:** loc123,loc456,loc789
 $folder_id = "folder_id_example"; // string | When provided, only reviews for locations in the given folder and its subfolders will be included in the results.
@@ -313,7 +313,7 @@ $location_labels = array("location_labels_example"); // string[] | When present,
 $publisher_ids = array("publisher_ids_example"); // string[] | List of publisher IDs. If no IDs are specified, defaults to all publishers subscribed by account.  **Example:** MAPQUEST,YELP
 $review_content = "review_content_example"; // string | When specified, only reviews that include the provided content will be returned.
 $min_rating = 1.2; // double | When specified, only reviews with the provided minimum rating or higher will be returned.
-$max_rating = 1.2; // double | 
+$max_rating = 1.2; // double | When specified, only reviews with the provided maximum rating or lower will be returned.
 $min_publisher_date = new \DateTime(); // \DateTime | (`YYYY-MM-DD` format) When specified, only reviews with a publisher date on or after the given date will be returned.
 $max_publisher_date = new \DateTime(); // \DateTime | (`YYYY-MM-DD` format) When specified, only reviews with a publisher date on or before the given date will be returned.
 $min_last_yext_update_date = new \DateTime(); // \DateTime | (`YYYY-MM-DD` format) When specified, only reviews with a last Yext update date on or after the given date will be returned.
@@ -338,7 +338,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**|  |
  **v** | **string**| A date in &#x60;YYYYMMDD&#x60; format. | [default to 20161012]
- **limit** | **int**| Number of results to return. | [optional] [default to 100]
+ **limit** | **int**| Number of results to return. | [optional] [default to 10]
  **offset** | **int**| Number of results to skip. Used to page through results. | [optional] [default to 0]
  **location_ids** | [**string[]**](../Model/string.md)| When provided, only reviews for the requested locations will be returned.  By default, reviews will be returned for all locations subscribed to Review Monitoring.  **Example:** loc123,loc456,loc789 | [optional]
  **folder_id** | **string**| When provided, only reviews for locations in the given folder and its subfolders will be included in the results. | [optional]
@@ -347,7 +347,7 @@ Name | Type | Description  | Notes
  **publisher_ids** | [**string[]**](../Model/string.md)| List of publisher IDs. If no IDs are specified, defaults to all publishers subscribed by account.  **Example:** MAPQUEST,YELP | [optional]
  **review_content** | **string**| When specified, only reviews that include the provided content will be returned. | [optional]
  **min_rating** | **double**| When specified, only reviews with the provided minimum rating or higher will be returned. | [optional]
- **max_rating** | **double**|  | [optional]
+ **max_rating** | **double**| When specified, only reviews with the provided maximum rating or lower will be returned. | [optional]
  **min_publisher_date** | **\DateTime**| (&#x60;YYYY-MM-DD&#x60; format) When specified, only reviews with a publisher date on or after the given date will be returned. | [optional]
  **max_publisher_date** | **\DateTime**| (&#x60;YYYY-MM-DD&#x60; format) When specified, only reviews with a publisher date on or before the given date will be returned. | [optional]
  **min_last_yext_update_date** | **\DateTime**| (&#x60;YYYY-MM-DD&#x60; format) When specified, only reviews with a last Yext update date on or after the given date will be returned. | [optional]
@@ -375,9 +375,9 @@ Name | Type | Description  | Notes
 # **updateReview**
 > \Yext\Client\Model\IdResponse updateReview($account_id, $review_id, $v, $review_request)
 
-Reviews: Update
+Review: Update
 
-Updates an External First Party Review. <br><br> **NOTE:** Despite using the `PUT` method, Reviews: Update only updates supplied fields. Omitted fields are not modified. <br><br>  ## Required fields <br><br>  ## Optional fields * **`rating`** * **`title`** * **`content`** * **`authorName`** * **`authorEmail`** * **`url`** * **`status`** <br><br> Other fields will be ignored.
+Updates an External First Party Review. <br><br> **NOTE:** Despite using the `PUT` method, Reviews: Update only updates supplied fields. Omitted fields are not modified. <br><br>  ## Optional fields * **`rating`** * **`content`** * **`authorName`** * **`authorEmail`** * **`status`** <br><br>
 
 ### Example
 ```php
@@ -429,7 +429,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateReviewGenerationSettings**
-> \Yext\Client\Model\GetReviewGenerationSettingsResponse updateReviewGenerationSettings($account_id, $v, $review_generation_settings_request)
+> \Yext\Client\Model\ReviewGenerationSettingsResponse updateReviewGenerationSettings($account_id, $v, $review_generation_settings_request)
 
 Review Generation Settings: Update
 
@@ -469,7 +469,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Yext\Client\Model\GetReviewGenerationSettingsResponse**](../Model/GetReviewGenerationSettingsResponse.md)
+[**\Yext\Client\Model\ReviewGenerationSettingsResponse**](../Model/ReviewGenerationSettingsResponse.md)
 
 ### Authorization
 

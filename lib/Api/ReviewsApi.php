@@ -104,7 +104,7 @@ class ReviewsApi
     /**
      * Operation createComment
      *
-     * Comments: Create
+     * Comment: Create
      *
      * @param string $account_id  (required)
      * @param int $review_id ID of this Review. (required)
@@ -122,7 +122,7 @@ class ReviewsApi
     /**
      * Operation createCommentWithHttpInfo
      *
-     * Comments: Create
+     * Comment: Create
      *
      * @param string $account_id  (required)
      * @param int $review_id ID of this Review. (required)
@@ -463,7 +463,7 @@ class ReviewsApi
     /**
      * Operation getReview
      *
-     * Reviews: Get
+     * Review: Get
      *
      * @param string $account_id  (required)
      * @param int $review_id ID of this Review. (required)
@@ -480,7 +480,7 @@ class ReviewsApi
     /**
      * Operation getReviewWithHttpInfo
      *
-     * Reviews: Get
+     * Review: Get
      *
      * @param string $account_id  (required)
      * @param int $review_id ID of this Review. (required)
@@ -586,7 +586,7 @@ class ReviewsApi
      * @param string $account_id  (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
      * @throws \Yext\Client\ApiException on non-2xx response
-     * @return \Yext\Client\Model\GetReviewGenerationSettingsResponse
+     * @return \Yext\Client\Model\ReviewGenerationSettingsResponse
      */
     public function getReviewGenerationSettings($account_id, $v)
     {
@@ -602,7 +602,7 @@ class ReviewsApi
      * @param string $account_id  (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
      * @throws \Yext\Client\ApiException on non-2xx response
-     * @return array of \Yext\Client\Model\GetReviewGenerationSettingsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Yext\Client\Model\ReviewGenerationSettingsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getReviewGenerationSettingsWithHttpInfo($account_id, $v)
     {
@@ -661,15 +661,15 @@ class ReviewsApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\GetReviewGenerationSettingsResponse',
+                '\Yext\Client\Model\ReviewGenerationSettingsResponse',
                 '/accounts/{accountId}/reviews/settings/generation'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\GetReviewGenerationSettingsResponse', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\ReviewGenerationSettingsResponse', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\GetReviewGenerationSettingsResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\ReviewGenerationSettingsResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -689,7 +689,7 @@ class ReviewsApi
      *
      * @param string $account_id  (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
-     * @param int $limit Number of results to return. (optional, default to 100)
+     * @param int $limit Number of results to return. (optional, default to 10)
      * @param int $offset Number of results to skip. Used to page through results. (optional, default to 0)
      * @param string[] $location_ids When provided, only reviews for the requested locations will be returned.  By default, reviews will be returned for all locations subscribed to Review Monitoring.  **Example:** loc123,loc456,loc789 (optional)
      * @param string $folder_id When provided, only reviews for locations in the given folder and its subfolders will be included in the results. (optional)
@@ -698,7 +698,7 @@ class ReviewsApi
      * @param string[] $publisher_ids List of publisher IDs. If no IDs are specified, defaults to all publishers subscribed by account.  **Example:** MAPQUEST,YELP (optional)
      * @param string $review_content When specified, only reviews that include the provided content will be returned. (optional)
      * @param double $min_rating When specified, only reviews with the provided minimum rating or higher will be returned. (optional)
-     * @param double $max_rating  (optional)
+     * @param double $max_rating When specified, only reviews with the provided maximum rating or lower will be returned. (optional)
      * @param \DateTime $min_publisher_date (&#x60;YYYY-MM-DD&#x60; format) When specified, only reviews with a publisher date on or after the given date will be returned. (optional)
      * @param \DateTime $max_publisher_date (&#x60;YYYY-MM-DD&#x60; format) When specified, only reviews with a publisher date on or before the given date will be returned. (optional)
      * @param \DateTime $min_last_yext_update_date (&#x60;YYYY-MM-DD&#x60; format) When specified, only reviews with a last Yext update date on or after the given date will be returned. (optional)
@@ -723,7 +723,7 @@ class ReviewsApi
      *
      * @param string $account_id  (required)
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
-     * @param int $limit Number of results to return. (optional, default to 100)
+     * @param int $limit Number of results to return. (optional, default to 10)
      * @param int $offset Number of results to skip. Used to page through results. (optional, default to 0)
      * @param string[] $location_ids When provided, only reviews for the requested locations will be returned.  By default, reviews will be returned for all locations subscribed to Review Monitoring.  **Example:** loc123,loc456,loc789 (optional)
      * @param string $folder_id When provided, only reviews for locations in the given folder and its subfolders will be included in the results. (optional)
@@ -732,7 +732,7 @@ class ReviewsApi
      * @param string[] $publisher_ids List of publisher IDs. If no IDs are specified, defaults to all publishers subscribed by account.  **Example:** MAPQUEST,YELP (optional)
      * @param string $review_content When specified, only reviews that include the provided content will be returned. (optional)
      * @param double $min_rating When specified, only reviews with the provided minimum rating or higher will be returned. (optional)
-     * @param double $max_rating  (optional)
+     * @param double $max_rating When specified, only reviews with the provided maximum rating or lower will be returned. (optional)
      * @param \DateTime $min_publisher_date (&#x60;YYYY-MM-DD&#x60; format) When specified, only reviews with a publisher date on or after the given date will be returned. (optional)
      * @param \DateTime $max_publisher_date (&#x60;YYYY-MM-DD&#x60; format) When specified, only reviews with a publisher date on or before the given date will be returned. (optional)
      * @param \DateTime $min_last_yext_update_date (&#x60;YYYY-MM-DD&#x60; format) When specified, only reviews with a last Yext update date on or after the given date will be returned. (optional)
@@ -754,8 +754,8 @@ class ReviewsApi
         if ($v === null) {
             throw new \InvalidArgumentException('Missing the required parameter $v when calling listReviews');
         }
-        if (!is_null($limit) && ($limit > 100.0)) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling ReviewsApi.listReviews, must be smaller than or equal to 100.0.');
+        if (!is_null($limit) && ($limit > 50.0)) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling ReviewsApi.listReviews, must be smaller than or equal to 50.0.');
         }
 
         // parse inputs
@@ -913,7 +913,7 @@ class ReviewsApi
     /**
      * Operation updateReview
      *
-     * Reviews: Update
+     * Review: Update
      *
      * @param string $account_id  (required)
      * @param int $review_id ID of this Review. (required)
@@ -931,7 +931,7 @@ class ReviewsApi
     /**
      * Operation updateReviewWithHttpInfo
      *
-     * Reviews: Update
+     * Review: Update
      *
      * @param string $account_id  (required)
      * @param int $review_id ID of this Review. (required)
@@ -1048,7 +1048,7 @@ class ReviewsApi
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
      * @param \Yext\Client\Model\ReviewGenerationSettings $review_generation_settings_request  (required)
      * @throws \Yext\Client\ApiException on non-2xx response
-     * @return \Yext\Client\Model\GetReviewGenerationSettingsResponse
+     * @return \Yext\Client\Model\ReviewGenerationSettingsResponse
      */
     public function updateReviewGenerationSettings($account_id, $v, $review_generation_settings_request)
     {
@@ -1065,7 +1065,7 @@ class ReviewsApi
      * @param string $v A date in &#x60;YYYYMMDD&#x60; format. (required)
      * @param \Yext\Client\Model\ReviewGenerationSettings $review_generation_settings_request  (required)
      * @throws \Yext\Client\ApiException on non-2xx response
-     * @return array of \Yext\Client\Model\GetReviewGenerationSettingsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Yext\Client\Model\ReviewGenerationSettingsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateReviewGenerationSettingsWithHttpInfo($account_id, $v, $review_generation_settings_request)
     {
@@ -1133,15 +1133,15 @@ class ReviewsApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Yext\Client\Model\GetReviewGenerationSettingsResponse',
+                '\Yext\Client\Model\ReviewGenerationSettingsResponse',
                 '/accounts/{accountId}/reviews/settings/generation'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\GetReviewGenerationSettingsResponse', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Yext\Client\Model\ReviewGenerationSettingsResponse', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\GetReviewGenerationSettingsResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Yext\Client\Model\ReviewGenerationSettingsResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:

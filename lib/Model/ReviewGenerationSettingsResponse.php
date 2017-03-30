@@ -1,6 +1,6 @@
 <?php
 /**
- * GetReviewGenerationSettingsResponse
+ * ReviewGenerationSettingsResponse
  *
  * PHP version 5
  *
@@ -44,7 +44,7 @@ namespace Yext\Client\Model;
 use \ArrayAccess;
 
 /**
- * GetReviewGenerationSettingsResponse Class Doc Comment
+ * ReviewGenerationSettingsResponse Class Doc Comment
  *
  * @category    Class */
 /**
@@ -53,13 +53,13 @@ use \ArrayAccess;
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache License v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class GetReviewGenerationSettingsResponse implements ArrayAccess
+class ReviewGenerationSettingsResponse implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'GetReviewGenerationSettingsResponse';
+    protected static $swaggerModelName = 'ReviewGenerationSettingsResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

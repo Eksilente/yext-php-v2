@@ -1,6 +1,6 @@
 <?php
 /**
- * GetReviewGenerationSettingsResponseTest
+ * ReviewGenerationSettingsResponseTest
  *
  * PHP version 5
  *
@@ -42,17 +42,17 @@
 namespace Yext\Client;
 
 /**
- * GetReviewGenerationSettingsResponseTest Class Doc Comment
+ * ReviewGenerationSettingsResponseTest Class Doc Comment
  *
  * @category    Class */
-// * @description GetReviewGenerationSettingsResponse
+// * @description ReviewGenerationSettingsResponse
 /**
  * @package     Yext\Client
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache License v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class GetReviewGenerationSettingsResponseTest extends \PHPUnit_Framework_TestCase
+class ReviewGenerationSettingsResponseTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -88,9 +88,9 @@ class GetReviewGenerationSettingsResponseTest extends \PHPUnit_Framework_TestCas
     }
 
     /**
-     * Test "GetReviewGenerationSettingsResponse"
+     * Test "ReviewGenerationSettingsResponse"
      */
-    public function testGetReviewGenerationSettingsResponse()
+    public function testReviewGenerationSettingsResponse()
     {
 
     }

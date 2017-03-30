@@ -132,13 +132,13 @@ Class | Method | HTTP request | Description
 *PowerListingsApi* | [**optOutListings**](docs/Api/PowerListingsApi.md#optoutlistings) | **PUT** /accounts/{accountId}/powerlistings/listings/optout | Listings: Opt Out
 *PowerListingsApi* | [**suppressDuplicate**](docs/Api/PowerListingsApi.md#suppressduplicate) | **PUT** /accounts/{accountId}/powerlistings/duplicates/{duplicateId} | Duplicates: Suppress
 *PowerListingsApi* | [**updatePublisherSuggestion**](docs/Api/PowerListingsApi.md#updatepublishersuggestion) | **PUT** /accounts/{accountId}/powerlistings/publishersuggestions/{suggestionId} | Publisher Suggestions: Update
-*ReviewsApi* | [**createComment**](docs/Api/ReviewsApi.md#createcomment) | **POST** /accounts/{accountId}/reviews/{reviewId}/comments | Comments: Create
+*ReviewsApi* | [**createComment**](docs/Api/ReviewsApi.md#createcomment) | **POST** /accounts/{accountId}/reviews/{reviewId}/comments | Comment: Create
 *ReviewsApi* | [**createReview**](docs/Api/ReviewsApi.md#createreview) | **POST** /accounts/{accountId}/reviews | Reviews: Create
 *ReviewsApi* | [**createReviewInvites**](docs/Api/ReviewsApi.md#createreviewinvites) | **POST** /accounts/{accountId}/reviewinvites | Review Invitations: Create
-*ReviewsApi* | [**getReview**](docs/Api/ReviewsApi.md#getreview) | **GET** /accounts/{accountId}/reviews/{reviewId} | Reviews: Get
+*ReviewsApi* | [**getReview**](docs/Api/ReviewsApi.md#getreview) | **GET** /accounts/{accountId}/reviews/{reviewId} | Review: Get
 *ReviewsApi* | [**getReviewGenerationSettings**](docs/Api/ReviewsApi.md#getreviewgenerationsettings) | **GET** /accounts/{accountId}/reviews/settings/generation | Review Generation Settings: Get
 *ReviewsApi* | [**listReviews**](docs/Api/ReviewsApi.md#listreviews) | **GET** /accounts/{accountId}/reviews | Reviews: List
-*ReviewsApi* | [**updateReview**](docs/Api/ReviewsApi.md#updatereview) | **PUT** /accounts/{accountId}/reviews/{reviewId} | Reviews: Update
+*ReviewsApi* | [**updateReview**](docs/Api/ReviewsApi.md#updatereview) | **PUT** /accounts/{accountId}/reviews/{reviewId} | Review: Update
 *ReviewsApi* | [**updateReviewGenerationSettings**](docs/Api/ReviewsApi.md#updatereviewgenerationsettings) | **POST** /accounts/{accountId}/reviews/settings/generation | Review Generation Settings: Update
 *SocialSpringSummerApi* | [**createComment**](docs/Api/SocialSpringSummerApi.md#createcomment) | **POST** /accounts/{accountId}/posts/{postId}/comments | Comments: Create
 *SocialSpringSummerApi* | [**createPosts**](docs/Api/SocialSpringSummerApi.md#createposts) | **POST** /accounts/{accountId}/posts | Posts: Create
@@ -208,7 +208,6 @@ Class | Method | HTTP request | Description
  - [Folder](docs/Model/Folder.md)
  - [FoldersResponse](docs/Model/FoldersResponse.md)
  - [FoldersResponseResponse](docs/Model/FoldersResponseResponse.md)
- - [GetReviewGenerationSettingsResponse](docs/Model/GetReviewGenerationSettingsResponse.md)
  - [GoogleCategory](docs/Model/GoogleCategory.md)
  - [GoogleField](docs/Model/GoogleField.md)
  - [GoogleFieldsResponse](docs/Model/GoogleFieldsResponse.md)
@@ -274,6 +273,7 @@ Class | Method | HTTP request | Description
  - [Review](docs/Model/Review.md)
  - [ReviewComment](docs/Model/ReviewComment.md)
  - [ReviewGenerationSettings](docs/Model/ReviewGenerationSettings.md)
+ - [ReviewGenerationSettingsResponse](docs/Model/ReviewGenerationSettingsResponse.md)
  - [ReviewInvitation](docs/Model/ReviewInvitation.md)
  - [ReviewResponse](docs/Model/ReviewResponse.md)
  - [ReviewsResponse](docs/Model/ReviewsResponse.md)
