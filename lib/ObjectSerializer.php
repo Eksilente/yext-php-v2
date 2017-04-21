@@ -290,24 +290,26 @@ class ObjectSerializer
                     $class = $subclass;
                 }
             }
-            $instance = new $class();
-            if (method_exists($instance, "isEnum")) {
-              settype($data, "string");
-              return $data;
-            }
-            foreach ($instance::swaggerTypes() as $property => $type) {
-                $propertySetter = $instance::setters()[$property];
-
-                if (!isset($propertySetter) || !isset($data->{$instance::attributeMap()[$property]})) {
-                    continue;
+            if(class_exists($class)){
+                $instance = new $class();
+                if (method_exists($instance, "isEnum")) {
+                  settype($data, "string");
+                  return $data;
                 }
+                foreach ($instance::swaggerTypes() as $property => $type) {
+                    $propertySetter = $instance::setters()[$property];
 
-                $propertyValue = $data->{$instance::attributeMap()[$property]};
-                if (isset($propertyValue)) {
-                    $instance->$propertySetter(self::deserialize($propertyValue, $type, null, $discriminator));
+                    if (!isset($propertySetter) || !isset($data->{$instance::attributeMap()[$property]})) {
+                        continue;
+                    }
+
+                    $propertyValue = $data->{$instance::attributeMap()[$property]};
+                    if (isset($propertyValue)) {
+                        $instance->$propertySetter(self::deserialize($propertyValue, $type, null, $discriminator));
+                    }
                 }
+                return $instance;
             }
-            return $instance;
         }
     }
 }
